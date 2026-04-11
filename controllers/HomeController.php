@@ -16,6 +16,15 @@ include ROOT_PATH . '/includes/header.php';
 
 <!-- Hero Section -->
 <section class="hero">
+    <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1920&q=75&auto=format&fit=crop"
+         srcset="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=800&q=75&auto=format&fit=crop 800w,
+                 https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1200&q=75&auto=format&fit=crop 1200w,
+                 https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1920&q=75&auto=format&fit=crop 1920w"
+         sizes="100vw"
+         alt=""
+         class="hero-bg"
+         fetchpriority="high"
+         decoding="async">
     <div class="container">
         <div class="hero-content">
             <span class="hero-badge">Desde 1995</span>

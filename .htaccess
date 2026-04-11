@@ -21,6 +21,7 @@
     RewriteRule ^sql/ - [F,L]
     RewriteRule ^public/ - [F,L]
     RewriteRule ^productos/ - [F,L]
+    RewriteRule ^scripts/ - [F,L]
     RewriteRule ^distribucio/connexio/ - [F,L]
     RewriteRule ^distribucio/includes/ - [F,L]
     RewriteRule ^nbproject/ - [F,L]

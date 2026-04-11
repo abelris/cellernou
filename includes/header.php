@@ -39,11 +39,15 @@ $procedenciasVinos = getProcedencias(8);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Fonts (async load to avoid render-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?php echo getBaseUrl(); ?>/css/style.css">
+    <!-- CSS inlined to eliminate render-blocking request (critical path) -->
+    <style><?php readfile(ROOT_PATH . '/css/style.css'); ?></style>
+
+    <!-- JS (deferred — descarga en paralelo y ejecuta tras parseo del DOM) -->
+    <script src="<?php echo getBaseUrl(); ?>/js/main.js" defer></script>
 
     <!-- Schema.org -->
     <?php echo schemaOrganizacion(); ?>

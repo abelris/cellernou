@@ -179,6 +179,5 @@
         </div>
     </div>
 
-    <script src="<?php echo getBaseUrl(); ?>/js/main.js"></script>
 </body>
 </html>
