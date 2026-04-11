@@ -1,0 +1,99 @@
+# El Celler Nou - Apache Configuration
+# Configurado para cellernou.com
+
+# =============================================
+# REWRITE ENGINE
+# =============================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Force HTTPS and non-www in production (single 301 redirect)
+    RewriteCond %{HTTP_HOST} ^(www\.)?cellernou\.com$ [NC]
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteRule ^ https://cellernou.com%{REQUEST_URI} [L,R=301]
+
+    # Bloquear acceso a carpetas sensibles
+    RewriteRule ^includes/ - [F,L]
+    RewriteRule ^controllers/ - [F,L]
+    RewriteRule ^routes/ - [F,L]
+    RewriteRule ^sql/ - [F,L]
+    RewriteRule ^public/ - [F,L]
+    RewriteRule ^productos/ - [F,L]
+    RewriteRule ^distribucio/connexio/ - [F,L]
+    RewriteRule ^distribucio/includes/ - [F,L]
+    RewriteRule ^nbproject/ - [F,L]
+
+    # Bloquear scripts legacy en la raíz (reemplazados por el router o de uso interno)
+    RewriteRule ^producto\.php$ - [F,L]
+    RewriteRule ^cavas\.php$ - [F,L]
+    RewriteRule ^aviso-legal\.php$ - [F,L]
+    RewriteRule ^test\.php$ - [F,L]
+    RewriteRule ^prompts\.php$ - [F,L]
+    RewriteRule ^download_fotos\.php$ - [F,L]
+
+    # Permitir acceso directo a archivos estáticos
+    RewriteCond %{REQUEST_URI} \.(css|js|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|pdf)$ [NC]
+    RewriteRule ^ - [L]
+
+    # Permitir acceso directo a la carpeta admin
+    RewriteCond %{REQUEST_URI} ^/distribucio/admin [NC]
+    RewriteRule ^ - [L]
+
+    # Remove trailing slash
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Si el archivo o directorio existe, servirlo directamente
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Redirigir todo lo demás al front controller
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# =============================================
+# DIRECTORY OPTIONS
+# =============================================
+Options -Indexes
+Options +FollowSymLinks
+
+# =============================================
+# SECURITY HEADERS
+# =============================================
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# =============================================
+# COMPRESSION
+# =============================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json text/xml application/xml
+</IfModule>
+
+# =============================================
+# CACHING
+# =============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# =============================================
+# CHARSET
+# =============================================
+AddDefaultCharset UTF-8

@@ -1,0 +1,116 @@
+[20-Jan-2021 09:27:04 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[20-Jan-2021 09:27:04 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[20-Jan-2021 09:27:04 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 77
+[20-Jan-2021 09:27:04 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 110
+[20-Jan-2021 09:27:04 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 240
+[04-Mar-2021 10:02:55 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:02:55 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:02:55 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 77
+[04-Mar-2021 10:02:55 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 110
+[04-Mar-2021 10:02:55 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 240
+[04-Mar-2021 10:03:37 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:03:37 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:03:37 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 77
+[04-Mar-2021 10:03:37 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 110
+[04-Mar-2021 10:03:37 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 240
+[04-Mar-2021 10:07:47 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:07:47 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:07:47 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 77
+[04-Mar-2021 10:07:47 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 110
+[04-Mar-2021 10:07:47 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 240
+[04-Mar-2021 10:07:49 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:07:49 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:07:49 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/cellerno/public_html/productos/index.php on line 8
+[04-Mar-2021 10:07:49 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 77
+[04-Mar-2021 10:07:49 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 110
+[04-Mar-2021 10:07:49 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 240
+[04-Mar-2021 10:07:54 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:07:54 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[04-Mar-2021 10:07:54 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 77
+[04-Mar-2021 10:07:54 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 110
+[04-Mar-2021 10:07:54 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 240
+[09-Mar-2021 16:46:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/productsList.php on line 87
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 77
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 99
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 104
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 110
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 115
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 120
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 126
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/cellerno/public_html/productos/index.php on line 131
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 136
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 142
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 199
+[10-Mar-2021 12:56:34 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/index.php on line 332
+[10-Mar-2021 16:01:28 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[10-Mar-2021 16:01:28 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[10-Mar-2021 16:01:28 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_query() in /home/cellerno/public_html/productos/index.php:77
+Stack trace:
+#0 {main}
+  thrown in /home/cellerno/public_html/productos/index.php on line 77
+[10-Mar-2021 16:02:11 UTC] PHP Warning:  include(/home/cellerno/public_html/bbdd/conexio.php): failed to open stream: No such file or directory in /home/cellerno/public_html/productos/index.php on line 3
+[10-Mar-2021 16:02:11 UTC] PHP Warning:  include(): Failed opening '/home/cellerno/public_html/bbdd/conexio.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home/cellerno/public_html/productos/index.php on line 3
+[10-Mar-2021 16:02:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_query() in /home/cellerno/public_html/productos/index.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/cellerno/public_html/productos/index.php on line 76
+[10-Mar-2021 16:04:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_query() in /home/cellerno/public_html/productos/index.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/cellerno/public_html/productos/index.php on line 76
+[10-Mar-2021 16:05:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_query() in /home/cellerno/public_html/productos/index.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/cellerno/public_html/productos/index.php on line 76
+[11-Mar-2021 07:46:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_query() in /home/cellerno/public_html/productos/index.php:76
+Stack trace:
+#0 {main}
+  thrown in /home/cellerno/public_html/productos/index.php on line 76
+[11-Mar-2021 07:49:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/cellerno/public_html/bbdd/conexio.php:5
+Stack trace:
+#0 /home/cellerno/public_html/productos/index.php(3): include()
+#1 {main}
+  thrown in /home/cellerno/public_html/bbdd/conexio.php on line 5
+[11-Mar-2021 07:51:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/cellerno/public_html/bbdd/conexio.php:5
+Stack trace:
+#0 /home/cellerno/public_html/productos/index.php(3): include()
+#1 {main}
+  thrown in /home/cellerno/public_html/bbdd/conexio.php on line 5
+[11-Mar-2021 07:51:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/cellerno/public_html/bbdd/conexio.php:5
+Stack trace:
+#0 /home/cellerno/public_html/productos/index.php(3): include()
+#1 {main}
+  thrown in /home/cellerno/public_html/bbdd/conexio.php on line 5
+[11-Mar-2021 07:51:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/cellerno/public_html/bbdd/conexio.php:5
+Stack trace:
+#0 /home/cellerno/public_html/productos/index.php(3): include()
+#1 {main}
+  thrown in /home/cellerno/public_html/bbdd/conexio.php on line 5
+[11-Mar-2021 07:51:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect() in /home/cellerno/public_html/bbdd/conexio.php:5
+Stack trace:
+#0 /home/cellerno/public_html/productos/index.php(3): include()
+#1 {main}
+  thrown in /home/cellerno/public_html/bbdd/conexio.php on line 5
+[27-Aug-2023 11:00:34 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/cellerno/public_html/productos/productsList.php on line 87
+[27-Aug-2023 11:23:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 3
+[27-Aug-2023 11:23:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 4
+[27-Aug-2023 11:23:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 5
+[27-Aug-2023 11:23:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 6
+[27-Aug-2023 11:23:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 7
+[27-Aug-2023 11:24:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 3
+[27-Aug-2023 11:24:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 4
+[27-Aug-2023 11:24:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 5
+[27-Aug-2023 11:24:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 6
+[27-Aug-2023 11:24:00 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 7
+[27-Aug-2023 11:24:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 3
+[27-Aug-2023 11:24:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 4
+[27-Aug-2023 11:24:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 5
+[27-Aug-2023 11:24:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 6
+[27-Aug-2023 11:24:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 7
+[27-Aug-2023 11:24:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 3
+[27-Aug-2023 11:24:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 4
+[27-Aug-2023 11:24:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 5
+[27-Aug-2023 11:24:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 6
+[27-Aug-2023 11:24:25 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/productos/productosLista.php:1) in /home/cellerno/public_html/productos/productosLista.php on line 7

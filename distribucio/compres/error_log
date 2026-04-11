@@ -1,0 +1,673 @@
+[14-Jun-2017 11:06:32 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[14-Jun-2017 11:07:46 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[14-Jun-2017 11:08:31 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[14-Jun-2017 11:09:06 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[14-Jun-2017 11:09:06 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[14-Jun-2017 11:11:29 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[14-Jun-2017 11:11:29 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[14-Jun-2017 11:11:29 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jun-2017 18:15:58 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[23-Jun-2017 18:33:12 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jun-2017 18:34:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:34:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:35:22 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:35:22 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:39:45 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:39:45 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:39:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:39:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:39:48 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:39:48 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:40:26 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:40:26 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:40:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:40:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:41:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:41:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:41:29 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:41:29 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:41:29 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:41:29 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:41:50 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:41:51 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[23-Jun-2017 18:43:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[23-Jun-2017 18:43:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[26-Jun-2017 11:11:22 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[19-Jul-2017 17:31:14 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[19-Jul-2017 17:31:14 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[19-Jul-2017 17:31:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[19-Jul-2017 17:31:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[19-Jul-2017 17:31:49 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[19-Jul-2017 17:31:49 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[19-Jul-2017 17:32:06 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[19-Jul-2017 17:32:06 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[20-Jul-2017 12:57:01 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[20-Jul-2017 12:57:23 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[20-Jul-2017 12:57:50 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[20-Jul-2017 12:57:50 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Aug-2017 11:13:00 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Aug-2017 11:15:47 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[02-Aug-2017 11:16:10 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[24-Aug-2017 11:11:45 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:11:45 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:15:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:15:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:16:17 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:16:17 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:16:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:16:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:17:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:17:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:18:38 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:18:38 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:18:40 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:18:40 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:18:41 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:18:41 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:19:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:19:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:19:39 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:19:39 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Aug-2017 11:21:18 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Aug-2017 11:21:18 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Oct-2017 17:12:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Oct-2017 17:12:27 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Oct-2017 17:35:43 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[24-Oct-2017 17:35:43 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[20-Nov-2017 11:54:30 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[20-Nov-2017 11:54:30 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[20-Nov-2017 11:54:44 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[20-Nov-2017 11:54:44 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[20-Nov-2017 11:55:17 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[20-Nov-2017 11:55:17 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[20-Nov-2017 11:55:25 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[20-Nov-2017 11:55:25 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[04-Dec-2017 09:34:02 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[18-Dec-2017 11:09:48 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[18-Dec-2017 11:09:48 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[18-Dec-2017 11:16:36 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[18-Dec-2017 11:16:36 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[18-Dec-2017 11:24:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[18-Dec-2017 11:24:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[19-Jan-2018 13:32:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[19-Jan-2018 13:32:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[15-Feb-2018 13:30:45 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[15-Feb-2018 13:30:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[06-Mar-2018 10:25:02 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2018 10:26:08 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2018 10:26:08 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2018 10:27:00 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[08-Mar-2018 19:38:30 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Mar-2018 19:38:30 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Mar-2018 19:38:30 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Mar-2018 19:38:30 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[13-Mar-2018 12:40:56 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[13-Mar-2018 12:40:56 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[13-Mar-2018 12:40:56 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[13-Mar-2018 12:40:56 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[13-Mar-2018 12:40:56 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[13-Mar-2018 12:40:56 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[26-Mar-2018 17:43:12 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[26-Mar-2018 17:45:03 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Mar-2018 17:43:04 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Mar-2018 17:43:45 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[27-Mar-2018 17:44:23 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Mar-2018 17:44:23 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Mar-2018 17:45:03 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Mar-2018 17:45:03 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Mar-2018 17:45:03 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[04-Apr-2018 10:18:46 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[04-Apr-2018 10:19:46 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[04-Apr-2018 10:22:10 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[04-Apr-2018 10:23:07 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[04-Apr-2018 10:25:09 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[04-Apr-2018 10:25:52 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[11-Apr-2018 10:35:12 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Apr-2018 10:35:35 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[11-Apr-2018 10:36:24 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[13-Apr-2018 10:02:37 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Apr-2018 10:03:09 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 79
+[11-May-2018 17:36:11 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-May-2018 17:36:32 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-May-2018 17:36:32 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-May-2018 17:37:19 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-May-2018 17:37:19 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-May-2018 17:38:09 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-May-2018 17:38:09 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-May-2018 17:38:09 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[27-Sep-2018 18:45:01 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[14-Nov-2018 11:21:07 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[14-Nov-2018 11:21:07 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[28-Nov-2018 12:35:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[28-Nov-2018 12:35:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[28-Nov-2018 12:35:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[28-Nov-2018 12:35:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[28-Nov-2018 12:35:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[28-Nov-2018 12:35:58 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[28-Nov-2018 12:35:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[28-Nov-2018 12:35:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[28-Nov-2018 12:35:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[28-Nov-2018 12:35:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[28-Nov-2018 12:35:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[28-Nov-2018 12:35:59 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[18-Dec-2018 16:02:46 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[22-Feb-2019 13:36:14 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Mar-2019 13:41:18 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Mar-2019 13:41:18 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Mar-2019 13:41:41 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Mar-2019 13:41:41 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Apr-2019 18:33:29 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Apr-2019 18:33:50 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Apr-2019 18:33:50 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Apr-2019 18:33:56 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Apr-2019 18:33:56 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Apr-2019 18:34:11 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[25-Apr-2019 13:06:07 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[25-Apr-2019 13:06:07 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[25-Apr-2019 13:06:07 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[25-Apr-2019 13:06:07 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[21-May-2019 17:14:57 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:16:54 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[08-Jul-2019 11:31:13 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[12-Sep-2019 18:25:11 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[12-Sep-2019 18:25:11 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[24-Oct-2019 17:14:28 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[24-Oct-2019 17:14:28 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[13-Dec-2019 11:59:55 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:00:08 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:00:08 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:00:15 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:00:34 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:09:42 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:10:17 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:10:17 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:12:02 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:12:02 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Dec-2019 12:12:02 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[09-Jan-2020 13:33:35 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[09-Jan-2020 13:33:58 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[09-Jan-2020 13:33:58 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jan-2020 12:31:09 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jan-2020 12:31:34 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jan-2020 12:32:01 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2020 18:14:40 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2020 18:14:47 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2020 18:15:39 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2020 18:15:39 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2020 18:16:27 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2020 18:16:37 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Feb-2020 17:43:12 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:21:08 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:21:13 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:21:45 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:22:10 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:22:10 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:23:01 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:23:14 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:23:57 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Mar-2020 10:23:57 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Mar-2020 17:08:01 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Mar-2020 17:08:13 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Mar-2020 17:08:23 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2020 13:45:57 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[28-Apr-2020 10:49:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[28-Apr-2020 10:49:47 Europe/Madrid] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be resource, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[05-May-2020 19:36:34 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:36:43 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:36:43 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:36:51 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:36:51 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:36:51 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:37:05 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:37:59 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-May-2020 19:38:22 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-May-2020 17:32:21 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-May-2020 17:32:36 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Jun-2020 19:03:52 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Jun-2020 19:04:04 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Jun-2020 19:04:23 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jun-2020 12:05:03 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jun-2020 12:05:30 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jun-2020 12:06:04 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jun-2020 12:06:04 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Jun-2020 12:57:46 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Jul-2020 10:25:05 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Jul-2020 10:25:17 Europe/Madrid] PHP Warning:  number_format() expects parameter 1 to be double, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[28-Aug-2020 08:02:11 UTC] PHP Warning:  mysqli_insert_id() expects exactly 1 parameter, 0 given in /home/cellerno/public_html/distribucio/compres/alta.php on line 280
+[28-Aug-2020 10:03:19 UTC] PHP Warning:  mysqli_insert_id() expects exactly 1 parameter, 0 given in /home/cellerno/public_html/distribucio/compres/alta.php on line 280
+[28-Aug-2020 16:07:27 UTC] PHP Warning:  mysqli_insert_id() expects exactly 1 parameter, 0 given in /home/cellerno/public_html/distribucio/compres/alta.php on line 280
+[28-Aug-2020 16:11:29 UTC] PHP Warning:  mysqli_insert_id() expects exactly 1 parameter, 0 given in /home/cellerno/public_html/distribucio/compres/alta.php on line 280
+[28-Aug-2020 16:42:13 UTC] PHP Warning:  mysqli_insert_id() expects exactly 1 parameter, 0 given in /home/cellerno/public_html/distribucio/compres/alta.php on line 280
+[30-Aug-2020 08:27:59 UTC] PHP Warning:  mysqli_insert_id() expects exactly 1 parameter, 0 given in /home/cellerno/public_html/distribucio/compres/alta.php on line 280
+[08-Sep-2020 17:44:42 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[08-Sep-2020 17:44:42 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Sep-2020 17:44:53 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[08-Sep-2020 17:44:53 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[08-Sep-2020 17:45:08 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[08-Sep-2020 17:45:08 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Sep-2020 11:10:50 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[10-Sep-2020 11:10:50 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-Sep-2020 15:34:42 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[21-Sep-2020 15:34:43 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-Sep-2020 15:35:04 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[21-Sep-2020 15:35:04 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Nov-2020 17:16:59 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-Nov-2020 17:16:59 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Nov-2020 17:17:09 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-Nov-2020 17:17:09 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-Nov-2020 17:17:19 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-Nov-2020 17:17:19 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Nov-2020 16:16:46 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Nov-2020 16:16:46 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Nov-2020 16:16:51 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Nov-2020 16:16:51 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Dec-2020 18:16:31 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Dec-2020 18:16:31 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Dec-2020 18:16:34 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 40
+[07-Dec-2020 18:16:47 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Dec-2020 18:16:47 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Dec-2020 18:16:48 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 40
+[08-Dec-2020 11:31:08 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[08-Dec-2020 11:31:08 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2021 09:09:10 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[23-Jan-2021 09:09:10 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[23-Jan-2021 09:09:22 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[23-Jan-2021 09:09:22 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Feb-2021 11:42:39 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[02-Feb-2021 11:42:39 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[06-Feb-2021 08:23:11 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[06-Feb-2021 08:23:11 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[15-Apr-2021 14:41:30 UTC] PHP Warning:  array_splice() expects parameter 1 to be array, null given in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 6
+[15-Apr-2021 14:41:30 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 23
+[19-Apr-2021 15:57:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[19-Apr-2021 15:57:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[20-Apr-2021 11:25:10 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[20-Apr-2021 11:25:10 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[20-Apr-2021 11:25:23 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[20-Apr-2021 11:25:23 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Apr-2021 08:18:36 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[27-Apr-2021 08:18:44 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[27-Apr-2021 08:19:02 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[27-Apr-2021 08:22:34 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-May-2021 07:27:20 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-May-2021 07:27:20 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-May-2021 10:29:25 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-May-2021 10:29:25 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-May-2021 10:29:28 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-May-2021 10:29:28 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[06-May-2021 10:29:37 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[06-May-2021 10:29:37 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-May-2021 17:45:34 UTC] PHP Warning:  array_splice() expects parameter 1 to be array, null given in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 6
+[10-May-2021 17:45:34 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 23
+[01-Jun-2021 08:53:54 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[01-Jun-2021 08:53:54 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[01-Jun-2021 08:54:06 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[01-Jun-2021 08:54:06 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Dec-2021 16:35:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:07 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[10-Dec-2021 16:35:09 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[10-Dec-2021 17:24:58 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[10-Dec-2021 17:24:58 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Dec-2021 17:25:06 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[10-Dec-2021 17:25:06 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Dec-2021 17:25:13 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[10-Dec-2021 17:25:13 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Dec-2021 17:35:35 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[10-Dec-2021 17:35:35 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[10-Dec-2021 17:35:47 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[10-Dec-2021 17:35:47 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:41:36 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:41:36 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:41:42 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:41:42 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:42:11 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:42:11 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:42:14 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:42:14 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:42:20 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:42:20 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:42:20 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:42:20 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:42:22 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 40
+[07-Mar-2022 17:42:26 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:42:26 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:42:37 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:42:37 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:42:55 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:42:55 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:43:14 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:43:14 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:43:22 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Mar-2022 17:43:22 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Mar-2022 17:43:22 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[07-Mar-2022 17:43:22 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[11-Mar-2022 06:28:54 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:28:54 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:29:12 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:29:12 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:29:36 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:29:36 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:29:36 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:29:36 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:31:03 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:31:03 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:31:03 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:31:03 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:32:26 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:32:26 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:32:26 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:32:26 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:32:43 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 40
+[11-Mar-2022 06:32:43 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/borra_linea.php on line 40
+[11-Mar-2022 06:33:00 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:33:00 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:33:00 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:33:00 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:35:07 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:35:07 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Mar-2022 06:35:07 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Mar-2022 06:35:07 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[19-Apr-2022 02:58:24 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[19-Apr-2022 02:58:24 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[14-Jun-2022 16:20:48 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[14-Jun-2022 16:20:49 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[04-Oct-2022 11:52:02 UTC] PHP Warning:  mktime() expects parameter 5 to be integer, string given in /home/cellerno/public_html/distribucio/compres/alta.php on line 249
+[09-Feb-2023 09:12:48 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[09-Feb-2023 09:12:48 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[09-Feb-2023 09:12:52 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[09-Feb-2023 09:12:52 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[09-Feb-2023 09:13:06 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[09-Feb-2023 09:13:06 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[16-Mar-2023 10:12:09 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[16-Mar-2023 10:12:09 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[16-Mar-2023 10:12:21 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[16-Mar-2023 10:12:21 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[16-Mar-2023 10:12:30 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[16-Mar-2023 10:12:30 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-Mar-2023 16:24:49 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[21-Mar-2023 16:24:49 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[21-Mar-2023 16:24:50 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[15-May-2023 15:44:00 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-May-2023 15:44:00 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-May-2023 15:45:01 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-May-2023 15:45:01 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-May-2023 15:45:07 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-May-2023 15:45:07 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-May-2023 15:45:15 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-May-2023 15:45:15 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-May-2023 15:45:46 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-May-2023 15:45:46 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-May-2023 15:45:52 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-May-2023 15:45:53 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[01-Jun-2023 08:36:59 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[01-Jun-2023 08:36:59 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[01-Jun-2023 08:37:04 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[01-Jun-2023 08:37:04 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[01-Jun-2023 08:37:14 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[01-Jun-2023 08:37:14 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[01-Jun-2023 08:37:24 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[01-Jun-2023 08:37:24 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[01-Sep-2023 11:36:56 UTC] PHP Warning:  mysqli_query(): MySQL server has gone away in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 40
+[01-Sep-2023 11:37:02 UTC] PHP Warning:  mysqli_query(): Error reading result set's header in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 40
+[01-Sep-2023 11:37:02 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[01-Sep-2023 11:37:02 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[01-Sep-2023 11:37:09 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/cellerno/public_html/distribucio/connexio/connexio.php on line 8
+[01-Sep-2023 11:37:09 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): Connection refused in /home/cellerno/public_html/distribucio/connexio/connexio.php on line 8
+[01-Sep-2023 11:37:17 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/cellerno/public_html/distribucio/connexio/connexio.php on line 8
+[27-Sep-2023 09:43:43 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[27-Sep-2023 09:43:43 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Oct-2023 15:33:40 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[27-Oct-2023 15:33:40 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Oct-2023 15:37:44 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[27-Oct-2023 15:37:44 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[04-Dec-2023 11:22:46 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[04-Dec-2023 11:22:46 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[04-Dec-2023 11:22:58 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[04-Dec-2023 11:22:58 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[04-Dec-2023 11:23:45 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[04-Dec-2023 11:23:45 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[12-Dec-2023 17:29:03 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Dec-2023 17:29:03 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Dec-2023 17:29:09 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Dec-2023 17:29:09 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Dec-2023 17:29:19 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Dec-2023 17:29:19 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Dec-2023 17:29:30 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Dec-2023 17:29:30 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Dec-2023 17:29:38 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Dec-2023 17:29:38 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Dec-2023 17:29:47 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Dec-2023 17:29:47 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Jan-2024 12:28:13 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Jan-2024 12:28:13 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Jan-2024 12:29:45 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Jan-2024 12:29:45 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Jan-2024 12:29:54 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Jan-2024 12:29:54 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Jan-2024 12:30:19 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Jan-2024 12:30:19 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Jan-2024 12:30:59 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Jan-2024 12:30:59 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[16-Jan-2024 18:32:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 10
+[16-Jan-2024 18:32:08 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 16
+[16-Jan-2024 18:32:08 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 54
+[16-Jan-2024 18:32:08 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 82
+[19-Mar-2024 09:03:15 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[19-Mar-2024 09:03:15 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[19-Mar-2024 09:03:24 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[19-Mar-2024 09:03:24 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[19-Mar-2024 09:52:31 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[19-Mar-2024 09:52:31 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[19-Mar-2024 09:52:45 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[19-Mar-2024 09:52:45 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[19-Mar-2024 09:53:10 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[19-Mar-2024 09:53:10 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[19-Mar-2024 09:53:38 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[19-Mar-2024 09:53:38 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-Mar-2024 11:45:24 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[21-Mar-2024 11:45:24 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[24-Mar-2024 11:02:00 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[24-Mar-2024 11:02:00 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[24-Mar-2024 11:02:28 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[24-Mar-2024 11:02:28 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[24-Mar-2024 11:03:00 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[24-Mar-2024 11:03:00 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Apr-2024 08:32:06 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-Apr-2024 08:32:06 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Apr-2024 08:32:32 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-Apr-2024 08:32:32 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Apr-2024 08:32:41 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-Apr-2024 08:32:41 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Apr-2024 08:32:45 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-Apr-2024 08:32:45 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Apr-2024 08:32:58 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-Apr-2024 08:32:58 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-Apr-2024 08:34:04 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-Apr-2024 08:34:04 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Apr-2024 16:06:01 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Apr-2024 16:06:01 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[11-Apr-2024 16:06:10 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[11-Apr-2024 16:06:10 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[13-Apr-2024 08:15:06 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[13-Apr-2024 08:15:06 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-Apr-2024 09:22:07 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-Apr-2024 09:22:07 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-Apr-2024 09:26:41 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-Apr-2024 09:26:41 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-Apr-2024 09:27:26 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-Apr-2024 09:27:26 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[15-Apr-2024 09:27:34 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[15-Apr-2024 09:27:34 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-May-2024 16:15:19 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-May-2024 16:15:19 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-May-2024 16:16:01 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-May-2024 16:16:01 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[02-May-2024 16:16:12 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[02-May-2024 16:16:12 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-May-2024 15:17:55 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[21-May-2024 15:17:55 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-May-2024 15:18:09 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[21-May-2024 15:18:09 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-May-2024 15:18:16 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[21-May-2024 15:18:16 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[21-May-2024 15:18:48 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[21-May-2024 15:18:48 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[29-May-2024 08:28:40 UTC] PHP Warning:  mysqli_connect(): (HY000/2002): No such file or directory in /home/cellerno/public_html/distribucio/connexio/connexio.php on line 8
+[18-Jun-2024 16:06:51 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[18-Jun-2024 16:06:51 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[18-Jun-2024 16:06:58 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[18-Jun-2024 16:06:58 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-Jul-2024 15:08:33 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[05-Jul-2024 15:08:33 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[05-Jul-2024 15:08:34 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[05-Jul-2024 15:08:40 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[05-Jul-2024 15:08:40 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[05-Jul-2024 15:08:40 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Sep-2024 09:42:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 42
+[07-Sep-2024 09:42:17 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea_t.php on line 101
+[07-Sep-2024 09:43:28 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Sep-2024 09:43:28 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[07-Sep-2024 09:43:40 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[07-Sep-2024 09:43:40 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[17-Sep-2024 17:28:36 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[17-Sep-2024 17:28:36 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[17-Sep-2024 17:28:49 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[17-Sep-2024 17:28:49 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[17-Sep-2024 17:29:06 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[17-Sep-2024 17:29:06 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[17-Sep-2024 17:29:16 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[17-Sep-2024 17:29:16 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[17-Sep-2024 17:33:26 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[17-Sep-2024 17:33:26 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[17-Sep-2024 17:33:36 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[17-Sep-2024 17:33:36 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[27-Sep-2024 15:33:45 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[27-Sep-2024 15:33:45 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Oct-2024 10:04:29 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Oct-2024 10:04:29 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[12-Oct-2024 10:04:37 UTC] PHP Warning:  A non-numeric value encountered in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 51
+[12-Oct-2024 10:04:37 UTC] PHP Warning:  number_format() expects parameter 1 to be float, string given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 78
+[22-Oct-2024 10:54:53 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[22-Oct-2024 10:54:53 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100
+[22-Jan-2025 06:14:44 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 10
+[22-Jan-2025 06:14:44 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 16
+[22-Jan-2025 06:14:44 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 54
+[22-Jan-2025 06:14:44 UTC] PHP Warning:  mysqli_free_result() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/detalle_compras.php on line 82
+[11-Feb-2025 17:02:51 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 41
+[11-Feb-2025 17:02:51 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/cellerno/public_html/distribucio/compres/alta_linea.php on line 100

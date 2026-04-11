@@ -1,0 +1,86 @@
+<?php
+/**
+ * El Celler Nou - Definición de Rutas
+ *
+ * Todas las rutas de la aplicación se definen aquí.
+ * Patrón: Router::get('patrón', 'controlador', 'nombre');
+ *
+ * Parámetros dinámicos:
+ * - {param}  : Parámetro obligatorio
+ * - {param?} : Parámetro opcional
+ */
+
+// =============================================
+// PÁGINAS PRINCIPALES
+// =============================================
+
+Router::get('/', 'HomeController', 'home');
+Router::get('/contacto', 'ContactoController', 'contacto');
+Router::post('/contacto', 'ContactoController', 'contacto.submit');
+Router::get('/buscar', 'BuscarController', 'buscar');
+
+// =============================================
+// VINOS
+// =============================================
+
+Router::get('/vinos', 'VinosController', 'vinos');
+Router::get('/vinos/tipo/{id}/{slug}', 'VinosController', 'vinos.tipo');
+Router::get('/vinos/do/{id}/{slug}', 'VinosController', 'vinos.do');
+
+// =============================================
+// CAVAS Y ESPUMOSOS
+// =============================================
+
+Router::get('/cavas', 'CavasController', 'cavas');
+Router::get('/cavas-espumosos', 'CavasController', 'cavas'); // Alias
+Router::get('/cavas/tipo/{id}/{slug}', 'CavasController', 'cavas.tipo');
+
+// =============================================
+// LICORES
+// =============================================
+
+Router::get('/licores', 'LicoresController', 'licores');
+Router::get('/licores/tipo/{id}/{slug}', 'LicoresController', 'licores.tipo');
+
+// =============================================
+// CERVEZAS
+// =============================================
+
+Router::get('/cervezas', 'CervezasController', 'cervezas');
+Router::get('/cervezas/origen/{id}/{slug}', 'CervezasController', 'cervezas.origen');
+
+// =============================================
+// CONSERVAS
+// =============================================
+
+Router::get('/conservas', 'ConservasController', 'conservas');
+Router::get('/conservas/tipo/{id}/{slug}', 'ConservasController', 'conservas.tipo');
+
+// =============================================
+// WINEWORLD (Artículos)
+// =============================================
+
+Router::get('/wineworld', 'WineWorldController', 'wineworld');
+Router::get('/wineworld/{cat_slug}', 'WineWorldController', 'wineworld.categoria');
+Router::get('/wineworld/{cat_slug}/{art_slug}', 'WineWorldController', 'wineworld.articulo');
+
+// =============================================
+// PRODUCTOS
+// =============================================
+
+Router::get('/producto/{id}/{slug}', 'ProductoController', 'producto');
+Router::get('/producto/{id}', 'ProductoController', 'producto.simple');
+
+// =============================================
+// PÁGINAS LEGALES
+// =============================================
+
+Router::get('/aviso-legal', 'LegalController', 'legal.aviso');
+Router::get('/politica-privacidad', 'LegalController', 'legal.privacidad');
+Router::get('/politica-cookies', 'LegalController', 'legal.cookies');
+
+// =============================================
+// SITEMAP Y SEO
+// =============================================
+
+Router::get('/sitemap.xml', 'SitemapController', 'sitemap');

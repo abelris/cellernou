@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PDF Text Extraction - Position Debug</title>
+<style>
+  body { font-family: monospace; font-size: 13px; margin: 20px; background: #1a1a2e; color: #e0e0e0; }
+  h1 { font-size: 18px; color: #00d4ff; }
+  h2 { font-size: 15px; color: #ff9f43; margin-top: 30px; border-bottom: 1px solid #333; padding-bottom: 4px; }
+  h3 { font-size: 13px; color: #aaa; margin: 15px 0 5px; }
+  #status { color: #ffd700; margin: 10px 0; }
+  table { border-collapse: collapse; margin: 8px 0 20px; width: 100%; }
+  th { background: #2d2d44; color: #00d4ff; text-align: left; padding: 5px 8px; border: 1px solid #444; position: sticky; top: 0; }
+  td { padding: 4px 8px; border: 1px solid #333; }
+  tr:hover { background: #2a2a3e; }
+  .num { text-align: right; color: #7bed9f; }
+  .str { color: #ffa502; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .gap { color: #ff6b6b; font-weight: bold; }
+  .gap-large { background: #3d1f1f; }
+  .line-header { background: #1e3a5f; }
+  .line-header td { color: #70a1ff; font-weight: bold; padding: 6px 8px; }
+  .summary { background: #1a2a1a; padding: 10px; border: 1px solid #2d4a2d; margin: 10px 0; }
+  .raw-section { margin-top: 40px; }
+</style>
+</head>
+<body>
+<h1>PDF Text Extraction - Position Debug</h1>
+<p id="status">Loading PDF...</p>
+
+<div id="output"></div>
+
+<script type="module">
+import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.9.155/build/pdf.min.mjs';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.9.155/build/pdf.worker.min.mjs';
+
+const status = document.getElementById('status');
+const output = document.getElementById('output');
+
+function h(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function round(n, d = 2) {
+  return Number(n).toFixed(d);
+}
+
+async function run() {
+  try {
+    status.textContent = 'Loading fac.pdf...';
+    const pdf = await pdfjsLib.getDocument('fac.pdf').promise;
+    status.textContent = `PDF loaded: ${pdf.numPages} page(s). Extracting page 1...`;
+
+    const page = await pdf.getPage(1);
+    const viewport = page.getViewport({ scale: 1.0 });
+    const textContent = await page.getTextContent();
+
+    status.textContent = `Done. ${textContent.items.length} text items extracted from page 1 (${round(viewport.width,0)} x ${round(viewport.height,0)} pts).`;
+
+    // Extract items with position data
+    const items = textContent.items.map((item, idx) => {
+      const tx = item.transform;
+      // transform is [scaleX, skewY, skewX, scaleY, translateX, translateY]
+      const x = tx[4];
+      const y = tx[5];
+      const w = item.width;
+      const ht = item.height;
+      return { idx, str: item.str, x, y, width: w, height: ht, transform: tx };
+    });
+
+    // ---- RAW ITEMS TABLE ----
+    let html = '<h2>Raw Items (all, sorted by index)</h2>';
+    html += '<table><tr><th>#</th><th>str</th><th>x</th><th>y</th><th>width</th><th>height</th><th>scaleX</th><th>scaleY</th></tr>';
+    for (const it of items) {
+      html += `<tr>
+        <td class="num">${it.idx}</td>
+        <td class="str" title="${h(it.str)}">${h(it.str) || '<em style="color:#555">(empty)</em>'}</td>
+        <td class="num">${round(it.x)}</td>
+        <td class="num">${round(it.y)}</td>
+        <td class="num">${round(it.width)}</td>
+        <td class="num">${round(it.height)}</td>
+        <td class="num">${round(it.transform[0])}</td>
+        <td class="num">${round(it.transform[3])}</td>
+      </tr>`;
+    }
+    html += '</table>';
+
+    // ---- GROUP BY LINE ----
+    // Filter out empty strings for line grouping
+    const nonEmpty = items.filter(it => it.str.trim() !== '');
+
+    // Sort by y descending (PDF y=0 is bottom), then x ascending
+    const sorted = [...nonEmpty].sort((a, b) => b.y - a.y || a.x - b.x);
+
+    // Group into lines (threshold: 5px difference in y)
+    const LINE_THRESHOLD = 5;
+    const lines = [];
+    let currentLine = null;
+
+    for (const it of sorted) {
+      if (!currentLine || Math.abs(it.y - currentLine.y) > LINE_THRESHOLD) {
+        currentLine = { y: it.y, items: [it] };
+        lines.push(currentLine);
+      } else {
+        currentLine.items.push(it);
+      }
+    }
+
+    // Sort items within each line by x
+    for (const line of lines) {
+      line.items.sort((a, b) => a.x - b.x);
+    }
+
+    // ---- LINES TABLE WITH GAPS ----
+    html += '<h2>Items Grouped by Line (y threshold: ' + LINE_THRESHOLD + 'px)</h2>';
+    html += `<div class="summary">Total lines: ${lines.length} | Total non-empty items: ${nonEmpty.length}</div>`;
+
+    html += '<table><tr><th>#</th><th>str</th><th>x</th><th>y</th><th>width</th><th>x+w (right edge)</th><th>gap from prev</th></tr>';
+
+    lines.forEach((line, lineIdx) => {
+      const yRange = line.items.map(i => i.y);
+      const yMin = Math.min(...yRange);
+      const yMax = Math.max(...yRange);
+      html += `<tr class="line-header"><td colspan="7">LINE ${lineIdx} &mdash; y ~ ${round(line.y)} (range: ${round(yMin)} - ${round(yMax)}) &mdash; ${line.items.length} item(s)</td></tr>`;
+
+      line.items.forEach((it, i) => {
+        const rightEdge = it.x + it.width;
+        let gapStr = '';
+        let gapClass = '';
+        if (i > 0) {
+          const prev = line.items[i - 1];
+          const prevRight = prev.x + prev.width;
+          const gap = it.x - prevRight;
+          gapStr = round(gap);
+          if (gap > 20) gapClass = 'gap-large';
+        }
+        html += `<tr class="${gapClass}">
+          <td class="num">${it.idx}</td>
+          <td class="str" title="${h(it.str)}">${h(it.str)}</td>
+          <td class="num">${round(it.x)}</td>
+          <td class="num">${round(it.y)}</td>
+          <td class="num">${round(it.width)}</td>
+          <td class="num">${round(rightEdge)}</td>
+          <td class="num gap">${gapStr}</td>
+        </tr>`;
+      });
+    });
+    html += '</table>';
+
+    // ---- GAP ANALYSIS ----
+    html += '<h2>Gap Analysis (all inter-item gaps per line)</h2>';
+    html += '<table><tr><th>Line</th><th>y</th><th>From item</th><th>To item</th><th>Gap (px)</th><th>Left text</th><th>Right text</th></tr>';
+
+    const allGaps = [];
+    lines.forEach((line, lineIdx) => {
+      for (let i = 1; i < line.items.length; i++) {
+        const prev = line.items[i - 1];
+        const curr = line.items[i];
+        const gap = curr.x - (prev.x + prev.width);
+        allGaps.push({ lineIdx, y: line.y, prevIdx: prev.idx, currIdx: curr.idx, gap, prevStr: prev.str, currStr: curr.str });
+      }
+    });
+
+    // Sort gaps descending to highlight column separators
+    const gapsSorted = [...allGaps].sort((a, b) => b.gap - a.gap);
+    for (const g of gapsSorted) {
+      const cls = g.gap > 20 ? 'gap-large' : '';
+      html += `<tr class="${cls}">
+        <td class="num">${g.lineIdx}</td>
+        <td class="num">${round(g.y)}</td>
+        <td class="num">${g.prevIdx}</td>
+        <td class="num">${g.currIdx}</td>
+        <td class="num gap">${round(g.gap)}</td>
+        <td class="str" title="${h(g.prevStr)}">${h(g.prevStr)}</td>
+        <td class="str" title="${h(g.currStr)}">${h(g.currStr)}</td>
+      </tr>`;
+    }
+    html += '</table>';
+
+    // ---- X-POSITION HISTOGRAM ----
+    html += '<h2>X-Position Histogram (item start positions)</h2>';
+    const xPositions = nonEmpty.map(it => Math.round(it.x));
+    const xCounts = {};
+    for (const x of xPositions) {
+      const bucket = Math.round(x / 5) * 5; // 5px buckets
+      xCounts[bucket] = (xCounts[bucket] || 0) + 1;
+    }
+    const xBuckets = Object.keys(xCounts).map(Number).sort((a, b) => a - b);
+    html += '<table><tr><th>x bucket</th><th>count</th><th>bar</th></tr>';
+    const maxCount = Math.max(...Object.values(xCounts));
+    for (const bucket of xBuckets) {
+      const count = xCounts[bucket];
+      const bar = '#'.repeat(Math.ceil(count / maxCount * 50));
+      html += `<tr><td class="num">${bucket}</td><td class="num">${count}</td><td style="color:#7bed9f">${bar}</td></tr>`;
+    }
+    html += '</table>';
+
+    output.innerHTML = html;
+
+  } catch (err) {
+    status.textContent = 'Error: ' + err.message;
+    console.error(err);
+  }
+}
+
+run();
+</script>
+</body>
+</html>
