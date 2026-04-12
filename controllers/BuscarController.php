@@ -8,6 +8,8 @@ $productos = [];
 
 if (!empty($query)) {
     $productos = buscarProductos($query);
+    $komkalResults = buscarKomkalProductos($query);
+    $productos = array_merge($productos, $komkalResults);
     $pageTitle = 'Resultados de búsqueda: "' . htmlspecialchars($query) . '" | El Celler Nou';
     $pageDescription = 'Resultados de búsqueda para "' . htmlspecialchars($query) . '" en El Celler Nou. Encuentra vinos, licores, cavas y más.';
 } else {
@@ -64,7 +66,7 @@ include ROOT_PATH . '/includes/header.php';
             <?php if (!empty($productos)): ?>
             <div class="products-grid">
                 <?php foreach ($productos as $producto): ?>
-                <?php $productoUrl = Router::url('producto', ['id' => $producto['id'], 'slug' => createSlug($producto['nombre'])]); ?>
+                <?php $productoUrl = getProductoUrlUniversal($producto); ?>
                 <a href="<?php echo $productoUrl; ?>" class="product-card">
                     <div class="product-card-image">
                         <?php if (!empty($producto['foto'])): ?>

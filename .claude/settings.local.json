@@ -80,7 +80,16 @@
       "WebFetch(domain:morenaturalwine.com)",
       "WebFetch(domain:www.calferu.com)",
       "Bash(rm temp_insert_fotos2.php)",
-      "Bash(rm temp_insert_textos2.php)"
+      "Bash(rm temp_insert_textos2.php)",
+      "WebFetch(domain:www.casamariol.com)",
+      "WebFetch(domain:garciacarrion.com)",
+      "WebFetch(domain:birrapedia.com)",
+      "Read(//c/laragon/www/cellernou/**)",
+      "Read(//tmp/**)",
+      "Bash(awk '{print $5, $9}')",
+      "WebFetch(domain:lafuente.es)",
+      "Bash(python -c ':*)",
+      "WebFetch(domain:www.grauonline.es)"
     ]
   }
 }

@@ -95,6 +95,9 @@
                         <a href="<?php echo Router::url('legal.aviso'); ?>">Aviso Legal</a>
                         <a href="<?php echo Router::url('legal.privacidad'); ?>">Política de Privacidad</a>
                         <a href="<?php echo Router::url('legal.cookies'); ?>">Cookies</a>
+                        <a href="<?php echo Router::url('legal.venta'); ?>">Condiciones de Venta</a>
+                        <a href="<?php echo Router::url('legal.envios'); ?>">Envíos</a>
+                        <a href="<?php echo Router::url('legal.devoluciones'); ?>">Devoluciones</a>
                     </nav>
                 </div>
             </div>

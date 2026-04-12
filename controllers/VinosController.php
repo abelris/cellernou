@@ -45,6 +45,12 @@ if ($tipoId) {
     $pageDescription = 'Amplia selección de vinos tintos, blancos y rosados. Vinos con D.O. La Rioja, Ribera del Duero, Priorat, Penedès y más.';
 }
 
+// Append unmatched Komkal wines (only on unfiltered main listing)
+if (!$tipoId && !$doId) {
+    $komkalVinos = getKomkalProductosNoVinculats('vinos');
+    $productos = array_merge($productos, $komkalVinos);
+}
+
 // Obtener filtros disponibles
 $tiposVinos = getTiposBySector(8);
 $procedenciasVinos = getProcedencias(8);
@@ -111,7 +117,7 @@ include ROOT_PATH . '/includes/header.php';
         <?php if (!empty($productos)): ?>
         <div class="products-grid">
             <?php foreach ($productos as $producto): ?>
-            <?php $productoUrl = Router::url('producto', ['id' => $producto['id'], 'slug' => createSlug($producto['nombre'])]); ?>
+            <?php $productoUrl = getProductoUrlUniversal($producto); ?>
             <a href="<?php echo $productoUrl; ?>" class="product-card" itemscope itemtype="https://schema.org/Product">
                 <div class="product-card-image">
                     <?php if (!empty($producto['foto'])): ?>
@@ -129,7 +135,7 @@ include ROOT_PATH . '/includes/header.php';
                     <?php endif; ?>
                 </div>
                 <div class="product-card-content">
-                    <span class="product-card-category"><?php echo htmlspecialchars($producto['tipo_nombre']); ?></span>
+                    <span class="product-card-category"><?php echo htmlspecialchars($producto['tipo_nombre'] ?? ''); ?></span>
                     <h2 class="product-card-title" itemprop="name">
                         <?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>
                     </h2>

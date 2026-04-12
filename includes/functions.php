@@ -423,6 +423,142 @@ function formatPrecio($precio) {
     return number_format($precio, 2, ',', '.') . ' €';
 }
 
+// =============================================
+// KOMKAL - Productes del catàleg Komkal no vinculats
+// =============================================
+
+/**
+ * Get unmatched Komkal products for public display.
+ * Returns array formatted like productos rows (same keys) so templates work.
+ * @param string $tipo 'vinos' or 'licores'
+ * @param int $limit 0 = no limit
+ */
+function getKomkalProductosNoVinculats($tipo, $limit = 0) {
+    global $bd;
+    if (!in_array($tipo, ['vinos', 'licores'])) return [];
+
+    $tabla = 'komkal_' . $tipo;
+    $margen = ($tipo === 'vinos') ? 1.25 : 1.20;
+    $iva = 1.21;
+
+    $sql = "SELECT k.id, k.codigo_komkal as codigo, k.nombre,
+                   k.precio_sin_iva as precio_medio,
+                   ROUND(k.precio_sin_iva * $margen * $iva, 2) as precio_venta,
+                   1 as tiene_stock,
+                   k.disponible,
+                   NULL as foto,
+                   NULL as tipo_nombre,
+                   NULL as procedencia_nombre,
+                   '$tipo' as komkal_tipo
+            FROM $tabla k
+            WHERE k.id_producto_match IS NULL
+            AND k.disponible = 1
+            AND k.precio_sin_iva IS NOT NULL
+            AND k.precio_sin_iva > 0
+            ORDER BY k.nombre";
+
+    if ($limit > 0) $sql .= " LIMIT " . intval($limit);
+
+    $result = mysqli_query($bd, $sql);
+    $productos = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Mark as Komkal product for URL generation
+            $row['es_komkal'] = true;
+            $row['komkal_url'] = '/producto/k/' . $tipo . '/' . $row['id'] . '/' . createSlug($row['nombre']);
+            $productos[] = $row;
+        }
+    }
+    return $productos;
+}
+
+/**
+ * Get a single Komkal product by ID for the detail page.
+ */
+function getKomkalProductoById($tipo, $id) {
+    global $bd;
+    if (!in_array($tipo, ['vinos', 'licores'])) return null;
+
+    $tabla = 'komkal_' . $tipo;
+    $margen = ($tipo === 'vinos') ? 1.25 : 1.20;
+    $iva = 1.21;
+    $id = intval($id);
+
+    $sql = "SELECT k.id, k.codigo_komkal as codigo, k.nombre,
+                   k.precio_sin_iva as precio_medio,
+                   ROUND(k.precio_sin_iva * $margen * $iva, 2) as precio_venta,
+                   1 as tiene_stock,
+                   k.disponible, k.url as komkal_url_origen,
+                   NULL as foto, NULL as tipo_nombre, NULL as procedencia_nombre,
+                   NULL as descripcion, NULL as uvas_es,
+                   '$tipo' as komkal_tipo
+            FROM $tabla k
+            WHERE k.id = $id
+            AND k.id_producto_match IS NULL
+            AND k.disponible = 1
+            AND k.precio_sin_iva IS NOT NULL";
+
+    $result = mysqli_query($bd, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $row['es_komkal'] = true;
+        return $row;
+    }
+    return null;
+}
+
+/**
+ * Search unmatched Komkal products by name.
+ */
+function buscarKomkalProductos($query, $limit = 50) {
+    global $bd;
+    $query = sanitize($query);
+    if (empty($query)) return [];
+
+    $results = [];
+    foreach (['vinos' => 1.25, 'licores' => 1.20] as $tipo => $margen) {
+        $tabla = 'komkal_' . $tipo;
+        $iva = 1.21;
+        $sql = "SELECT k.id, k.codigo_komkal as codigo, k.nombre,
+                       k.precio_sin_iva as precio_medio,
+                       ROUND(k.precio_sin_iva * $margen * $iva, 2) as precio_venta,
+                       1 as tiene_stock,
+                       NULL as foto, NULL as tipo_nombre, NULL as procedencia_nombre,
+                       '$tipo' as komkal_tipo
+                FROM $tabla k
+                WHERE k.id_producto_match IS NULL
+                AND k.disponible = 1
+                AND k.precio_sin_iva IS NOT NULL
+                AND k.nombre LIKE '%$query%'
+                ORDER BY
+                    CASE WHEN k.nombre LIKE '$query%' THEN 1
+                         WHEN k.nombre LIKE '%$query%' THEN 2
+                         ELSE 3 END,
+                    k.nombre
+                LIMIT " . intval($limit);
+
+        $r = mysqli_query($bd, $sql);
+        if ($r) {
+            while ($row = mysqli_fetch_assoc($r)) {
+                $row['es_komkal'] = true;
+                $row['komkal_url'] = '/producto/k/' . $tipo . '/' . $row['id'] . '/' . createSlug($row['nombre']);
+                $results[] = $row;
+            }
+        }
+    }
+    return $results;
+}
+
+/**
+ * Generate URL for a product (works for both regular and Komkal).
+ */
+function getProductoUrlUniversal($producto) {
+    if (!empty($producto['es_komkal'])) {
+        return $producto['komkal_url'] ?? '/producto/k/' . $producto['komkal_tipo'] . '/' . $producto['id'] . '/' . createSlug($producto['nombre']);
+    }
+    return '/producto/' . $producto['id'] . '/' . createSlug($producto['nombre']);
+}
+
 /**
  * Normalizar nombre de producto
  * Primera letra de cada palabra en mayúscula, excepto artículos y preposiciones

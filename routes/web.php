@@ -68,6 +68,7 @@ Router::get('/wineworld/{cat_slug}/{art_slug}', 'WineWorldController', 'wineworl
 // PRODUCTOS
 // =============================================
 
+Router::get('/producto/k/{tipo}/{id}/{slug}', 'KomkalProductoController', 'producto.komkal');
 Router::get('/producto/{id}/{slug}', 'ProductoController', 'producto');
 Router::get('/producto/{id}', 'ProductoController', 'producto.simple');
 
@@ -78,6 +79,9 @@ Router::get('/producto/{id}', 'ProductoController', 'producto.simple');
 Router::get('/aviso-legal', 'LegalController', 'legal.aviso');
 Router::get('/politica-privacidad', 'LegalController', 'legal.privacidad');
 Router::get('/politica-cookies', 'LegalController', 'legal.cookies');
+Router::get('/politica-devoluciones', 'LegalController', 'legal.devoluciones');
+Router::get('/condiciones-de-venta', 'LegalController', 'legal.venta');
+Router::get('/politica-de-envios', 'LegalController', 'legal.envios');
 
 // =============================================
 // SITEMAP Y SEO
