@@ -1,0 +1,29 @@
+# El Celler Nou - Admin Panel
+
+# Prevent directory listing
+Options -Indexes
+Options +FollowSymLinks
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Permitir acceso a assets (CSS, JS, imágenes)
+    RewriteCond %{REQUEST_URI} /assets/ [NC]
+    RewriteRule ^ - [L]
+
+    # Bloquear acceso directo a includes
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# PHP Settings
+<IfModule mod_php.c>
+    php_flag session.cookie_httponly On
+    php_value session.cookie_samesite "Strict"
+</IfModule>

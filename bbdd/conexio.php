@@ -1,0 +1,1 @@
+<?PHP//$bd=mysql_connect("localhost", "luxebyho_db", "+KLisey672") or die("Could not connect");//mysql_select_db("luxebyho_db");$bd=mysqli_connect("localhost", "mycellerno7d", "Cellernou2025%") or die("Could not connect");mysqli_select_db($bd, "cellernodb");?>

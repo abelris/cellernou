@@ -1,0 +1,252 @@
+/* BI Dashboard Styles */
+
+.bi-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.bi-toolbar label {
+    font-weight: 600;
+    color: var(--gray-700);
+}
+
+.bi-toolbar select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    background: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.bi-toolbar .bi-brand-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.bi-toolbar .bi-brand-tab {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--gray-600);
+    background: var(--gray-100);
+    transition: var(--transition);
+}
+
+.bi-toolbar .bi-brand-tab:hover {
+    background: var(--gray-200);
+    color: var(--gray-800);
+}
+
+.bi-toolbar .bi-brand-tab.active {
+    color: white;
+}
+
+.bi-toolbar .bi-brand-tab.active.tab-all {
+    background: var(--secondary);
+}
+
+.bi-toolbar .bi-brand-tab.active.tab-cellernou {
+    background: var(--brand-cellernou);
+}
+
+.bi-toolbar .bi-brand-tab.active.tab-ondigitalris {
+    background: var(--brand-ondigitalris);
+}
+
+/* KPI Cards */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.kpi-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+}
+
+.kpi-card.kpi-revenue::before  { background: var(--secondary); }
+.kpi-card.kpi-costs::before    { background: var(--danger); }
+.kpi-card.kpi-margin::before   { background: var(--success); }
+.kpi-card.kpi-growth::before   { background: var(--info); }
+.kpi-card.kpi-forecast::before { background: var(--warning); }
+.kpi-card.kpi-avg::before      { background: var(--gray-400); }
+
+.kpi-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray-500);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.kpi-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.2;
+}
+
+.kpi-change {
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+    font-weight: 500;
+}
+
+.kpi-change.positive { color: var(--success); }
+.kpi-change.negative { color: var(--danger); }
+.kpi-change.neutral  { color: var(--gray-500); }
+
+.kpi-prev {
+    font-size: 0.75rem;
+    color: var(--gray-400);
+    margin-top: 0.15rem;
+}
+
+/* Chart Cards */
+.chart-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.chart-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.chart-row.wide-left {
+    grid-template-columns: 2fr 1fr;
+}
+
+.chart-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.chart-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 1rem;
+}
+
+.chart-card canvas {
+    width: 100% !important;
+    max-height: 320px;
+}
+
+.chart-card.chart-doughnut canvas {
+    max-height: 260px;
+}
+
+/* Top Products Table */
+.top-products-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.top-products-table th {
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid var(--gray-200);
+    color: var(--gray-600);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.top-products-table td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+}
+
+.top-products-table td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.top-products-table tr:last-child td {
+    border-bottom: none;
+}
+
+.top-products-table .rank {
+    width: 30px;
+    color: var(--gray-400);
+    font-weight: 600;
+}
+
+/* Loading state */
+.bi-loading {
+    text-align: center;
+    padding: 3rem;
+    color: var(--gray-400);
+}
+
+.bi-loading::after {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--gray-200);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: bi-spin 0.8s linear infinite;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+@keyframes bi-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .chart-row,
+    .chart-row.wide-left {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bi-toolbar .bi-brand-tabs {
+        margin-left: 0;
+        width: 100%;
+    }
+}

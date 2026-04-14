@@ -1,0 +1,7 @@
+[27-Aug-2020 22:23:38 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php on line 16671
+[27-Aug-2020 22:23:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php:16671) in /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php on line 7672
+[27-Aug-2020 22:26:00 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php on line 16672
+[27-Aug-2020 22:33:11 UTC] PHP Deprecated:  The each() function is deprecated. This message will be suppressed on further calls in /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php on line 16686
+[27-Aug-2020 22:33:11 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php:16686) in /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php on line 7672
+[27-Aug-2020 23:51:02 UTC] PHP Fatal error:  Maximum execution time of 5000 seconds exceeded in /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php on line 16673
+[27-Aug-2020 23:51:54 UTC] PHP Fatal error:  Maximum execution time of 5000 seconds exceeded in /home/cellerno/public_html/distribucio/tcpdf/tcpdf.php on line 16672

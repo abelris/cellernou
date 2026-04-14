@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+
+Header unset Etag
+FileETag none
+

@@ -1,0 +1,13 @@
+# El Celler Nou - Robots.txt
+# https://www.cellernou.com
+
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /distribucio/
+Disallow: /includes/
+Disallow: /sql/
+
+# Sitemap
+Sitemap: https://www.cellernou.com/sitemap.xml
