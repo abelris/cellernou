@@ -16,8 +16,9 @@ if ($catSlug && $artSlug) {
     $articulo = getWWArticulo($artSlug);
 
     if (!$categoria || !$articulo || $articulo['id_categoria'] != $categoria['id'] || !$articulo['publicado']) {
-        header('HTTP/1.0 404 Not Found');
+        http_response_code(404);
         $pageTitle = 'Artículo no encontrado | ' . SITE_NAME;
+        $pageRobots = 'noindex, follow';
         include ROOT_PATH . '/includes/header.php';
         echo '<section class="section"><div class="container"><div class="no-results"><h1>Artículo no encontrado</h1><p>El artículo que buscas no existe o ha sido retirado.</p><a href="' . Router::url('wineworld') . '" class="btn btn-primary">Volver a WineWorld</a></div></div></section>';
         include ROOT_PATH . '/includes/footer.php';
@@ -37,6 +38,11 @@ if ($catSlug && $artSlug) {
         ['name' => $categoria['nombre'], 'url' => Router::url('wineworld.categoria', ['cat_slug' => $categoria['slug']])],
         ['name' => $articulo['titulo'], 'url' => Router::url('wineworld.articulo', ['cat_slug' => $categoria['slug'], 'art_slug' => $articulo['slug']])]
     ];
+
+    $currentUrl = Router::urlAbs('wineworld.articulo', [
+        'cat_slug' => $categoria['slug'],
+        'art_slug' => $articulo['slug']
+    ]);
 
     $schemaExtra = schemaBreadcrumb($breadcrumbItems);
     $schemaExtra .= schemaArticulo($articulo, $categoria);
@@ -137,8 +143,9 @@ if ($catSlug) {
     $categoria = getWWCategoria($catSlug);
 
     if (!$categoria || !$categoria['activo']) {
-        header('HTTP/1.0 404 Not Found');
+        http_response_code(404);
         $pageTitle = 'Categoría no encontrada | ' . SITE_NAME;
+        $pageRobots = 'noindex, follow';
         include ROOT_PATH . '/includes/header.php';
         echo '<section class="section"><div class="container"><div class="no-results"><h1>Categoría no encontrada</h1><p>La categoría que buscas no existe.</p><a href="' . Router::url('wineworld') . '" class="btn btn-primary">Volver a WineWorld</a></div></div></section>';
         include ROOT_PATH . '/includes/footer.php';
@@ -155,6 +162,8 @@ if ($catSlug) {
         ['name' => 'WineWorld', 'url' => Router::url('wineworld')],
         ['name' => $categoria['nombre'], 'url' => Router::url('wineworld.categoria', ['cat_slug' => $categoria['slug']])]
     ];
+
+    $currentUrl = Router::urlAbs('wineworld.categoria', ['cat_slug' => $categoria['slug']]);
 
     $schemaExtra = schemaBreadcrumb($breadcrumbItems);
 

@@ -45,15 +45,35 @@ switch ($producto['idSector']) {
         break;
 }
 
+// Slug canónico: cualquier otra variante (/producto/3269, /producto/3269/lo-que-sea)
+// redirige 301 a la URL buena. Sin esto cada variante devolvía 200 con un
+// canonical apuntándose a sí misma: duplicados infinitos.
+$slugCanonico = createSlug($producto['nombre']);
+$slugActual   = Router::param('slug');
+if ($slugActual !== $slugCanonico) {
+    Router::redirect(Router::url('producto', ['id' => $producto['id'], 'slug' => $slugCanonico]), 301);
+}
+
+// El canonical se construye desde la ruta nombrada, nunca desde REQUEST_URI.
+$currentUrl = Router::urlAbs('producto', ['id' => $producto['id'], 'slug' => $slugCanonico]);
+
 // SEO
-$pageTitle = $producto['nombre'] . ' | ' . $categoriaNombre . ' - El Celler Nou';
+$pageTitle = trim(normalizarNombre($producto['nombre'])) . ' | ' . $categoriaNombre . ' - El Celler Nou';
 $pageDescription = !empty($productoTextos['descripcion'])
     ? strip_tags(substr($productoTextos['descripcion'], 0, 160))
     : (!empty($producto['descripcion'])
         ? strip_tags(substr($producto['descripcion'], 0, 160))
         : $producto['nombre'] . ' - ' . ($producto['tipo_nombre'] ?? '') . ' de ' . ($producto['procedencia_nombre'] ?? 'calidad') . '. Compra en El Celler Nou.');
 $pageType = 'product';
-$pageImage = !empty($producto['foto']) ? getBaseUrl() . '/images/productos/' . $producto['foto'] : getBaseUrl() . '/images/og-default.jpg';
+// og:image: la foto del producto solo si el archivo existe; si no, la imagen
+// social por defecto. Una og:image rota deja la tarjeta al compartir en blanco.
+if (productoTieneFoto($producto)) {
+    $pageImage = getBaseUrl() . rutaFoto($producto);
+} else {
+    $pageImage = getBaseUrl() . '/images/og-default.jpg';
+    $pageImageWidth = 1200;
+    $pageImageHeight = 630;
+}
 
 // Breadcrumb
 $breadcrumbItems = [
@@ -67,7 +87,7 @@ $productosRelacionados = getProductosRelacionados($producto, 4);
 
 // Schema
 $schemaExtra = schemaBreadcrumb($breadcrumbItems);
-$schemaExtra .= schemaProducto($producto);
+$schemaExtra .= schemaProducto($producto, $productoTextos);
 
 include ROOT_PATH . '/includes/header.php';
 ?>
@@ -79,32 +99,34 @@ include ROOT_PATH . '/includes/header.php';
         <div class="product-detail-grid">
             <div class="product-gallery">
                 <div class="product-main-image">
-                    <?php if (!empty($producto['foto'])): ?>
-                    <img src="<?php echo getBaseUrl(); ?>/images/productos/<?php echo htmlspecialchars($producto['foto']); ?>"
-                         alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                    <?php if (productoTieneFoto($producto)): ?>
+                    <img src="<?php echo getBaseUrl() . rutaFoto($producto); ?>"
+                         alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                         width="600" height="600"
+                         fetchpriority="high" decoding="async">
                     <?php else: ?>
                     <img src="<?php echo getBaseUrl(); ?>/images/no-image.svg"
-                         alt="<?php echo htmlspecialchars($producto['nombre']); ?>">
+                         alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                         width="600" height="600">
                     <?php endif; ?>
                 </div>
             </div>
 
-            <div class="product-info" itemscope itemtype="https://schema.org/Product">
-                <meta itemprop="sku" content="<?php echo htmlspecialchars($producto['codigo']); ?>">
-                <h1 itemprop="name"><?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?></h1>
+            <div class="product-info">
+                <h1><?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?></h1>
 
                 <div class="product-meta">
                     <?php if (!empty($producto['tipo_nombre'])): ?>
                     <span class="product-meta-item">
                         <strong>Tipo:</strong>
-                        <span itemprop="category"><?php echo htmlspecialchars($producto['tipo_nombre']); ?></span>
+                        <span><?php echo htmlspecialchars($producto['tipo_nombre']); ?></span>
                     </span>
                     <?php endif; ?>
 
                     <?php if (!empty($producto['procedencia_nombre'])): ?>
-                    <span class="product-meta-item" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+                    <span class="product-meta-item">
                         <strong>Origen:</strong>
-                        <span itemprop="name"><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></span>
+                        <span><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></span>
                     </span>
                     <?php endif; ?>
 
@@ -123,14 +145,12 @@ include ROOT_PATH . '/includes/header.php';
                     <?php endif; ?>
                 </div>
 
-                <div class="product-price-box" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                    <meta itemprop="priceCurrency" content="EUR">
-                    <link itemprop="availability" href="https://schema.org/InStock">
+                <div class="product-price-box">
 
                     <?php if ($producto['precio_venta'] > 0 && !empty($producto['tiene_stock'])): ?>
                     <?php $precioFinal = aplicarDescuento($producto['precio_venta']); ?>
                     <div class="product-price">
-                        <span itemprop="price" content="<?php echo $precioFinal; ?>">
+                        <span>
                             <?php echo formatPrecioWeb($producto['precio_venta']); ?>
                         </span>
                         <small>IVA incluido</small>
@@ -145,12 +165,12 @@ include ROOT_PATH . '/includes/header.php';
                 </div>
 
                 <?php if (!empty($productoTextos['descripcion'])): ?>
-                <div class="product-description" itemprop="description">
+                <div class="product-description">
                     <h2>Descripción</h2>
                     <?php echo nl2br(htmlspecialchars($productoTextos['descripcion'])); ?>
                 </div>
                 <?php elseif (!empty($producto['descripcion'])): ?>
-                <div class="product-description" itemprop="description">
+                <div class="product-description">
                     <h2>Descripción</h2>
                     <?php echo nl2br(htmlspecialchars($producto['descripcion'])); ?>
                 </div>
@@ -209,12 +229,14 @@ include ROOT_PATH . '/includes/header.php';
             <?php $relUrl = Router::url('producto', ['id' => $rel['id'], 'slug' => createSlug($rel['nombre'])]); ?>
             <a href="<?php echo $relUrl; ?>" class="product-card">
                 <div class="product-card-image">
-                    <?php if (!empty($rel['foto'])): ?>
-                    <img src="<?php echo getBaseUrl(); ?>/images/productos/<?php echo htmlspecialchars($rel['foto']); ?>"
-                         alt="<?php echo htmlspecialchars($rel['nombre']); ?>" loading="lazy">
+                    <?php if (productoTieneFoto($rel)): ?>
+                    <img src="<?php echo getBaseUrl() . rutaFoto($rel); ?>"
+                         alt="<?php echo htmlspecialchars(normalizarNombre($rel['nombre'])); ?>"
+                         width="300" height="300" loading="lazy" decoding="async">
                     <?php else: ?>
                     <img src="<?php echo getBaseUrl(); ?>/images/no-image.svg"
-                         alt="<?php echo htmlspecialchars($rel['nombre']); ?>" loading="lazy">
+                         alt="<?php echo htmlspecialchars(normalizarNombre($rel['nombre'])); ?>"
+                         width="300" height="300" loading="lazy" decoding="async">
                     <?php endif; ?>
                 </div>
                 <div class="product-card-content">

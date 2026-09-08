@@ -8,6 +8,8 @@ $productos = [];
 
 if (!empty($query)) {
     $productos = buscarProductos($query);
+    $komkalResults = buscarKomkalProductos($query);
+    $productos = array_merge($productos, $komkalResults);
     $pageTitle = 'Resultados de búsqueda: "' . htmlspecialchars($query) . '" | El Celler Nou';
     $pageDescription = 'Resultados de búsqueda para "' . htmlspecialchars($query) . '" en El Celler Nou. Encuentra vinos, licores, cavas y más.';
 } else {
@@ -20,10 +22,19 @@ $breadcrumbItems = [
     ['name' => 'Búsqueda', 'url' => Router::url('buscar')]
 ];
 
+// Los resultados de búsqueda interna no deben indexarse: son contenido
+// generado por el usuario, de baja calidad y con infinitas variantes de URL.
+// 'follow' para que sí se sigan los enlaces a las fichas de producto.
+$pageRobots = 'noindex, follow';
+$currentUrl = Router::abs(Router::url('buscar'));
+
+// Solo breadcrumb: un ItemList en una página noindex no aporta nada.
 $schemaExtra = schemaBreadcrumb($breadcrumbItems);
-if (!empty($productos)) {
-    $schemaExtra .= schemaListaProductos($productos, 'Resultados de búsqueda: ' . $query);
-}
+
+// Paginación de resultados
+$paginacion = paginar($productos, Router::url('buscar')
+    . (!empty($query) ? '?q=' . urlencode($query) : ''));
+$productosPagina = $paginacion['items'];
 
 include ROOT_PATH . '/includes/header.php';
 ?>
@@ -63,16 +74,19 @@ include ROOT_PATH . '/includes/header.php';
 
             <?php if (!empty($productos)): ?>
             <div class="products-grid">
-                <?php foreach ($productos as $producto): ?>
-                <?php $productoUrl = Router::url('producto', ['id' => $producto['id'], 'slug' => createSlug($producto['nombre'])]); ?>
+                <?php foreach ($productosPagina as $iProd => $producto): ?>
+                <?php $productoUrl = getProductoUrlUniversal($producto); ?>
                 <a href="<?php echo $productoUrl; ?>" class="product-card">
                     <div class="product-card-image">
-                        <?php if (!empty($producto['foto'])): ?>
-                        <img src="<?php echo getBaseUrl(); ?>/images/productos/<?php echo htmlspecialchars($producto['foto']); ?>"
-                             alt="<?php echo htmlspecialchars($producto['nombre']); ?>" loading="lazy">
+                        <?php $imgCarga = $iProd < 8 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
+                        <?php if (productoTieneFoto($producto)): ?>
+                        <img src="<?php echo getBaseUrl() . rutaFoto($producto); ?>"
+                             alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                             width="300" height="300" decoding="async" <?php echo $imgCarga; ?>>
                         <?php else: ?>
                         <img src="<?php echo getBaseUrl(); ?>/images/no-image.svg"
-                             alt="<?php echo htmlspecialchars($producto['nombre']); ?>" loading="lazy">
+                             alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                             width="300" height="300" decoding="async" <?php echo $imgCarga; ?>>
                         <?php endif; ?>
                         <?php if (!empty($producto['procedencia_nombre']) && strpos($producto['procedencia_nombre'], 'D.O.') !== false): ?>
                         <span class="product-card-badge"><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></span>
@@ -100,6 +114,8 @@ include ROOT_PATH . '/includes/header.php';
                 </a>
                 <?php endforeach; ?>
             </div>
+
+            <?php echo renderPaginacion($paginacion); ?>
             <?php else: ?>
             <div class="no-results">
                 <h2>No hemos encontrado resultados</h2>

@@ -1,5 +1,5 @@
 # El Celler Nou - Robots.txt
-# https://www.cellernou.com
+# https://cellernou.com
 
 User-agent: *
 Allow: /
@@ -10,4 +10,4 @@ Disallow: /includes/
 Disallow: /sql/
 
 # Sitemap
-Sitemap: https://www.cellernou.com/sitemap.xml
+Sitemap: https://cellernou.com/sitemap.xml

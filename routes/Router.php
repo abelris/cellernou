@@ -64,7 +64,15 @@ class Router
      */
     public static function dispatch(): void
     {
-        $method = $_SERVER['REQUEST_METHOD'];
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+
+        // HEAD debe resolverse igual que GET: sin esto cualquier petición HEAD
+        // (validadores, comprobadores de enlaces, monitorización, rastreadores
+        // que sondean antes de descargar) recibiría un 404.
+        if ($method === 'HEAD') {
+            $method = 'GET';
+        }
+
         $uri = self::getUri();
 
         foreach (self::$routes as $route) {
@@ -191,6 +199,27 @@ class Router
         }
 
         return $pattern;
+    }
+
+    /**
+     * Generar URL absoluta a partir del nombre de la ruta.
+     * Obligatorio para schema.org, canonical, og:url y el sitemap: schema.org
+     * espera URIs absolutas y Open Graph no resuelve rutas relativas.
+     */
+    public static function urlAbs(string $name, array $params = []): string
+    {
+        return rtrim(SITE_URL, '/') . self::url($name, $params);
+    }
+
+    /**
+     * Convertir una ruta relativa cualquiera en absoluta sobre SITE_URL.
+     */
+    public static function abs(string $path): string
+    {
+        if ($path === '' || preg_match('#^https?://#i', $path)) {
+            return $path;
+        }
+        return rtrim(SITE_URL, '/') . '/' . ltrim($path, '/');
     }
 
     /**

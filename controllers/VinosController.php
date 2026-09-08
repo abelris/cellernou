@@ -45,14 +45,47 @@ if ($tipoId) {
     $pageDescription = 'Amplia selección de vinos tintos, blancos y rosados. Vinos con D.O. La Rioja, Ribera del Duero, Priorat, Penedès y más.';
 }
 
+// Append unmatched Komkal wines (only on unfiltered main listing)
+if (!$tipoId && !$doId) {
+    $komkalVinos = getKomkalProductosNoVinculats('vinos');
+    $productos = array_merge($productos, $komkalVinos);
+}
+
 // Obtener filtros disponibles
 $tiposVinos = getTiposBySector(8);
 $procedenciasVinos = getProcedencias(8);
 
 // Schema
+// Paginación. Antes se volcaba el sector entero en una sola página
+// (/vinos llegaba a 1.479 productos y 2,4 MB de HTML). La URL base sale del
+// último breadcrumb, que siempre es la página actual sin query string.
+$rutaActual  = $breadcrumbItems[count($breadcrumbItems) - 1]['url'];
+$paginacion  = paginar($productos, $rutaActual);
+$productosPagina = $paginacion['items'];
+
+// El canonical apunta a la página real (?page=N), no a REQUEST_URI.
+$currentUrl = Router::abs($paginacion['canonical']);
+$pagePrev   = $paginacion['prev'];
+$pageNext   = $paginacion['next'];
+
+// Las páginas 2+ llevan su número en el title para no duplicar el de la 1.
+if ($paginacion['actual'] > 1) {
+    $pageTitle .= ' - Página ' . $paginacion['actual'];
+}
+
 $schemaExtra = schemaBreadcrumb($breadcrumbItems);
-if (!empty($productos)) {
-    $schemaExtra .= schemaListaProductos($productos, $filtroNombre ?: 'Vinos - El Celler Nou');
+if (!empty($productosPagina)) {
+    $schemaExtra .= schemaListaProductos($productosPagina, $filtroNombre ?: 'Vinos - El Celler Nou', $paginacion['offset']);
+}
+
+// FAQ: solo en el listado principal sin filtrar y en la página 1. En las
+// páginas 2..N sería un FAQPage duplicado, y con filtro aplicado las
+// preguntas no encajan con lo que el usuario está mirando.
+$faqs = ($paginacion['actual'] === 1 && !$tipoId && !$doId)
+    ? getFaqsCategoria('vinos')
+    : [];
+if (!empty($faqs)) {
+    $schemaExtra .= schemaFAQ($faqs);
 }
 
 include ROOT_PATH . '/includes/header.php';
@@ -110,39 +143,35 @@ include ROOT_PATH . '/includes/header.php';
         <!-- Products Grid -->
         <?php if (!empty($productos)): ?>
         <div class="products-grid">
-            <?php foreach ($productos as $producto): ?>
-            <?php $productoUrl = Router::url('producto', ['id' => $producto['id'], 'slug' => createSlug($producto['nombre'])]); ?>
-            <a href="<?php echo $productoUrl; ?>" class="product-card" itemscope itemtype="https://schema.org/Product">
+            <?php foreach ($productosPagina as $iProd => $producto): ?>
+            <?php $productoUrl = getProductoUrlUniversal($producto); ?>
+            <a href="<?php echo $productoUrl; ?>" class="product-card">
                 <div class="product-card-image">
-                    <?php if (!empty($producto['foto'])): ?>
-                    <img src="<?php echo getBaseUrl(); ?>/images/productos/<?php echo htmlspecialchars($producto['foto']); ?>"
-                         alt="<?php echo htmlspecialchars($producto['nombre']); ?>"
-                         loading="lazy"
-                         itemprop="image">
+                    <?php $imgCarga = $iProd < 8 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
+                    <?php if (productoTieneFoto($producto)): ?>
+                    <img src="<?php echo getBaseUrl() . rutaFoto($producto); ?>"
+                         alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                         width="300" height="300" decoding="async" <?php echo $imgCarga; ?>>
                     <?php else: ?>
                     <img src="<?php echo getBaseUrl(); ?>/images/no-image.svg"
-                         alt="<?php echo htmlspecialchars($producto['nombre']); ?>"
-                         loading="lazy">
+                         alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                         width="300" height="300" decoding="async" <?php echo $imgCarga; ?>>
                     <?php endif; ?>
                     <?php if (!empty($producto['procedencia_nombre']) && strpos($producto['procedencia_nombre'], 'D.O.') !== false): ?>
                     <span class="product-card-badge"><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></span>
                     <?php endif; ?>
                 </div>
                 <div class="product-card-content">
-                    <span class="product-card-category"><?php echo htmlspecialchars($producto['tipo_nombre']); ?></span>
-                    <h2 class="product-card-title" itemprop="name">
+                    <span class="product-card-category"><?php echo htmlspecialchars($producto['tipo_nombre'] ?? ''); ?></span>
+                    <h2 class="product-card-title">
                         <?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>
                     </h2>
-                    <meta itemprop="url" content="<?php echo $productoUrl; ?>">
                     <?php if (!empty($producto['procedencia_nombre'])): ?>
-                    <p class="product-card-origin" itemprop="brand"><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></p>
+                    <p class="product-card-origin"><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></p>
                     <?php endif; ?>
                     <div class="product-card-footer">
                         <?php if ($producto['precio_venta'] > 0 && !empty($producto['tiene_stock'])): ?>
-                        <span class="product-card-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                            <span itemprop="price" content="<?php echo aplicarDescuento($producto['precio_venta']); ?>"><?php echo formatPrecioWeb($producto['precio_venta']); ?></span>
-                            <meta itemprop="priceCurrency" content="EUR">
-                        </span>
+                        <span class="product-card-price"><?php echo formatPrecioWeb($producto['precio_venta']); ?></span>
                         <?php else: ?>
                         <span class="product-card-price">Consultar</span>
                         <?php endif; ?>
@@ -155,6 +184,8 @@ include ROOT_PATH . '/includes/header.php';
             </a>
             <?php endforeach; ?>
         </div>
+
+        <?php echo renderPaginacion($paginacion); ?>
         <?php else: ?>
         <div class="no-results">
             <h2>No se encontraron productos</h2>
@@ -203,5 +234,7 @@ include ROOT_PATH . '/includes/header.php';
         </div>
     </div>
 </section>
+
+<?php echo renderFaqs($faqs, 'Preguntas frecuentes sobre los vinos'); ?>
 
 <?php include ROOT_PATH . '/includes/footer.php'; ?>

@@ -2,8 +2,16 @@
 if (!isset($pageTitle)) $pageTitle = SITE_NAME;
 if (!isset($pageDescription)) $pageDescription = SITE_DESCRIPTION;
 if (!isset($pageType)) $pageType = 'website';
-if (!isset($pageImage)) $pageImage = getBaseUrl() . '/images/og-default.jpg';
-$currentUrl = getBaseUrl() . $_SERVER['REQUEST_URI'];
+if (!isset($pageImage)) {
+    $pageImage = getBaseUrl() . '/images/og-default.jpg';
+    $pageImageWidth = 1200;
+    $pageImageHeight = 630;
+}
+// Canonical/og:url sin query string — evita duplicados de /contacto?producto=X, /buscar?q=X, etc.
+// Si una página necesita incluir parámetros en el canonical, puede fijar $currentUrl antes del include.
+if (!isset($currentUrl)) {
+    $currentUrl = getBaseUrl() . strtok($_SERVER['REQUEST_URI'], '?');
+}
 
 // Obtener tipos para submenús
 $tiposVinos = getTiposParaMenu('vinos');
@@ -25,7 +33,13 @@ $procedenciasVinos = getProcedencias(8);
         'description' => $pageDescription,
         'url' => $currentUrl,
         'image' => $pageImage,
-        'type' => $pageType
+        'type' => $pageType,
+        // $pageRobots permite marcar noindex en búsquedas internas y errores.
+        'robots' => $pageRobots ?? null,
+        'prev' => $pagePrev ?? null,
+        'next' => $pageNext ?? null,
+        'imageWidth' => $pageImageWidth ?? null,
+        'imageHeight' => $pageImageHeight ?? null
     ]); ?>
 
     <!-- Favicon -->
@@ -35,11 +49,15 @@ $procedenciasVinos = getProcedencias(8);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Fonts (async load to avoid render-blocking) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"></noscript>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?php echo getBaseUrl(); ?>/css/style.css">
+    <!-- CSS inlined to eliminate render-blocking request (critical path) -->
+    <style><?php readfile(ROOT_PATH . '/css/style.css'); ?></style>
+
+    <!-- JS (deferred — descarga en paralelo y ejecuta tras parseo del DOM) -->
+    <script src="<?php echo getBaseUrl(); ?>/js/main.js" defer></script>
 
     <!-- Schema.org -->
     <?php echo schemaOrganizacion(); ?>

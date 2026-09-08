@@ -11,11 +11,24 @@ $pageDescription = 'Descubre nuestra selección de vinos con D.O., cavas, champa
 $productosDestacados = getProductosDestacados(8);
 $stats = getEstadisticas();
 
+// Schema: tiene que asignarse ANTES del include, porque header.php es quien
+// imprime $schemaExtra. Asignarlo después dejaba la portada sin ItemList.
+$schemaExtra = schemaListaProductos($productosDestacados, 'Productos Destacados - ' . SITE_NAME);
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
 <!-- Hero Section -->
 <section class="hero">
+    <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1920&q=80"
+         srcset="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=800&q=80 800w,
+                 https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1200&q=80 1200w,
+                 https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1920&q=80 1920w"
+         sizes="100vw"
+         alt=""
+         class="hero-bg"
+         fetchpriority="high"
+         decoding="async">
     <div class="container">
         <div class="hero-content">
             <span class="hero-badge">Desde 1995</span>
@@ -87,8 +100,8 @@ include ROOT_PATH . '/includes/header.php';
             <?php $productoUrl = Router::url('producto', ['id' => $producto['id'], 'slug' => createSlug($producto['nombre'])]); ?>
             <a href="<?php echo $productoUrl; ?>" class="product-card">
                 <div class="product-card-image">
-                    <?php if (!empty($producto['foto'])): ?>
-                    <img src="<?php echo getBaseUrl(); ?>/images/productos/<?php echo htmlspecialchars($producto['foto']); ?>"
+                    <?php if (productoTieneFoto($producto)): ?>
+                    <img src="<?php echo getBaseUrl() . rutaFoto($producto); ?>"
                          alt="<?php echo htmlspecialchars($producto['nombre']); ?>" loading="lazy">
                     <?php else: ?>
                     <img src="<?php echo getBaseUrl(); ?>/images/no-image.svg"
@@ -192,7 +205,4 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
-<?php
-$schemaExtra = schemaListaProductos($productosDestacados, 'Productos Destacados - El Celler Nou');
-include ROOT_PATH . '/includes/footer.php';
-?>
+<?php include ROOT_PATH . '/includes/footer.php'; ?>

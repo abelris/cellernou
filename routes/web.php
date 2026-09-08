@@ -32,7 +32,10 @@ Router::get('/vinos/do/{id}/{slug}', 'VinosController', 'vinos.do');
 // =============================================
 
 Router::get('/cavas', 'CavasController', 'cavas');
-Router::get('/cavas-espumosos', 'CavasController', 'cavas'); // Alias
+// Alias histórico con nombre propio: si reutiliza el nombre 'cavas' sobreescribe
+// la ruta real en namedRoutes y Router::url('cavas') pasa a devolver el alias.
+// El controlador lo redirige 301 a /cavas.
+Router::get('/cavas-espumosos', 'CavasController', 'cavas.alias');
 Router::get('/cavas/tipo/{id}/{slug}', 'CavasController', 'cavas.tipo');
 
 // =============================================
@@ -68,6 +71,7 @@ Router::get('/wineworld/{cat_slug}/{art_slug}', 'WineWorldController', 'wineworl
 // PRODUCTOS
 // =============================================
 
+Router::get('/producto/k/{tipo}/{id}/{slug}', 'KomkalProductoController', 'producto.komkal');
 Router::get('/producto/{id}/{slug}', 'ProductoController', 'producto');
 Router::get('/producto/{id}', 'ProductoController', 'producto.simple');
 
@@ -78,6 +82,9 @@ Router::get('/producto/{id}', 'ProductoController', 'producto.simple');
 Router::get('/aviso-legal', 'LegalController', 'legal.aviso');
 Router::get('/politica-privacidad', 'LegalController', 'legal.privacidad');
 Router::get('/politica-cookies', 'LegalController', 'legal.cookies');
+Router::get('/politica-devoluciones', 'LegalController', 'legal.devoluciones');
+Router::get('/condiciones-de-venta', 'LegalController', 'legal.venta');
+Router::get('/politica-de-envios', 'LegalController', 'legal.envios');
 
 // =============================================
 // SITEMAP Y SEO

@@ -8,10 +8,11 @@
     RewriteEngine On
     RewriteBase /
 
-    # Force HTTPS in production
-    RewriteCond %{HTTPS} off
+    # Force HTTPS and non-www in production (single 301 redirect)
     RewriteCond %{HTTP_HOST} ^(www\.)?cellernou\.com$ [NC]
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    RewriteCond %{HTTPS} off [OR]
+    RewriteCond %{HTTP_HOST} ^www\. [NC]
+    RewriteRule ^ https://cellernou.com%{REQUEST_URI} [L,R=301]
 
     # Bloquear acceso a carpetas sensibles
     RewriteRule ^includes/ - [F,L]
@@ -19,9 +20,18 @@
     RewriteRule ^routes/ - [F,L]
     RewriteRule ^sql/ - [F,L]
     RewriteRule ^public/ - [F,L]
+    RewriteRule ^productos/ - [F,L]
     RewriteRule ^distribucio/connexio/ - [F,L]
     RewriteRule ^distribucio/includes/ - [F,L]
     RewriteRule ^nbproject/ - [F,L]
+
+    # Bloquear scripts legacy en la raíz (reemplazados por el router o de uso interno)
+    RewriteRule ^producto\.php$ - [F,L]
+    RewriteRule ^cavas\.php$ - [F,L]
+    RewriteRule ^aviso-legal\.php$ - [F,L]
+    RewriteRule ^test\.php$ - [F,L]
+    RewriteRule ^prompts\.php$ - [F,L]
+    RewriteRule ^download_fotos\.php$ - [F,L]
 
     # Permitir acceso directo a archivos estáticos
     RewriteCond %{REQUEST_URI} \.(css|js|jpg|jpeg|png|gif|svg|ico|woff|woff2|ttf|eot|pdf)$ [NC]
@@ -57,7 +67,15 @@ Options +FollowSymLinks
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
-    Header set X-XSS-Protection "1; mode=block"
+
+    # X-XSS-Protection está obsoleto: los navegadores modernos lo ignoran y en
+    # su día introdujo vulnerabilidades propias. Se retira.
+
+    # No filtrar la URL completa a terceros al salir del sitio.
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Desactivar APIs del navegador que la web no usa.
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
 </IfModule>
 
 # =============================================

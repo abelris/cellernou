@@ -6,12 +6,9 @@
 $pageTitle = 'Página no encontrada | El Celler Nou';
 $pageDescription = 'La página que buscas no existe. Explora nuestro catálogo de vinos, licores, cavas y más.';
 
-$breadcrumbItems = [
-    ['name' => 'Inicio', 'url' => Router::url('home')],
-    ['name' => 'Página no encontrada', 'url' => '#']
-];
-
-$schemaExtra = schemaBreadcrumb($breadcrumbItems);
+// Una página de error no se indexa ni emite schema: el BreadcrumbList que
+// había aquí llevaba además un item "#", que no es una URL válida.
+$pageRobots = 'noindex, follow';
 
 include ROOT_PATH . '/includes/header.php';
 ?>

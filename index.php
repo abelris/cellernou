@@ -10,6 +10,7 @@ define('ROOT_PATH', __DIR__);
 require_once ROOT_PATH . '/includes/config.php';
 require_once ROOT_PATH . '/includes/functions.php';
 require_once ROOT_PATH . '/includes/seo.php';
+require_once ROOT_PATH . '/includes/faqs.php';
 
 // Cargar Router
 require_once ROOT_PATH . '/routes/Router.php';

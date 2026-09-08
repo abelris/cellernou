@@ -550,20 +550,27 @@ p {
     overflow: hidden;
 }
 
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background-image:
-        linear-gradient(to right, rgba(26, 26, 26, 0.95) 0%, rgba(114, 47, 55, 0.7) 50%, rgba(26, 26, 26, 0.6) 100%),
-        url('https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1920&q=80');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.95) 0%, rgba(114, 47, 55, 0.7) 50%, rgba(26, 26, 26, 0.6) 100%);
+    z-index: 1;
 }
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 700px;
     color: white;
     padding: var(--spacing-3xl) 0;
@@ -1512,6 +1519,7 @@ p {
    ============================================ */
 .pagination {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: var(--spacing-xs);
@@ -1535,9 +1543,152 @@ p {
     background: var(--color-bg-alt);
 }
 
-.pagination .current {
+.pagination .current,
+.pagination .is-current {
     background: var(--color-primary);
     color: white;
+}
+
+.pagination-gap {
+    min-width: 0 !important;
+    padding: 0 !important;
+    color: var(--color-text-light);
+}
+
+.pagination-prev,
+.pagination-next {
+    font-weight: 600;
+}
+
+.pagination a:focus-visible,
+.pagination span:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+
+/* ============================================
+   HORARIO DE TIENDA (contacto)
+   ============================================ */
+.horario-tabla {
+    width: 100%;
+    max-width: 320px;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.horario-tabla th,
+.horario-tabla td {
+    padding: 5px 0;
+    text-align: left;
+    font-weight: 400;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.horario-tabla th {
+    color: var(--color-text-light);
+    padding-right: var(--spacing-md);
+}
+
+.horario-tabla tr:last-child th,
+.horario-tabla tr:last-child td {
+    border-bottom: none;
+}
+
+.horario-tabla tr.is-today th,
+.horario-tabla tr.is-today td {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.estado-tienda {
+    display: inline-block;
+    margin-left: var(--spacing-sm);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    vertical-align: 2px;
+}
+
+.estado-tienda.is-open {
+    background: #E4F3E9;
+    color: #2F6B45;
+}
+
+.estado-tienda.is-closed {
+    background: var(--color-bg-alt);
+    color: var(--color-text-light);
+}
+
+
+/* ============================================
+   FAQ (listados de categoría)
+   ============================================ */
+.faq-section {
+    background: var(--color-bg-alt);
+}
+
+.faq-list {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.faq-item {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.faq-question {
+    cursor: pointer;
+    list-style: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-weight: 600;
+    font-size: 1.0625rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-question::after {
+    content: "+";
+    flex: 0 0 auto;
+    font-weight: 400;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    color: var(--color-primary);
+    transition: transform var(--transition-fast);
+}
+
+.faq-item[open] > .faq-question::after {
+    content: "2";
+}
+
+.faq-question:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+}
+
+.faq-answer {
+    padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+.faq-answer p {
+    margin: 0;
+    color: var(--color-text-light);
+    max-width: 68ch;
 }
 
 /* ============================================

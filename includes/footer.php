@@ -95,6 +95,9 @@
                         <a href="<?php echo Router::url('legal.aviso'); ?>">Aviso Legal</a>
                         <a href="<?php echo Router::url('legal.privacidad'); ?>">Política de Privacidad</a>
                         <a href="<?php echo Router::url('legal.cookies'); ?>">Cookies</a>
+                        <a href="<?php echo Router::url('legal.venta'); ?>">Condiciones de Venta</a>
+                        <a href="<?php echo Router::url('legal.envios'); ?>">Envíos</a>
+                        <a href="<?php echo Router::url('legal.devoluciones'); ?>">Devoluciones</a>
                     </nav>
                 </div>
             </div>
@@ -123,6 +126,10 @@
         <symbol id="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
             <circle cx="12" cy="10" r="3"></circle>
+        </symbol>
+        <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v5l3.5 2"></path>
         </symbol>
         <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor">
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
@@ -179,6 +186,5 @@
         </div>
     </div>
 
-    <script src="<?php echo getBaseUrl(); ?>/js/main.js"></script>
 </body>
 </html>

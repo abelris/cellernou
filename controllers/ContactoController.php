@@ -126,6 +126,36 @@ include ROOT_PATH . '/includes/header.php';
                             <p><?php echo SITE_ADDRESS; ?></p>
                         </div>
                     </div>
+
+                    <?php
+                    // El horario sale de SITE_OPENING_HOURS, la misma constante que
+                    // alimenta openingHoursSpecification: lo visible y lo marcado no
+                    // pueden desviarse porque son el mismo dato.
+                    $horario = getHorarioPorDia();
+                    $abierto = tiendaAbiertaAhora();
+                    ?>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg class="icon"><use href="#icon-clock"></use></svg>
+                        </div>
+                        <div class="contact-item-content">
+                            <h3>Horario
+                                <span class="estado-tienda <?php echo $abierto ? 'is-open' : 'is-closed'; ?>">
+                                    <?php echo $abierto ? 'Abierto ahora' : 'Cerrado ahora'; ?>
+                                </span>
+                            </h3>
+                            <table class="horario-tabla">
+                                <tbody>
+                                <?php foreach ($horario as $dia => $tramos): ?>
+                                    <tr<?php echo $dia === date('l') ? ' class="is-today"' : ''; ?>>
+                                        <th scope="row"><?php echo DIAS_SEMANA_ES[$dia]; ?></th>
+                                        <td><?php echo $tramos ? htmlspecialchars(implode(' · ', $tramos)) : 'Cerrado'; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
 
                 <div style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-xl); border-top: 1px solid var(--color-border);">

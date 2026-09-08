@@ -410,10 +410,7 @@ function getProductoUrl($producto) {
  * Obtener imagen del producto
  */
 function getProductoImagen($producto, $size = 'medium') {
-    if (!empty($producto['foto'])) {
-        return getBaseUrl() . '/images/productos/' . $producto['foto'];
-    }
-    return getBaseUrl() . '/images/no-image.svg';
+    return getBaseUrl() . rutaFoto($producto);
 }
 
 /**
@@ -421,6 +418,331 @@ function getProductoImagen($producto, $size = 'medium') {
  */
 function formatPrecio($precio) {
     return number_format($precio, 2, ',', '.') . ' €';
+}
+
+// =============================================
+// KOMKAL - Productes del catàleg Komkal no vinculats
+// =============================================
+
+/**
+ * Get unmatched Komkal products for public display.
+ * Returns array formatted like productos rows (same keys) so templates work.
+ * @param string $tipo 'vinos' or 'licores'
+ * @param int $limit 0 = no limit
+ */
+function getKomkalProductosNoVinculats($tipo, $limit = 0) {
+    global $bd;
+    if (!in_array($tipo, ['vinos', 'licores'])) return [];
+
+    $tabla = 'komkal_' . $tipo;
+    $margen = ($tipo === 'vinos') ? 1.25 : 1.20;
+    $iva = 1.21;
+
+    $sql = "SELECT k.id, k.codigo_komkal as codigo, k.nombre,
+                   k.precio_sin_iva as precio_medio,
+                   ROUND(k.precio_sin_iva * $margen * $iva, 2) as precio_venta,
+                   1 as tiene_stock,
+                   k.disponible,
+                   NULL as foto,
+                   NULL as tipo_nombre,
+                   NULL as procedencia_nombre,
+                   '$tipo' as komkal_tipo
+            FROM $tabla k
+            WHERE k.id_producto_match IS NULL
+            AND k.disponible = 1
+            AND k.precio_sin_iva IS NOT NULL
+            AND k.precio_sin_iva > 0
+            ORDER BY k.nombre";
+
+    if ($limit > 0) $sql .= " LIMIT " . intval($limit);
+
+    $result = mysqli_query($bd, $sql);
+    $productos = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Mark as Komkal product for URL generation
+            $row['es_komkal'] = true;
+            $row['komkal_url'] = '/producto/k/' . $tipo . '/' . $row['id'] . '/' . createSlug($row['nombre']);
+            $productos[] = $row;
+        }
+    }
+    return $productos;
+}
+
+/**
+ * Get a single Komkal product by ID for the detail page.
+ */
+function getKomkalProductoById($tipo, $id) {
+    global $bd;
+    if (!in_array($tipo, ['vinos', 'licores'])) return null;
+
+    $tabla = 'komkal_' . $tipo;
+    $margen = ($tipo === 'vinos') ? 1.25 : 1.20;
+    $iva = 1.21;
+    $id = intval($id);
+
+    $sql = "SELECT k.id, k.codigo_komkal as codigo, k.nombre,
+                   k.precio_sin_iva as precio_medio,
+                   ROUND(k.precio_sin_iva * $margen * $iva, 2) as precio_venta,
+                   1 as tiene_stock,
+                   k.disponible, k.url as komkal_url_origen,
+                   NULL as foto, NULL as tipo_nombre, NULL as procedencia_nombre,
+                   NULL as descripcion, NULL as uvas_es,
+                   '$tipo' as komkal_tipo
+            FROM $tabla k
+            WHERE k.id = $id
+            AND k.id_producto_match IS NULL
+            AND k.disponible = 1
+            AND k.precio_sin_iva IS NOT NULL";
+
+    $result = mysqli_query($bd, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $row['es_komkal'] = true;
+        return $row;
+    }
+    return null;
+}
+
+/**
+ * Search unmatched Komkal products by name.
+ */
+function buscarKomkalProductos($query, $limit = 50) {
+    global $bd;
+    $query = sanitize($query);
+    if (empty($query)) return [];
+
+    $results = [];
+    foreach (['vinos' => 1.25, 'licores' => 1.20] as $tipo => $margen) {
+        $tabla = 'komkal_' . $tipo;
+        $iva = 1.21;
+        $sql = "SELECT k.id, k.codigo_komkal as codigo, k.nombre,
+                       k.precio_sin_iva as precio_medio,
+                       ROUND(k.precio_sin_iva * $margen * $iva, 2) as precio_venta,
+                       1 as tiene_stock,
+                       NULL as foto, NULL as tipo_nombre, NULL as procedencia_nombre,
+                       '$tipo' as komkal_tipo
+                FROM $tabla k
+                WHERE k.id_producto_match IS NULL
+                AND k.disponible = 1
+                AND k.precio_sin_iva IS NOT NULL
+                AND k.nombre LIKE '%$query%'
+                ORDER BY
+                    CASE WHEN k.nombre LIKE '$query%' THEN 1
+                         WHEN k.nombre LIKE '%$query%' THEN 2
+                         ELSE 3 END,
+                    k.nombre
+                LIMIT " . intval($limit);
+
+        $r = mysqli_query($bd, $sql);
+        if ($r) {
+            while ($row = mysqli_fetch_assoc($r)) {
+                $row['es_komkal'] = true;
+                $row['komkal_url'] = '/producto/k/' . $tipo . '/' . $row['id'] . '/' . createSlug($row['nombre']);
+                $results[] = $row;
+            }
+        }
+    }
+    return $results;
+}
+
+/**
+ * Generate URL for a product (works for both regular and Komkal).
+ */
+function getProductoUrlUniversal($producto) {
+    if (!empty($producto['es_komkal'])) {
+        return $producto['komkal_url'] ?? '/producto/k/' . $producto['komkal_tipo'] . '/' . $producto['id'] . '/' . createSlug($producto['nombre']);
+    }
+    return '/producto/' . $producto['id'] . '/' . createSlug($producto['nombre']);
+}
+
+/**
+ * ¿Existe en disco el archivo de foto de este producto?
+ *
+ * producto_fotos guarda nombres de archivo que no siempre se llegaron a
+ * descargar: hay filas apuntando a imágenes que no están en images/productos.
+ * Publicar esas rutas deja un <img> roto en la página y, peor, un
+ * Product.image apuntando a un 404 en el schema. Este guard evita las dos cosas.
+ *
+ * El resultado se cachea en memoria por petición: un listado de 36 productos
+ * hace 36 comprobaciones, no una por cada sitio donde se consulta.
+ */
+function productoTieneFoto($producto) {
+    static $cache = [];
+
+    if (empty($producto['foto'])) return false;
+
+    $foto = $producto['foto'];
+    if (!isset($cache[$foto])) {
+        $cache[$foto] = is_file(ROOT_PATH . '/images/productos/' . $foto);
+    }
+
+    return $cache[$foto];
+}
+
+/**
+ * Ruta pública de la foto de un producto, con el nombre de archivo codificado.
+ *
+ * Hay imágenes guardadas con espacios y paréntesis ("terras gauda.jpg",
+ * "pacharan_zoco-500x500 (1).jpg"). Los navegadores toleran un espacio en un
+ * src, pero un espacio sin codificar hace inválido el URI de Product.image y
+ * rompe a los scrapers de Open Graph. rawurlencode solo el nombre, nunca las
+ * barras de la ruta.
+ *
+ * Devuelve la ruta relativa a la raíz del sitio, empezando por "/".
+ */
+function rutaFoto($producto) {
+    if (!productoTieneFoto($producto)) {
+        return '/images/no-image.svg';
+    }
+    return '/images/productos/' . rawurlencode($producto['foto']);
+}
+
+/**
+ * URL absoluta de un producto (regular o Komkal).
+ * Para schema.org, canonical, og:url y sitemap: siempre con dominio.
+ */
+function getProductoUrlAbs($producto) {
+    return rtrim(SITE_URL, '/') . getProductoUrlUniversal($producto);
+}
+
+/**
+ * URL absoluta de la imagen de un producto.
+ */
+function getProductoImagenAbs($producto) {
+    return rtrim(SITE_URL, '/') . rutaFoto($producto);
+}
+
+/**
+ * Agrupar SITE_OPENING_HOURS por día de la semana.
+ *
+ * Devuelve ['Monday' => ['09:30 - 14:00', '17:00 - 20:30'], ...] en orden
+ * natural de lunes a domingo. Se usa para pintar el horario en /contacto, de
+ * modo que lo que se muestra sea exactamente lo que declara el schema.
+ */
+function getHorarioPorDia() {
+    $orden = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    $porDia = array_fill_keys($orden, []);
+
+    foreach (SITE_OPENING_HOURS as $tramo) {
+        foreach ($tramo['dias'] as $dia) {
+            if (!isset($porDia[$dia])) continue;
+            $porDia[$dia][] = $tramo['opens'] . ' - ' . $tramo['closes'];
+        }
+    }
+
+    foreach ($porDia as $dia => $tramos) {
+        sort($tramos);
+        $porDia[$dia] = $tramos;
+    }
+
+    return $porDia;
+}
+
+/**
+ * ¿Está la tienda abierta ahora mismo? Devuelve true/false.
+ * Zona horaria: la del sitio (Europe/Madrid, fijada en config.php).
+ */
+function tiendaAbiertaAhora() {
+    $dia  = date('l');
+    $hora = date('H:i');
+
+    foreach (SITE_OPENING_HOURS as $tramo) {
+        if (!in_array($dia, $tramo['dias'], true)) continue;
+        if ($hora >= $tramo['opens'] && $hora < $tramo['closes']) return true;
+    }
+    return false;
+}
+
+// =============================================
+// PAGINACIÓN
+// =============================================
+
+/**
+ * Paginar un array de productos.
+ *
+ * Devuelve la porción de la página actual más los metadatos necesarios para
+ * el canonical, los rel prev/next y el offset del ItemList.
+ *
+ * @param array  $items    Colección completa.
+ * @param string $baseUrl  Ruta base sin query string (p. ej. '/vinos').
+ * @param int    $porPagina
+ */
+function paginar(array $items, $baseUrl, $porPagina = null) {
+    $porPagina = $porPagina ?: PRODUCTOS_POR_PAGINA;
+    $total     = count($items);
+    $paginas   = max(1, (int) ceil($total / $porPagina));
+
+    $actual = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+    if ($actual < 1) $actual = 1;
+    if ($actual > $paginas) $actual = $paginas;
+
+    $offset = ($actual - 1) * $porPagina;
+
+    // La página 1 se canonicaliza sin ?page=1 para no duplicar /vinos.
+    $urlDe = function ($n) use ($baseUrl) {
+        return $n <= 1 ? $baseUrl : $baseUrl . '?page=' . $n;
+    };
+
+    return [
+        'items'      => array_slice($items, $offset, $porPagina),
+        'total'      => $total,
+        'porPagina'  => $porPagina,
+        'paginas'    => $paginas,
+        'actual'     => $actual,
+        'offset'     => $offset,
+        'baseUrl'    => $baseUrl,
+        'canonical'  => $urlDe($actual),
+        'prev'       => $actual > 1 ? $urlDe($actual - 1) : null,
+        'next'       => $actual < $paginas ? $urlDe($actual + 1) : null,
+        'urlDe'      => $urlDe
+    ];
+}
+
+/**
+ * Render de la navegación de paginación.
+ * Muestra primera, última, y una ventana alrededor de la página actual.
+ */
+function renderPaginacion(array $p) {
+    if ($p['paginas'] <= 1) return '';
+
+    $urlDe   = $p['urlDe'];
+    $actual  = $p['actual'];
+    $paginas = $p['paginas'];
+
+    $html = '<nav class="pagination" aria-label="Paginación de resultados">';
+
+    if ($p['prev']) {
+        $html .= '<a class="pagination-link pagination-prev" rel="prev" href="' . htmlspecialchars($p['prev']) . '">&larr; Anterior</a>';
+    }
+
+    $numeros = [1, $paginas];
+    for ($i = $actual - 2; $i <= $actual + 2; $i++) {
+        if ($i >= 1 && $i <= $paginas) $numeros[] = $i;
+    }
+    $numeros = array_unique($numeros);
+    sort($numeros);
+
+    $anterior = 0;
+    foreach ($numeros as $n) {
+        if ($anterior && $n > $anterior + 1) {
+            $html .= '<span class="pagination-gap" aria-hidden="true">&hellip;</span>';
+        }
+        if ($n === $actual) {
+            $html .= '<span class="pagination-link is-current" aria-current="page">' . $n . '</span>';
+        } else {
+            $html .= '<a class="pagination-link" href="' . htmlspecialchars($urlDe($n)) . '">' . $n . '</a>';
+        }
+        $anterior = $n;
+    }
+
+    if ($p['next']) {
+        $html .= '<a class="pagination-link pagination-next" rel="next" href="' . htmlspecialchars($p['next']) . '">Siguiente &rarr;</a>';
+    }
+
+    $html .= '</nav>';
+
+    return $html;
 }
 
 /**
@@ -450,6 +772,17 @@ function normalizarNombre($nombre) {
     // Dividir en palabras
     $palabras = preg_split('/(\s+)/', $nombre, -1, PREG_SPLIT_DELIM_CAPTURE);
 
+    // Apóstrofo elidido catalán/francés (d'Encis, l'Ermita, s'Albufera).
+    // mb_convert_case lo trata como fin de palabra y devolvía "D'encis":
+    // hay que poner en mayúscula la parte que va DESPUÉS del apóstrofo.
+    $titularConApostrofo = function ($palabra, $prefijoEnMayuscula) {
+        if (!preg_match("/^([dlnstm])['\xe2\x80\x99](.+)$/u", $palabra, $m)) {
+            return null;
+        }
+        $prefijo = $prefijoEnMayuscula ? mb_strtoupper($m[1], 'UTF-8') : $m[1];
+        return $prefijo . "'" . mb_convert_case($m[2], MB_CASE_TITLE, 'UTF-8');
+    };
+
     $resultado = [];
     $esPrimera = true;
 
@@ -462,7 +795,8 @@ function normalizarNombre($nombre) {
 
         // La primera palabra siempre en mayúscula
         if ($esPrimera) {
-            $resultado[] = mb_convert_case($palabra, MB_CASE_TITLE, 'UTF-8');
+            $resultado[] = $titularConApostrofo($palabra, true)
+                ?? mb_convert_case($palabra, MB_CASE_TITLE, 'UTF-8');
             $esPrimera = false;
         }
         // Si es una excepción, mantener en minúscula
@@ -471,7 +805,8 @@ function normalizarNombre($nombre) {
         }
         // El resto en Title Case
         else {
-            $resultado[] = mb_convert_case($palabra, MB_CASE_TITLE, 'UTF-8');
+            $resultado[] = $titularConApostrofo($palabra, false)
+                ?? mb_convert_case($palabra, MB_CASE_TITLE, 'UTF-8');
         }
     }
 
