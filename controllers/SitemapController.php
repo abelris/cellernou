@@ -78,61 +78,56 @@ $add('/politica-de-envios', 'yearly', '0.4', $hoy);
 // =============================================
 
 // Vinos: por tipo y por D.O.
-$vinos = getProductosBySector(8);
 $add('/vinos', 'daily', '0.9', $hoy);
-$addPaginas('/vinos', count($vinos), 'daily', '0.6');
+$addPaginas('/vinos', contarProductosPorSector(8), 'daily', '0.6');
 
 foreach (getTiposBySector(8) as $tipo) {
     $path = '/vinos/tipo/' . $tipo['id'] . '/' . createSlug($tipo['nombre_es']);
     $add($path, 'weekly', '0.7');
-    $addPaginas($path, count(getProductosByTipo($tipo['id'], 8)), 'weekly', '0.5');
+    $addPaginas($path, contarProductosPorTipo($tipo['id'], 8), 'weekly', '0.5');
 }
 
 foreach (getProcedencias(8) as $proc) {
     if (strpos($proc['nombre_es'], 'D.O.') === false) continue;
     $path = '/vinos/do/' . $proc['id'] . '/' . createSlug($proc['nombre_es']);
     $add($path, 'weekly', '0.7');
-    $addPaginas($path, count(getProductosByProcedencia($proc['id'], 8)), 'weekly', '0.5');
+    $addPaginas($path, contarProductosPorProcedencia($proc['id'], 8), 'weekly', '0.5');
 }
 
 // Cavas y espumosos (faltaban los filtros por tipo)
-$cavas = getProductosBySector(14);
 $add('/cavas', 'weekly', '0.8', $hoy);
-$addPaginas('/cavas', count($cavas), 'weekly', '0.5');
+$addPaginas('/cavas', contarProductosPorSector(14), 'weekly', '0.5');
 foreach (getTiposBySector(14) as $tipo) {
     $path = '/cavas/tipo/' . $tipo['id'] . '/' . createSlug($tipo['nombre_es']);
     $add($path, 'weekly', '0.6');
-    $addPaginas($path, count(getProductosByTipo($tipo['id'], 14)), 'weekly', '0.4');
+    $addPaginas($path, contarProductosPorTipo($tipo['id'], 14), 'weekly', '0.4');
 }
 
 // Licores
-$licores = getProductosBySector(2);
 $add('/licores', 'weekly', '0.8', $hoy);
-$addPaginas('/licores', count($licores), 'weekly', '0.5');
+$addPaginas('/licores', contarProductosPorSector(2), 'weekly', '0.5');
 foreach (getTiposBySector(2) as $tipo) {
     $path = '/licores/tipo/' . $tipo['id'] . '/' . createSlug($tipo['nombre_es']);
     $add($path, 'weekly', '0.6');
-    $addPaginas($path, count(getProductosByTipo($tipo['id'], 2)), 'weekly', '0.4');
+    $addPaginas($path, contarProductosPorTipo($tipo['id'], 2), 'weekly', '0.4');
 }
 
 // Cervezas (faltaban los filtros por origen)
-$cervezas = getProductosBySector(21);
 $add('/cervezas', 'weekly', '0.7', $hoy);
-$addPaginas('/cervezas', count($cervezas), 'weekly', '0.5');
+$addPaginas('/cervezas', contarProductosPorSector(21), 'weekly', '0.5');
 foreach (getProcedencias(21) as $proc) {
     $path = '/cervezas/origen/' . $proc['id'] . '/' . createSlug($proc['nombre_es']);
     $add($path, 'weekly', '0.6');
-    $addPaginas($path, count(getProductosByProcedencia($proc['id'], 21)), 'weekly', '0.4');
+    $addPaginas($path, contarProductosPorProcedencia($proc['id'], 21), 'weekly', '0.4');
 }
 
 // Conservas (faltaban los filtros por tipo)
-$conservas = getProductosBySector(12);
 $add('/conservas', 'weekly', '0.7', $hoy);
-$addPaginas('/conservas', count($conservas), 'weekly', '0.5');
+$addPaginas('/conservas', contarProductosPorSector(12), 'weekly', '0.5');
 foreach (getTiposBySector(12) as $tipo) {
     $path = '/conservas/tipo/' . $tipo['id'] . '/' . createSlug($tipo['nombre_es']);
     $add($path, 'weekly', '0.6');
-    $addPaginas($path, count(getProductosByTipo($tipo['id'], 12)), 'weekly', '0.4');
+    $addPaginas($path, contarProductosPorTipo($tipo['id'], 12), 'weekly', '0.4');
 }
 
 // =============================================
@@ -160,7 +155,7 @@ foreach (getWWCategorias() as $wwCat) {
 // Un mismo producto podía estar en dos sectores permitidos y salía repetido;
 // al indexar por URL el duplicado desaparece solo.
 foreach (SECTORES_PERMITIDOS as $sectorId) {
-    foreach (getProductosBySector($sectorId) as $producto) {
+    foreach (getProductosMinimoPorSector($sectorId) as $producto) {
         $lastmod = (!empty($producto['alta']) && strpos($producto['alta'], '0000') !== 0)
             ? date('Y-m-d', strtotime($producto['alta']))
             : null;
@@ -170,7 +165,7 @@ foreach (SECTORES_PERMITIDOS as $sectorId) {
 
 // Productos del catálogo Komkal sin vincular: tienen ficha pública propia.
 foreach (['vinos', 'licores'] as $komkalTipo) {
-    foreach (getKomkalProductosNoVinculats($komkalTipo) as $producto) {
+    foreach (getKomkalMinimo($komkalTipo) as $producto) {
         $add('/producto/k/' . $komkalTipo . '/' . $producto['id'] . '/' . createSlug($producto['nombre']), 'weekly', '0.4');
     }
 }

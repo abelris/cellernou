@@ -62,8 +62,10 @@ function getProductosBySector($idSector, $limit = 0, $offset = 0) {
                    pr.nombre_es as procedencia_nombre,
                    s.nombre_es as sector_nombre
             FROM productos p
-            LEFT JOIN producto_fotos pf ON pf.idProducto = p.id AND pf.principal = 1
-            LEFT JOIN precios_producto_tienda ppt ON ppt.idProducto = p.id AND ppt.idTienda = 1
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
             LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
             LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
             LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
@@ -100,8 +102,10 @@ function getProductosByTipo($idTipo, $idSector = null, $limit = 0) {
                    pr.nombre_es as procedencia_nombre,
                    s.nombre_es as sector_nombre
             FROM productos p
-            LEFT JOIN producto_fotos pf ON pf.idProducto = p.id AND pf.principal = 1
-            LEFT JOIN precios_producto_tienda ppt ON ppt.idProducto = p.id AND ppt.idTienda = 1
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
             LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
             LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
             LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
@@ -144,8 +148,10 @@ function getProductosByProcedencia($idProcedencia, $idSector = null, $limit = 0)
                    pr.nombre_es as procedencia_nombre,
                    s.nombre_es as sector_nombre
             FROM productos p
-            LEFT JOIN producto_fotos pf ON pf.idProducto = p.id AND pf.principal = 1
-            LEFT JOIN precios_producto_tienda ppt ON ppt.idProducto = p.id AND ppt.idTienda = 1
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
             LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
             LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
             LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
@@ -189,8 +195,10 @@ function getProductoById($id) {
                    pr.nombre_es as procedencia_nombre,
                    s.nombre_es as sector_nombre
             FROM productos p
-            LEFT JOIN producto_fotos pf ON pf.idProducto = p.id AND pf.principal = 1
-            LEFT JOIN precios_producto_tienda ppt ON ppt.idProducto = p.id AND ppt.idTienda = 1
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
             LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
             LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
             LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
@@ -222,8 +230,10 @@ function buscarProductos($query, $limit = 50) {
                    pr.nombre_es as procedencia_nombre,
                    s.nombre_es as sector_nombre
             FROM productos p
-            LEFT JOIN producto_fotos pf ON pf.idProducto = p.id AND pf.principal = 1
-            LEFT JOIN precios_producto_tienda ppt ON ppt.idProducto = p.id AND ppt.idTienda = 1
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
             LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
             LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
             LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
@@ -265,8 +275,10 @@ function getProductosDestacados($limit = 12) {
                    pr.nombre_es as procedencia_nombre,
                    s.nombre_es as sector_nombre
             FROM productos p
-            LEFT JOIN producto_fotos pf ON pf.idProducto = p.id AND pf.principal = 1
-            LEFT JOIN precios_producto_tienda ppt ON ppt.idProducto = p.id AND ppt.idTienda = 1
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
             LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
             LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
             LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
@@ -374,8 +386,10 @@ function getProductosRelacionados($producto, $limit = 4) {
                    tp.nombre_es as tipo_nombre,
                    pr.nombre_es as procedencia_nombre
             FROM productos p
-            LEFT JOIN producto_fotos pf ON pf.idProducto = p.id AND pf.principal = 1
-            LEFT JOIN precios_producto_tienda ppt ON ppt.idProducto = p.id AND ppt.idTienda = 1
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
             LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
             LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
             LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
@@ -652,6 +666,150 @@ function tiendaAbiertaAhora() {
         if ($hora >= $tramo['opens'] && $hora < $tramo['closes']) return true;
     }
     return false;
+}
+
+/**
+ * Existe en disco la imagen de un articulo o categoria de WineWorld?
+ *
+ * Mismo problema que con producto_fotos: hay filas que apuntan a imagenes que
+ * nunca se subieron. Publicar esa ruta deja un <img> roto y, peor, un
+ * Article.image y una og:image apuntando a un 404.
+ */
+function imagenWineWorldExiste($imagen) {
+    static $cache = [];
+    if (empty($imagen)) return false;
+    if (!isset($cache[$imagen])) {
+        $cache[$imagen] = is_file(ROOT_PATH . '/images/wineworld/' . $imagen);
+    }
+    return $cache[$imagen];
+}
+
+/**
+ * Completar las imagenes del cuerpo de un articulo de WineWorld.
+ *
+ * El HTML del articulo se guarda en la base de datos y sus <img> vienen sin
+ * width/height ni loading, asi que el layout salta al cargar. En lugar de
+ * pedir que se escriban a mano en cada articulo, se leen aqui las dimensiones
+ * reales del fichero y se inyectan al vuelo.
+ *
+ * Solo toca las etiquetas que no declaren ya un width, y solo si el archivo
+ * existe en disco: una imagen que falta se deja como esta.
+ */
+function completarImagenesArticulo($html) {
+    if (empty($html) || stripos($html, '<img') === false) {
+        return $html;
+    }
+
+    return preg_replace_callback('/<img\b[^>]*>/i', function ($m) {
+        $tag = $m[0];
+
+        if (stripos($tag, 'width=') !== false) return $tag;
+        if (!preg_match('/src="([^"]+)"/i', $tag, $src)) return $tag;
+
+        // Solo imagenes locales del propio sitio
+        $ruta = parse_url($src[1], PHP_URL_PATH);
+        if (!$ruta || strpos($ruta, '/images/') !== 0) return $tag;
+
+        // Si el archivo no esta, se retira la etiqueta en lugar de pintar un
+        // icono de imagen rota. En cuanto se suba el fichero vuelve a salir
+        // sola: no hay que tocar el contenido del articulo.
+        $fichero = ROOT_PATH . rawurldecode($ruta);
+        if (!is_file($fichero)) return '';
+
+        $info = @getimagesize($fichero);
+        if (!$info) return $tag;
+
+        $extra = ' width="' . $info[0] . '" height="' . $info[1] . '" decoding="async"';
+        if (stripos($tag, 'loading=') === false) {
+            $extra .= ' loading="lazy"';
+        }
+
+        return rtrim(substr($tag, 0, -1)) . $extra . '>';
+    }, $html);
+}
+
+// =============================================
+// CONSULTAS LIGERAS PARA EL SITEMAP
+// =============================================
+//
+// getProductosBySector() y compañía traen 7 LEFT JOIN, dos subconsultas
+// derivadas sobre stock_producto y linea_compra, y todas las columnas de cada
+// producto. Eso está bien para pintar un listado, pero el sitemap solo
+// necesita contar filas y leer id/nombre/fecha: hacerlo con esas funciones
+// significaba cargar el catálogo entero unas cincuenta veces.
+
+/**
+ * Contar productos activos de un sector.
+ */
+function contarProductosPorSector($idSector) {
+    global $bd;
+    $sql = "SELECT COUNT(*) FROM productos
+            WHERE idSector = " . intval($idSector) . " AND activo = 1";
+    $r = mysqli_query($bd, $sql);
+    return $r ? (int) mysqli_fetch_row($r)[0] : 0;
+}
+
+/**
+ * Contar productos activos de un tipo, opcionalmente dentro de un sector.
+ */
+function contarProductosPorTipo($idTipo, $idSector = null) {
+    global $bd;
+    $sql = "SELECT COUNT(*) FROM productos
+            WHERE idTipo = " . intval($idTipo) . "
+              AND activo = 1
+              AND idSector IN (" . implode(',', SECTORES_PERMITIDOS) . ")";
+    if ($idSector) $sql .= " AND idSector = " . intval($idSector);
+    $r = mysqli_query($bd, $sql);
+    return $r ? (int) mysqli_fetch_row($r)[0] : 0;
+}
+
+/**
+ * Contar productos activos de una procedencia, opcionalmente dentro de un sector.
+ */
+function contarProductosPorProcedencia($idProcedencia, $idSector = null) {
+    global $bd;
+    $sql = "SELECT COUNT(*) FROM productos
+            WHERE idProcedencia = " . intval($idProcedencia) . "
+              AND activo = 1
+              AND idSector IN (" . implode(',', SECTORES_PERMITIDOS) . ")";
+    if ($idSector) $sql .= " AND idSector = " . intval($idSector);
+    $r = mysqli_query($bd, $sql);
+    return $r ? (int) mysqli_fetch_row($r)[0] : 0;
+}
+
+/**
+ * id, nombre y fecha de alta de los productos activos de un sector.
+ * Es todo lo que el sitemap necesita para construir <loc> y <lastmod>.
+ */
+function getProductosMinimoPorSector($idSector) {
+    global $bd;
+    $sql = "SELECT id, nombre, alta FROM productos
+            WHERE idSector = " . intval($idSector) . " AND activo = 1
+            ORDER BY id";
+    $r = mysqli_query($bd, $sql);
+    $out = [];
+    if ($r) while ($row = mysqli_fetch_assoc($r)) $out[] = $row;
+    return $out;
+}
+
+/**
+ * id y nombre de los productos Komkal sin vincular. Sin margenes ni precios:
+ * el sitemap solo necesita construir la URL.
+ */
+function getKomkalMinimo($tipo) {
+    global $bd;
+    if (!in_array($tipo, ['vinos', 'licores'], true)) return [];
+    $tabla = 'komkal_' . $tipo;
+    $sql = "SELECT id, nombre FROM $tabla
+            WHERE id_producto_match IS NULL
+              AND disponible = 1
+              AND precio_sin_iva IS NOT NULL
+              AND precio_sin_iva > 0
+            ORDER BY id";
+    $r = mysqli_query($bd, $sql);
+    $out = [];
+    if ($r) while ($row = mysqli_fetch_assoc($r)) $out[] = $row;
+    return $out;
 }
 
 // =============================================

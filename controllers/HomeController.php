@@ -27,6 +27,7 @@ include ROOT_PATH . '/includes/header.php';
          sizes="100vw"
          alt=""
          class="hero-bg"
+         width="1920" height="1280"
          fetchpriority="high"
          decoding="async">
     <div class="container">
@@ -96,16 +97,19 @@ include ROOT_PATH . '/includes/header.php';
         </div>
 
         <div class="products-grid">
-            <?php foreach ($productosDestacados as $producto): ?>
+            <?php foreach ($productosDestacados as $iProd => $producto): ?>
             <?php $productoUrl = Router::url('producto', ['id' => $producto['id'], 'slug' => createSlug($producto['nombre'])]); ?>
             <a href="<?php echo $productoUrl; ?>" class="product-card">
                 <div class="product-card-image">
+                    <?php $imgCarga = $iProd < 4 ? 'fetchpriority="high"' : 'loading="lazy"'; ?>
                     <?php if (productoTieneFoto($producto)): ?>
                     <img src="<?php echo getBaseUrl() . rutaFoto($producto); ?>"
-                         alt="<?php echo htmlspecialchars($producto['nombre']); ?>" loading="lazy">
+                         alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                         width="300" height="300" decoding="async" <?php echo $imgCarga; ?>>
                     <?php else: ?>
                     <img src="<?php echo getBaseUrl(); ?>/images/no-image.svg"
-                         alt="<?php echo htmlspecialchars($producto['nombre']); ?>" loading="lazy">
+                         alt="<?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>"
+                         width="300" height="300" decoding="async" <?php echo $imgCarga; ?>>
                     <?php endif; ?>
                     <?php if (!empty($producto['procedencia_nombre']) && strpos($producto['procedencia_nombre'], 'D.O.') !== false): ?>
                     <span class="product-card-badge"><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></span>

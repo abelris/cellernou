@@ -519,7 +519,9 @@ function schemaArticulo($articulo, $categoria) {
             : ['@id' => schemaTiendaId()]
     ];
 
-    if (!empty($articulo['imagen'])) {
+    // Solo si el archivo existe: hay articulos que referencian imagenes que
+    // nunca se subieron, y una Article.image hacia un 404 es peor que ninguna.
+    if (imagenWineWorldExiste($articulo['imagen'] ?? null)) {
         $schema['image'] = schemaUrl('/images/wineworld/' . $articulo['imagen']);
     }
 

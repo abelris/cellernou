@@ -28,7 +28,7 @@ if ($catSlug && $artSlug) {
     $pageTitle = htmlspecialchars($articulo['titulo']) . ' | WineWorld - ' . SITE_NAME;
     $pageDescription = !empty($articulo['extracto']) ? mb_substr(strip_tags($articulo['extracto']), 0, 160) : 'Lee este artículo en WineWorld de ' . SITE_NAME;
     $pageType = 'article';
-    if (!empty($articulo['imagen'])) {
+    if (imagenWineWorldExiste($articulo['imagen'] ?? null)) {
         $pageImage = getBaseUrl() . '/images/wineworld/' . $articulo['imagen'];
     }
 
@@ -77,12 +77,13 @@ if ($catSlug && $artSlug) {
         </div>
     </section>
 
-    <?php if (!empty($articulo['imagen'])): ?>
+    <?php if (imagenWineWorldExiste($articulo['imagen'] ?? null)): ?>
     <div class="ww-article-featured-image">
         <div class="container">
             <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($articulo['imagen']); ?>"
                  alt="<?php echo htmlspecialchars($articulo['titulo']); ?>"
-                 loading="eager">
+                 width="1200" height="800" decoding="async"
+                 fetchpriority="high">
         </div>
     </div>
     <?php endif; ?>
@@ -91,7 +92,7 @@ if ($catSlug && $artSlug) {
     <section class="section">
         <div class="container">
             <div class="ww-article-content">
-                <?php echo $articulo['contenido']; ?>
+                <?php echo completarImagenesArticulo($articulo['contenido']); ?>
             </div>
         </div>
     </section>
@@ -108,9 +109,10 @@ if ($catSlug && $artSlug) {
                 <?php $relCategoria = getWWCategoriaById($rel['id_categoria']); ?>
                 <a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => $relCategoria['slug'], 'art_slug' => $rel['slug']]); ?>" class="ww-article-card">
                     <div class="ww-article-card-image">
-                        <?php if (!empty($rel['imagen'])): ?>
+                        <?php if (imagenWineWorldExiste($rel['imagen'] ?? null)): ?>
                         <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($rel['imagen']); ?>"
-                             alt="<?php echo htmlspecialchars($rel['titulo']); ?>" loading="lazy">
+                             alt="<?php echo htmlspecialchars($rel['titulo']); ?>"
+                             width="1200" height="800" decoding="async" loading="lazy">
                         <?php else: ?>
                         <div class="ww-article-card-placeholder" style="background: <?php echo htmlspecialchars($relCategoria['color'] ?: '#722F37'); ?>">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
@@ -190,9 +192,10 @@ if ($catSlug) {
                 <?php foreach ($articulos as $art): ?>
                 <a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => $categoria['slug'], 'art_slug' => $art['slug']]); ?>" class="ww-article-card">
                     <div class="ww-article-card-image">
-                        <?php if (!empty($art['imagen'])): ?>
+                        <?php if (imagenWineWorldExiste($art['imagen'] ?? null)): ?>
                         <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($art['imagen']); ?>"
-                             alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="lazy">
+                             alt="<?php echo htmlspecialchars($art['titulo']); ?>"
+                             width="1200" height="800" decoding="async" loading="lazy">
                         <?php else: ?>
                         <div class="ww-article-card-placeholder" style="background: <?php echo htmlspecialchars($categoria['color'] ?: '#722F37'); ?>">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
@@ -240,8 +243,9 @@ if ($catSlug) {
                 <?php foreach ($otrasCategorias as $cat): ?>
                 <a href="<?php echo Router::url('wineworld.categoria', ['cat_slug' => $cat['slug']]); ?>" class="ww-category-card" style="--cat-color: <?php echo htmlspecialchars($cat['color'] ?: '#722F37'); ?>">
                     <div class="ww-category-card-bg">
-                        <?php if (!empty($cat['imagen'])): ?>
-                        <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($cat['imagen']); ?>" alt="" loading="lazy">
+                        <?php if (imagenWineWorldExiste($cat['imagen'] ?? null)): ?>
+                        <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($cat['imagen']); ?>" alt=""
+                         width="1200" height="800" decoding="async" loading="lazy">
                         <?php endif; ?>
                     </div>
                     <div class="ww-category-card-content">
@@ -303,8 +307,9 @@ include ROOT_PATH . '/includes/header.php';
             ?>
             <a href="<?php echo Router::url('wineworld.categoria', ['cat_slug' => $cat['slug']]); ?>" class="ww-category-card ww-category-card--large" style="--cat-color: <?php echo htmlspecialchars($cat['color'] ?: '#722F37'); ?>">
                 <div class="ww-category-card-bg">
-                    <?php if (!empty($cat['imagen'])): ?>
-                    <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($cat['imagen']); ?>" alt="" loading="lazy">
+                    <?php if (imagenWineWorldExiste($cat['imagen'] ?? null)): ?>
+                    <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($cat['imagen']); ?>" alt=""
+                         width="1200" height="800" decoding="async" loading="lazy">
                     <?php endif; ?>
                 </div>
                 <div class="ww-category-card-content">
@@ -346,9 +351,10 @@ if (!empty($ultimosArticulos)):
             ?>
             <a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => $artCat['slug'], 'art_slug' => $art['slug']]); ?>" class="ww-article-card">
                 <div class="ww-article-card-image">
-                    <?php if (!empty($art['imagen'])): ?>
+                    <?php if (imagenWineWorldExiste($art['imagen'] ?? null)): ?>
                     <img src="<?php echo getBaseUrl(); ?>/images/wineworld/<?php echo htmlspecialchars($art['imagen']); ?>"
-                         alt="<?php echo htmlspecialchars($art['titulo']); ?>" loading="lazy">
+                         alt="<?php echo htmlspecialchars($art['titulo']); ?>"
+                         width="1200" height="800" decoding="async" loading="lazy">
                     <?php else: ?>
                     <div class="ww-article-card-placeholder" style="background: <?php echo htmlspecialchars($artCat['color'] ?: '#722F37'); ?>">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
