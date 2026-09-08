@@ -249,7 +249,7 @@ function addLine() {
     tr.innerHTML =
         '<td style="text-align: center; color: var(--gray-400); font-size: 0.875rem;">' + lineCount + '</td>' +
         '<td><input type="text" name="concepto[]" class="form-input" placeholder="Descripcio del servei o producte..." style="min-width:200px;"></td>' +
-        '<td><input type="number" name="cantidad[]" class="form-input line-qty" value="1" min="0" step="1" style="text-align:right;" onchange="calculateTotals()" oninput="calculateTotals()"></td>' +
+        '<td><input type="number" name="cantidad[]" class="form-input line-qty" value="1" min="0" step="0.01" style="text-align:right;" onchange="calculateTotals()" oninput="calculateTotals()"></td>' +
         '<td><input type="number" name="precio_unidad[]" class="form-input line-price" value="0" min="0" step="0.01" style="text-align:right;" onchange="calculateTotals()" oninput="calculateTotals()"></td>' +
         '<td><select name="iva[]" class="form-input line-iva" onchange="calculateTotals()">' +
             '<option value="21">21%</option>' +

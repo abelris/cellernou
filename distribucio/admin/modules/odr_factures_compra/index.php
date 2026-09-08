@@ -298,14 +298,22 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                         <th>Venciment</th>
                         <th style="text-align: right;">Import</th>
                         <th style="text-align: center; min-width: 120px;">Estat</th>
-                        <th style="width: 120px;">Accions</th>
+                        <th style="width: 160px;">Accions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($facturas as $factura): ?>
                     <tr>
-                        <td><strong>#<?php echo $factura['id']; ?></strong></td>
-                        <td><strong><?php echo e($factura['numero_factura'] ?: '-'); ?></strong></td>
+                        <td>
+                            <a href="<?php echo getAdminUrl('modules/odr_factures_compra/veure.php?id=' . $factura['id']); ?>">
+                                <strong>#<?php echo $factura['id']; ?></strong>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="<?php echo getAdminUrl('modules/odr_factures_compra/veure.php?id=' . $factura['id']); ?>">
+                                <strong><?php echo e($factura['numero_factura'] ?: '-'); ?></strong>
+                            </a>
+                        </td>
                         <td><?php echo e($factura['proveedor'] ?? '-'); ?></td>
                         <td><?php echo $factura['fecha'] ? date('d/m/Y', strtotime($factura['fecha'])) : '-'; ?></td>
                         <td>
@@ -333,6 +341,13 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                         </td>
                         <td>
                             <div style="display: flex; gap: 0.25rem;">
+                                <a href="<?php echo getAdminUrl('modules/odr_factures_compra/veure.php?id=' . $factura['id']); ?>"
+                                   class="btn btn-sm btn-secondary" title="Veure detall">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                    </svg>
+                                </a>
                                 <a href="<?php echo getAdminUrl('modules/odr_factures_compra/crear.php?id=' . $factura['id']); ?>"
                                    class="btn btn-sm btn-secondary" title="Editar">
                                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px;">

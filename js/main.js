@@ -105,30 +105,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Header Scroll Effect
     // ============================================
+    // Throttled via requestAnimationFrame para evitar forced reflow:
+    // la lectura de pageYOffset y las mutaciones de clase se agrupan
+    // una vez por frame, cuando el navegador ya ha terminado de pintar
+    // el frame anterior. Passive listener para no bloquear el scroll nativo.
     const header = document.querySelector('.site-header');
     let lastScroll = 0;
+    let scrollTicking = false;
 
     if (header) {
         window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
+            if (scrollTicking) return;
+            scrollTicking = true;
 
-            if (currentScroll <= 0) {
-                header.classList.remove('scroll-up');
-                return;
-            }
+            requestAnimationFrame(function() {
+                const currentScroll = window.pageYOffset;
 
-            if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
-                // Scrolling down
-                header.classList.remove('scroll-up');
-                header.classList.add('scroll-down');
-            } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
-                // Scrolling up
-                header.classList.remove('scroll-down');
-                header.classList.add('scroll-up');
-            }
+                if (currentScroll <= 0) {
+                    header.classList.remove('scroll-up');
+                } else if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+                    // Scrolling down
+                    header.classList.remove('scroll-up');
+                    header.classList.add('scroll-down');
+                } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+                    // Scrolling up
+                    header.classList.remove('scroll-down');
+                    header.classList.add('scroll-up');
+                }
 
-            lastScroll = currentScroll;
-        });
+                lastScroll = currentScroll;
+                scrollTicking = false;
+            });
+        }, { passive: true });
     }
 
     // ============================================

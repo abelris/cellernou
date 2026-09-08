@@ -42,10 +42,13 @@ $sql = "SELECT lt.*, p.nombre as producto_nombre, p.codigo as producto_codigo
 $result = mysqli_query($bd, $sql);
 if ($result) {
     while ($row = mysqli_fetch_assoc($result)) {
-        $subtotalBruto = $row['cantidad'] * $row['precio_unidad_sin_desc'];
-        $subtotalDesc = $subtotalBruto * ($row['descuento'] / 100);
+        // precio_unidad_sin_desc = preu de tarifa; precio_unidad = preu amb el descompte ja aplicat.
+        $tarifa = $row['precio_unidad_sin_desc'] > 0 ? $row['precio_unidad_sin_desc'] : $row['precio_unidad'];
+        $subtotalBruto = $row['cantidad'] * $tarifa;
         $subtotal = $row['cantidad'] * $row['precio_unidad'];
+        $subtotalDesc = $subtotalBruto - $subtotal;
 
+        $row['precio_tarifa'] = $tarifa;
         $row['subtotal_bruto'] = $subtotalBruto;
         $row['subtotal_descuento'] = $subtotalDesc;
         $row['subtotal'] = $subtotal;
@@ -186,15 +189,16 @@ foreach ($lineas as $linea) {
     $pdf->SetXY($x, $y);
     $pdf->Cell($colCant, 4, number_format($linea['cantidad'], 2, ',', ''), 0, 0, 'L');
     $pdf->Cell($colProd, 4, $nombre, 0, 0, 'L');
-    $pdf->Cell($colPrecio, 4, number_format($linea['precio_unidad'], 2, ',', '.'), 0, 0, 'R');
-    $pdf->Cell($colTotal, 4, number_format($linea['subtotal'], 2, ',', '.'), 0, 1, 'R');
+    // Preu i import de tarifa: el descompte es resta a la línia de sota.
+    $pdf->Cell($colPrecio, 4, number_format($linea['precio_tarifa'], 2, ',', '.'), 0, 0, 'R');
+    $pdf->Cell($colTotal, 4, number_format($linea['subtotal_bruto'], 2, ',', '.'), 0, 1, 'R');
     $y += 4;
 
     if ($linea['descuento'] > 0) {
         $pdf->SetFont('helvetica', '', 6.5);
         $pdf->SetTextColor(100, 100, 100);
         $pdf->SetXY($x + 3, $y);
-        $pdf->Cell($w - 3, 3.5, 'Dto ' . number_format($linea['descuento'], 0) . '%: -' . number_format($linea['subtotal_descuento'], 2, ',', '.') . ' EUR', 0, 1, 'L');
+        $pdf->Cell($w - 3, 3.5, 'Dto ' . number_format($linea['descuento'], 0) . '%: -' . number_format($linea['subtotal_descuento'], 2, ',', '.') . ' EUR = ' . number_format($linea['subtotal'], 2, ',', '.') . ' EUR', 0, 1, 'L');
         $pdf->SetTextColor(0, 0, 0);
         $pdf->SetFont('helvetica', '', 7.5);
         $y += 3.5;

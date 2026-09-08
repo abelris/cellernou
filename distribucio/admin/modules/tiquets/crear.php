@@ -75,14 +75,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $precioCompra = $prodData['precio_medio'] ?? 0;
                     $iva = $prodData['iva'] ?? 21;
 
-                    $precioSinImp = $linea['precio_unidad'] / (1 + ($iva / 100));
+                    // El preu introduït és el de tarifa. El descompte es RESTA d'aquest preu:
+                    // precio_unidad_sin_desc = tarifa, precio_unidad = tarifa amb el descompte ja aplicat.
                     $precioSinDesc = $linea['precio_unidad'];
+                    $precioUnidad = $precioSinDesc;
                     if ($linea['descuento'] > 0) {
-                        $precioSinDesc = $linea['precio_unidad'] / (1 - ($linea['descuento'] / 100));
+                        $precioUnidad = $precioSinDesc * (1 - ($linea['descuento'] / 100));
                     }
+                    $precioSinImp = $precioUnidad / (1 + ($iva / 100));
 
                     $sqlLinea = "INSERT INTO linea_tiquet (idVenta, idProducto, idCliente, fecha, cantidad, precio_unidad, precio_unidad_sin_imp, descuento, precio_unidad_sin_desc, precio_compra, iva)
-                                 VALUES ($tiquetId, {$linea['idProducto']}, $idCliente, NOW(), {$linea['cantidad']}, {$linea['precio_unidad']}, $precioSinImp, {$linea['descuento']}, $precioSinDesc, $precioCompra, $iva)";
+                                 VALUES ($tiquetId, {$linea['idProducto']}, $idCliente, NOW(), {$linea['cantidad']}, $precioUnidad, $precioSinImp, {$linea['descuento']}, $precioSinDesc, $precioCompra, $iva)";
                     mysqli_query($bd, $sqlLinea);
 
                     // Marcar stock como vendido (filas más antiguas primero)
@@ -155,7 +158,7 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                 <tr>
                     <th>Producte</th>
                     <th style="width: 80px;">Qty</th>
-                    <th style="width: 100px;">Preu/u</th>
+                    <th style="width: 100px;">Preu tarifa</th>
                     <th style="width: 80px;">Dto %</th>
                     <th style="width: 100px; text-align: right;">Total</th>
                     <th style="width: 40px;"></th>

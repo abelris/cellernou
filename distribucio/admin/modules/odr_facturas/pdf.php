@@ -6,6 +6,12 @@
 require_once dirname(dirname(__DIR__)) . '/includes/auth_odr.php';
 require_once dirname(dirname(dirname(__DIR__))) . '/tcpdf8/tcpdf.php';
 
+// Dades bancàries ODR (editables)
+define('ODR_BANK_NAME', 'BBVA');
+define('ODR_BANK_IBAN', 'ES08 0182 4250 1702 0171 9560');
+define('ODR_BANK_BIC', 'BBVAESMMXXX');
+define('ODR_BANK_TITULAR', 'ALMABRIS GROUP 2024 S.L.');
+
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 if ($id <= 0) {
     die('ID de factura no vàlid.');
@@ -82,7 +88,7 @@ $pdf->setPrintFooter(false);
 
 // Margins: 15mm all sides
 $pdf->SetMargins(15, 15, 15);
-$pdf->SetAutoPageBreak(true, 25);
+$pdf->SetAutoPageBreak(true, 10);
 
 $pdf->AddPage();
 
@@ -210,7 +216,7 @@ $pdf->SetDrawColor(220, 220, 220);
 
 foreach ($lineas as $idx => $linea) {
     // Check page break
-    if ($pdf->GetY() + 8 > $pdf->getPageHeight() - 30) {
+    if ($pdf->GetY() + 8 > $pdf->getPageHeight() - 60) {
         $pdf->AddPage();
         $pdf->SetY(15);
 
@@ -279,7 +285,7 @@ foreach ($lineas as $idx => $linea) {
 $totalsY = $pdf->GetY() + 6;
 
 // Check space for totals + footer
-if ($totalsY + 40 > $pdf->getPageHeight() - 25) {
+if ($totalsY + 55 > $pdf->getPageHeight() - 10) {
     $pdf->AddPage();
     $totalsY = 15;
 }
@@ -337,7 +343,7 @@ $pdf->Cell(90, 6, 'Estat: ' . $estado, 0, 1, 'R');
 // Notes
 if (!empty($factura['notas'])) {
     $notesY = $payY + 10;
-    if ($notesY + 15 > $pdf->getPageHeight() - 25) {
+    if ($notesY + 15 > $pdf->getPageHeight() - 35) {
         $pdf->AddPage();
         $notesY = 15;
     }
@@ -356,10 +362,38 @@ if (!empty($factura['notas'])) {
     $pdf->MultiCell($pageW - 6, 4, $factura['notas'], 0, 'L', false);
 }
 
+// Disable auto page break for bottom fixed sections (bank + footer)
+$pdf->SetAutoPageBreak(false);
+
+// ═══════════════════════════════════════════
+// DADES BANCÀRIES (BBVA)
+// ═══════════════════════════════════════════
+$bankY = $pdf->getPageHeight() - 30;
+$pdf->SetXY(15, $bankY);
+$pdf->SetFillColor(235, 242, 255);
+$pdf->Rect(15, $bankY, $pageW, 14, 'F');
+$pdf->SetFillColor($blue_r, $blue_g, $blue_b);
+$pdf->Rect(15, $bankY, 1.2, 14, 'F');
+
+$pdf->SetXY(19, $bankY + 1.5);
+$pdf->SetFont('helvetica', 'B', 8.5);
+$pdf->SetTextColor(33, 33, 33);
+$pdf->Cell(80, 4, 'Dades bancàries per a transferència:', 0, 1, 'L');
+
+$pdf->SetXY(19, $bankY + 6);
+$pdf->SetFont('helvetica', '', 8);
+$pdf->SetTextColor(80, 80, 80);
+$pdf->Cell(160, 4, 'Banc: ' . ODR_BANK_NAME . '  ·  Titular: ' . ODR_BANK_TITULAR, 0, 1, 'L');
+
+$pdf->SetXY(19, $bankY + 10);
+$pdf->SetFont('helvetica', 'B', 8);
+$pdf->SetTextColor(33, 33, 33);
+$pdf->Cell(160, 4, 'IBAN: ' . ODR_BANK_IBAN . '  ·  BIC: ' . ODR_BANK_BIC, 0, 1, 'L');
+
 // ═══════════════════════════════════════════
 // FOOTER
 // ═══════════════════════════════════════════
-$footerY = $pdf->getPageHeight() - 18;
+$footerY = $pdf->getPageHeight() - 12;
 $pdf->SetDrawColor(220, 220, 220);
 $pdf->SetLineWidth(0.3);
 $pdf->Line(15, $footerY, 195, $footerY);

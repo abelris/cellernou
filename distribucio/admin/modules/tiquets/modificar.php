@@ -112,14 +112,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $precioCompra = $prodData['precio_medio'] ?? 0;
                     $iva = $prodData['iva'] ?? 21;
 
-                    $precioSinImp = $linea['precio_unidad'] / (1 + ($iva / 100));
+                    // El preu introduït és el de tarifa. El descompte es RESTA d'aquest preu:
+                    // precio_unidad_sin_desc = tarifa, precio_unidad = tarifa amb el descompte ja aplicat.
                     $precioSinDesc = $linea['precio_unidad'];
+                    $precioUnidad = $precioSinDesc;
                     if ($linea['descuento'] > 0) {
-                        $precioSinDesc = $linea['precio_unidad'] / (1 - ($linea['descuento'] / 100));
+                        $precioUnidad = $precioSinDesc * (1 - ($linea['descuento'] / 100));
                     }
+                    $precioSinImp = $precioUnidad / (1 + ($iva / 100));
 
                     $sqlLinea = "INSERT INTO linea_tiquet (idVenta, idProducto, idCliente, fecha, cantidad, precio_unidad, precio_unidad_sin_imp, descuento, precio_unidad_sin_desc, precio_compra, iva)
-                                 VALUES ($id, {$linea['idProducto']}, $idCliente, NOW(), {$linea['cantidad']}, {$linea['precio_unidad']}, $precioSinImp, {$linea['descuento']}, $precioSinDesc, $precioCompra, $iva)";
+                                 VALUES ($id, {$linea['idProducto']}, $idCliente, NOW(), {$linea['cantidad']}, $precioUnidad, $precioSinImp, {$linea['descuento']}, $precioSinDesc, $precioCompra, $iva)";
                     mysqli_query($bd, $sqlLinea);
 
                     // Marcar stock como vendido (filas más antiguas primero)
@@ -219,7 +222,7 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                         <tr>
                             <th>Producte</th>
                             <th style="width: 100px;">Quantitat</th>
-                            <th style="width: 120px;">Preu/u</th>
+                            <th style="width: 120px;">Preu tarifa</th>
                             <th style="width: 100px;">Dto %</th>
                             <th style="width: 120px; text-align: right;">Total</th>
                             <th style="width: 50px;"></th>
@@ -407,7 +410,10 @@ document.getElementById('addLineBtn').addEventListener('click', () => addLinea()
 // Cargar líneas existentes
 lineasExistentes.forEach(l => {
     const nombreCompleto = l.producto_codigo ? `${l.producto_codigo} - ${l.producto_nombre}` : l.producto_nombre;
-    addLinea(l.idProducto, l.cantidad, l.precio_unidad, l.descuento, nombreCompleto);
+    // El camp "Preu tarifa" ha de mostrar el preu ABANS del descompte,
+    // perquè al guardar es torna a aplicar el descompte sobre aquest valor.
+    const precioTarifa = parseFloat(l.precio_unidad_sin_desc) > 0 ? l.precio_unidad_sin_desc : l.precio_unidad;
+    addLinea(l.idProducto, l.cantidad, precioTarifa, l.descuento, nombreCompleto);
 });
 
 if (lineasExistentes.length === 0) {

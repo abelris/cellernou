@@ -39,11 +39,20 @@ if ($result) {
 }
 
 // Calcular totales
+// precio_unidad_sin_desc = preu de tarifa; precio_unidad = preu amb el descompte ja aplicat.
+$totalBrut = 0;
+$totalDescompte = 0;
 $subtotal = 0;
 $totalIva = 0;
 foreach ($lineas as $l) {
+    $tarifa = $l['precio_unidad_sin_desc'] > 0 ? $l['precio_unidad_sin_desc'] : $l['precio_unidad'];
+    $brutLinea = $l['cantidad'] * $tarifa;
     $lineaTotal = $l['cantidad'] * $l['precio_unidad'];
+
+    $totalBrut += $brutLinea;
+    $totalDescompte += $brutLinea - $lineaTotal;
     $subtotal += $lineaTotal;
+    $totalIva += $lineaTotal - ($lineaTotal / (1 + ($l['iva'] / 100)));
 }
 
 include dirname(dirname(__DIR__)) . '/includes/header.php';
@@ -152,35 +161,64 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                             <th style="width: 80px;">Codi</th>
                             <th>Producte</th>
                             <th style="text-align: center;">Quantitat</th>
-                            <th style="text-align: right;">Preu/u</th>
+                            <th style="text-align: right;">Preu tarifa</th>
                             <th style="text-align: center;">IVA</th>
                             <th style="text-align: right;">Descompte</th>
+                            <th style="text-align: right;">Preu net</th>
                             <th style="text-align: right;">Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($lineas as $l): ?>
-                        <?php $lineaTotal = $l['cantidad'] * $l['precio_unidad']; ?>
+                        <?php
+                        $tarifa = $l['precio_unidad_sin_desc'] > 0 ? $l['precio_unidad_sin_desc'] : $l['precio_unidad'];
+                        $lineaTotal = $l['cantidad'] * $l['precio_unidad'];
+                        $descompteLinea = ($l['cantidad'] * $tarifa) - $lineaTotal;
+                        ?>
                         <tr>
                             <td><code><?php echo e($l['producto_codigo'] ?? '-'); ?></code></td>
                             <td><?php echo e($l['producto_nombre'] ?? 'Producte #' . $l['idProducto']); ?></td>
                             <td style="text-align: center;"><?php echo number_format($l['cantidad'], 2, ',', '.'); ?></td>
-                            <td style="text-align: right;"><?php echo number_format($l['precio_unidad'], 2, ',', '.'); ?> &euro;</td>
+                            <td style="text-align: right;"><?php echo number_format($tarifa, 2, ',', '.'); ?> &euro;</td>
                             <td style="text-align: center;"><?php echo (int)$l['iva']; ?>%</td>
                             <td style="text-align: right;">
                                 <?php if ($l['descuento'] > 0): ?>
                                 <span class="badge badge-warning"><?php echo number_format($l['descuento'], 0); ?>%</span>
+                                <span style="color: var(--danger, #dc2626); font-size: 0.85em;">
+                                    -<?php echo number_format($descompteLinea, 2, ',', '.'); ?> &euro;
+                                </span>
                                 <?php else: ?>
                                 -
                                 <?php endif; ?>
                             </td>
+                            <td style="text-align: right;"><?php echo number_format($l['precio_unidad'], 2, ',', '.'); ?> &euro;</td>
                             <td style="text-align: right;"><strong><?php echo number_format($lineaTotal, 2, ',', '.'); ?> &euro;</strong></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
                     <tfoot>
+                        <?php if ($totalDescompte > 0.001): ?>
+                        <tr>
+                            <td colspan="7" style="text-align: right;">Subtotal (sense descompte):</td>
+                            <td style="text-align: right;"><?php echo number_format($totalBrut, 2, ',', '.'); ?> &euro;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" style="text-align: right; color: var(--danger, #dc2626);">Descompte:</td>
+                            <td style="text-align: right; color: var(--danger, #dc2626);">
+                                -<?php echo number_format($totalDescompte, 2, ',', '.'); ?> &euro;
+                            </td>
+                        </tr>
+                        <?php endif; ?>
+                        <tr>
+                            <td colspan="7" style="text-align: right; color: var(--gray-500);">Base imposable:</td>
+                            <td style="text-align: right; color: var(--gray-500);"><?php echo number_format($subtotal - $totalIva, 2, ',', '.'); ?> &euro;</td>
+                        </tr>
+                        <tr>
+                            <td colspan="7" style="text-align: right; color: var(--gray-500);">IVA:</td>
+                            <td style="text-align: right; color: var(--gray-500);"><?php echo number_format($totalIva, 2, ',', '.'); ?> &euro;</td>
+                        </tr>
                         <tr class="total-row">
-                            <td colspan="6" style="text-align: right; font-weight: 600;">TOTAL:</td>
+                            <td colspan="7" style="text-align: right; font-weight: 600;">TOTAL:</td>
                             <td style="text-align: right; font-size: 1.25rem; font-weight: 700; color: var(--primary);">
                                 <?php echo number_format($subtotal, 2, ',', '.'); ?> &euro;
                             </td>

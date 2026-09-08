@@ -81,7 +81,9 @@
       "WebFetch(domain:www.pexels.com)",
       "WebFetch(domain:pixabay.com)",
       "WebFetch(domain:images.pexels.com)",
-      "WebFetch(domain:images.unsplash.com)"
+      "WebFetch(domain:images.unsplash.com)",
+      "Bash(/c/laragon/bin/mysql/mysql-8.0.30-winx64/bin/mysql.exe *)",
+      "Bash(/c/laragon/bin/mysql/mysql-8.4.3-winx64/bin/mysql.exe *)"
     ]
   }
 }

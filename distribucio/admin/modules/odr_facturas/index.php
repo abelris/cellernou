@@ -297,6 +297,11 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
                                 </svg>
                             </button>
+                            <button type="button" class="btn btn-sm btn-secondary" onclick="confirmDuplicate(<?php echo $f['id']; ?>, <?php echo htmlspecialchars(json_encode($f['numero'] ?: '#' . $f['id']), ENT_QUOTES, 'UTF-8'); ?>)" title="Duplicar">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                            </button>
                             <?php if (!$isPagada): ?>
                             <button type="button" class="btn btn-sm btn-primary" onclick="marcarPagada(<?php echo $f['id']; ?>)" title="Marcar pagada">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 16px; height: 16px;">
@@ -394,6 +399,30 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
     </div>
 </div>
 
+<!-- Modal Duplicar -->
+<div id="duplicateModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content" style="max-width: 440px;">
+        <div class="modal-header">
+            <h3 class="modal-title">Duplicar Factura</h3>
+            <button type="button" class="modal-close" onclick="closeModal('duplicateModal')">&times;</button>
+        </div>
+        <form method="POST" action="<?php echo getAdminUrl('modules/odr_facturas/duplicar.php'); ?>">
+            <input type="hidden" name="csrf_token" value="<?php echo generateCsrfToken(); ?>">
+            <input type="hidden" name="id" id="duplicateFacturaId">
+            <div class="modal-body">
+                <p>Es crear&agrave; una c&ograve;pia de la factura <strong id="duplicateFacturaNum"></strong> amb el mateix client i les mateixes l&iacute;nies.</p>
+                <p style="color: var(--gray-500); font-size: 0.875rem; margin-bottom: 0;">
+                    La c&ograve;pia tindr&agrave; un n&uacute;mero nou de la s&egrave;rie INF2XXXX, la data d'avui i estat pendent. S'obrir&agrave; per editar-la.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeModal('duplicateModal')">Cancel&middot;lar</button>
+                <button type="submit" class="btn btn-primary">Duplicar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <!-- Modal Eliminar -->
 <div id="deleteModal" class="modal-overlay" style="display: none;">
     <div class="modal-content" style="max-width: 400px;">
@@ -465,6 +494,12 @@ function imprimirDesdeModal() {
 function marcarPagada(id) {
     document.getElementById('payFacturaId').value = id;
     document.getElementById('payModal').style.display = 'flex';
+}
+
+function confirmDuplicate(id, numero) {
+    document.getElementById('duplicateFacturaId').value = id;
+    document.getElementById('duplicateFacturaNum').textContent = numero;
+    document.getElementById('duplicateModal').style.display = 'flex';
 }
 
 function confirmDelete(id) {

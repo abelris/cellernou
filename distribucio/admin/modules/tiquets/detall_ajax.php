@@ -37,9 +37,18 @@ if ($result) {
     }
 }
 
+// precio_unidad_sin_desc = preu de tarifa; precio_unidad = preu amb el descompte ja aplicat.
+$totalBrut = 0;
+$totalDescompte = 0;
 $subtotal = 0;
 foreach ($lineas as $l) {
-    $subtotal += $l['cantidad'] * $l['precio_unidad'];
+    $tarifa = $l['precio_unidad_sin_desc'] > 0 ? $l['precio_unidad_sin_desc'] : $l['precio_unidad'];
+    $brutLinea = $l['cantidad'] * $tarifa;
+    $netLinea = $l['cantidad'] * $l['precio_unidad'];
+
+    $totalBrut += $brutLinea;
+    $totalDescompte += $brutLinea - $netLinea;
+    $subtotal += $netLinea;
 }
 
 $tipoPago = ['E' => 'Efectiu', 'T' => 'Targeta', 'C' => 'Compte'];
@@ -73,27 +82,42 @@ $tipoPagoNom = $tipoPago[$tiquet['tipo_pago']] ?? $tiquet['tipo_pago'];
                 <th class="text-center">Qtat</th>
                 <th class="text-right">Preu</th>
                 <th class="text-center">Dto</th>
+                <th class="text-right">Preu net</th>
                 <th class="text-right">Total</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($lineas as $l): ?>
-            <?php $lineaTotal = $l['cantidad'] * $l['precio_unidad']; ?>
+            <?php
+            $tarifa = $l['precio_unidad_sin_desc'] > 0 ? $l['precio_unidad_sin_desc'] : $l['precio_unidad'];
+            $lineaTotal = $l['cantidad'] * $l['precio_unidad'];
+            ?>
             <tr>
                 <td><code><?php echo e($l['producto_codigo'] ?? '-'); ?></code></td>
                 <td><?php echo e($l['producto_nombre'] ?? 'Producte #' . $l['idProducto']); ?></td>
                 <td class="text-center"><?php echo number_format($l['cantidad'], 2, ',', '.'); ?></td>
-                <td class="text-right"><?php echo number_format($l['precio_unidad'], 2, ',', '.'); ?> €</td>
+                <td class="text-right"><?php echo number_format($tarifa, 2, ',', '.'); ?> €</td>
                 <td class="text-center">
                     <?php echo $l['descuento'] > 0 ? number_format($l['descuento'], 0) . '%' : '-'; ?>
                 </td>
+                <td class="text-right"><?php echo number_format($l['precio_unidad'], 2, ',', '.'); ?> €</td>
                 <td class="text-right"><strong><?php echo number_format($lineaTotal, 2, ',', '.'); ?> €</strong></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
         <tfoot>
+            <?php if ($totalDescompte > 0.001): ?>
             <tr>
-                <td colspan="5" class="text-right"><strong>TOTAL:</strong></td>
+                <td colspan="6" class="text-right">Subtotal:</td>
+                <td class="text-right"><?php echo number_format($totalBrut, 2, ',', '.'); ?> €</td>
+            </tr>
+            <tr>
+                <td colspan="6" class="text-right">Descompte:</td>
+                <td class="text-right">-<?php echo number_format($totalDescompte, 2, ',', '.'); ?> €</td>
+            </tr>
+            <?php endif; ?>
+            <tr>
+                <td colspan="6" class="text-right"><strong>TOTAL:</strong></td>
                 <td class="text-right tiquet-preview-total"><?php echo number_format($subtotal, 2, ',', '.'); ?> €</td>
             </tr>
         </tfoot>
