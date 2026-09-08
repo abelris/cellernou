@@ -25,6 +25,11 @@
     RewriteRule ^distribucio/includes/ - [F,L]
     RewriteRule ^nbproject/ - [F,L]
 
+    # La cache interna vive bajo uploads/, que es publico: sin esto
+    # /uploads/cache/sitemap.xml serviria un segundo sitemap identico al de
+    # /sitemap.xml. Se sirve siempre por la ruta buena, nunca por el fichero.
+    RewriteRule ^uploads/cache/ - [F,L]
+
     # Bloquear scripts legacy en la raíz (reemplazados por el router o de uso interno)
     RewriteRule ^producto\.php$ - [F,L]
     RewriteRule ^cavas\.php$ - [F,L]
