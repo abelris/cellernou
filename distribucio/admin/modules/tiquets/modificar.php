@@ -3,6 +3,10 @@
  * El Celler Nou - Modificar Tiquet
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+require_once dirname(dirname(__DIR__)) . '/includes/costos.php';
+// Abans de processar el POST: header.php també ho comprova, però s'inclou
+// després i el tiquet ja s'hauria desat.
+requireAuth();
 
 $id = (int)($_GET['id'] ?? 0);
 if ($id <= 0) {
@@ -99,6 +103,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
 
+            // Cost amb què es van vendre les línies que ja hi eren.
+            $costAnterior = [];
+            foreach ($lineasExistentes as $lineaAntigua) {
+                if ((float)$lineaAntigua['precio_compra'] > 0) {
+                    $costAnterior[$lineaAntigua['idProducto']] = (float)$lineaAntigua['precio_compra'];
+                }
+            }
+            $senseCost = [];
+
             // Eliminar líneas antiguas
             mysqli_query($bd, "DELETE FROM linea_tiquet WHERE idVenta = $id");
 
@@ -107,9 +120,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (mysqli_query($bd, $sql)) {
                 foreach ($lineasValidas as $linea) {
-                    $prodResult = mysqli_query($bd, "SELECT precio_medio, iva FROM productos WHERE id = {$linea['idProducto']}");
+                    $prodResult = mysqli_query($bd, "SELECT nombre, iva FROM productos WHERE id = {$linea['idProducto']}");
                     $prodData = mysqli_fetch_assoc($prodResult);
-                    $precioCompra = $prodData['precio_medio'] ?? 0;
+                    // Les línies que ja hi eren mantenen el cost amb què es van
+                    // vendre; les noves agafen el cost mitjà de compra actual.
+                    $precioCompra = $costAnterior[$linea['idProducto']] ?? costLiniaVenda($bd, (int)$linea['idProducto']);
+                    if ($precioCompra <= 0) {
+                        $senseCost[] = $prodData['nombre'] ?? ('Producte #' . $linea['idProducto']);
+                    }
                     $iva = $prodData['iva'] ?? 21;
 
                     // El preu introduït és el de tarifa. El descompte es RESTA d'aquest preu:
@@ -135,6 +153,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
 
+                if ($senseCost) {
+                    $_SESSION['tiquet_sense_cost'] = [$id => array_values(array_unique($senseCost))];
+                }
                 logActivity('tiquet_update', "Tiquet actualitzat: #$id");
                 header('Location: ' . getAdminUrl('modules/tiquets/veure.php?id=' . $id));
                 exit;

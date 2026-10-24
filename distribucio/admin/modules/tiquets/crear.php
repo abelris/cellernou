@@ -3,6 +3,10 @@
  * El Celler Nou - Crear Tiquet
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+require_once dirname(dirname(__DIR__)) . '/includes/costos.php';
+// Abans de processar el POST: header.php també ho comprova, però s'inclou
+// després i el tiquet ja s'hauria desat.
+requireAuth();
 
 $pageTitle = 'Nou Tiquet';
 $errors = [];
@@ -68,11 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if (mysqli_query($bd, $sql)) {
                 $tiquetId = mysqli_insert_id($bd);
+                $senseCost = [];
 
                 foreach ($lineasValidas as $linea) {
-                    $prodResult = mysqli_query($bd, "SELECT precio_medio, iva FROM productos WHERE id = {$linea['idProducto']}");
+                    $prodResult = mysqli_query($bd, "SELECT nombre, iva FROM productos WHERE id = {$linea['idProducto']}");
                     $prodData = mysqli_fetch_assoc($prodResult);
-                    $precioCompra = $prodData['precio_medio'] ?? 0;
+                    // Cost mitjà de compra (includes/costos.php). Si el producte
+                    // no en té cap, es grava 0 però s'avisa a la fitxa del tiquet.
+                    $precioCompra = costLiniaVenda($bd, (int)$linea['idProducto']);
+                    if ($precioCompra <= 0) {
+                        $senseCost[] = $prodData['nombre'] ?? ('Producte #' . $linea['idProducto']);
+                    }
                     $iva = $prodData['iva'] ?? 21;
 
                     // El preu introduït és el de tarifa. El descompte es RESTA d'aquest preu:
@@ -98,6 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
 
+                if ($senseCost) {
+                    $_SESSION['tiquet_sense_cost'] = [$tiquetId => array_values(array_unique($senseCost))];
+                }
                 logActivity('tiquet_create', "Tiquet creat: #$tiquetId");
                 header('Location: ' . getAdminUrl('modules/tiquets/veure.php?id=' . $tiquetId));
                 exit;

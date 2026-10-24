@@ -3,8 +3,8 @@
  * El Celler Nou - Contacto Controller
  */
 
-$pageTitle = 'Contacto | El Celler Nou - Contáctanos';
-$pageDescription = 'Ponte en contacto con El Celler Nou. Estamos aquí para ayudarte con cualquier consulta sobre nuestros vinos, licores o productos.';
+$pageTitle = 'Contacto | El Celler Nou, tienda de vinos en Premià de Mar';
+$pageDescription = 'El Celler Nou, C/ Ramón Llull 15, Premià de Mar. Llámanos, escríbenos por WhatsApp o pásate por la tienda. Pedidos a domicilio en todo el Maresme.';
 
 $breadcrumbItems = [
     ['name' => 'Inicio', 'url' => Router::url('home')],

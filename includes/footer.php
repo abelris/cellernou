@@ -87,6 +87,22 @@
             </div>
         </div>
 
+        <div class="footer-zonas">
+            <div class="container">
+                <p>
+                    <a href="<?php echo Router::url('domicilio'); ?>"><strong>Vino a domicilio:</strong></a>
+                    <?php
+                    $enlacesPob = [];
+                    foreach (getPoblacionesReparto() as $slugPob => $pob) {
+                        $enlacesPob[] = '<a href="' . Router::url('domicilio.poblacion', ['slug' => $slugPob]) . '">'
+                            . htmlspecialchars($pob['nombre']) . '</a>';
+                    }
+                    echo implode(' · ', $enlacesPob);
+                    ?>
+                </p>
+            </div>
+        </div>
+
         <div class="footer-bottom">
             <div class="container">
                 <div class="footer-bottom-content">

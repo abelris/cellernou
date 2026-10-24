@@ -58,6 +58,17 @@ foreach ($lineas as $l) {
 include dirname(dirname(__DIR__)) . '/includes/header.php';
 ?>
 
+<?php
+// Avís de crear.php / modificar.php: productes venuts sense cost conegut.
+$senseCost = $_SESSION['tiquet_sense_cost'][$id] ?? [];
+unset($_SESSION['tiquet_sense_cost']);
+if ($senseCost): ?>
+<div class="alert" style="margin-bottom: 1rem; background: #fffbeb; color: #92400e; border: 1px solid #fde68a; padding: 0.875rem 1rem; border-radius: 8px;">
+    <strong>Productes sense cost de compra:</strong> <?php echo e(implode(', ', $senseCost)); ?>.
+    S'han desat amb cost 0 i el marge d'aquest tiquet sortirà inflat. Posa'ls el preu de compra a la fitxa del producte.
+</div>
+<?php endif; ?>
+
 <div class="page-header" style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
     <a href="<?php echo getAdminUrl('modules/tiquets/llistat.php'); ?>" class="btn btn-secondary">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 18px; height: 18px;">

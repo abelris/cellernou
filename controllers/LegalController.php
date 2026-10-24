@@ -222,9 +222,14 @@ include ROOT_PATH . '/includes/header.php';
             </thead>
             <tbody>
                 <tr style="border-bottom:1px solid #e5e7eb;">
-                    <td style="padding:0.75rem 1rem;">Premià de Mar y alrededores</td>
-                    <td style="padding:0.75rem 1rem;">Mismo día o día siguiente</td>
-                    <td style="padding:0.75rem 1rem;">Gratuito (pedidos &gt; 30&euro;)</td>
+                    <td style="padding:0.75rem 1rem;">Premià de Mar y alrededores: <?php echo htmlspecialchars(listaNombresPoblaciones(getPoblacionesPorZona(1))); ?></td>
+                    <td style="padding:0.75rem 1rem;"><?php echo htmlspecialchars(ZONAS_REPARTO[1]['plazo']); ?></td>
+                    <td style="padding:0.75rem 1rem;">Gratuito (pedidos &gt; <?php echo SHIPPING_FREE_MIN_ORDER; ?>&euro;)</td>
+                </tr>
+                <tr style="border-bottom:1px solid #e5e7eb;">
+                    <td style="padding:0.75rem 1rem;">Resto del Maresme cercano: <?php echo htmlspecialchars(listaNombresPoblaciones(getPoblacionesPorZona(2))); ?></td>
+                    <td style="padding:0.75rem 1rem;"><?php echo htmlspecialchars(ZONAS_REPARTO[2]['plazo']); ?></td>
+                    <td style="padding:0.75rem 1rem;">Consultar</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e5e7eb;">
                     <td style="padding:0.75rem 1rem;">Área metropolitana de Barcelona</td>

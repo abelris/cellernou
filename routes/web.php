@@ -68,6 +68,13 @@ Router::get('/wineworld/{cat_slug}', 'WineWorldController', 'wineworld.categoria
 Router::get('/wineworld/{cat_slug}/{art_slug}', 'WineWorldController', 'wineworld.articulo');
 
 // =============================================
+// VINO A DOMICILIO (posicionamiento local)
+// =============================================
+
+Router::get('/vino-a-domicilio', 'DomicilioController', 'domicilio');
+Router::get('/vino-a-domicilio/{slug}', 'DomicilioController', 'domicilio.poblacion');
+
+// =============================================
 // PRODUCTOS
 // =============================================
 

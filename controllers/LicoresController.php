@@ -23,8 +23,8 @@ if ($tipoId) {
     }
 } else {
     $productos = getProductosBySector(2);
-    $pageTitle = 'Licores | El Celler Nou - Destilados y licores premium';
-    $pageDescription = 'Amplia selección de licores: whisky, ron, ginebra, vodka, tequila, brandy, vermut y más. Marcas premium y destilados de calidad.';
+    $pageTitle = 'Licores y destilados en Premià de Mar | El Celler Nou';
+    $pageDescription = 'Whisky, ron, ginebra, vodka, tequila, brandy y vermut en nuestra tienda de Premià de Mar, con entrega a domicilio en el Maresme.';
 }
 
 // Append unmatched Komkal liquors (only on unfiltered main listing)

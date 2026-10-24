@@ -54,6 +54,13 @@ $mTo0   = $monthTo - 1;
 // ============================================================
 // CELLERNOU: revenue & COGS from linea_tiquet + linea_factura
 // ============================================================
+
+// Ingressos dels tiquets SENSE IVA. lt.precio_unidad és el PVP amb IVA i el
+// cost (precio_compra) va sense IVA: sumar-los barrejats comptava l'IVA com a
+// marge (uns 12 punts de més). Unes poques línies antigues no tenen
+// precio_unidad_sin_imp; per a aquestes es treu l'IVA del PVP.
+// Les factures ja van sense IVA (lf.precio_unidad és base).
+define('BI_TIQUET_BASE', 'COALESCE(NULLIF(lt.precio_unidad_sin_imp, 0), lt.precio_unidad / (1 + lt.iva / 100))');
 $cn = [
     'revenue'  => ['current' => emptyMonths(), 'previous' => emptyMonths()],
     'cogs'     => ['current' => emptyMonths(), 'previous' => emptyMonths()],
@@ -65,7 +72,7 @@ if ($brand === 'all' || $brand === 'cellernou') {
     foreach (['current' => $year, 'previous' => $prevYear] as $period => $yr) {
 
         $tiqRev = queryMonthly($bd, "
-            SELECT MONTH(t.fecha) as mn, SUM(lt.cantidad * lt.precio_unidad) as val
+            SELECT MONTH(t.fecha) as mn, SUM(lt.cantidad * " . BI_TIQUET_BASE . ") as val
             FROM linea_tiquet lt
             INNER JOIN tiquets t ON lt.idVenta = t.id
             WHERE YEAR(t.fecha) = $yr AND t.fecha > '2000-01-01'
@@ -246,7 +253,7 @@ if ($brand === 'cellernou') {
     $r = mysqli_query($bd, "
         SELECT p.nombre,
                SUM(lt.cantidad) as qty,
-               SUM(lt.cantidad * lt.precio_unidad) as revenue,
+               SUM(lt.cantidad * " . BI_TIQUET_BASE . ") as revenue,
                SUM(lt.cantidad * lt.precio_compra) as cogs
         FROM linea_tiquet lt
         INNER JOIN tiquets t ON lt.idVenta = t.id

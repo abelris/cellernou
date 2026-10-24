@@ -3,6 +3,10 @@
  * El Celler Nou - Mòdul Compres - Crear
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+require_once dirname(dirname(__DIR__)) . '/includes/costos.php';
+// Abans de processar el POST: header.php també ho comprova, però s'inclou
+// després i el formulari ja s'hauria desat.
+requireAuth();
 
 $pageTitle = 'Nova Compra';
 
@@ -166,6 +170,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
 
+                // Cost mitjà de compra dels productes de la compra.
+                foreach (array_unique(array_column($lineas, 'idProducto')) as $idProd) {
+                    actualitzarPreuMig($bd, (int)$idProd);
+                }
+
                 logActivity('compra_crear', "Compra creada (ID: $idCompra) - Proveïdor: {$compra['idProveedor']}");
                 header('Location: ' . getAdminUrl('modules/compres/?msg=created'));
                 exit;
@@ -243,6 +252,8 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
             </div>
         </div>
     </div>
+
+    <?php include __DIR__ . '/_lector_codis.php'; ?>
 
     <!-- Líneas de compra -->
     <div class="card" style="margin-bottom: 1.5rem;">

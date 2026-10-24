@@ -5,6 +5,7 @@
  */
 
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+require_once dirname(dirname(__DIR__)) . '/includes/costos.php';
 require_once dirname(dirname(dirname(__DIR__))) . '/connexio/connexio.php';
 
 // Solo POST
@@ -168,6 +169,11 @@ try {
 
     // COMMIT
     mysqli_commit($bd);
+
+    // Cost mitjà de compra dels productes de la factura.
+    foreach (array_unique(array_column($lineas, 'idProducto')) as $idProd) {
+        actualitzarPreuMig($bd, (int)$idProd);
+    }
 
     logActivity('ocr_factura_crear', "Factura OCR creada: #$idFactura ($numFactura) - Compra #$idCompra - Proveïdor: $idProveedor");
     header('Location: ' . getAdminUrl("modules/factures_compra/veure.php?id=$idFactura"));

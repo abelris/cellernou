@@ -41,12 +41,13 @@ $months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Di
         <a href="<?php echo getAdminUrl('modules/bi/cellernou.php'); ?>" class="bi-brand-tab active tab-cellernou">El Celler Nou</a>
         <a href="<?php echo getAdminUrl('modules/bi/ondigitalris.php'); ?>" class="bi-brand-tab tab-ondigitalris">ondigitalris</a>
     </div>
+    <a href="<?php echo getAdminUrl('modules/bi/costos.php'); ?>" class="btn btn-secondary btn-sm">Correcció de costos</a>
 </div>
 
 <!-- KPIs -->
 <div class="kpi-grid">
     <div class="kpi-card kpi-revenue">
-        <div class="kpi-label">Facturació</div>
+        <div class="kpi-label">Facturació (sense IVA)</div>
         <div class="kpi-value" id="kpi-revenue">--</div>
         <div class="kpi-change neutral" id="kpi-revenue-yoy">--</div>
         <div class="kpi-prev" id="kpi-revenue-prev"></div>

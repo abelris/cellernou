@@ -27,8 +27,8 @@ if ($tipoId) {
         $filtroNombre = $tipo['nombre_es'];
         $productos = getProductosByTipo($tipoId, 8);
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('vinos.tipo', ['id' => $tipoId, 'slug' => createSlug($filtroNombre)])];
-        $pageTitle = $filtroNombre . ' | Vinos - El Celler Nou';
-        $pageDescription = 'Descubre nuestra selección de ' . strtolower($filtroNombre) . '. Vinos de calidad con las mejores Denominaciones de Origen.';
+        $pageTitle = $filtroNombre . ' | Vinos en Premià de Mar - El Celler Nou';
+        $pageDescription = 'Comprar ' . strtolower($filtroNombre) . ' en Premià de Mar: vinos con las mejores Denominaciones de Origen, con entrega a domicilio en el Maresme.';
     }
 } elseif ($doId) {
     $procedencia = getProcedenciaById($doId);
@@ -36,13 +36,13 @@ if ($tipoId) {
         $filtroNombre = $procedencia['nombre_es'];
         $productos = getProductosByProcedencia($doId, 8);
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('vinos.do', ['id' => $doId, 'slug' => createSlug($filtroNombre)])];
-        $pageTitle = $filtroNombre . ' | Vinos - El Celler Nou';
-        $pageDescription = 'Vinos ' . $filtroNombre . '. Selección de vinos con denominación de origen de la mejor calidad.';
+        $pageTitle = 'Vinos ' . $filtroNombre . ' en Premià de Mar | El Celler Nou';
+        $pageDescription = 'Vinos ' . $filtroNombre . ' en nuestra tienda de Premià de Mar, con entrega a domicilio en el Maresme. Te aconsejamos por WhatsApp.';
     }
 } else {
     $productos = getProductosBySector(8);
-    $pageTitle = 'Vinos | El Celler Nou - Tu tienda de vinos de calidad';
-    $pageDescription = 'Amplia selección de vinos tintos, blancos y rosados. Vinos con D.O. La Rioja, Ribera del Duero, Priorat, Penedès y más.';
+    $pageTitle = 'Comprar vino en Premià de Mar | Vinos a domicilio - El Celler Nou';
+    $pageDescription = 'Vinos tintos, blancos y rosados de Rioja, Ribera del Duero, Priorat, Penedès y Alella en nuestra tienda de Premià de Mar. Entrega a domicilio en el Maresme.';
 }
 
 // Append unmatched Komkal wines (only on unfiltered main listing)

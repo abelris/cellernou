@@ -23,7 +23,7 @@ if ($tipoId) {
     }
 } else {
     $productos = getProductosBySector(12);
-    $pageTitle = 'Conservas | El Celler Nou - Conservas gourmet de marisco';
+    $pageTitle = 'Conservas gourmet de marisco en Premià de Mar | El Celler Nou';
     $pageDescription = 'Selección de conservas gourmet: mejillones, berberechos, navajas, calamares y más. Productos del mar de la mejor calidad.';
 }
 

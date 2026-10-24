@@ -3,6 +3,10 @@
  * El Celler Nou - Mòdul Compres - Modificar
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+require_once dirname(dirname(__DIR__)) . '/includes/costos.php';
+// Abans de processar el POST: header.php també ho comprova, però s'inclou
+// després i el formulari ja s'hauria desat.
+requireAuth();
 
 $pageTitle = 'Editar Compra';
 
@@ -135,6 +139,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             );
 
             if (mysqli_stmt_execute($stmt)) {
+                // Productes que hi havia abans, per recalcular-ne el cost.
+                $productesCost = [];
+                $rsAnt = mysqli_query($bd, "SELECT DISTINCT idProducto FROM linea_compra WHERE idCompra = $id");
+                while ($rsAnt && ($rowAnt = mysqli_fetch_assoc($rsAnt))) {
+                    $productesCost[] = (int)$rowAnt['idProducto'];
+                }
+
                 // Eliminar líneas antiguas y stock asociado
                 mysqli_query($bd, "DELETE FROM linea_compra WHERE idCompra = $id");
                 mysqli_query($bd, "DELETE FROM stock_producto WHERE idCompra = $id");
@@ -186,6 +197,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             mysqli_query($bd, "UPDATE productos SET precio_venta_dis = $newPvd WHERE id = $idProd");
                         }
                     }
+                }
+
+                // Cost mitjà de compra dels productes d'abans i d'ara.
+                $productesCost = array_merge($productesCost, array_column($lineas, 'idProducto'));
+                foreach (array_unique($productesCost) as $idProd) {
+                    actualitzarPreuMig($bd, (int)$idProd);
                 }
 
                 logActivity('compra_modificar', "Compra modificada (ID: $id)");
@@ -268,6 +285,8 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
             </div>
         </div>
     </div>
+
+    <?php include __DIR__ . '/_lector_codis.php'; ?>
 
     <!-- Líneas de compra -->
     <div class="card" style="margin-bottom: 1.5rem;">

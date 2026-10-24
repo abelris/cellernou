@@ -182,10 +182,9 @@ function schemaOrganizacion() {
         'priceRange'        => '€€',
         'currenciesAccepted' => 'EUR',
         'paymentAccepted'   => 'Efectivo, Tarjeta de crédito, Transferencia bancaria',
-        'areaServed'        => [
-            '@type' => 'AdministrativeArea',
-            'name'  => 'Barcelona, Catalunya'
-        ],
+        // Las poblaciones con reparto a domicilio, una a una: "Barcelona,
+        // Catalunya" no le decía a Google que repartimos en Vilassar o Alella.
+        'areaServed'        => schemaPoblacionesServidas(getPoblacionesReparto()),
         'openingHoursSpecification' => $horarios
     ];
 
@@ -258,9 +257,10 @@ function schemaPoliticaDevolucion() {
  * Condiciones de envío.
  *
  * Solo se declara el envío local gratuito, que es el único tramo con tarifa
- * cerrada en /politica-de-envios. El resto de zonas figura como "Consultar",
- * así que no se inventa un shippingRate: Google prefiere un aviso por dato
- * ausente antes que una tarifa que luego no se cumple.
+ * cerrada en /politica-de-envios: los códigos postales de la zona de entrega
+ * rápida de includes/poblaciones.php. El resto de zonas figura como
+ * "Consultar", así que no se inventa un shippingRate: Google prefiere un aviso
+ * por dato ausente antes que una tarifa que luego no se cumple.
  */
 function schemaEnvio() {
     return schemaLimpiar([
@@ -273,7 +273,7 @@ function schemaEnvio() {
         'shippingDestination' => [
             '@type'          => 'DefinedRegion',
             'addressCountry' => SITE_COUNTRY,
-            'postalCode'     => SHIPPING_FREE_POSTAL_CODE
+            'postalCode'     => getCodigosPostalesZona(1)
         ],
         'eligibleTransactionVolume' => [
             '@type'     => 'PriceSpecification',
@@ -483,6 +483,54 @@ function schemaContacto() {
         'url'        => rtrim(SITE_URL, '/') . '/contacto',
         'isPartOf'   => ['@id' => schemaWebSiteId()],
         'mainEntity' => ['@id' => schemaTiendaId()]
+    ]);
+}
+
+/**
+ * Poblaciones como lista de City para areaServed.
+ */
+function schemaPoblacionesServidas(array $poblaciones) {
+    $ciudades = [];
+    foreach ($poblaciones as $p) {
+        $ciudades[] = [
+            '@type' => 'City',
+            'name'  => $p['nombre'],
+            'containedInPlace' => [
+                '@type' => 'AdministrativeArea',
+                'name'  => 'Provincia de Barcelona'
+            ]
+        ];
+    }
+    return $ciudades;
+}
+
+/**
+ * Service de entrega a domicilio, para /vino-a-domicilio y cada población.
+ * El proveedor es la tienda ya declarada (#tienda), no una entidad nueva.
+ */
+function schemaServicioDomicilio(array $poblaciones, $url) {
+    $nombre = count($poblaciones) === 1
+        ? 'Vino a domicilio en ' . $poblaciones[0]['nombre']
+        : 'Vino a domicilio en el Maresme';
+
+    return schemaJson([
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Service',
+        '@id'         => $url . '#servicio',
+        'name'        => $nombre,
+        'serviceType' => 'Entrega de vinos, cavas y licores a domicilio',
+        'url'         => $url,
+        'provider'    => ['@id' => schemaTiendaId()],
+        'areaServed'  => schemaPoblacionesServidas($poblaciones),
+        'availableChannel' => [
+            '@type' => 'ServiceChannel',
+            'servicePhone' => [
+                '@type'       => 'ContactPoint',
+                'telephone'   => SITE_PHONE_MOBILE,
+                'contactType' => 'sales',
+                'availableLanguage' => ['es', 'ca']
+            ]
+        ]
     ]);
 }
 

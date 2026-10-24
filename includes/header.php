@@ -90,6 +90,7 @@ $procedenciasVinos = getProcedencias(8);
                             <span class="hide-mobile"><?php echo SITE_PHONE_MOBILE; ?></span>
                         </a>
                     </div>
+                    <a href="<?php echo Router::url('domicilio'); ?>" class="header-top-domicilio">Vino a domicilio en el Maresme</a>
                     <div class="contact-info contact-email">
                         <a href="mailto:<?php echo SITE_EMAIL; ?>">
                             <svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>
@@ -245,6 +246,10 @@ $procedenciasVinos = getProcedencias(8);
                                         <li><a href="<?php echo Router::url('wineworld'); ?>" class="see-all">Ver todo WineWorld →</a></li>
                                     </ul>
                                 </div>
+                            </li>
+
+                            <li class="nav-item nav-item--mobile">
+                                <a href="<?php echo Router::url('domicilio'); ?>" class="nav-link<?php echo strpos(Router::currentRoute() ?? '', 'domicilio') === 0 ? ' active' : ''; ?>">Vino a domicilio</a>
                             </li>
 
                             <li class="nav-item">

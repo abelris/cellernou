@@ -23,7 +23,7 @@ if ($origenId) {
     }
 } else {
     $productos = getProductosBySector(21);
-    $pageTitle = 'Cervezas | El Celler Nou - Cervezas artesanales y de importación';
+    $pageTitle = 'Cervezas artesanales y de importación en Premià de Mar | El Celler Nou';
     $pageDescription = 'Descubre nuestra selección de cervezas artesanales, de importación y nacionales. Las mejores cervezas del mundo en El Celler Nou.';
 }
 

@@ -162,6 +162,11 @@ include ROOT_PATH . '/includes/header.php';
                     <a href="<?php echo Router::url('contacto'); ?>?producto=<?php echo urlencode($producto['nombre']); ?>" class="btn btn-primary btn-lg" style="width: 100%;">
                         Solicitar información
                     </a>
+                    <p class="producto-domicilio">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-location"></use></svg>
+                        Te lo llevamos a casa en Premià de Mar y alrededores, gratis en pedidos de más de <?php echo SHIPPING_FREE_MIN_ORDER; ?> €.
+                        <a href="<?php echo Router::url('domicilio'); ?>">Zonas de entrega</a>
+                    </p>
                 </div>
 
                 <?php if (!empty($productoTextos['descripcion'])): ?>

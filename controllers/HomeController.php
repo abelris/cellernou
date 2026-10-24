@@ -4,8 +4,8 @@
  */
 
 // SEO
-$pageTitle = 'El Celler Nou | Vinos, Cavas, Licores y Cervezas de Calidad';
-$pageDescription = 'Descubre nuestra selección de vinos con D.O., cavas, champagnes, licores premium, cervezas artesanales y conservas gourmet.';
+$pageTitle = 'Tienda de vinos en Premià de Mar con entrega a domicilio | El Celler Nou';
+$pageDescription = 'Vinoteca en Premià de Mar: vinos con D.O., cavas, licores y cervezas. Te lo llevamos a casa en Vilassar, El Masnou, Alella, Teià, Mataró y todo el Maresme. Pide por WhatsApp.';
 
 // Obtener datos dinámicos
 $productosDestacados = getProductosDestacados(8);
@@ -33,12 +33,30 @@ include ROOT_PATH . '/includes/header.php';
     <div class="container">
         <div class="hero-content">
             <span class="hero-badge">Desde 1995</span>
-            <h1>Descubre los mejores vinos y licores</h1>
-            <p>Seleccionamos cuidadosamente cada producto para ofrecerte la mejor calidad. Vinos con Denominación de Origen, cavas, champagnes, licores premium y mucho más.</p>
+            <h1>Tu tienda de vinos en Premià de Mar</h1>
+            <p>Vinos con Denominación de Origen, cavas, champagnes, licores y cervezas, elegidos uno a uno. Y si no te va bien venir, te lo llevamos a casa en todo el Maresme.</p>
             <div class="hero-buttons">
                 <a href="<?php echo Router::url('vinos'); ?>" class="btn btn-secondary btn-lg">Explorar Vinos</a>
-                <a href="<?php echo Router::url('contacto'); ?>" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.5);">Contactar</a>
+                <a href="<?php echo Router::url('domicilio'); ?>" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.5);">Vino a domicilio</a>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vino a domicilio -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-header">
+            <h2>Te llevamos el vino a casa</h2>
+            <p>En Premià de Mar y alrededores, el mismo día o el siguiente y gratis en pedidos de más de <?php echo SHIPPING_FREE_MIN_ORDER; ?> €. Pídelo por WhatsApp o por teléfono.</p>
+        </div>
+        <ul class="domicilio-vecinas">
+            <?php foreach (getPoblacionesReparto() as $slugPob => $pob): ?>
+            <li><a href="<?php echo Router::url('domicilio.poblacion', ['slug' => $slugPob]); ?>"><?php echo htmlspecialchars($pob['nombre']); ?></a></li>
+            <?php endforeach; ?>
+        </ul>
+        <div class="text-center mt-2">
+            <a href="<?php echo Router::url('domicilio'); ?>" class="btn btn-primary btn-lg">Cómo pedir a domicilio</a>
         </div>
     </div>
 </section>

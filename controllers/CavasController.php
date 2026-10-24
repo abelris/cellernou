@@ -29,8 +29,8 @@ if ($tipoId) {
     }
 } else {
     $productos = getProductosBySector(14);
-    $pageTitle = 'Cavas y Espumosos | El Celler Nou';
-    $pageDescription = 'Selección de cavas, champagnes y espumosos de calidad. Encuentra el espumoso perfecto para cada ocasión.';
+    $pageTitle = 'Cavas y Champagne en Premià de Mar | El Celler Nou';
+    $pageDescription = 'Cavas, champagnes y espumosos en nuestra tienda de Premià de Mar, con entrega a domicilio en el Maresme. Encuentra el espumoso perfecto para cada ocasión.';
 }
 
 $tiposCavas = getTiposBySector(14);

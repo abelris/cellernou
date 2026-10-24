@@ -10,7 +10,7 @@ define('SITE_URL', 'https://cellernou.com');
 define('SITE_EMAIL', 'cellernou@cellernou.com');
 define('SITE_PHONE', '+34 937 520 271');
 define('SITE_PHONE_MOBILE', '+34 637 626 302');
-define('SITE_DESCRIPTION', 'El Celler Nou - Tu tienda especializada en vinos, cavas, licores, cervezas y conservas de calidad. Amplia selección de D.O. españolas y productos internacionales.');
+define('SITE_DESCRIPTION', 'El Celler Nou, tienda de vinos en Premià de Mar (Maresme): vinos con D.O., cavas, licores, cervezas y conservas. Vino a domicilio en Vilassar, El Masnou, Alella, Mataró y alrededores.');
 
 // -----------------------------------------------------------------
 // Datos fiscales y de local (NAP) - usados en schema.org y páginas legales.
@@ -67,10 +67,10 @@ define('PRODUCTOS_POR_PAGINA', 36);
 define('RETURN_POLICY_DAYS', 14);              // Desistimiento: 14 días naturales
 define('RETURN_POLICY_FEES_CUSTOMER', true);   // Gastos de devolución a cargo del cliente
 
-// Envío local gratuito. El resto de zonas figura como "Consultar" en la web,
-// así que NO se declara tarifa para ellas: un shippingRate inventado es peor
-// que la ausencia de la propiedad.
-define('SHIPPING_FREE_POSTAL_CODE', '08330');  // Premià de Mar
+// Envío local gratuito en la zona de entrega rápida (sus códigos postales y
+// poblaciones están en includes/poblaciones.php). El resto de zonas figura
+// como "Consultar" en la web, así que NO se declara tarifa para ellas: un
+// shippingRate inventado es peor que la ausencia de la propiedad.
 define('SHIPPING_FREE_MIN_ORDER', 30);         // Gratuito en pedidos > 30 EUR
 define('SHIPPING_HANDLING_DAYS', [0, 1]);      // Preparación: mismo día o siguiente
 define('SHIPPING_TRANSIT_DAYS', [1, 3]);       // Tránsito local/metropolitano

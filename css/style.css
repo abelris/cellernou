@@ -2680,3 +2680,199 @@ p {
         border-radius: var(--radius-md);
     }
 }
+
+/* ============================================
+   VINO A DOMICILIO
+   ============================================ */
+.header-top-domicilio {
+    color: var(--color-secondary) !important;
+    font-weight: 500;
+}
+
+.domicilio-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.domicilio-cta .icon {
+    width: 20px;
+    height: 20px;
+}
+
+.domicilio-intro {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+}
+
+.domicilio-texto p {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    margin-bottom: var(--spacing-lg);
+}
+
+.domicilio-datos {
+    background: var(--color-bg-alt);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xl);
+}
+
+.domicilio-datos h2 {
+    font-size: 1.375rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.domicilio-datos dt {
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-top: var(--spacing-md);
+}
+
+.domicilio-datos dd {
+    font-weight: 500;
+}
+
+.domicilio-zonas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.domicilio-zona {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+}
+
+.domicilio-zona h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+.domicilio-zona-coste {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.domicilio-zona ul {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.domicilio-pasos {
+    list-style: none;
+    counter-reset: paso;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+}
+
+.domicilio-pasos li {
+    counter-increment: paso;
+    background: var(--color-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.domicilio-pasos li::before {
+    content: counter(paso);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-full);
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.domicilio-pasos h3 {
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.domicilio-vecinas {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.domicilio-vecinas a {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.domicilio-vecinas a:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.nav-item--mobile {
+    display: none;
+}
+
+.footer-zonas {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: var(--spacing-lg) 0;
+    font-size: 0.875rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.5);
+}
+
+.footer-zonas a {
+    color: rgba(255,255,255,0.6);
+}
+
+.footer-zonas a:hover {
+    color: white;
+}
+
+.producto-domicilio {
+    margin-top: var(--spacing-md);
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+}
+
+.producto-domicilio .icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: -3px;
+    color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+    .header-top-domicilio {
+        display: none !important;
+    }
+
+    .nav-item--mobile {
+        display: block;
+    }
+
+    .domicilio-intro,
+    .domicilio-zonas,
+    .domicilio-pasos {
+        grid-template-columns: 1fr;
+    }
+
+    .domicilio-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
