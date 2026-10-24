@@ -124,7 +124,7 @@ if ($row) $clientStats['num_tiquets'] = $row['total'];
 $row = @mysqli_fetch_assoc(@mysqli_query($bd, "SELECT COUNT(*) as total FROM facturas WHERE idCliente = $id"));
 if ($row) $clientStats['num_facturas'] = $row['total'];
 
-$row = @mysqli_fetch_assoc(@mysqli_query($bd, "SELECT COALESCE(SUM(lt.cantidad * lt.precio_unidad), 0) as total FROM linea_tiquet lt INNER JOIN tiquets t ON lt.idTiquet = t.id WHERE t.idCliente = $id"));
+$row = @mysqli_fetch_assoc(@mysqli_query($bd, "SELECT COALESCE(SUM(lt.cantidad * lt.precio_unidad), 0) as total FROM linea_tiquet lt INNER JOIN tiquets t ON lt.idVenta = t.id WHERE t.idCliente = $id"));
 if ($row) $clientStats['total_ventas'] = $row['total'];
 
 $pageTitle = 'Editar: ' . $client['nombre'];

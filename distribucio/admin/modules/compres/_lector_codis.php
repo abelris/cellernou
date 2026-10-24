@@ -11,6 +11,12 @@
  * - Codi desconegut: deixa associar-lo a un producte existent o crear-ne un.
  */
 
+// Només s'inclou des de les pàgines de compra; obert directament, res.
+if (!isset($bd)) {
+    http_response_code(404);
+    exit;
+}
+
 $lcSectores = [];
 $lcTipos = [];
 $lcProcedencias = [];
