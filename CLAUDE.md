@@ -130,6 +130,16 @@ Wizard-based invoice processing:
 
 **CSS Layer Fix:** The OCR page sets `$useLayeredCss = true` so admin.css loads inside `@layer admin`, preventing it from overriding Tailwind v4's `@layer utilities`. This is necessary because unlayered CSS always beats layered CSS in the cascade.
 
+## SEO: mapa de contenidos (obligatorio)
+
+**Copia maestra:** `docs/seo/mapa-contenidos.html` (se abre en `http://localhost/cellernou/docs/seo/mapa-contenidos.html` o con doble clic). Dice qué búsqueda ataca cada página, qué vende cada artículo del blog, las reglas para que dos páginas no compitan y los cambios pendientes.
+
+- **Antes** de tocar títulos, textos de categoría o D.O., fichas, blog, enlazado, sitemap o indexación: consultar el mapa y respetar sus reglas.
+- **Después** de cada cambio: actualizar el bloque `<script id="datos">` del mapa (estado de la fila, cambio marcado como hecho) y añadir una línea arriba en `historial` (fecha, qué, dónde).
+- Objetivo del usuario: ser **la tienda de vinos de referencia del Maresme, por catálogo y por servicio** (asesoramiento, reparto, regalos, catas). Cada contenido nuevo tiene que reforzar las dos cosas.
+- Indexación (`includes/functions.php`, sección INDEXACIÓN): ficha indexable = con stock, con texto o con tráfico de Google (tabla `seo_trafico`, refrescar con `scripts/importar_search_console.py` y cada exportación mensual de Search Console). Nunca quitar del índice páginas con tráfico sin cruzarlo antes con Search Console.
+- Plan de trabajo: planner de Vanesa `cellernou-plan-seo-contenidos`; acciones diarias del usuario en el plan SEO `/seo` (plan `cellernou-2026-10`). Fichas por tandas: `scripts/cargar_tanda.py`.
+
 ## Conventions
 
 - **Languages:** Mix of Catalan (UI labels, variable names) and Spanish (data, some code)

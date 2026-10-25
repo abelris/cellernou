@@ -4,3 +4,6 @@
 # Volcados y artefactos de prueba
 /test.pdf
 /test.zip
+
+# Datos privados de Search Console (exportaciones)
+/docs/seo/search-console/

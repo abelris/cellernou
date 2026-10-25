@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapa de contenidos SEO</title>
+<meta name="robots" content="noindex, nofollow">
+<!--
+  COPIA MAESTRA del mapa de contenidos SEO de El Celler Nou.
+  Regla (CLAUDE.md del proyecto): todo cambio de SEO, de textos de categoría,
+  del blog o de enlazado consulta este archivo ANTES y lo actualiza DESPUÉS
+  (datos en el bloque <script id="datos"> y una línea en "historial").
+  Se ve en http://localhost/cellernou/docs/seo/mapa-contenidos.html
+-->
+<style>
+:root {
+  --bg: #fbfaf8; --surface: #ffffff; --ink: #1d1b19; --muted: #6b655e; --line: #e6e1da;
+  --wine: #722F37; --gold: #b8954d; --ok: #2f7d4f; --todo: #a8641a; --tint: #f4efe6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161412; --surface: #1f1c19; --ink: #f1ece6; --muted: #a39b91; --line: #34302b;
+    --wine: #d98a93; --gold: #d6b36f; --ok: #6cc28f; --todo: #e0a35a; --tint: #2a2520;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161412; --surface: #1f1c19; --ink: #f1ece6; --muted: #a39b91; --line: #34302b;
+  --wine: #d98a93; --gold: #d6b36f; --ok: #6cc28f; --todo: #e0a35a; --tint: #2a2520;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+header { padding: 28px 16px 8px; max-width: 1100px; margin: 0 auto; }
+h1 { font-size: 26px; margin: 0 0 4px; }
+.meta { color: var(--muted); font-size: 13px; }
+.lead { font-size: 17px; max-width: 760px; margin: 14px 0 0; }
+nav { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line); z-index: 2; }
+nav .in { max-width: 1100px; margin: 0 auto; padding: 8px 16px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+nav button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+nav button[aria-selected="true"] { background: var(--wine); border-color: var(--wine); color: #fff; }
+nav input { margin-left: auto; min-width: 200px; flex: 1 1 200px; max-width: 320px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 13px; }
+main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+section { display: none; }
+section.on { display: block; }
+h2 { font-size: 19px; margin: 18px 0 6px; }
+p.intro { color: var(--muted); margin: 0 0 12px; max-width: 760px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 14px 0; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.kpi b { display: block; font-size: 22px; color: var(--wine); }
+.kpi span { font-size: 12.5px; color: var(--muted); }
+.tabla { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .03em; color: var(--muted); background: var(--tint); position: sticky; top: 0; }
+tr:last-child td { border-bottom: 0; }
+code { font-size: 12.5px; background: var(--tint); padding: 1px 5px; border-radius: 4px; }
+.tag { display: inline-block; font-size: 11.5px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.ok { color: var(--ok); } .todo { color: var(--todo); }
+ul.check { list-style: none; padding: 0; margin: 0; }
+ul.check li { padding: 8px 0 8px 28px; position: relative; border-bottom: 1px solid var(--line); }
+ul.check li::before { content: "○"; position: absolute; left: 4px; color: var(--todo); }
+ul.check li.hecho::before { content: "✓"; color: var(--ok); }
+ul.check li.hecho { color: var(--muted); }
+ol.reglas li { margin: 6px 0; }
+.diagrama { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px; }
+.diagrama svg { width: 100%; height: auto; display: block; }
+.vacio { color: var(--muted); padding: 12px; }
+footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(--muted); font-size: 12.5px; }
+@media (max-width: 600px) { h1 { font-size: 21px; } .lead { font-size: 15.5px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>El Celler Nou · Mapa de contenidos SEO</h1>
+  <div class="meta" id="meta"></div>
+  <p class="lead">Cada búsqueda tiene una sola página: la portada y /vino-a-domicilio se quedan lo local, las categorías y D.O. lo que se compra, el blog lo que se pregunta, y las fichas —que traen el 82 % de los clics— el nombre de cada producto.</p>
+</header>
+<nav><div class="in" role="tablist">
+  <button data-s="datos" aria-selected="true">Datos</button>
+  <button data-s="mapa">Mapa</button>
+  <button data-s="blog">Blog</button>
+  <button data-s="enlazado">Enlazado</button>
+  <button data-s="reglas">Reglas</button>
+  <button data-s="cambios">Cambios</button>
+  <button data-s="historial">Historial</button>
+  <input id="q" type="search" placeholder="Buscar una página o búsqueda…" aria-label="Buscar">
+</div></nav>
+<main>
+  <section id="s-datos" class="on">
+    <h2>Lo que dicen los datos</h2>
+    <p class="intro" id="datos-intro"></p>
+    <div class="kpis" id="kpis"></div>
+    <div class="tabla"><table><thead><tr><th>Tipo de página</th><th>Páginas</th><th>Clics</th><th>Impresiones</th><th>Lo que pasa</th></tr></thead><tbody id="t-datos"></tbody></table></div>
+    <p class="intro" style="margin-top:12px" id="datos-temas"></p>
+  </section>
+  <section id="s-mapa">
+    <h2>Qué búsqueda ataca cada página</h2>
+    <p class="intro">Cada fila es dueña de su búsqueda principal; ninguna otra página la lleva en el título ni en el H1. Fichas Komkal, paginaciones, buscador y filtros con menos de 3 productos con stock: noindex y fuera del sitemap.</p>
+    <div class="tabla"><table><thead><tr><th>Página</th><th>Búsqueda principal</th><th>También responde a</th><th>Intención</th><th>Estado</th></tr></thead><tbody id="t-mapa"></tbody></table></div>
+  </section>
+  <section id="s-blog">
+    <h2>Blog: qué pregunta responde y qué página vende</h2>
+    <p class="intro">Cada artículo enlaza a 1-3 categorías y a 4 fichas con stock, y esas categorías lo enlazan de vuelta.</p>
+    <div class="tabla"><table><thead><tr><th>Fecha</th><th>Artículo</th><th>Pregunta que responde</th><th>Vende en</th><th>Estado</th></tr></thead><tbody id="t-blog"></tbody></table></div>
+    <p class="intro" style="margin-top:12px" id="blog-ideas"></p>
+  </section>
+  <section id="s-enlazado">
+    <h2>Cómo se enlaza todo</h2>
+    <p class="intro">Las categorías, tipos y D.O. son el centro: reciben visitas del blog y de los pueblos, y las reparten a las fichas, que es donde Google ya trae la gente.</p>
+    <div class="diagrama">
+      <svg viewBox="0 0 760 432" role="img" aria-label="Blog y pueblos llevan a las categorías; las categorías, a las fichas" font-size="13" font-family="system-ui, sans-serif">
+        <defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--muted)"/></marker></defs>
+        <text x="24" y="34" font-size="15" font-weight="600" fill="var(--ink)">Blog y pueblos llevan a las categorías; las categorías, a las fichas</text>
+        <g fill="none" stroke="var(--muted)" stroke-width="1.25">
+          <path d="M380 138V172" marker-end="url(#fl)"/><path d="M380 228V262" marker-end="url(#fl)"/><path d="M380 318V352" marker-end="url(#fl)"/>
+          <path d="M216 230H233V200H250" marker-start="url(#fl)" marker-end="url(#fl)"/><path d="M216 260H233V290H250" marker-start="url(#fl)" marker-end="url(#fl)"/>
+          <path d="M116 281V380H250" marker-end="url(#fl)"/><path d="M510 110H544" marker-start="url(#fl)" marker-end="url(#fl)"/><path d="M644 146V290H510" marker-end="url(#fl)"/>
+        </g>
+        <g fill="none" stroke="var(--muted)" stroke-width="1.25">
+          <rect x="250" y="82" width="260" height="56" rx="8"/><rect x="250" y="172" width="260" height="56" rx="8"/><rect x="250" y="262" width="260" height="56" rx="8"/>
+          <rect x="16" y="209" width="200" height="72" rx="8"/><rect x="544" y="74" width="200" height="72" rx="8"/>
+        </g>
+        <rect x="250" y="352" width="260" height="56" rx="8" fill="var(--wine)" fill-opacity="0.12" stroke="var(--wine)" stroke-width="2"/>
+        <g text-anchor="middle" fill="var(--ink)">
+          <text x="380" y="106" font-weight="600">Portada</text><text x="380" y="122" font-size="11.5" fill="var(--muted)">vinoteca en Premià de Mar</text>
+          <text x="380" y="196" font-weight="600">5 categorías</text><text x="380" y="212" font-size="11.5" fill="var(--muted)">comprar vino, cava, licor, cerveza</text>
+          <text x="380" y="286" font-weight="600">51 páginas de tipo y D.O.</text><text x="380" y="302" font-size="11.5" fill="var(--muted)">vino tinto, D.O. Alella, whisky…</text>
+          <text x="380" y="376" font-weight="600">Fichas de producto</text><text x="380" y="392" font-size="11.5">82 % de los clics de la web</text>
+          <text x="116" y="233" font-weight="600">Blog WineWorld</text><text x="116" y="249" font-size="11.5" fill="var(--muted)">responde preguntas</text><text x="116" y="265" font-size="11.5" fill="var(--muted)">y pasa la visita</text>
+          <text x="644" y="98" font-weight="600">Vino a domicilio</text><text x="644" y="114" font-size="11.5" fill="var(--muted)">17 pueblos del Maresme</text><text x="644" y="130" font-size="11.5" fill="var(--muted)">lo local con compra</text>
+          <text x="116" y="196" font-size="11.5" fill="var(--muted)">ida y vuelta</text>
+        </g>
+        <g font-size="11.5" fill="var(--muted)">
+          <text x="124" y="340">a 4 fichas con stock</text><text x="652" y="230">enlaza la D.O.</text><text x="652" y="246">de sus pueblos</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+  <section id="s-reglas">
+    <h2>Reglas para no competir</h2>
+    <p class="intro">Valen para todo texto nuevo: de categoría, de ficha o de blog.</p>
+    <ol class="reglas" id="l-reglas"></ol>
+  </section>
+  <section id="s-cambios">
+    <h2>Cambios que salen de los datos</h2>
+    <p class="intro">Por orden de impacto. Al hacer uno, se marca aquí y se apunta en el historial.</p>
+    <ul class="check" id="l-cambios"></ul>
+  </section>
+  <section id="s-historial">
+    <h2>Historial de cambios</h2>
+    <p class="intro">Cada cambio de SEO deja una línea: fecha, qué, dónde. Lo más reciente arriba.</p>
+    <div class="tabla"><table><thead><tr><th>Fecha</th><th>Cambio</th><th>Dónde</th></tr></thead><tbody id="t-historial"></tbody></table></div>
+  </section>
+</main>
+<footer>Fuentes: exportación de Search Console (docs/seo/search-console/), rastreo del sitemap desde el servidor y BD de producción. Copia para compartir en Claude Docs: <a href="https://claude.ai/artifact/L6warrpYw3Ve8YGh7retxE">Mapa de contenidos SEO</a>. Planner en Vanesa: cellernou-plan-seo-contenidos.</footer>
+
+<script type="application/json" id="datos">
+{
+  "actualizado": "2026-10-25",
+  "periodo": "Search Console 24-jul a 23-oct de 2026",
+  "kpis": [
+    ["685", "clics en 3 meses"], ["41.238", "impresiones"], ["82 %", "de los clics, en fichas"],
+    ["43 %", "de los clics, fichas sin stock ni texto"], ["97 %", "de las visitas, desde España"]
+  ],
+  "datosIntro": "Las fichas de producto traen casi todos los clics; las categorías y las D.O., casi nada todavía. La portada funciona para la marca (posición 1,5 en «celler premià de mar»).",
+  "datos": [
+    ["Fichas de producto", "892", "565", "29.509", "Entran por el nombre del producto. 292 clics vienen de fichas sin stock ni texto"],
+    ["Portada", "1 (www y sin www)", "80", "4.081", "Bien para «celler premià de mar»"],
+    ["D.O. de vinos", "21", "20", "2.842", "Solo Empordà funciona (17 clics). Bierzo, Montsant y Alella, en posición 57-72"],
+    ["Tipos de licor", "25", "5", "1.783", "Pacharán, orujo y ratafía con impresiones, en posición 35-90"],
+    ["Tipos de vino", "16", "4", "819", "Vino blanco y vino tinto, en posición 11-13"],
+    ["Cavas por tipo", "4", "2", "778", "/cavas/tipo/22: 722 impresiones en posición 16"],
+    ["Blog WineWorld", "6", "2", "507", "La guía de whisky sale para preguntas largas, en posición 9-10"],
+    ["Fichas Komkal", "20", "7", "302", "Con noindex"]
+  ],
+  "datosTemas": "Más buscado sin buena página: cava y champagne (2.820 impresiones, posición 38), cerveza (1.001; Alhambra Reserva 1925, unas 500), D.O. Montsant y Priorat (855, posición 57), ratafía (448, posición 74), ginebra (437) y D.O. Alella (193, posición 80). Búsquedas locales: 765 impresiones; de marca: 45.",
+  "mapa": [
+    ["Portada /", "vinoteca en Premià de Mar", "celler / bodega / tienda de vinos Premià, El Celler Nou", "Marca y local", "Falta texto sobre la tienda"],
+    ["/contacto", "El Celler Nou dirección y horario", "tienda de vinos cerca de mí", "Local", "Hecho"],
+    ["/vino-a-domicilio", "vino a domicilio Maresme", "envío gratis vino, comprar vino por WhatsApp", "Local con compra", "Hecho"],
+    ["/vino-a-domicilio/{pueblo} (17)", "vino a domicilio {pueblo}", "vinoteca / tienda de vinos {pueblo}", "Local con compra", "Hecho; enlazar la guía de Alella desde sus pueblos"],
+    ["/vinos", "comprar vino (tintos, blancos, rosados)", "vinos por D.O., vinos baratos", "Catálogo", "Falta texto y FAQ"],
+    ["/vinos/tipo/1, 2, 3, 102, 113, 78, 62", "comprar vino {tipo}", "{tipo} + uva o zona", "Catálogo", "Falta texto y FAQ"],
+    ["/vinos/do/{id} (16 D.O.)", "vinos de la D.O. {nombre}", "comprar vino {zona}, bodegas {zona}", "Catálogo", "Falta texto: primero Alella, Bierzo, Montsant, Penedès, Priorat, Rioja, Ribera"],
+    ["/cavas, /cavas/tipo/22, 135, 166, 77", "cava y champagne / comprar cava / champagne", "cava brut nature, cava rosado, prosecco, Corpinnat", "Catálogo", "Falta texto: antes de diciembre"],
+    ["/licores y 22 tipos", "comprar {whisky, ginebra, ron, vermut, ratafía…}", "{tipo} + origen o marca", "Catálogo", "Falta texto"],
+    ["/cervezas, orígenes Cataluña y España", "cervezas artesanas e importación", "cerveza catalana", "Catálogo", "Falta texto"],
+    ["/conservas", "conservas de marisco gourmet", "berberechos, navajas, mejillones", "Catálogo", "Falta texto"],
+    ["/producto/{id}", "el nombre del producto (+ añada o formato)", "{producto} precio, {producto} {D.O.}", "Compra concreta", "Tandas de 25 (tanda 1: 21 hechas)"],
+    ["/wineworld/…", "la pregunta que responde cada artículo", "ver Blog", "Informativa", "Enlazar a la categoría que vende"]
+  ],
+  "blog": [
+    ["Publicado", "Guía para regalar vino, cava y licores", "qué vino regalar", "/cavas, /licores, /vinos", "Publicado"],
+    ["Publicado", "Día del Padre y vino", "regalo vino día del padre", "/vinos/tipo/1, /licores/tipo/6", "Publicado"],
+    ["Publicado", "Guía de whisky: single malt o blended", "qué whisky elegir", "/licores/tipo/6", "Publicado"],
+    ["2026-11-05", "Cava o champagne: diferencias y cuál elegir para Navidad", "diferencia entre cava y champagne", "/cavas/tipo/22, /cavas/tipo/135, D.O. Penedès", "Pendiente"],
+    ["2026-11-12", "Lotes de Navidad a domicilio", "lotes de vino Navidad Maresme", "/vino-a-domicilio, /cavas, /licores", "Pendiente"],
+    ["2026-11-19", "Guía de los vinos de la D.O. Alella", "vinos de Alella, pansa blanca", "/vinos/do/33 y pueblos de la D.O.", "Pendiente"],
+    ["2026-11-26", "Qué vino servir en las comidas de Navidad", "qué vino con escudella, canelones, marisco", "/vinos/tipo/1, /2, /cavas", "Pendiente"],
+    ["2026-12-03", "Los mejores vinos y licores para regalar en Navidad", "vinos para regalar por precio", "/vinos, /licores (se une a la guía de marzo)", "Pendiente"],
+    ["2026-12-10", "Crianza, reserva y gran reserva", "qué significa crianza", "/vinos/tipo/1, Rioja, Ribera del Duero", "Pendiente"],
+    ["2027-01", "Priorat y Montsant", "diferencia Priorat Montsant", "D.O.Q. Priorat, D.O. Montsant", "Pendiente"],
+    ["2027-01", "Ribera del Duero o Rioja", "Ribera o Rioja, cuál elegir", "las dos D.O.", "Pendiente"],
+    ["2027-01", "Guía del gin tonic", "cómo hacer un buen gin tonic", "/licores/tipo/5", "Pendiente"],
+    ["2027-02", "Vino y cava para San Valentín", "vino para San Valentín", "cava rosado, champagne, vino rosado", "Pendiente"]
+  ],
+  "blogIdeas": "Ideas de las consultas, sin fecha aún: la ratafía catalana (448 impresiones, posición 74), qué es la cazalla (46) y qué ver en Premià de Mar (43 impresiones en posición 2-4, útil para lo local).",
+  "reglas": [
+    "«Premià de Mar» en el título solo en portada, contacto y categorías principales; «a domicilio» solo en /vino-a-domicilio y sus pueblos.",
+    "Patrones de título: portada «Vinoteca en Premià de Mar…», tipo «Comprar vino tinto | Vinos de El Celler Nou», D.O. «Vinos de la D.O. … | El Celler Nou», ficha «{Producto} | {Categoría} - El Celler Nou», artículo «{La pregunta} | WineWorld».",
+    "Un tipo vive en una sola sección (la que tiene más productos con stock); en las otras, noindex (programado).",
+    "El artículo informa y la categoría vende: el artículo no repite el título de su categoría, la categoría no explica lo que ya cuenta el artículo; se enlazan.",
+    "La ficha habla del producto (bodega, uva, elaboración, maridaje) y enlaza a su D.O. y a su tipo; no se escribe para «vino de la D.O. X» ni para «a domicilio en».",
+    "Dos artículos sobre lo mismo se unen en una URL (guía de regalo de marzo + mejores vinos para regalar).",
+    "La primera frase de cada texto es su meta description: 155 caracteres como máximo.",
+    "Una ficha se indexa si tiene stock, texto propio o tráfico de Google (1 clic o 20 impresiones en la última exportación)."
+  ],
+  "cambios": [
+    [true, "Fichas con tráfico de Google siempre indexables (tabla seo_trafico)"],
+    [false, "Tandas de fichas: incluir garrafas, litros y box de granel (Litro Gandesa Daurat, garrafas de 5 L: 50 clics) y las fichas sin stock con más tráfico (Vallfornes, Bufanuvols blanc, Terra Santa, Consulat Petit)"],
+    [false, "Textos de D.O. donde ya hay impresiones: Bierzo (713), Montsant (570), Alella (245), Catalunya (201), Penedès y Priorat; Empordà (17 clics) como modelo"],
+    [false, "/cavas/tipo/22 (722 impresiones en posición 16): texto antes de diciembre"],
+    [false, "Decidir si se vuelve a tener Cava Vallfornes: 910 impresiones en tres meses, posición 8, sin stock"],
+    [false, "Borrar el comodín de DNS *.cellernou.com en Cloudflare: 32.cellernou.com sale en Google con fichas duplicadas y da error 526"],
+    [false, "Ficha de Alhambra Reserva 1925 y cervezas: unas 1.000 impresiones en posición 65-73"],
+    [false, "Artículo de la ratafía catalana y texto de /licores/tipo/55"],
+    [false, "Refrescar seo_trafico con cada exportación mensual de Search Console (scripts/importar_search_console.py)"]
+  ],
+  "historial": [
+    ["2026-10-25", "Tabla seo_trafico con la exportación de Search Console; las fichas con tráfico vuelven a indexarse (231 más en el sitemap, 1.715 URLs)", "functions.php, seo_trafico"],
+    ["2026-10-25", "Mapa de contenidos creado a partir de la auditoría y de Search Console", "docs/seo/mapa-contenidos.html"],
+    ["2026-10-25", "Tanda 1 de fichas: 21 productos con descripción, nota de cata y foto; meta description = primera frase", "producto_textos, producto_fotos"],
+    ["2026-10-25", "299 productos reclasificados; tipos nuevos Otros espumosos, Sardinas, Pulpo y Atún; ventas de barra a Auxiliar", "productos, tipo_producto"],
+    ["2026-10-25", "Nombres de D.O. corregidos con 301; D.O. Cava a /cavas; títulos sin canibalización", "procedencia, controladores"],
+    ["2026-10-25", "Sitemap e indexación limpios: fuera Komkal, paginaciones y fichas sin stock ni texto", "SitemapController, functions.php"],
+    ["2026-10-24", "Páginas de vino a domicilio para 17 poblaciones y schema local", "/vino-a-domicilio"]
+  ]
+}
+</script>
+<script>
+(function () {
+  const D = JSON.parse(document.getElementById('datos').textContent);
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+  const estado = s => {
+    const ok = /^(hecho|publicado)/i.test(s);
+    return '<span class="' + (ok ? 'ok' : 'todo') + '">' + esc(s) + '</span>';
+  };
+  $('meta').textContent = 'Actualizado el ' + D.actualizado + ' · ' + D.periodo;
+  $('datos-intro').textContent = D.datosIntro;
+  $('datos-temas').textContent = D.datosTemas;
+  $('blog-ideas').textContent = D.blogIdeas;
+  $('kpis').innerHTML = D.kpis.map(k => '<div class="kpi"><b>' + esc(k[0]) + '</b><span>' + esc(k[1]) + '</span></div>').join('');
+  $('t-datos').innerHTML = D.datos.map(r => '<tr>' + r.map(c => '<td>' + esc(c) + '</td>').join('') + '</tr>').join('');
+  $('t-mapa').innerHTML = D.mapa.map(r => '<tr><td><code>' + esc(r[0]) + '</code></td><td><b>' + esc(r[1]) + '</b></td><td>' + esc(r[2]) + '</td><td><span class="tag">' + esc(r[3]) + '</span></td><td>' + estado(r[4]) + '</td></tr>').join('');
+  $('t-blog').innerHTML = D.blog.map(r => '<tr><td>' + esc(r[0]) + '</td><td><b>' + esc(r[1]) + '</b></td><td>' + esc(r[2]) + '</td><td>' + esc(r[3]) + '</td><td>' + estado(r[4]) + '</td></tr>').join('');
+  $('l-reglas').innerHTML = D.reglas.map(r => '<li>' + esc(r) + '</li>').join('');
+  $('l-cambios').innerHTML = D.cambios.map(c => '<li class="' + (c[0] ? 'hecho' : '') + '">' + esc(c[1]) + '</li>').join('');
+  $('t-historial').innerHTML = D.historial.map(r => '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td><td><code>' + esc(r[2]) + '</code></td></tr>').join('');
+
+  // Pestañas (la última abierta se recuerda en este navegador)
+  const tabs = document.querySelectorAll('nav button');
+  const abrir = s => {
+    tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.s === s)));
+    document.querySelectorAll('main section').forEach(x => x.classList.toggle('on', x.id === 's-' + s));
+    try { localStorage.setItem('mapa-seo-tab', s); } catch (e) {}
+  };
+  tabs.forEach(b => b.addEventListener('click', () => abrir(b.dataset.s)));
+  try { const s = localStorage.getItem('mapa-seo-tab'); if (s && $('s-' + s)) abrir(s); } catch (e) {}
+
+  // Buscador: filtra filas de todas las tablas y listas, y abre la pestaña con resultados
+  $('q').addEventListener('input', e => {
+    const q = e.target.value.trim().toLowerCase();
+    let primera = null;
+    document.querySelectorAll('main section').forEach(sec => {
+      let n = 0;
+      sec.querySelectorAll('tbody tr, ol li, ul.check li').forEach(el => {
+        const ver = !q || el.textContent.toLowerCase().includes(q);
+        el.style.display = ver ? '' : 'none';
+        if (ver) n++;
+      });
+      if (q && n && !primera) primera = sec.id.slice(2);
+    });
+    if (q && primera && !document.querySelector('section.on tbody tr:not([style*="none"]), section.on li:not([style*="none"])')) abrir(primera);
+  });
+})();
+</script>
+</body>
+</html>
