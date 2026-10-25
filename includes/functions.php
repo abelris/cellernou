@@ -790,20 +790,37 @@ function productoIndexable($producto, $textos) {
     return !empty($producto['tiene_stock']) || !empty($textos['descripcion']);
 }
 
+/** Ids de los productos con stock para la web, como claves: [id => true]. */
+function getIdsProductosConStock() {
+    global $bd;
+    static $ids = null;
+    if ($ids !== null) return $ids;
+    $ids = [];
+    $r = mysqli_query($bd, "SELECT idProducto FROM " . sqlProductosConStock() . " st");
+    if ($r) while ($row = mysqli_fetch_row($r)) $ids[(int) $row[0]] = true;
+    return $ids;
+}
+
 /**
  * id, nombre y fecha de alta de los productos indexables de un sector (ver
  * productoIndexable). Es todo lo que el sitemap necesita para <loc> y <lastmod>.
+ * El stock se cruza en PHP: con "p.id IN (subconsulta)" MariaDB recorría
+ * stock_producto (sin índice por producto) una vez por fila y el sitemap
+ * pasaba del límite de tiempo de nginx.
  */
 function getProductosIndexablesPorSector($idSector) {
     global $bd;
-    $sql = "SELECT p.id, p.nombre, p.alta FROM productos p
+    $conStock = getIdsProductosConStock();
+    $sql = "SELECT p.id, p.nombre, p.alta, pt.idProducto IS NOT NULL AS con_texto
+            FROM productos p
+            LEFT JOIN producto_textos pt ON pt.idProducto = p.id AND pt.tipo = 'descripcion'
             WHERE p.idSector = " . intval($idSector) . " AND p.activo = 1
-              AND (p.id IN " . sqlProductosConStock() . "
-                   OR p.id IN (SELECT idProducto FROM producto_textos WHERE tipo = 'descripcion'))
             ORDER BY p.id";
     $r = mysqli_query($bd, $sql);
     $out = [];
-    if ($r) while ($row = mysqli_fetch_assoc($r)) $out[] = $row;
+    if ($r) while ($row = mysqli_fetch_assoc($r)) {
+        if ($row['con_texto'] || isset($conStock[(int) $row['id']])) $out[] = $row;
+    }
     return $out;
 }
 
