@@ -273,35 +273,35 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "comprar vino (tintos, blancos, rosados)",
       "vinos por D.O., vinos baratos",
       "Catálogo",
-      "Falta texto y FAQ"
+      "Texto y FAQ (tanda 1, 25-oct)"
     ],
     [
       "/vinos/tipo/1, 2, 3, 102, 113, 78, 62",
       "comprar vino {tipo}",
       "{tipo} + uva o zona",
       "Catálogo",
-      "Falta texto y FAQ"
+      "Tinto, blanco y rosado con texto (tanda 1); faltan 102, 113, 78 y 62"
     ],
     [
       "/vinos/do/{id} (16 D.O.)",
       "vinos de la D.O. {nombre}",
       "comprar vino {zona}, bodegas {zona}",
       "Catálogo",
-      "Falta texto: primero Alella, Bierzo, Montsant, Penedès, Priorat, Rioja, Ribera"
+      "Con texto (tanda 1): Alella, Bierzo, Catalunya, Empordà, Montsant, Penedès, Priorat, Rioja y Ribera; el resto en la tanda 2"
     ],
     [
       "/cavas, /cavas/tipo/22, 135, 166, 77",
       "cava y champagne / comprar cava / champagne",
       "cava brut nature, cava rosado, prosecco, Corpinnat",
       "Catálogo",
-      "Falta texto: antes de diciembre"
+      "Con texto las 5 (tanda 1, 25-oct)"
     ],
     [
       "/licores y 22 tipos",
       "comprar {whisky, ginebra, ron, vermut, ratafía…}",
       "{tipo} + origen o marca",
       "Catálogo",
-      "Falta texto"
+      "/licores, ratafía, vermut y whisky con texto (tanda 1); resto en tandas 2-3"
     ],
     [
       "/cervezas, orígenes Cataluña y España",
@@ -371,7 +371,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "la pregunta que responde cada artículo",
       "ver Blog",
       "Informativa",
-      "Enlazar a la categoría que vende"
+      "Plantilla con «Te lo aconsejamos», «Dónde comprarlo» y FAQ; enlazado automático con su categoría (ww_articulo_relaciones)"
     ]
   ],
   "blog": [
@@ -380,28 +380,28 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "Guía para regalar vino, cava y licores",
       "qué vino regalar",
       "/cavas, /licores, /vinos",
-      "Publicado"
+      "Publicado; relacionado con sus categorías"
     ],
     [
       "Publicado",
       "Día del Padre y vino",
       "regalo vino día del padre",
       "/vinos/tipo/1, /licores/tipo/6",
-      "Publicado"
+      "Publicado; relacionado con sus categorías"
     ],
     [
       "Publicado",
       "Guía de whisky: single malt o blended",
       "qué whisky elegir",
       "/licores/tipo/6",
-      "Publicado"
+      "Publicado; relacionado con sus categorías"
     ],
     [
-      "2026-11-05",
+      "2026-10-28",
       "Cava o champagne: diferencias y cuál elegir para Navidad",
       "diferencia entre cava y champagne",
       "/cavas/tipo/22, /cavas/tipo/135, D.O. Penedès",
-      "Pendiente"
+      "Programado; firma Victoria Ris"
     ],
     [
       "2026-11-12",
@@ -495,7 +495,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "Pendiente"
     ]
   ],
-  "blogIdeas": "Plantilla común antes del primer artículo: bloque «Te lo aconsejamos» (WhatsApp, teléfono, tienda), «Dónde comprarlo» con 4 fichas con stock y FAQ. Cada artículo se comparte en Google Business Profile la semana que sale. Idea sin fecha: qué es la cazalla (46 impresiones).",
+  "blogIdeas": "Plantilla común (hecha el 25-oct): bloque «Te lo aconsejamos» (WhatsApp, teléfono, tienda), «Dónde comprarlo» con 4 fichas con stock y FAQ. Cada artículo se comparte en Google Business Profile la semana que sale. Idea sin fecha: qué es la cazalla (46 impresiones).",
   "reglas": [
     "«Premià de Mar» en el título solo en portada, contacto y categorías principales; «a domicilio» solo en /vino-a-domicilio y sus pueblos.",
     "Patrones de título: portada «Vinoteca en Premià de Mar…», tipo «Comprar vino tinto | Vinos de El Celler Nou», D.O. «Vinos de la D.O. … | El Celler Nou», ficha «{Producto} | {Categoría} - El Celler Nou», artículo «{La pregunta} | WineWorld».",
@@ -505,9 +505,14 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     "Dos artículos sobre lo mismo se unen en una URL (guía de regalo de marzo + mejores vinos para regalar).",
     "La primera frase de cada texto es su meta description: 155 caracteres como máximo.",
     "Objetivo: ser la tienda de vinos de referencia del Maresme por catálogo y por servicio. Cada texto de categoría dice también cómo aconsejamos y servimos esa categoría; las páginas de servicio enlazan a las categorías y viceversa. Nunca se inventa un servicio: solo lo que el usuario confirma.",
-    "Una ficha se indexa si tiene stock, texto propio o tráfico de Google (1 clic o 20 impresiones en la última exportación)."
+    "Una ficha se indexa si tiene stock, texto propio o tráfico de Google (1 clic o 20 impresiones en la última exportación).",
+    "Los artículos del blog los firma Victoria Ris, al frente de la tienda desde hace seis años (bio en AUTORES_BLOG, includes/enlazado.php). Sus aportaciones personales van en el texto y en «Te lo aconsejamos»."
   ],
   "cambios": [
+    [
+      true,
+      "Textos de categoría editables desde el admin (categoria_textos) y enlazado automático blog ↔ categorías ↔ fichas"
+    ],
     [
       true,
       "Fichas con tráfico de Google siempre indexables (tabla seo_trafico)"
@@ -517,11 +522,11 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "Tandas de fichas: incluir garrafas, litros y box de granel (Litro Gandesa Daurat, garrafas de 5 L: 50 clics) y las fichas sin stock con más tráfico (Vallfornes, Bufanuvols blanc, Terra Santa, Consulat Petit) (granel ya incluido en las tandas 3-4)"
     ],
     [
-      false,
+      true,
       "Textos de D.O. donde ya hay impresiones: Bierzo (713), Montsant (570), Alella (245), Catalunya (201), Penedès y Priorat; Empordà (17 clics) como modelo"
     ],
     [
-      false,
+      true,
       "/cavas/tipo/22 (722 impresiones en posición 16): texto antes de diciembre"
     ],
     [
@@ -538,7 +543,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ],
     [
       false,
-      "Artículo de la ratafía catalana y texto de /licores/tipo/55"
+      "Artículo de la ratafía catalana y texto de /licores/tipo/55 (texto hecho el 25-oct; artículo pendiente)"
     ],
     [
       false,
@@ -554,6 +559,21 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ]
   ],
   "historial": [
+    [
+      "2026-10-25",
+      "Artículo «Cava o champagne» programado para el 28-oct, firmado por Victoria Ris; 4 productos reclasificados (Anais, Roble Viejo, Matarromera)",
+      "ww_articulos, productos"
+    ],
+    [
+      "2026-10-25",
+      "Tanda 1 de textos de categoría: 22 páginas (9 D.O., cavas, tipos de vino, ratafía, vermut, whisky) con intro, texto y FAQ",
+      "categoria_textos"
+    ],
+    [
+      "2026-10-25",
+      "Textos de categoría editables, bloque «Del blog» en listados, «Dónde comprarlo» y «Te lo aconsejamos» en artículos, guía en la ficha, publicación programada",
+      "enlazado.php, controladores, admin WineWorld"
+    ],
     [
       "2026-10-25",
       "Tandas 3 y 4 de fichas: 48 productos con texto y foto; D.O. Bullas creada; 12 D.O. corregidas; Gramona La Cuvée a Corpinnat",
