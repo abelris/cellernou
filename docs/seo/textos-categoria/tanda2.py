@@ -305,9 +305,9 @@ TEXTOS = [
     'cuerpo': '''<h2>De la caña de siempre a la cerveza artesana</h2>
 <p>En el Celler no solo hay vino. Tenemos una selección de cervezas que va de las lagers de cada día a cervezas de autor, y la renovamos a menudo: siempre hay algo nuevo para probar.</p>
 <ul>
-<li><strong>Artesanas catalanas:</strong> Montseny IPA, Guineu, Zenit IPA, Eixample Brown Ale, Rafega American Amber Ale, Cor de Blat, Cuca Sant Jordi, Kibus, Misericòrdia Canetenca, St Pol Blonde, St Iscle Torrada o Mataró Grape Lager, entre otras.</li>
+<li><strong>Artesanas catalanas:</strong> Montseny IPA, Guineu, Rafega American Amber Ale, Cor de Blat, Cuca Sant Jordi, Kibus, Misericòrdia Canetenca, St Pol Blonde, St Iscle Torrada o Mataró Grape Lager, entre otras.</li>
 <li><strong>Belgas:</strong> Duvel, Leffe rubia, negra y Royale, Gulden Draak y Piraat, cervezas de mucho carácter y graduación.</li>
-<li><strong>De Irlanda e Inglaterra:</strong> O'Hara's Red, Brewdog Punk IPA y Trooper, la cerveza de Iron Maiden.</li>
+<li><strong>De Irlanda, Escocia e Inglaterra:</strong> O'Hara's Red, Brewdog Punk IPA y Trooper, la cerveza de Iron Maiden.</li>
 <li><strong>Sin alcohol:</strong> Krombacher sin, Free Damm y Kune sin.</li>
 <li><strong>Las de siempre:</strong> Estrella Damm, Voll Damm, AK Damm, Damm Lemon y Estrella Galicia, por unidades.</li>
 </ul>

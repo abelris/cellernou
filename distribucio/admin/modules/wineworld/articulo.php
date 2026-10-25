@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $consejo = trim($_POST['consejo'] ?? '');
         $faqsJson = wwTextAFaqs($_POST['faqs'] ?? '');
         // Relacions amb categories: valors "ambito:id"; la principal ven («On comprar-ho»).
-        $esRelacio = function ($v) { return is_string($v) && preg_match('/^(sector|tipo|procedencia):\d+$/', $v); };
+        $esRelacio = function ($v) { return is_string($v) && preg_match('/^(sector|tipo|procedencia|origen):\d+$/', $v); };
         $relaciones = array_values(array_unique(array_filter((array) ($_POST['relaciones'] ?? []), $esRelacio)));
         $relPrincipal = $_POST['relacion_principal'] ?? '';
         if ($esRelacio($relPrincipal)) {

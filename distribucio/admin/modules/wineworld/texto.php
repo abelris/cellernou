@@ -7,7 +7,7 @@ require_once __DIR__ . '/textos_helpers.php';
 
 $ambito = $_GET['ambito'] ?? '';
 $idRef = intval($_GET['id'] ?? 0);
-if (!in_array($ambito, ['sector', 'tipo', 'procedencia'], true) || $idRef <= 0) {
+if (!in_array($ambito, ['sector', 'tipo', 'procedencia', 'origen'], true) || $idRef <= 0) {
     header('Location: ' . getAdminUrl('modules/wineworld/textos.php'));
     exit;
 }

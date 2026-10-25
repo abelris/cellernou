@@ -10,12 +10,14 @@
  *   artículo -> «Dónde comprarlo» (categoría principal + 4 fichas con stock)
  *   ficha    -> la guía de su tipo o su D.O.
  *
- * Ámbitos: 'sector' (sectores.id), 'tipo' (tipo_producto.id) y 'procedencia'
- * (procedencia.id: D.O. de vino y orígenes de cerveza).
- * Migración: sql/migration_categoria_textos.sql.
+ * Ámbitos: 'sector' (sectores.id), 'tipo' (tipo_producto.id), 'procedencia'
+ * (procedencia.id de una D.O. de vino) y 'origen' (procedencia.id de un origen
+ * de cerveza). Procedencia y origen van aparte porque Cataluña o España tienen
+ * vinos y cervezas: con un solo ámbito, el texto de una página salía en la otra.
+ * Migraciones: sql/migration_categoria_textos.sql y migration_categoria_textos_origen.sql.
  */
 
-const AMBITOS_CATEGORIA = ['sector', 'tipo', 'procedencia'];
+const AMBITOS_CATEGORIA = ['sector', 'tipo', 'procedencia', 'origen'];
 
 /** Listados de sector: ruta y nombre. */
 const SECTORES_LISTADO = [
@@ -215,6 +217,11 @@ function urlCategoria($ambito, $idRef) {
                 'nombre' => $tipo['nombre_es'],
             ];
         }
+    } elseif ($ambito === 'origen' && ($proc = getProcedenciaById($idRef))) {
+        $out = [
+            'url'    => Router::url('cervezas.origen', ['id' => (int) $idRef, 'slug' => createSlug($proc['nombre_es'])]),
+            'nombre' => $proc['nombre_es'],
+        ];
     } elseif ($ambito === 'procedencia' && ($proc = getProcedenciaById($idRef))) {
         if ((int) $idRef === PROCEDENCIA_DO_CAVA) {
             $out = ['url' => Router::url('cavas'), 'nombre' => $proc['nombre_es']];
@@ -303,6 +310,8 @@ function getProductosParaComprar($ambito, $idRef, $limit = 4) {
         $lista = getProductosByTipo($idRef);
     } elseif ($ambito === 'procedencia') {
         $lista = getProductosByProcedencia($idRef);
+    } elseif ($ambito === 'origen') {
+        $lista = getProductosByProcedencia($idRef, 21);
     } elseif ($ambito === 'sector') {
         $lista = getProductosBySector($idRef);
     } else {
@@ -377,7 +386,9 @@ function renderDondeComprarlo(array $relaciones) {
 function getGuiaParaProducto($producto) {
     $pares = [];
     if (!empty($producto['idTipo'])) $pares[] = ['tipo', $producto['idTipo']];
-    if (!empty($producto['idProcedencia'])) $pares[] = ['procedencia', $producto['idProcedencia']];
+    if (!empty($producto['idProcedencia'])) {
+        $pares[] = [(int) ($producto['idSector'] ?? 0) === 21 ? 'origen' : 'procedencia', $producto['idProcedencia']];
+    }
     $arts = getArticulosDeCategorias($pares, 1);
     if (!$arts && !empty($producto['idSector'])) {
         $arts = getArticulosDeCategoria('sector', $producto['idSector'], 1);

@@ -60,7 +60,7 @@ $faqs = ($paginacion['actual'] === 1 && !$origenId)
     : [];
 // Texto propio del listado (tabla categoria_textos): intro, texto largo y
 // FAQ, que van delante de las generales de la categoría.
-$ambitoTexto = $origenId ? 'procedencia' : 'sector';
+$ambitoTexto = $origenId ? 'origen' : 'sector';
 $idTexto = $origenId ?: 21;
 $textoCat = aplicarTextoCategoria($ambitoTexto, $idTexto, $paginacion, $pageTitle, $pageDescription, $faqs);
 if (!empty($faqs)) {

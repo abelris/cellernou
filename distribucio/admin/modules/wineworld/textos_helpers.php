@@ -64,15 +64,17 @@ function wwPaginesLlistat($bd) {
         ];
     }
 
-    $r = mysqli_query($bd, "SELECT pr.id, pr.nombre_es, SUM(p.idSector = 21) AS cerveses, COUNT(*) AS n
+    // Una procedència pot tenir pàgina de vins (ambito 'procedencia') i
+    // d'origen de cervesa (ambito 'origen'): Catalunya i Espanya tenen les dues.
+    $r = mysqli_query($bd, "SELECT pr.id, pr.nombre_es, p.idSector, COUNT(*) AS n
                             FROM productos p JOIN procedencia pr ON pr.id = p.idProcedencia
-                            WHERE p.activo = 1 AND p.idSector IN (8, 21)
-                            GROUP BY pr.id, pr.nombre_es
+                            WHERE p.activo = 1 AND p.idSector IN (8, 21) AND TRIM(pr.nombre_es) <> ''
+                            GROUP BY pr.id, pr.nombre_es, p.idSector
                             ORDER BY n DESC");
     while ($r && $row = mysqli_fetch_assoc($r)) {
-        $cervesa = $row['cerveses'] * 2 > $row['n'];
+        $cervesa = (int) $row['idSector'] === 21;
         $pagines[] = [
-            'ambito' => 'procedencia', 'id_ref' => (int) $row['id'], 'nom' => $row['nombre_es'],
+            'ambito' => $cervesa ? 'origen' : 'procedencia', 'id_ref' => (int) $row['id'], 'nom' => $row['nombre_es'],
             'grup' => $cervesa ? 'Origen de cervesa' : 'D.O. de vins',
             'url' => ($cervesa ? '/cervezas/origen/' : '/vinos/do/') . $row['id'] . '/' . createSlug($row['nombre_es']),
             'productes' => (int) $row['n'],
