@@ -280,14 +280,14 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "comprar vino {tipo}",
       "{tipo} + uva o zona",
       "Catálogo",
-      "Tinto, blanco y rosado con texto (tanda 1); faltan 102, 113, 78 y 62"
+      "Tinto, blanco y rosado (tanda 1); albariño, jerez y vino dulce (tanda 2, 25-oct); vino rancio en espera: en /vinos solo salen productos mal clasificados"
     ],
     [
       "/vinos/do/{id} (16 D.O.)",
       "vinos de la D.O. {nombre}",
       "comprar vino {zona}, bodegas {zona}",
       "Catálogo",
-      "Con texto (tanda 1): Alella, Bierzo, Catalunya, Empordà, Montsant, Penedès, Priorat, Rioja y Ribera; el resto en la tanda 2"
+      "Con texto las 17: tanda 1 (Alella, Bierzo, Catalunya, Empordà, Montsant, Penedès, Priorat, Rioja, Ribera) y tanda 2 (Terra Alta, Costers del Segre, Rueda, Navarra, Toro, Somontano, Campo de Borja, Rías Baixas). La 68 «Rias Baixas» duplicada redirige 301 a la 74"
     ],
     [
       "/cavas, /cavas/tipo/22, 135, 166, 77",
@@ -308,14 +308,14 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "cervezas artesanas e importación",
       "cerveza catalana",
       "Catálogo",
-      "Falta texto"
+      "/cervezas con texto (tanda 2, 25-oct); orígenes sin texto: el ámbito procedencia lo compartirían con /vinos/do/10 y /vinos/do/24"
     ],
     [
       "/conservas",
       "conservas de marisco gourmet",
       "berberechos, navajas, mejillones",
       "Catálogo",
-      "Falta texto"
+      "/conservas y navajas con texto (tanda 2, 25-oct)"
     ],
     [
       "/servicios",
@@ -511,6 +511,22 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
   ],
   "cambios": [
     [
+      false,
+      "Victoria revisa la tanda 2 (14 páginas: docs/seo/textos-categoria/tanda2-revision.html) y pone su voz (planner, tarea 10)"
+    ],
+    [
+      false,
+      "Vino rancio (tipo 62, 94 impresiones): reclasificar Cinco Sentidos tinto y blanco y el box de blanco seco; si queda algún rancio embotellado con stock, escribir su texto"
+    ],
+    [
+      false,
+      "Orígenes de cerveza (Cataluña, España): ámbito propio en categoria_textos para que su texto no salga en /vinos/do/10 y /vinos/do/24; poner origen a las ~30 cervezas sin procedencia (Montseny, Guineu, Zenit…)"
+    ],
+    [
+      false,
+      "Fichas mal clasificadas vistas en la tanda 2: Txomin Etxaniz (txakoli, no Navarra), Txacoli Adore (no Rías Baixas), Sanz Verdejo como tinto, Secrets de Mar Negre como blanco"
+    ],
+    [
       true,
       "Textos de categoría editables desde el admin (categoria_textos) y enlazado automático blog ↔ categorías ↔ fichas"
     ],
@@ -568,6 +584,11 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ]
   ],
   "historial": [
+    [
+      "2026-10-25",
+      "Tanda 2 de textos de categoría publicada (14): 8 D.O., albariño, jerez, vinos dulces, /cervezas, /conservas y navajas. Rías Baixas 68 unificada en la 74 con 301",
+      "categoria_textos, productos, VinosController"
+    ],
     [
       "2026-10-25",
       "Estrategia de longitud de los textos de categoría: no alargar, ampliar con datos en la revisión del 23-nov y añadir la voz de Victoria (tareas 57 y 58)",
