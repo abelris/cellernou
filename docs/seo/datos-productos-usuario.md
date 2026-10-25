@@ -13,3 +13,16 @@ Para usarlos al redactar las fichas (son datos de la tienda, más fiables que la
 | 6518 | Terrestre | Terrestre 2022, bodega Vincelona, D.O.Q. Priorat. Garnacha y cariñena. Fermentación y crianza de ocho meses en barricas de roble francés y americano. Poca intervención y ecológico. |
 
 Inactivos por indicación del usuario (25-oct-2026): 5345 Alcohol 95 1 L (alcohol para destilar), 5426 La Botera (es una bodega, no un vino).
+
+# Servicios de la tienda (dichos por el usuario el 25-oct-2026)
+
+Única fuente para cualquier texto de servicio: no se añade nada que no esté aquí o que el usuario no confirme.
+
+- Venta de vino en la tienda (C/ Ramón Llull 15, Premià de Mar) y a domicilio.
+- Reparto en el Maresme con **transportista propio**. Condiciones vigentes: envío gratis desde 30 € (zona 1) y desde 60 € (zona 2); 5 % de descuento en pedidos a domicilio desde 100 €.
+- Resto de España: **la idea** es enviar con un transportista de e-commerce (tipo Seur). Hoy en la web figura como «Consultar»; no anunciar plazos ni precios hasta que esté decidido.
+- **Catas** (formato, fechas y precio: pendiente de que el usuario los concrete).
+- **Asesoramiento a restaurantes** (carta de vinos y suministro).
+- **Bodas y eventos**, y «quien necesite poner un vino».
+- **Asesoramiento personal** (en tienda, WhatsApp, teléfono).
+- **Regalos**: preparan regalos y lotes.
