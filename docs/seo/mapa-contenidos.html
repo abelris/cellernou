@@ -301,14 +301,14 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "comprar {whisky, ginebra, ron, vermut, ratafía…}",
       "{tipo} + origen o marca",
       "Catálogo",
-      "/licores, ratafía, vermut y whisky con texto (tanda 1); resto en tandas 2-3"
+      "Con texto 17: /licores, ratafía, vermut y whisky (tanda 1); pacharán, orujo, hierbas, ginebra, ron, brandy, coñac, anís, licor de naranja, vodka, tequila, bourbon y grappa (tanda 3, 26-oct). Sin texto: absenta y ponche (1-2 con stock, noindex), limoncello, aperitivos, «Licor» y sangría"
     ],
     [
       "/cervezas, orígenes Cataluña y España",
       "cervezas artesanas e importación",
       "cerveza catalana",
       "Catálogo",
-      "/cervezas con texto (tanda 2, 25-oct); orígenes sin texto: el ámbito procedencia lo compartirían con /vinos/do/10 y /vinos/do/24"
+      "/cervezas (tanda 2); orígenes Cataluña, España y Bélgica (tanda 3) con ámbito propio «origen»"
     ],
     [
       "/conservas",
@@ -515,16 +515,24 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "Victoria revisa la tanda 2 (14 páginas: docs/seo/textos-categoria/tanda2-revision.html) y pone su voz (planner, tarea 10)"
     ],
     [
-      false,
-      "Vino rancio (tipo 62, 94 impresiones): reclasificar Cinco Sentidos tinto y blanco y el box de blanco seco; si queda algún rancio embotellado con stock, escribir su texto"
+      true,
+      "Vino rancio: reclasificados Cinco Sentidos, Carbomas y el box de blanco seco; las dos páginas de rancio quedan noindex (sin rancio embotellado con stock). Si se compra rancio embotellado, escribir su texto (94 impresiones)"
+    ],
+    [
+      true,
+      "Orígenes de cerveza con ámbito propio «origen» (categoria_textos y ww_articulo_relaciones); origen puesto a 18 cervezas de origen seguro (Damm, Leffe, Duvel, Montseny, Guineu, O'Hara's, BrewDog)"
     ],
     [
       false,
-      "Orígenes de cerveza (Cataluña, España): ámbito propio en categoria_textos para que su texto no salga en /vinos/do/10 y /vinos/do/24; poner origen a las ~30 cervezas sin procedencia (Montseny, Guineu, Zenit…)"
+      "Origen pendiente de confirmar (Victoria): Zenit IPA, Floppy, Lolita in Red, Little Demagorgon, Eixample Brown Ale (¿Mikkeller, Dinamarca?), Kune, Feral, Unika, Quana, Chingona, Diva, Cyclic, Eruption, Mat, Orangeer, Bella Ciao y Llacuna"
+    ],
+    [
+      true,
+      "Fichas reclasificadas (25-26 oct): txakolis fuera de Navarra y Rías Baixas, Sanz Verdejo, Secrets de Mar Negre, Txacoli Astobiza; licores: L'Hostia a ratafía, Terry y Luis Felipe a brandy, Frangelico y Apricot Bols a licor, José Pariente a vino blanco de Rueda, Cabecita Loca a ginebra; orígenes de Xoriguer, Bombay y Chartreuse"
     ],
     [
       false,
-      "Fichas mal clasificadas vistas en la tanda 2: Txomin Etxaniz (txakoli, no Navarra), Txacoli Adore (no Rías Baixas), Sanz Verdejo como tinto, Secrets de Mar Negre como blanco"
+      "Victoria revisa la tanda 3 (16 páginas: docs/seo/textos-categoria/tanda3-revision.html) y pone su voz (planner, tarea 11)"
     ],
     [
       true,
@@ -584,6 +592,16 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ]
   ],
   "historial": [
+    [
+      "2026-10-26",
+      "Tanda 3 publicada (16): 13 tipos de licor y orígenes de cerveza Cataluña, España y Bélgica. Ámbito «origen» para los textos de cerveza. Reclasificados 14 licores y 18 orígenes de cerveza",
+      "categoria_textos, productos, enlazado.php, CervezasController, admin WineWorld"
+    ],
+    [
+      "2026-10-25",
+      "Reclasificados 10 vinos (rancio, txakolis, Sanz Verdejo, Secrets de Mar): páginas de vino rancio en noindex",
+      "productos"
+    ],
     [
       "2026-10-25",
       "Tanda 2 de textos de categoría publicada (14): 8 D.O., albariño, jerez, vinos dulces, /cervezas, /conservas y navajas. Rías Baixas 68 unificada en la 74 con 301",
