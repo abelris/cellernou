@@ -22,7 +22,7 @@ Inactivos por indicación del usuario (25-oct-2026): 5345 Alcohol 95 1 L (alcoho
 - Reparto en el Maresme con **transportista propio**. Condiciones vigentes: envío gratis desde 30 € (zona 1) y desde 60 € (zona 2); 5 % de descuento en pedidos a domicilio desde 100 €.
 - Resto de España: **la idea** es enviar con un transportista de e-commerce (tipo Seur). Hoy en la web figura como «Consultar»; no anunciar plazos ni precios hasta que esté decidido.
 - **Catas** (formato, fechas y precio: pendiente de que el usuario los concrete).
-- **Asesoramiento a restaurantes** (carta de vinos y suministro).
+- **Asesoramiento a restaurantes** (qué incluye exactamente —carta, suministro, formación—: pendiente de concretar).
 - **Bodas y eventos**, y «quien necesite poner un vino».
 - **Asesoramiento personal** (en tienda, WhatsApp, teléfono).
 - **Regalos**: preparan regalos y lotes.

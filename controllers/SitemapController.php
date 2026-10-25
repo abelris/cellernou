@@ -58,6 +58,7 @@ $add = function ($path, $changefreq, $priority, $lastmod = null) use (&$urls, $b
 // =============================================
 $add('/', 'daily', '1.0', $hoy);
 $add('/contacto', 'monthly', '0.6', $hoy);
+$add('/servicios', 'monthly', '0.8', $hoy);
 
 // Vino a domicilio: la página general y una por población.
 $add('/vino-a-domicilio', 'monthly', '0.9', $hoy);

@@ -254,6 +254,10 @@ $procedenciasVinos = getProcedencias(8);
                             </li>
 
                             <li class="nav-item">
+                                <a href="<?php echo Router::url('servicios'); ?>" class="nav-link<?php echo Router::is('servicios') ? ' active' : ''; ?>">Servicios</a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a href="<?php echo Router::url('contacto'); ?>" class="nav-link<?php echo Router::is('contacto') ? ' active' : ''; ?>">Contacto</a>
                             </li>
                         </ul>

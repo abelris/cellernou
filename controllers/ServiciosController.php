@@ -14,9 +14,9 @@
 
 require_once ROOT_PATH . '/includes/poblaciones.php';
 
-// En revisión: fuera de Google, del sitemap y de los menús hasta que el
-// usuario dé el visto bueno al texto.
-define('SERVICIOS_PUBLICADA', false);
+// Publicada el 26-oct-2026 con el visto bueno del usuario. En false vuelve a
+// quedar fuera de Google (noindex).
+define('SERVICIOS_PUBLICADA', true);
 
 $breadcrumbItems = [
     ['name' => 'Inicio', 'url' => Router::url('home')],
