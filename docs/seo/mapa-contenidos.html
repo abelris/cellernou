@@ -185,6 +185,10 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ["/licores y 22 tipos", "comprar {whisky, ginebra, ron, vermut, ratafía…}", "{tipo} + origen o marca", "Catálogo", "Falta texto"],
     ["/cervezas, orígenes Cataluña y España", "cervezas artesanas e importación", "cerveza catalana", "Catálogo", "Falta texto"],
     ["/conservas", "conservas de marisco gourmet", "berberechos, navajas, mejillones", "Catálogo", "Falta texto"],
+    ["/servicios (nueva)", "tienda de vinos con asesoramiento en el Maresme", "asesoramiento de vinos, pedir vino por WhatsApp, entrega el mismo día", "Servicio", "Pendiente: falta la lista de servicios reales"],
+    ["/lotes-y-regalos (nueva)", "lotes de Navidad y regalos de empresa Maresme", "cestas de vino, regalo de vino para empresas, lote gourmet", "Servicio con compra", "Pendiente: antes del 12-nov"],
+    ["/la-tienda (nueva)", "El Celler Nou, vinoteca desde 1995", "quiénes somos, historia, equipo", "Marca y confianza", "Pendiente"],
+    ["/catas (nueva, si se hacen)", "catas de vino en el Maresme", "cata privada, cata para empresas, cata Premià de Mar", "Servicio local", "Pendiente: decidir si se hacen"],
     ["/producto/{id}", "el nombre del producto (+ añada o formato)", "{producto} precio, {producto} {D.O.}", "Compra concreta", "Tandas de 25 (tanda 1: 21 hechas)"],
     ["/wineworld/…", "la pregunta que responde cada artículo", "ver Blog", "Informativa", "Enlazar a la categoría que vende"]
   ],
@@ -212,6 +216,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     "La ficha habla del producto (bodega, uva, elaboración, maridaje) y enlaza a su D.O. y a su tipo; no se escribe para «vino de la D.O. X» ni para «a domicilio en».",
     "Dos artículos sobre lo mismo se unen en una URL (guía de regalo de marzo + mejores vinos para regalar).",
     "La primera frase de cada texto es su meta description: 155 caracteres como máximo.",
+    "Objetivo: ser la tienda de vinos de referencia del Maresme por catálogo y por servicio. Cada texto de categoría dice también cómo aconsejamos y servimos esa categoría; las páginas de servicio enlazan a las categorías y viceversa. Nunca se inventa un servicio: solo lo que el usuario confirma.",
     "Una ficha se indexa si tiene stock, texto propio o tráfico de Google (1 clic o 20 impresiones en la última exportación)."
   ],
   "cambios": [
@@ -223,9 +228,12 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     [false, "Borrar el comodín de DNS *.cellernou.com en Cloudflare: 32.cellernou.com sale en Google con fichas duplicadas y da error 526"],
     [false, "Ficha de Alhambra Reserva 1925 y cervezas: unas 1.000 impresiones en posición 65-73"],
     [false, "Artículo de la ratafía catalana y texto de /licores/tipo/55"],
-    [false, "Refrescar seo_trafico con cada exportación mensual de Search Console (scripts/importar_search_console.py)"]
+    [false, "Refrescar seo_trafico con cada exportación mensual de Search Console (scripts/importar_search_console.py)"],
+    [false, "Servicio: lista de servicios reales (usuario) → páginas /servicios, /lotes-y-regalos, /la-tienda y /catas; reseñas que hablen del servicio en la web; medir clics de WhatsApp y llamar"],
+    [false, "Ficha de Google con servicios, atributos y preguntas; WhatsApp Business con catálogo (plan SEO diario)"]
   ],
   "historial": [
+    ["2026-10-25", "Frente de servicio en el planner y en el plan SEO (páginas de servicios, lotes, la tienda, catas, reseñas, medir clics de WhatsApp); filas nuevas en el mapa", "Vanesa, mapa"],
     ["2026-10-25", "Tabla seo_trafico con la exportación de Search Console; las fichas con tráfico vuelven a indexarse (231 más en el sitemap, 1.715 URLs)", "functions.php, seo_trafico"],
     ["2026-10-25", "Mapa de contenidos creado a partir de la auditoría y de Search Console", "docs/seo/mapa-contenidos.html"],
     ["2026-10-25", "Tanda 1 de fichas: 21 productos con descripción, nota de cata y foto; meta description = primera frase", "producto_textos, producto_fotos"],
