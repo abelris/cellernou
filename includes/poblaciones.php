@@ -390,13 +390,16 @@ function listaNombresPoblaciones(array $poblaciones) {
     return implode(', ', $nombres) . ' y ' . $ultimo;
 }
 
+/** Enlace de WhatsApp con un mensaje ya escrito. */
+function whatsappUrl($texto) {
+    return 'https://wa.me/' . preg_replace('/[^0-9]/', '', SITE_PHONE_MOBILE) . '?text=' . rawurlencode($texto);
+}
+
 /** Enlace de WhatsApp con el mensaje del pedido ya escrito. */
 function whatsappPedidoUrl($poblacion = null) {
-    $numero = preg_replace('/[^0-9]/', '', SITE_PHONE_MOBILE);
-    $texto  = $poblacion
+    return whatsappUrl($poblacion
         ? 'Hola, quiero pedir vino a domicilio en ' . $poblacion . '.'
-        : 'Hola, quiero hacer un pedido a domicilio.';
-    return 'https://wa.me/' . $numero . '?text=' . rawurlencode($texto);
+        : 'Hola, quiero hacer un pedido a domicilio.');
 }
 
 /**
