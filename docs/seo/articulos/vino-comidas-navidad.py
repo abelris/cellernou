@@ -21,6 +21,7 @@ ARTICULO = {
     'titulo': 'Qué vino servir en las comidas de Navidad, plato a plato',
     'extracto': 'Escudella, canelones, marisco, cordero y turrones: qué vino poner con cada plato de las fiestas y cuántas botellas calcular para que no falte.',
     'autor': 'Victoria Ris',
+    'imagen': 'art-vino-comidas-navidad-hero.jpg',  # Pexels 14930165 (licencia Pexels)
     'relaciones': [('tipo', 1), ('tipo', 2), ('tipo', 22), ('tipo', 102), ('procedencia', 33)],  # la primera es la principal
     'consejo': 'Escríbenos el menú y cuántos sois, por WhatsApp, por teléfono o pasando por la tienda, y te preparamos la selección: qué botella va con cada plato, cuántas de cada una y dentro del presupuesto que nos digas. Si estás en el Maresme, te la llevamos a casa con nuestro reparto; si estás en otro sitio, pregúntanos.',
     'faqs': [
@@ -66,6 +67,7 @@ ARTICULO = {
 <p>Tenemos el <strong>Hacienda López de Haro Reserva</strong>, de tempranillo y graciano con 20 meses de barrica, que por menos de 9 € da mucho juego; el <strong>Coto de Caleruega Roble</strong>, de la Ribera; y si la comida lo merece, el <strong>Pesquera Crianza</strong>, un clásico de la Ribera, o el <strong>Crossos del Priorat</strong>, de garnacha y cariñena sobre llicorella. El cabrito, más tierno y delicado, agradece un tinto algo más ligero que el que pondrías con el cordero.</p>
 
 <h3>Pollo, capón o pavo rellenos</h3>
+<figure><img src="/images/wineworld/art-vino-comidas-navidad-mesa.jpg" alt="Mesa de Navidad con un pollo asado, ensalada y copas de vino blanco" width="1200" height="675" loading="lazy"><figcaption>Con las aves rellenas, un blanco con cuerpo o un tinto ligero y fresco.</figcaption></figure>
 <p>Aquí manda el relleno. En Cataluña suele llevar ciruelas, orejones y piñones, a veces butifarra o castañas: un juego de dulce y salado que se lleva mal con los tintos muy tánicos. Mejor un <strong>tinto de garnacha, frutal y suave</strong>, o un blanco con cuerpo si el ave va más sencilla.</p>
 <p>Del <a href="/vinos/do/14/d-o-emporda">Empordà</a>, el <strong>Terra Indika</strong> y el <strong>Mas Maristany</strong>, dos garnachas jóvenes, frescas y sin madera. De Alella, el <strong>Ivori Negre</strong>, de garnacha, syrah y cabernet sauvignon. Si la mesa prefiere rosado, el <strong>Trenca-closques</strong>, del Montsant, aguanta bien un ave asada. Y para quien quiere seguir con burbuja toda la comida, un cava gran reserva como el <strong>Trias Batlle Gran Reserva</strong>, o el <strong>Parxet Brut Nature</strong>, de pansa blanca, que se elabora en Tiana, aquí al lado.</p>
 

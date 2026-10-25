@@ -41,12 +41,12 @@ def main():
                      for n, (amb, i) in enumerate(a['relaciones']))
     sql = f"""-- Artículo {a['slug']} (docs/seo/articulos/{nombre}.py)
 SET NAMES utf8mb4;
-INSERT INTO ww_articulos (id_categoria, titulo, slug, extracto, contenido, consejo, faqs, autor, publicado, fecha_publicacion)
+INSERT INTO ww_articulos (id_categoria, titulo, slug, extracto, contenido, consejo, faqs, autor, imagen, publicado, fecha_publicacion)
 VALUES ({int(a['id_categoria'])}, {sql_str(a['titulo'])}, {slug}, {sql_str(a['extracto'])}, {sql_str(a['contenido'])},
-        {sql_str(a['consejo'])}, {sql_str(faqs)}, {sql_str(a['autor'])}, {publicado}, '{fecha}:00')
+        {sql_str(a['consejo'])}, {sql_str(faqs)}, {sql_str(a['autor'])}, {sql_str(a.get('imagen'))}, {publicado}, '{fecha}:00')
 ON DUPLICATE KEY UPDATE id_categoria = VALUES(id_categoria), titulo = VALUES(titulo), extracto = VALUES(extracto),
     contenido = VALUES(contenido), consejo = VALUES(consejo), faqs = VALUES(faqs), autor = VALUES(autor),
-    publicado = VALUES(publicado), fecha_publicacion = VALUES(fecha_publicacion);
+    imagen = COALESCE(VALUES(imagen), imagen), publicado = VALUES(publicado), fecha_publicacion = VALUES(fecha_publicacion);
 DELETE FROM ww_articulo_relaciones WHERE id_articulo = (SELECT id FROM ww_articulos WHERE slug = {slug});
 INSERT INTO ww_articulo_relaciones (id_articulo, ambito, id_ref, principal) VALUES
 {rel};

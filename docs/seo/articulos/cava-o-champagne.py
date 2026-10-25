@@ -11,6 +11,7 @@ ARTICULO = {
     'titulo': 'Cava o champagne: diferencias y cuál elegir para Navidad',
     'extracto': 'Mismo método, uvas y clima distintos: qué separa al cava del champagne, cómo leer la etiqueta y qué botella elegir para cada momento de las fiestas.',
     'autor': 'Victoria Ris',
+    'imagen': 'art-cava-o-champagne-hero.jpg',  # Pexels 6517944 (licencia Pexels)
     'relaciones': [('tipo', 22), ('tipo', 135), ('tipo', 166), ('sector', 14)],  # la primera es la principal
     'consejo': 'En la tienda solemos proponer dos botellas para las fiestas: un cava joven y fresco para el aperitivo y un brut nature reserva o gran reserva para la comida. Así cada uno hace su trabajo y no se gasta de más donde no hace falta. Dinos cuántos sois y el menú, y te calculamos cuántas de cada.',
     'faqs': [
@@ -45,6 +46,7 @@ ARTICULO = {
 <li><strong>Cava gran reserva:</strong> al menos 30 meses.</li>
 <li><strong>Cava de paraje calificado:</strong> al menos 36 meses y de una finca concreta.</li>
 </ul>
+<figure><img src="/images/wineworld/art-cava-o-champagne-crianza.jpg" alt="Galería subterránea de una bodega de Reims con miles de botellas de champagne en crianza" width="1200" height="675" loading="lazy"><figcaption>Botellas en crianza en una bodega de Reims: el tiempo con las lías es lo que da al espumoso su burbuja fina y sus notas tostadas.</figcaption></figure>
 <p>Por eso, si quieres comparar en igualdad, pon un cava reserva o gran reserva frente a un champagne: es entonces cuando se ve lo cerca que pueden estar.</p>
 <h3>El sabor</h3>
 <p>Simplificando mucho: el champagne tiende a ser más ácido y tenso, con notas de manzana, cítricos, brioche y mantequilla; el cava, más amable, con fruta blanca madura, hierbas mediterráneas, almendra y un punto terroso. Un champagne joven puede resultar más cortante; un cava joven, más redondo.</p>
