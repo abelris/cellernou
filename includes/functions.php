@@ -804,9 +804,36 @@ function filtroIndexable($campo, $id, $idSector) {
     return $campo !== 'idTipo' || $n === max($porSector);
 }
 
-/** Ficha indexable: producto con stock o con descripción propia. */
+/** Una ficha "con tráfico" desde Search Console: al menos esto en el último periodo cargado. */
+define('TRAFICO_MIN_CLICS', 1);
+define('TRAFICO_MIN_IMPRESIONES', 20);
+
+/**
+ * Ids de las fichas que ya reciben tráfico de Google, como claves: [id => true].
+ * Sale de la tabla seo_trafico (exportación de Search Console, scripts/
+ * importar_search_console.py). En oct-2026 las fichas sin stock ni texto
+ * traían el 43 % de los clics: quitarlas del índice habría tirado ese tráfico.
+ */
+function getIdsProductosConTrafico() {
+    global $bd;
+    static $ids = null;
+    if ($ids !== null) return $ids;
+    $ids = [];
+    try {
+        $r = mysqli_query($bd, "SELECT DISTINCT idProducto FROM seo_trafico
+                                WHERE idProducto IS NOT NULL
+                                  AND (clics >= " . TRAFICO_MIN_CLICS . " OR impresiones >= " . TRAFICO_MIN_IMPRESIONES . ")");
+        if ($r) while ($row = mysqli_fetch_row($r)) $ids[(int) $row[0]] = true;
+    } catch (mysqli_sql_exception $e) {
+        // Sin la tabla (BD local antigua) se indexa solo por stock y texto.
+    }
+    return $ids;
+}
+
+/** Ficha indexable: con stock, con descripción propia o con tráfico de Google. */
 function productoIndexable($producto, $textos) {
-    return !empty($producto['tiene_stock']) || !empty($textos['descripcion']);
+    return !empty($producto['tiene_stock']) || !empty($textos['descripcion'])
+        || isset(getIdsProductosConTrafico()[(int) $producto['id']]);
 }
 
 /** Ids de los productos con stock para la web, como claves: [id => true]. */
@@ -829,7 +856,7 @@ function getIdsProductosConStock() {
  */
 function getProductosIndexablesPorSector($idSector) {
     global $bd;
-    $conStock = getIdsProductosConStock();
+    $conStock = getIdsProductosConStock() + getIdsProductosConTrafico();
     $sql = "SELECT p.id, p.nombre, p.alta, pt.idProducto IS NOT NULL AS con_texto
             FROM productos p
             LEFT JOIN producto_textos pt ON pt.idProducto = p.id AND pt.tipo = 'descripcion'
