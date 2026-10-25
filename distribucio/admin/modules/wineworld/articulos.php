@@ -156,8 +156,9 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                         </span>
                     </td>
                     <td>
-                        <span class="badge badge-<?php echo $art['publicado'] ? 'success' : 'warning'; ?>">
-                            <?php echo $art['publicado'] ? 'Publicat' : 'Esborrany'; ?>
+                        <?php $artProgramat = $art['publicado'] && !empty($art['fecha_publicacion']) && strtotime($art['fecha_publicacion']) > time(); ?>
+                        <span class="badge badge-<?php echo $art['publicado'] && !$artProgramat ? 'success' : 'warning'; ?>">
+                            <?php echo $artProgramat ? 'Programat' : ($art['publicado'] ? 'Publicat' : 'Esborrany'); ?>
                         </span>
                     </td>
                     <td><?php echo $art['fecha_publicacion'] ? date('d/m/Y', strtotime($art['fecha_publicacion'])) : '-'; ?></td>

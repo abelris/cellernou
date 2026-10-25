@@ -12,6 +12,7 @@ require_once ROOT_PATH . '/includes/functions.php';
 require_once ROOT_PATH . '/includes/seo.php';
 require_once ROOT_PATH . '/includes/faqs.php';
 require_once ROOT_PATH . '/includes/poblaciones.php';
+require_once ROOT_PATH . '/includes/enlazado.php';
 
 // Cargar Router
 require_once ROOT_PATH . '/routes/Router.php';

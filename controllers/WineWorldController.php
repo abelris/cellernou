@@ -15,7 +15,8 @@ if ($catSlug && $artSlug) {
     $categoria = getWWCategoria($catSlug);
     $articulo = getWWArticulo($artSlug);
 
-    if (!$categoria || !$articulo || $articulo['id_categoria'] != $categoria['id'] || !$articulo['publicado']) {
+    if (!$categoria || !$articulo || $articulo['id_categoria'] != $categoria['id'] || !$articulo['publicado']
+        || (!empty($articulo['fecha_publicacion']) && strtotime($articulo['fecha_publicacion']) > time())) {
         http_response_code(404);
         $pageTitle = 'Artículo no encontrado | ' . SITE_NAME;
         $pageRobots = 'noindex, follow';
@@ -46,6 +47,14 @@ if ($catSlug && $artSlug) {
 
     $schemaExtra = schemaBreadcrumb($breadcrumbItems);
     $schemaExtra .= schemaArticulo($articulo, $categoria);
+
+    // Plantilla de artículo: consejo de la tienda, FAQ (visibles y en schema)
+    // y «Dónde comprarlo» con la categoría que trata (ww_articulo_relaciones).
+    $faqsArticulo = decodificarFaqs($articulo['faqs'] ?? null);
+    if (!empty($faqsArticulo)) {
+        $schemaExtra .= schemaFAQ($faqsArticulo);
+    }
+    $relacionesArticulo = getRelacionesArticulo($articulo['id']);
 
     // Artículos relacionados de la misma categoría
     $relacionados = getWWArticulosRelacionados($articulo['id'], $articulo['id_categoria'], 3);
@@ -94,8 +103,20 @@ if ($catSlug && $artSlug) {
             <div class="ww-article-content">
                 <?php echo completarImagenesArticulo($articulo['contenido']); ?>
             </div>
+            <?php echo renderTeLoAconsejamos('Hola, he leído «' . $articulo['titulo'] . '» y me gustaría que me aconsejarais.', $articulo['consejo'] ?? null); ?>
+            <p class="autor-articulo">
+                Lo escribe el equipo de <?php echo SITE_NAME; ?>, la vinoteca de <?php echo SITE_LOCALITY; ?>: lo que contamos aquí es lo que explicamos cada día en la tienda.
+                <?php if (!empty($articulo['updated_at']) && strpos($articulo['updated_at'], '0000') !== 0): ?>
+                Actualizado el <?php echo date('d/m/Y', strtotime($articulo['updated_at'])); ?>.
+                <?php endif; ?>
+                <a href="<?php echo Router::url('contacto'); ?>">Dónde estamos</a>
+            </p>
         </div>
     </section>
+
+    <?php echo renderDondeComprarlo($relacionesArticulo); ?>
+
+    <?php echo renderFaqs($faqsArticulo, 'Preguntas frecuentes'); ?>
 
     <!-- Related Articles -->
     <?php if (!empty($relacionados)): ?>

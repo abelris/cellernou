@@ -1254,12 +1254,21 @@ function getWWCategoriaById($id) {
 }
 
 /**
+ * Condición de artículo visible: publicado y con la fecha de publicación ya
+ * pasada. Un artículo con fecha futura queda escrito y sale solo ese día
+ * (el sitemap se regenera cada 6 horas).
+ */
+function sqlWWVisible($alias = '') {
+    return "{$alias}publicado = 1 AND ({$alias}fecha_publicacion IS NULL OR {$alias}fecha_publicacion <= NOW())";
+}
+
+/**
  * Obtener artículos publicados de una categoría
  */
 function getWWArticulosByCategoria($idCategoria) {
     global $bd;
     $id = intval($idCategoria);
-    $result = mysqli_query($bd, "SELECT * FROM ww_articulos WHERE id_categoria = $id AND publicado = 1 ORDER BY fecha_publicacion DESC");
+    $result = mysqli_query($bd, "SELECT * FROM ww_articulos WHERE id_categoria = $id AND " . sqlWWVisible() . " ORDER BY fecha_publicacion DESC");
     $arts = [];
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -1286,7 +1295,7 @@ function getWWArticulo($slug) {
 function getWWCountArticulos($idCategoria) {
     global $bd;
     $id = intval($idCategoria);
-    $result = mysqli_query($bd, "SELECT COUNT(*) as total FROM ww_articulos WHERE id_categoria = $id AND publicado = 1");
+    $result = mysqli_query($bd, "SELECT COUNT(*) as total FROM ww_articulos WHERE id_categoria = $id AND " . sqlWWVisible());
     if ($result && $row = mysqli_fetch_assoc($result)) {
         return $row['total'];
     }
@@ -1299,7 +1308,7 @@ function getWWCountArticulos($idCategoria) {
 function getWWUltimosArticulos($limit = 6) {
     global $bd;
     $limit = intval($limit);
-    $result = mysqli_query($bd, "SELECT * FROM ww_articulos WHERE publicado = 1 ORDER BY fecha_publicacion DESC LIMIT $limit");
+    $result = mysqli_query($bd, "SELECT * FROM ww_articulos WHERE " . sqlWWVisible() . " ORDER BY fecha_publicacion DESC LIMIT $limit");
     $arts = [];
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -1317,7 +1326,7 @@ function getWWArticulosRelacionados($idArticulo, $idCategoria, $limit = 3) {
     $idArt = intval($idArticulo);
     $idCat = intval($idCategoria);
     $limit = intval($limit);
-    $result = mysqli_query($bd, "SELECT * FROM ww_articulos WHERE id_categoria = $idCat AND id != $idArt AND publicado = 1 ORDER BY fecha_publicacion DESC LIMIT $limit");
+    $result = mysqli_query($bd, "SELECT * FROM ww_articulos WHERE id_categoria = $idCat AND id != $idArt AND " . sqlWWVisible() . " ORDER BY fecha_publicacion DESC LIMIT $limit");
     $arts = [];
     if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {

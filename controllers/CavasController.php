@@ -64,6 +64,11 @@ if (!empty($productosPagina)) {
 $faqs = ($paginacion['actual'] === 1 && !$tipoId)
     ? getFaqsCategoria('cavas')
     : [];
+// Texto propio del listado (tabla categoria_textos): intro, texto largo y
+// FAQ, que van delante de las generales de la categoría.
+$ambitoTexto = $tipoId ? 'tipo' : 'sector';
+$idTexto = $tipoId ?: 14;
+$textoCat = aplicarTextoCategoria($ambitoTexto, $idTexto, $paginacion, $pageTitle, $pageDescription, $faqs);
 if (!empty($faqs)) {
     $schemaExtra .= schemaFAQ($faqs);
 }
@@ -75,6 +80,9 @@ include ROOT_PATH . '/includes/header.php';
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1><?php echo $filtroNombre ?: 'Cavas y Espumosos'; ?></h1>
+        <?php if ($textoCat && !empty($textoCat['intro'])): ?>
+        <?php echo renderIntroCategoria($textoCat); ?>
+        <?php else: ?>
         <p>
             <?php if ($filtroNombre): ?>
                 <?php echo count($productos); ?> productos encontrados en <?php echo htmlspecialchars($filtroNombre); ?>
@@ -82,6 +90,7 @@ include ROOT_PATH . '/includes/header.php';
                 Los mejores cavas, champagnes y espumosos para tus celebraciones
             <?php endif; ?>
         </p>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -153,6 +162,8 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
+<?php if ($paginacion['actual'] === 1) echo renderTextoCategoria($textoCat, $ambitoTexto, $idTexto, $filtroNombre ?: 'Cavas y espumosos'); ?>
+
 <section class="section section-alt">
     <div class="container">
         <div class="section-header"><h2>También te puede interesar</h2></div>
@@ -167,6 +178,6 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
-<?php echo renderFaqs($faqs, 'Preguntas frecuentes sobre cavas y espumosos'); ?>
+<?php echo renderFaqs($faqs, $filtroNombre ? 'Preguntas frecuentes: ' . $filtroNombre : 'Preguntas frecuentes sobre cavas y espumosos'); ?>
 
 <?php include ROOT_PATH . '/includes/footer.php'; ?>

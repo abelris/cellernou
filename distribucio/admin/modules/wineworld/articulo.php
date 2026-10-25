@@ -3,6 +3,7 @@
  * WineWorld Admin - Crear/Editar article
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+require_once __DIR__ . '/textos_helpers.php';
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $articulo = null;
@@ -31,6 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $autor = trim($_POST['autor'] ?? '');
         $publicado = isset($_POST['publicado']) ? 1 : 0;
         $fecha_publicacion = trim($_POST['fecha_publicacion'] ?? '');
+        $consejo = trim($_POST['consejo'] ?? '');
+        $faqsJson = wwTextAFaqs($_POST['faqs'] ?? '');
+        // Relacions amb categories: valors "ambito:id"; la principal ven («On comprar-ho»).
+        $esRelacio = function ($v) { return is_string($v) && preg_match('/^(sector|tipo|procedencia):\d+$/', $v); };
+        $relaciones = array_values(array_unique(array_filter((array) ($_POST['relaciones'] ?? []), $esRelacio)));
+        $relPrincipal = $_POST['relacion_principal'] ?? '';
+        if ($esRelacio($relPrincipal)) {
+            $relaciones = array_values(array_diff($relaciones, [$relPrincipal]));
+            array_unshift($relaciones, $relPrincipal);
+        }
 
         if (empty($titulo) || empty($id_categoria)) {
             $mensaje = ['type' => 'error', 'text' => 'Títol i categoria són obligatoris.'];
@@ -48,6 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $contenidoSafe = mysqli_real_escape_string($bd, $contenido);
             $autorSafe = mysqli_real_escape_string($bd, $autor);
             $fechaSafe = mysqli_real_escape_string($bd, $fecha_publicacion);
+            $consejoSql = $consejo !== '' ? "'" . mysqli_real_escape_string($bd, $consejo) . "'" : 'NULL';
+            $faqsSql = $faqsJson ? "'" . mysqli_real_escape_string($bd, $faqsJson) . "'" : 'NULL';
 
             // Handle image
             $imagenField = '';
@@ -70,6 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     id_categoria = $id_categoria,
                     extracto = '$extractoSafe',
                     contenido = '$contenidoSafe',
+                    consejo = $consejoSql,
+                    faqs = $faqsSql,
                     autor = '$autorSafe',
                     publicado = $publicado,
                     fecha_publicacion = " . ($fechaSafe ? "'$fechaSafe'" : "NULL") . "
@@ -81,12 +96,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     preg_match("/imagen = '(.+?)'/", $imagenField, $m);
                     $imgVal = $m[1] ?? '';
                 }
-                $sql = "INSERT INTO ww_articulos (titulo, slug, id_categoria, extracto, contenido, autor, publicado, fecha_publicacion" . ($imgVal ? ", imagen" : "") . ")
-                        VALUES ('$tituloSafe', '$slugSafe', $id_categoria, '$extractoSafe', '$contenidoSafe', '$autorSafe', $publicado, " . ($fechaSafe ? "'$fechaSafe'" : "NULL") . ($imgVal ? ", '$imgVal'" : "") . ")";
+                $sql = "INSERT INTO ww_articulos (titulo, slug, id_categoria, extracto, contenido, consejo, faqs, autor, publicado, fecha_publicacion" . ($imgVal ? ", imagen" : "") . ")
+                        VALUES ('$tituloSafe', '$slugSafe', $id_categoria, '$extractoSafe', '$contenidoSafe', $consejoSql, $faqsSql, '$autorSafe', $publicado, " . ($fechaSafe ? "'$fechaSafe'" : "NULL") . ($imgVal ? ", '$imgVal'" : "") . ")";
             }
 
             if (mysqli_query($bd, $sql)) {
                 $newId = $id ?: mysqli_insert_id($bd);
+
+                mysqli_query($bd, "DELETE FROM ww_articulo_relaciones WHERE id_articulo = $newId");
+                foreach ($relaciones as $i => $rel) {
+                    [$relAmbito, $relId] = explode(':', $rel);
+                    mysqli_query($bd, "INSERT INTO ww_articulo_relaciones (id_articulo, ambito, id_ref, principal)
+                                       VALUES ($newId, '$relAmbito', " . intval($relId) . ", " . ($i === 0 ? 1 : 0) . ")");
+                }
                 logActivity('wineworld', ($id ? 'Article actualitzat' : 'Article creat') . ": $titulo (ID: $newId)");
 
                 // Reload article data
@@ -110,6 +132,17 @@ if ($resCat) {
         $categorias[] = $row;
     }
 }
+
+// Relacions actuals (la principal primer) i totes les pàgines de llistat.
+$relacionesActuales = [];
+if ($id > 0) {
+    $resRel = mysqli_query($bd, "SELECT ambito, id_ref FROM ww_articulo_relaciones WHERE id_articulo = $id ORDER BY principal DESC, ambito, id_ref");
+    while ($resRel && $row = mysqli_fetch_assoc($resRel)) $relacionesActuales[] = $row['ambito'] . ':' . $row['id_ref'];
+}
+$paginasLlistat = [];
+foreach (wwPaginesLlistat($bd) as $p) $paginasLlistat[$p['grup']][] = $p;
+
+$programat = $articulo && $articulo['publicado'] && !empty($articulo['fecha_publicacion']) && strtotime($articulo['fecha_publicacion']) > time();
 
 include dirname(dirname(__DIR__)) . '/includes/header.php';
 ?>
@@ -169,6 +202,26 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                     <textarea name="contenido" id="contenido" class="form-control" rows="25" style="font-family:monospace;font-size:0.9rem;line-height:1.6;"><?php echo $articulo ? e($articulo['contenido']) : ''; ?></textarea>
                 </div>
             </div>
+
+            <div class="card" style="margin-top:1.5rem;">
+                <div class="card-header">
+                    <h3>Consell de la botiga («Te lo aconsejamos»)</h3>
+                    <small style="color:var(--text-muted)">Com ho aconsellem a la botiga. Si és buit, surt el text general amb WhatsApp i telèfon.</small>
+                </div>
+                <div class="card-body">
+                    <textarea name="consejo" class="form-control" rows="4"><?php echo $articulo ? e($articulo['consejo'] ?? '') : ''; ?></textarea>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:1.5rem;">
+                <div class="card-header">
+                    <h3>Preguntes freqüents</h3>
+                    <small style="color:var(--text-muted)">«P: …» i a sota «R: …», amb una línia en blanc entre blocs. Surten a la pàgina i al schema FAQPage.</small>
+                </div>
+                <div class="card-body">
+                    <textarea name="faqs" class="form-control" rows="10" style="font-family:monospace;font-size:0.9rem;line-height:1.6;"><?php echo $articulo ? e(wwFaqsAText($articulo['faqs'] ?? null)) : ''; ?></textarea>
+                </div>
+            </div>
         </div>
 
         <!-- Sidebar -->
@@ -181,6 +234,9 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                             <input type="checkbox" name="publicado" <?php echo ($articulo && $articulo['publicado']) ? 'checked' : ''; ?>>
                             <strong>Publicat</strong>
                         </label>
+                        <?php if ($programat): ?>
+                        <small style="color:var(--text-muted)">Programat: surt al web el <?php echo date('d/m/Y H:i', strtotime($articulo['fecha_publicacion'])); ?>.</small>
+                        <?php endif; ?>
                     </div>
                     <div class="form-group">
                         <label>Data de publicació</label>
@@ -205,6 +261,39 @@ include dirname(dirname(__DIR__)) . '/includes/header.php';
                             </option>
                             <?php endforeach; ?>
                         </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom:1.5rem;">
+                <div class="card-header"><h3>On comprar-ho</h3></div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Categoria principal</label>
+                        <select name="relacion_principal" class="form-control">
+                            <option value="">Cap</option>
+                            <?php foreach ($paginasLlistat as $grup => $llista): ?>
+                            <optgroup label="<?php echo e($grup); ?>">
+                                <?php foreach ($llista as $p): $v = $p['ambito'] . ':' . $p['id_ref']; ?>
+                                <option value="<?php echo $v; ?>" <?php echo ($relacionesActuales[0] ?? '') === $v ? 'selected' : ''; ?>><?php echo e($p['nom']); ?></option>
+                                <?php endforeach; ?>
+                            </optgroup>
+                            <?php endforeach; ?>
+                        </select>
+                        <small style="color:var(--text-muted)">La que ven: 4 fitxes amb estoc al final de l'article.</small>
+                    </div>
+                    <div class="form-group" style="margin:0">
+                        <label>Altres categories que tracta</label>
+                        <select name="relaciones[]" class="form-control" multiple size="10">
+                            <?php foreach ($paginasLlistat as $grup => $llista): ?>
+                            <optgroup label="<?php echo e($grup); ?>">
+                                <?php foreach ($llista as $p): $v = $p['ambito'] . ':' . $p['id_ref']; ?>
+                                <option value="<?php echo $v; ?>" <?php echo in_array($v, array_slice($relacionesActuales, 1), true) ? 'selected' : ''; ?>><?php echo e($p['nom']); ?></option>
+                                <?php endforeach; ?>
+                            </optgroup>
+                            <?php endforeach; ?>
+                        </select>
+                        <small style="color:var(--text-muted)">Ctrl + clic per triar-ne diverses. L'article surt al bloc «Del blog» de totes.</small>
                     </div>
                 </div>
             </div>

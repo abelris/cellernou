@@ -65,6 +65,11 @@ if (!empty($productosPagina)) {
 $faqs = ($paginacion['actual'] === 1 && !$tipoId)
     ? getFaqsCategoria('licores')
     : [];
+// Texto propio del listado (tabla categoria_textos): intro, texto largo y
+// FAQ, que van delante de las generales de la categoría.
+$ambitoTexto = $tipoId ? 'tipo' : 'sector';
+$idTexto = $tipoId ?: 2;
+$textoCat = aplicarTextoCategoria($ambitoTexto, $idTexto, $paginacion, $pageTitle, $pageDescription, $faqs);
 if (!empty($faqs)) {
     $schemaExtra .= schemaFAQ($faqs);
 }
@@ -76,6 +81,9 @@ include ROOT_PATH . '/includes/header.php';
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1><?php echo $filtroNombre ?: 'Licores'; ?></h1>
+        <?php if ($textoCat && !empty($textoCat['intro'])): ?>
+        <?php echo renderIntroCategoria($textoCat); ?>
+        <?php else: ?>
         <p>
             <?php if ($filtroNombre): ?>
                 <?php echo count($productos); ?> productos encontrados en <?php echo htmlspecialchars($filtroNombre); ?>
@@ -83,6 +91,7 @@ include ROOT_PATH . '/includes/header.php';
                 Destilados premium y licores de las mejores marcas del mundo
             <?php endif; ?>
         </p>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -154,6 +163,8 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
+<?php if ($paginacion['actual'] === 1) echo renderTextoCategoria($textoCat, $ambitoTexto, $idTexto, $filtroNombre ?: 'Licores'); ?>
+
 <section class="section section-alt">
     <div class="container">
         <div class="section-header"><h2>Categorías populares de licores</h2></div>
@@ -174,6 +185,6 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
-<?php echo renderFaqs($faqs, 'Preguntas frecuentes sobre los licores'); ?>
+<?php echo renderFaqs($faqs, $filtroNombre ? 'Preguntas frecuentes: ' . $filtroNombre : 'Preguntas frecuentes sobre los licores'); ?>
 
 <?php include ROOT_PATH . '/includes/footer.php'; ?>

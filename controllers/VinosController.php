@@ -100,6 +100,11 @@ if (!empty($productosPagina)) {
 $faqs = ($paginacion['actual'] === 1 && !$tipoId && !$doId)
     ? getFaqsCategoria('vinos')
     : [];
+// Texto propio del listado (tabla categoria_textos): intro, texto largo y
+// FAQ, que van delante de las generales de la categoría.
+$ambitoTexto = $tipoId ? 'tipo' : ($doId ? 'procedencia' : 'sector');
+$idTexto = $tipoId ?: ($doId ?: 8);
+$textoCat = aplicarTextoCategoria($ambitoTexto, $idTexto, $paginacion, $pageTitle, $pageDescription, $faqs);
 if (!empty($faqs)) {
     $schemaExtra .= schemaFAQ($faqs);
 }
@@ -112,6 +117,9 @@ include ROOT_PATH . '/includes/header.php';
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1><?php echo $filtroNombre ?: 'Vinos'; ?></h1>
+        <?php if ($textoCat && !empty($textoCat['intro'])): ?>
+        <?php echo renderIntroCategoria($textoCat); ?>
+        <?php else: ?>
         <p>
             <?php if ($filtroNombre): ?>
                 <?php echo count($productos); ?> productos encontrados en <?php echo htmlspecialchars($filtroNombre); ?>
@@ -119,6 +127,7 @@ include ROOT_PATH . '/includes/header.php';
                 Descubre nuestra selección de vinos con las mejores Denominaciones de Origen
             <?php endif; ?>
         </p>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -212,6 +221,8 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
+<?php if ($paginacion['actual'] === 1) echo renderTextoCategoria($textoCat, $ambitoTexto, $idTexto, $filtroNombre ?: 'Vinos'); ?>
+
 <!-- Related Categories -->
 <section class="section section-alt">
     <div class="container">
@@ -251,6 +262,6 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
-<?php echo renderFaqs($faqs, 'Preguntas frecuentes sobre los vinos'); ?>
+<?php echo renderFaqs($faqs, $filtroNombre ? 'Preguntas frecuentes: ' . $filtroNombre : 'Preguntas frecuentes sobre los vinos'); ?>
 
 <?php include ROOT_PATH . '/includes/footer.php'; ?>

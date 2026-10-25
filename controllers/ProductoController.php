@@ -89,6 +89,9 @@ $breadcrumbItems = [
 // Productos relacionados
 $productosRelacionados = getProductosRelacionados($producto, 4);
 
+// La guía del blog de su tipo o su D.O. (ww_articulo_relaciones).
+$guiaBlog = getGuiaParaProducto($producto);
+
 // Schema
 $schemaExtra = schemaBreadcrumb($breadcrumbItems);
 $schemaExtra .= schemaProducto($producto, $productoTextos);
@@ -215,6 +218,15 @@ include ROOT_PATH . '/includes/header.php';
                             <a href="<?php echo Router::url('vinos.do', ['id' => $producto['idProcedencia'], 'slug' => createSlug($producto['procedencia_nombre'])]); ?>"
                                class="btn btn-outline" style="padding: var(--spacing-sm) var(--spacing-md); font-size: 0.875rem;">
                                 Más de <?php echo htmlspecialchars($producto['procedencia_nombre']); ?>
+                            </a>
+                        </li>
+                        <?php endif; ?>
+
+                        <?php if ($guiaBlog): ?>
+                        <li>
+                            <a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => $guiaBlog['cat_slug'], 'art_slug' => $guiaBlog['slug']]); ?>"
+                               class="btn btn-outline" style="padding: var(--spacing-sm) var(--spacing-md); font-size: 0.875rem;">
+                                Guía: <?php echo htmlspecialchars($guiaBlog['titulo']); ?>
                             </a>
                         </li>
                         <?php endif; ?>
