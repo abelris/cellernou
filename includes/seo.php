@@ -571,7 +571,12 @@ function schemaArticulo($articulo, $categoria) {
         // Si el "autor" es la propia tienda, se referencia la organización en
         // lugar de declarar una Person que no existe.
         'author'           => (!empty($articulo['autor']) && $articulo['autor'] !== SITE_NAME)
-            ? ['@type' => 'Person', 'name' => $articulo['autor']]
+            ? array_filter([
+                '@type'    => 'Person',
+                'name'     => $articulo['autor'],
+                'jobTitle' => AUTORES_BLOG[$articulo['autor']]['cargo'] ?? null,
+                'worksFor' => isset(AUTORES_BLOG[$articulo['autor']]) ? ['@id' => schemaTiendaId()] : null,
+            ])
             : ['@id' => schemaTiendaId()]
     ];
 

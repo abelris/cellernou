@@ -104,13 +104,7 @@ if ($catSlug && $artSlug) {
                 <?php echo completarImagenesArticulo($articulo['contenido']); ?>
             </div>
             <?php echo renderTeLoAconsejamos('Hola, he leído «' . $articulo['titulo'] . '» y me gustaría que me aconsejarais.', $articulo['consejo'] ?? null); ?>
-            <p class="autor-articulo">
-                Lo escribe el equipo de <?php echo SITE_NAME; ?>, la vinoteca de <?php echo SITE_LOCALITY; ?>: lo que contamos aquí es lo que explicamos cada día en la tienda.
-                <?php if (!empty($articulo['updated_at']) && strpos($articulo['updated_at'], '0000') !== 0): ?>
-                Actualizado el <?php echo date('d/m/Y', strtotime($articulo['updated_at'])); ?>.
-                <?php endif; ?>
-                <a href="<?php echo Router::url('contacto'); ?>">Dónde estamos</a>
-            </p>
+            <?php echo renderAutorArticulo($articulo); ?>
         </div>
     </section>
 

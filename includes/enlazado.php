@@ -27,6 +27,34 @@ const SECTORES_LISTADO = [
 ];
 
 /**
+ * Autores con firma propia en el blog (ww_articulos.autor). Un artículo
+ * firmado por SITE_NAME o por alguien que no está aquí sale como «el equipo».
+ * La bio es la que ha dado el usuario: no añadir títulos ni datos sin confirmar.
+ */
+const AUTORES_BLOG = [
+    'Victoria Ris' => [
+        'cargo' => 'Al frente de El Celler Nou',
+        'bio'   => 'Amante del vino, lleva seis años al frente de El Celler Nou, la vinoteca de Premià de Mar. Lo que cuenta aquí es lo que explica cada día en la tienda.',
+    ],
+];
+
+/** Recuadro de autoría al pie del artículo. */
+function renderAutorArticulo($articulo) {
+    $autor = AUTORES_BLOG[$articulo['autor'] ?? ''] ?? null;
+    $actualizado = (!empty($articulo['updated_at']) && strpos($articulo['updated_at'], '0000') !== 0)
+        ? ' Actualizado el ' . date('d/m/Y', strtotime($articulo['updated_at'])) . '.'
+        : '';
+    if ($autor) {
+        return '<p class="autor-articulo"><strong>' . htmlspecialchars($articulo['autor']) . '</strong> · '
+            . htmlspecialchars($autor['cargo']) . '<br>' . htmlspecialchars($autor['bio']) . $actualizado
+            . ' <a href="' . Router::url('contacto') . '">Dónde estamos</a></p>';
+    }
+    return '<p class="autor-articulo">Lo escribe el equipo de ' . SITE_NAME . ', la vinoteca de ' . SITE_LOCALITY
+        . ': lo que contamos aquí es lo que explicamos cada día en la tienda.' . $actualizado
+        . ' <a href="' . Router::url('contacto') . '">Dónde estamos</a></p>';
+}
+
+/**
  * Texto publicado de un listado, o null. faqs ya viene decodificado.
  */
 function getTextoCategoria($ambito, $idRef) {
