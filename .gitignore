@@ -7,3 +7,6 @@
 
 # Datos privados de Search Console (exportaciones)
 /docs/seo/search-console/
+
+# Cachés de Python de los scripts de docs/seo
+__pycache__/
