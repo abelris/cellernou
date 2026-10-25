@@ -38,13 +38,13 @@
                     <div class="footer-col">
                         <h3>Denominaciones de Origen</h3>
                         <ul class="footer-links">
-                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 1, 'slug' => 'do-la-rioja']); ?>">D.O. La Rioja</a></li>
-                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 3, 'slug' => 'do-ribera-de-duero']); ?>">D.O. Ribera del Duero</a></li>
-                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 30, 'slug' => 'do-priorat']); ?>">D.O. Priorat</a></li>
-                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 15, 'slug' => 'do-penedes']); ?>">D.O. Penedès</a></li>
-                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 14, 'slug' => 'do-emporda']); ?>">D.O. Empordà</a></li>
-                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 32, 'slug' => 'do-montsant']); ?>">D.O. Montsant</a></li>
-                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 68, 'slug' => 'rias-baixas']); ?>">Rías Baixas</a></li>
+                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 1, 'slug' => 'd-o-ca-rioja']); ?>">D.O. La Rioja</a></li>
+                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 3, 'slug' => 'd-o-ribera-del-duero']); ?>">D.O. Ribera del Duero</a></li>
+                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 30, 'slug' => 'd-o-q-priorat']); ?>">D.O. Priorat</a></li>
+                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 15, 'slug' => 'd-o-penedes']); ?>">D.O. Penedès</a></li>
+                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 14, 'slug' => 'd-o-emporda']); ?>">D.O. Empordà</a></li>
+                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 32, 'slug' => 'd-o-montsant']); ?>">D.O. Montsant</a></li>
+                            <li><a href="<?php echo Router::url('vinos.do', ['id' => 74, 'slug' => 'd-o-rias-baixas']); ?>">Rías Baixas</a></li>
                         </ul>
                     </div>
 

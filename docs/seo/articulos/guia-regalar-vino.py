@@ -20,7 +20,7 @@ ARTICULO = {
     'id_categoria': 1,  # Guías de Vino
     'titulo': 'Qué vino regalar en Navidad: vinos, cavas y licores por presupuesto',
     'extracto': 'Qué vino, cava o licor regalar en Navidad según la persona y lo que quieras gastar, con botellas reales de menos de 15 €, de 15 a 30 € y de más.',
-    'autor': 'El Celler Nou',
+    'autor': 'Victoria Ris',
     'relaciones': [('sector', 8), ('sector', 2), ('sector', 14)],  # la primera es la principal
     'consejo': 'Cuéntanos para quién es el regalo y cuánto quieres gastar, por WhatsApp, por teléfono o en la tienda, y te proponemos dos o tres botellas que encajen. También preparamos regalos y lotes: te lo dejamos listo para recoger o te lo llevamos a casa si estás en el Maresme. Lo envolvemos sin coste y, si es para tu empresa, te hacemos factura: <a href="/lotes-y-regalos">lotes y regalos</a>.',
     'faqs': [

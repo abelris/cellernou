@@ -151,7 +151,10 @@ $procedenciasVinos = getProcedencias(8);
                                                 $countDO = 0;
                                                 foreach ($procedenciasVinos as $proc):
                                                     if ($countDO >= 10) break;
-                                                    if (strpos($proc['nombre_es'], 'D.O.') !== false):
+                                                    // D.O. Cava y las unificadas redirigen (301): fuera del menú.
+                                                    if (strpos($proc['nombre_es'], 'D.O.') !== false
+                                                        && (int) $proc['id'] !== PROCEDENCIA_DO_CAVA
+                                                        && !isset(PROCEDENCIAS_UNIFICADAS[(int) $proc['id']])):
                                                 ?>
                                                 <li><a href="<?php echo Router::url('vinos.do', ['id' => $proc['id'], 'slug' => createSlug($proc['nombre_es'])]); ?>"><?php echo htmlspecialchars($proc['nombre_es']); ?></a></li>
                                                 <?php
