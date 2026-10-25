@@ -775,14 +775,17 @@ function getConteosConStock($campo) {
 
 /**
  * Una página de filtro (tipo, D.O. u origen dentro de un sector) se indexa si
- * tiene MIN_PRODUCTOS_FILTRO productos con stock y si ese sector es donde más
- * hay: "Vino rosado" vive en vinos, no en licores, aunque allí haya un rosado
- * mal clasificado. Así el mismo tipo no compite consigo mismo en dos secciones.
+ * tiene MIN_PRODUCTOS_FILTRO productos con stock. Los tipos, además, solo en
+ * el sector donde más hay: "Vino rosado" vive en vinos, no en licores, aunque
+ * allí haya un rosado mal clasificado; así el mismo tipo no compite consigo
+ * mismo en dos secciones. Las procedencias no lo necesitan: solo vinos (D.O.)
+ * y cervezas (origen) tienen página de procedencia.
  */
 function filtroIndexable($campo, $id, $idSector) {
     $porSector = getConteosConStock($campo)[(int) $id] ?? [];
     $n = $porSector[(int) $idSector] ?? 0;
-    return $n >= MIN_PRODUCTOS_FILTRO && $n === max($porSector);
+    if ($n < MIN_PRODUCTOS_FILTRO) return false;
+    return $campo !== 'idTipo' || $n === max($porSector);
 }
 
 /** Ficha indexable: producto con stock o con descripción propia. */
