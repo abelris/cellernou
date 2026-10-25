@@ -18,7 +18,7 @@ import re
 import sys
 import unicodedata
 
-from PIL import Image, ImageChops
+from PIL import Image, ImageChops, ImageDraw
 
 ALTO_MAX = 800
 
@@ -42,6 +42,11 @@ def optimizar(origen, destino):
         img = fondo
     else:
         img = img.convert('RGB')
+    # Fondos claros pero no blancos (crema, gris de estudio): se blanquean
+    # rellenando desde las esquinas, sin tocar la botella.
+    for esquina in ((0, 0), (img.width - 1, 0), (0, img.height - 1), (img.width - 1, img.height - 1)):
+        if min(img.getpixel(esquina)) > 200 and img.getpixel(esquina) != (255, 255, 255):
+            ImageDraw.floodfill(img, esquina, (255, 255, 255), thresh=18)
     # Recortar el margen blanco (hay fotos cuadradas con la botella pequeña en
     # el centro) y dejar un 4 % de aire alrededor.
     caja = ImageChops.difference(img, Image.new('RGB', img.size, (255, 255, 255))).point(lambda v: 255 if v > 12 else 0).getbbox()
