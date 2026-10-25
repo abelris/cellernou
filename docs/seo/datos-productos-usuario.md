@@ -25,4 +25,4 @@ Inactivos por indicación del usuario (25-oct-2026): 5345 Alcohol 95 1 L (alcoho
 - **Asesoramiento a restaurantes** (qué incluye exactamente —carta, suministro, formación—: pendiente de concretar).
 - **Bodas y eventos**, y «quien necesite poner un vino».
 - **Asesoramiento personal** (en tienda, WhatsApp, teléfono).
-- **Regalos**: preparan regalos y lotes.
+- **Regalos**: preparan regalos y lotes. Confirmado el 26-oct-2026: lotes **a medida** (sin lotes cerrados ni precios en la web; el cliente da presupuesto y para quién es); **regalos de empresa con factura** y entrega en la oficina en el Maresme; **envoltorio gratis**; sin fecha límite publicada para Navidad («encárgalo con tiempo»).

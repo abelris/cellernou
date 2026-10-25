@@ -104,7 +104,7 @@ $servicios = [
             'Dinos para quién es y el presupuesto, y lo dejamos listo para recoger o te lo llevamos.',
         ],
         'whatsapp' => 'Hola, quiero preparar un regalo.',
-        'enlace'   => null,
+        'enlace'   => ['url' => Router::url('lotes'), 'texto' => 'Lotes de Navidad y regalos de empresa'],
     ],
 ];
 
