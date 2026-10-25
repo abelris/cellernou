@@ -85,6 +85,12 @@ define('ORDER_DISCOUNT_PERCENT', 5);           // ...5 % de descuento
 // D.O. Cava (procedencia): su página de vinos redirige 301 a /cavas.
 define('PROCEDENCIA_DO_CAVA', 80);
 
+// Procedencias duplicadas que se unificaron: id viejo => id que se queda.
+// Sus productos ya están en la nueva; la página vieja redirige 301.
+define('PROCEDENCIAS_UNIFICADAS', [
+    68 => 74,  // Rias Baixas -> D.O. Rías Baixas (25-oct-2026)
+]);
+
 // Sectores permitidos (IDs de la base de datos)
 define('SECTORES_PERMITIDOS', [
     8,  // Vinos

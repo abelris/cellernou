@@ -25,6 +25,10 @@ $breadcrumbItems = [
 if ($doId === PROCEDENCIA_DO_CAVA) {
     Router::redirect(Router::url('cavas'), 301);
 }
+if (isset(PROCEDENCIAS_UNIFICADAS[$doId])) {
+    $nueva = getProcedenciaById(PROCEDENCIAS_UNIFICADAS[$doId]);
+    Router::redirect(Router::url('vinos.do', ['id' => (int) $nueva['id'], 'slug' => createSlug($nueva['nombre_es'])]), 301);
+}
 
 // "Premià de Mar" y "a domicilio" quedan para la portada y /vino-a-domicilio;
 // los títulos de los listados van al producto, para no competir con ellas.
