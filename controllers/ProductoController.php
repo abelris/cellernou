@@ -60,9 +60,9 @@ $currentUrl = Router::urlAbs('producto', ['id' => $producto['id'], 'slug' => $sl
 // SEO
 $pageTitle = trim(normalizarNombre($producto['nombre'])) . ' | ' . $categoriaNombre . ' - El Celler Nou';
 $pageDescription = !empty($productoTextos['descripcion'])
-    ? mb_substr(strip_tags($productoTextos['descripcion']), 0, 160)
+    ? resumenMeta($productoTextos['descripcion'])
     : (!empty($producto['descripcion'])
-        ? mb_substr(strip_tags($producto['descripcion']), 0, 160)
+        ? resumenMeta($producto['descripcion'])
         : $producto['nombre'] . ' - ' . ($producto['tipo_nombre'] ?? '') . ' de ' . ($producto['procedencia_nombre'] ?? 'calidad') . '. Compra en El Celler Nou.');
 $pageType = 'product';
 // Sin stock y sin texto propio no aporta nada a Google (ver productoIndexable).

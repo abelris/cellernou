@@ -728,6 +728,22 @@ function completarImagenesArticulo($html) {
     }, $html);
 }
 
+/**
+ * Meta description a partir de un texto largo: la primera frase si cabe (los
+ * textos de ficha se escriben para que resuma el producto) y, si no, cortado
+ * en una palabra entera con puntos suspensivos. Nunca a mitad de palabra.
+ */
+function resumenMeta($texto, $max = 160) {
+    $texto = trim(preg_replace('/\s+/u', ' ', strip_tags($texto)));
+    if (mb_strlen($texto) <= $max) return $texto;
+    // Fin de frase: punto tras una palabra en minúscula y antes de mayúscula,
+    // para no cortar en abreviaturas como "D.O." o "D.O.Ca.".
+    if (preg_match('/^(.{60,' . ($max - 3) . '}?\p{Ll}\p{Ll}[.!?])\s+\p{Lu}/u', $texto, $m)) return $m[1];
+    $corte = mb_substr($texto, 0, $max - 1);
+    $espacio = mb_strrpos($corte, ' ');
+    return rtrim(mb_substr($corte, 0, $espacio ?: $max - 1), ' ,;:') . '…';
+}
+
 // =============================================
 // INDEXACIÓN
 // =============================================
