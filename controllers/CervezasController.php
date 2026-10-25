@@ -20,6 +20,7 @@ if ($origenId) {
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('cervezas.origen', ['id' => $origenId, 'slug' => createSlug($filtroNombre)])];
         $pageTitle = $filtroNombre . ' | Cervezas - El Celler Nou';
         $pageDescription = 'Selección de cervezas de ' . $filtroNombre . '. Las mejores cervezas en El Celler Nou.';
+        if (!filtroIndexable('idProcedencia', $origenId, 21)) $pageRobots = 'noindex, follow';
     }
 } else {
     $productos = getProductosBySector(21);

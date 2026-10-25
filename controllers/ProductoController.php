@@ -60,11 +60,15 @@ $currentUrl = Router::urlAbs('producto', ['id' => $producto['id'], 'slug' => $sl
 // SEO
 $pageTitle = trim(normalizarNombre($producto['nombre'])) . ' | ' . $categoriaNombre . ' - El Celler Nou';
 $pageDescription = !empty($productoTextos['descripcion'])
-    ? strip_tags(substr($productoTextos['descripcion'], 0, 160))
+    ? mb_substr(strip_tags($productoTextos['descripcion']), 0, 160)
     : (!empty($producto['descripcion'])
-        ? strip_tags(substr($producto['descripcion'], 0, 160))
+        ? mb_substr(strip_tags($producto['descripcion']), 0, 160)
         : $producto['nombre'] . ' - ' . ($producto['tipo_nombre'] ?? '') . ' de ' . ($producto['procedencia_nombre'] ?? 'calidad') . '. Compra en El Celler Nou.');
 $pageType = 'product';
+// Sin stock y sin texto propio no aporta nada a Google (ver productoIndexable).
+if (!productoIndexable($producto, $productoTextos)) {
+    $pageRobots = 'noindex, follow';
+}
 // og:image: la foto del producto solo si el archivo existe; si no, la imagen
 // social por defecto. Una og:image rota deja la tarjeta al compartir en blanco.
 if (productoTieneFoto($producto)) {
@@ -164,7 +168,7 @@ include ROOT_PATH . '/includes/header.php';
                     </a>
                     <p class="producto-domicilio">
                         <svg class="icon" aria-hidden="true"><use href="#icon-location"></use></svg>
-                        Te lo llevamos a casa en Premià de Mar y alrededores, gratis en pedidos de más de <?php echo SHIPPING_FREE_MIN_ORDER; ?> €.
+                        Te lo llevamos a casa en Premià de Mar y alrededores, gratis a partir de <?php echo SHIPPING_FREE_MIN_ORDER; ?> €, y con un <?php echo ORDER_DISCOUNT_PERCENT; ?> % de descuento a partir de <?php echo ORDER_DISCOUNT_MIN; ?> €.
                         <a href="<?php echo Router::url('domicilio'); ?>">Zonas de entrega</a>
                     </p>
                 </div>

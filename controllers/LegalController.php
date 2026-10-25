@@ -224,12 +224,12 @@ include ROOT_PATH . '/includes/header.php';
                 <tr style="border-bottom:1px solid #e5e7eb;">
                     <td style="padding:0.75rem 1rem;">Premià de Mar y alrededores: <?php echo htmlspecialchars(listaNombresPoblaciones(getPoblacionesPorZona(1))); ?></td>
                     <td style="padding:0.75rem 1rem;"><?php echo htmlspecialchars(ZONAS_REPARTO[1]['plazo']); ?></td>
-                    <td style="padding:0.75rem 1rem;">Gratuito (pedidos &gt; <?php echo SHIPPING_FREE_MIN_ORDER; ?>&euro;)</td>
+                    <td style="padding:0.75rem 1rem;">Gratuito a partir de <?php echo SHIPPING_FREE_MIN_ORDER; ?>&nbsp;&euro;</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e5e7eb;">
                     <td style="padding:0.75rem 1rem;">Resto del Maresme cercano: <?php echo htmlspecialchars(listaNombresPoblaciones(getPoblacionesPorZona(2))); ?></td>
                     <td style="padding:0.75rem 1rem;"><?php echo htmlspecialchars(ZONAS_REPARTO[2]['plazo']); ?></td>
-                    <td style="padding:0.75rem 1rem;">Consultar</td>
+                    <td style="padding:0.75rem 1rem;">Gratuito a partir de <?php echo SHIPPING_FREE_MIN_ORDER_ZONA2; ?>&nbsp;&euro;</td>
                 </tr>
                 <tr style="border-bottom:1px solid #e5e7eb;">
                     <td style="padding:0.75rem 1rem;">Área metropolitana de Barcelona</td>
@@ -258,6 +258,9 @@ include ROOT_PATH . '/includes/header.php';
                 </tr>
             </tbody>
         </table>
+        <h2>Descuento en pedidos a domicilio</h2>
+        <p>En los pedidos con entrega a domicilio en las poblaciones donde repartimos nosotros (las dos primeras filas de la tabla), a partir de <strong><?php echo ORDER_DISCOUNT_MIN; ?>&nbsp;&euro;</strong> se aplica un <strong><?php echo ORDER_DISCOUNT_PERCENT; ?>&nbsp;% de descuento</strong> sobre el importe total de los productos, compatible con el envío gratuito. No se aplica a los pedidos recogidos en tienda.</p>
+
         <p>Los plazos indicados son orientativos, comienzan a contar a partir de la confirmación del pago y se computan en días laborables (de lunes a viernes, excluidos festivos). Pueden variar en períodos de alta demanda (Navidad, campañas especiales).</p>
 
         <h2>Embalaje y protección</h2>

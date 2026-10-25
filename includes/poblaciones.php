@@ -22,16 +22,42 @@
  */
 define('ZONAS_REPARTO', [
     1 => [
-        'nombre' => 'Entrega rápida',
-        'plazo'  => 'Mismo día o día siguiente',
-        'coste'  => 'Gratis en pedidos de más de ' . SHIPPING_FREE_MIN_ORDER . ' €',
+        'nombre'      => 'Entrega rápida',
+        'plazo'       => 'Mismo día o día siguiente',
+        'gratisDesde' => SHIPPING_FREE_MIN_ORDER,
+        'coste'       => 'Gratis a partir de ' . SHIPPING_FREE_MIN_ORDER . ' €',
     ],
     2 => [
-        'nombre' => 'Entrega en 24-48 h',
-        'plazo'  => '24 - 48 horas laborables',
-        'coste'  => 'Consultar',
+        'nombre'      => 'Entrega en 24-48 h',
+        'plazo'       => '24 - 48 horas laborables',
+        'gratisDesde' => SHIPPING_FREE_MIN_ORDER_ZONA2,
+        'coste'       => 'Gratis a partir de ' . SHIPPING_FREE_MIN_ORDER_ZONA2 . ' €',
     ],
 ]);
+
+/** "5 % de descuento en pedidos a domicilio a partir de 100 €" */
+function textoDescuentoPedido() {
+    return ORDER_DISCOUNT_PERCENT . ' % de descuento en pedidos a domicilio a partir de ' . ORDER_DISCOUNT_MIN . ' €';
+}
+
+/**
+ * Franja con las dos ventajas del pedido: envío gratis y descuento.
+ * Con $zona, solo el mínimo de esa zona; sin ella, el de las dos.
+ */
+function renderVentajasPedido($zona = null) {
+    if ($zona) {
+        $envio = 'Envío gratis a partir de ' . ZONAS_REPARTO[$zona]['gratisDesde'] . ' €';
+    } else {
+        $envio = 'Envío gratis a partir de ' . SHIPPING_FREE_MIN_ORDER . ' € en Premià y alrededores ('
+            . SHIPPING_FREE_MIN_ORDER_ZONA2 . ' € en el resto del Maresme)';
+    }
+    return '<ul class="ventajas-pedido">'
+        . '<li><svg class="icon" aria-hidden="true"><use href="#icon-location"></use></svg>'
+        . '<span>' . htmlspecialchars($envio) . '</span></li>'
+        . '<li><strong>-' . ORDER_DISCOUNT_PERCENT . ' %</strong>'
+        . '<span>' . htmlspecialchars(textoDescuentoPedido()) . '</span></li>'
+        . '</ul>';
+}
 
 /** Id de la D.O. Alella en `procedencia`. */
 define('PROCEDENCIA_DO_ALELLA', 33);
@@ -39,8 +65,8 @@ define('PROCEDENCIA_DO_ALELLA', 33);
 /**
  * Poblaciones, ordenadas por cercanía.
  *
- * - cp:        códigos postales (los de la zona 1 van al shippingDestination
- *              del schema, así que tienen que ser exactos)
+ * - cp:        códigos postales (van al shippingDestination de su zona en el
+ *              schema, así que tienen que ser exactos)
  * - km:        distancia aproximada a la tienda
  * - zona:      clave de ZONAS_REPARTO
  * - doAlella:  el municipio está dentro de la D.O. Alella
@@ -96,7 +122,7 @@ function getPoblacionesReparto() {
             'seleccion' => ['procedencia' => PROCEDENCIA_DO_ALELLA],
             'intro' => [
                 'Vilassar de Dalt está a unos 3 km de nuestra tienda de Premià de Mar. Te llevamos el vino a '
-                . 'casa el mismo día o al siguiente, y en pedidos de más de ' . SHIPPING_FREE_MIN_ORDER
+                . 'casa el mismo día o al siguiente, y a partir de ' . SHIPPING_FREE_MIN_ORDER
                 . ' € el reparto no te cuesta nada.',
                 'Vilassar de Dalt es municipio de la D.O. Alella, así que aquí el vino tiene raíces. Además de los '
                 . 'vinos de la zona, preparamos lotes para celebraciones, cajas variadas para probar y botellas '
@@ -145,7 +171,7 @@ function getPoblacionesReparto() {
             'seleccion' => ['procedencia' => PROCEDENCIA_DO_ALELLA],
             'intro' => [
                 'Cabrils está a unos 4 km de nuestra tienda. Llevamos el pedido a casa el mismo día o al '
-                . 'siguiente, también a las urbanizaciones, y en pedidos de más de ' . SHIPPING_FREE_MIN_ORDER
+                . 'siguiente, también a las urbanizaciones, y a partir de ' . SHIPPING_FREE_MIN_ORDER
                 . ' € el reparto es gratis.',
                 'Cabrils forma parte de la D.O. Alella. Para una cena en casa o una reunión con amigos, te '
                 . 'preparamos una selección a tu gusto: dinos cuántos sois, qué vais a comer y el presupuesto.',
@@ -161,7 +187,7 @@ function getPoblacionesReparto() {
             'seleccion' => ['tipo' => 2, 'sector' => 8],
             'intro' => [
                 'El Masnou está a unos 4 km de la tienda. Repartimos en todo el municipio, también en Ocata y '
-                . 'cerca del puerto, el mismo día o al siguiente, y sin gastos de envío en pedidos de más de '
+                . 'cerca del puerto, el mismo día o al siguiente, y sin gastos de envío a partir de '
                 . SHIPPING_FREE_MIN_ORDER . ' €.',
                 'El Masnou está dentro de la D.O. Alella y mira al mar: blancos frescos, rosados y cavas para el '
                 . 'verano, y tintos con crianza para el invierno. Si no sabes qué elegir, te aconsejamos por '
@@ -210,7 +236,8 @@ function getPoblacionesReparto() {
             'seleccion' => ['procedencia' => PROCEDENCIA_DO_ALELLA],
             'intro' => [
                 'Òrrius está a unos 7 km de nuestra tienda, al otro lado de la sierra. Llevamos el pedido a '
-                . 'casa en 24 a 48 horas; escríbenos por WhatsApp y te confirmamos el día y el coste.',
+                . 'casa en 24 a 48 horas, sin gastos de envío a partir de ' . SHIPPING_FREE_MIN_ORDER_ZONA2
+                . ' €; escríbenos por WhatsApp y te confirmamos el día.',
                 'Òrrius también forma parte de la D.O. Alella. Si buscas vino de la zona, cava para una '
                 . 'celebración o un buen destilado, te lo llevamos sin que tengas que bajar a la costa.',
             ],
@@ -266,7 +293,7 @@ function getPoblacionesReparto() {
         ],
         'mataro' => [
             'nombre' => 'Mataró',
-            'cp' => [],
+            'cp' => ['08301', '08302', '08303', '08304'],
             'km' => 9,
             'zona' => 2,
             'doAlella' => false,
@@ -283,7 +310,7 @@ function getPoblacionesReparto() {
         ],
         'badalona' => [
             'nombre' => 'Badalona',
-            'cp' => [],
+            'cp' => ['08911', '08912', '08913', '08914', '08915', '08916', '08917', '08918'],
             'km' => 11,
             'zona' => 2,
             'doAlella' => false,
@@ -306,7 +333,8 @@ function getPoblacionesReparto() {
             'seleccion' => ['tipo' => 2, 'sector' => 8],
             'intro' => [
                 'Sant Andreu de Llavaneres está a unos 14 km de nuestra tienda, pasado Mataró. Llevamos el '
-                . 'pedido a casa en 24 a 48 horas laborables; escríbenos y te confirmamos día y coste.',
+                . 'pedido a casa en 24 a 48 horas laborables, y a partir de ' . SHIPPING_FREE_MIN_ORDER_ZONA2
+                . ' € el envío es gratis; escríbenos y te confirmamos el día.',
                 'Llavaneres es tierra del pèsol garrofal, y con un plato de guisantes de temporada pocas cosas '
                 . 'quedan mejor que un blanco con algo de cuerpo o un cava brut nature. Te ayudamos a elegir.',
             ],

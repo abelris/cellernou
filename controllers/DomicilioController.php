@@ -33,12 +33,12 @@ if ($poblacion) {
     $zona   = ZONAS_REPARTO[$poblacion['zona']];
     $breadcrumbItems[] = ['name' => $nombre, 'url' => Router::url('domicilio.poblacion', ['slug' => $slug])];
 
-    $pageTitle = 'Vino a domicilio en ' . $nombre . ' | El Celler Nou';
-    $pageDescription = $poblacion['zona'] === 1
-        ? 'Te llevamos vinos, cavas y licores a casa en ' . $nombre . ' el mismo día o al siguiente. '
-            . 'Gratis en pedidos de más de ' . SHIPPING_FREE_MIN_ORDER . ' €. Pide por WhatsApp o teléfono.'
-        : 'Vinos, cavas y licores a domicilio en ' . $nombre . ' en 24-48 horas desde nuestra tienda de '
-            . 'Premià de Mar. Pide por WhatsApp o teléfono y te asesoramos.';
+    $pageTitle = 'Vino a domicilio en ' . $nombre . ', envío gratis | El Celler Nou';
+    $pageDescription = ($poblacion['zona'] === 1
+        ? 'Vinos, cavas y licores a casa en ' . $nombre . ' el mismo día o al siguiente. '
+        : 'Vinos, cavas y licores a domicilio en ' . $nombre . ' en 24-48 h desde Premià de Mar. ')
+        . 'Envío gratis desde ' . $zona['gratisDesde'] . ' € y ' . ORDER_DISCOUNT_PERCENT . ' % de descuento '
+        . 'desde ' . ORDER_DISCOUNT_MIN . ' €. Pide por WhatsApp.';
 
     $seleccion = getSeleccionPoblacion($poblacion);
     $vecinasSlugs = [];
@@ -76,11 +76,17 @@ if ($poblacion) {
             'pregunta'  => '¿Hacéis entregas de vino a domicilio en ' . $nombre . '?',
             'respuesta' => $poblacion['zona'] === 1
                 ? 'Sí. ' . $nombre . ' está dentro de nuestra zona de entrega rápida: te llevamos el pedido a '
-                    . 'casa el mismo día o al siguiente. En pedidos de más de ' . SHIPPING_FREE_MIN_ORDER
+                    . 'casa el mismo día o al siguiente. A partir de ' . $zona['gratisDesde']
                     . ' € la entrega es gratuita.'
                 : 'Sí. Llevamos el pedido a ' . $nombre . ' en 24 a 48 horas laborables desde nuestra tienda '
-                    . 'de Premià de Mar. El coste depende del tamaño del pedido: escríbenos y te lo decimos '
-                    . 'antes de confirmarlo.'
+                    . 'de Premià de Mar. A partir de ' . $zona['gratisDesde'] . ' € la entrega es gratuita; '
+                    . 'por debajo, te decimos el coste antes de confirmar el pedido.'
+        ],
+        [
+            'pregunta'  => '¿Tenéis algún descuento en los pedidos a domicilio?',
+            'respuesta' => 'Sí: si tu pedido a domicilio llega a ' . ORDER_DISCOUNT_MIN . ' €, te descontamos un '
+                . ORDER_DISCOUNT_PERCENT . ' % del total, y además el envío a ' . $nombre . ' es gratis. '
+                . 'El descuento es solo para entregas a domicilio, no para la recogida en tienda.'
         ],
         [
             'pregunta'  => '¿Cómo hago un pedido desde ' . $nombre . '?',
@@ -99,7 +105,7 @@ if ($poblacion) {
     ];
     if ($poblacion['km'] === 0) {
         // En Premià de Mar la "distancia" no tiene sentido.
-        $faqs[2]['respuesta'] = 'Claro. Estamos en ' . SITE_STREET . ', ' . SITE_POSTAL_CODE . ' '
+        $faqs[3]['respuesta'] = 'Claro. Estamos en ' . SITE_STREET . ', ' . SITE_POSTAL_CODE . ' '
             . SITE_LOCALITY . '. Te lo dejamos preparado y lo recoges cuando te vaya bien dentro del '
             . 'horario de la tienda.';
     }
@@ -108,9 +114,10 @@ if ($poblacion) {
         . schemaServicioDomicilio([$poblacion], rtrim(SITE_URL, '/') . '/vino-a-domicilio/' . $slug)
         . schemaFAQ($faqs);
 } else {
-    $pageTitle = 'Vino a domicilio en el Maresme | El Celler Nou, Premià de Mar';
-    $pageDescription = 'Vinos, cavas, licores y cervezas a domicilio en Premià de Mar, Vilassar, El Masnou, '
-        . 'Alella, Mataró y todo el Maresme. Entrega el mismo día o al siguiente. Pide por WhatsApp.';
+    $pageTitle = 'Vino a domicilio en el Maresme, envío gratis | El Celler Nou';
+    $pageDescription = 'Vinos, cavas y licores a domicilio en Premià de Mar, Vilassar, El Masnou, Alella, '
+        . 'Mataró y todo el Maresme. Envío gratis desde ' . SHIPPING_FREE_MIN_ORDER . ' € y '
+        . ORDER_DISCOUNT_PERCENT . ' % de descuento desde ' . ORDER_DISCOUNT_MIN . ' €.';
 
     $faqs = [
         [
@@ -121,9 +128,15 @@ if ($poblacion) {
         ],
         [
             'pregunta'  => '¿Cuánto cuesta la entrega?',
-            'respuesta' => 'En las poblaciones de entrega rápida la entrega es gratuita en pedidos de más de '
-                . SHIPPING_FREE_MIN_ORDER . ' €. En el resto depende de la distancia y del tamaño del pedido: '
-                . 'te decimos el coste antes de confirmarlo.'
+            'respuesta' => 'Es gratis a partir de ' . SHIPPING_FREE_MIN_ORDER . ' € en ' . listaNombresPoblaciones($zona1)
+                . ', y a partir de ' . SHIPPING_FREE_MIN_ORDER_ZONA2 . ' € en ' . listaNombresPoblaciones($zona2)
+                . '. Por debajo de esos importes te decimos el coste antes de confirmar el pedido.'
+        ],
+        [
+            'pregunta'  => '¿Tenéis algún descuento en los pedidos a domicilio?',
+            'respuesta' => 'Sí: en los pedidos a domicilio de ' . ORDER_DISCOUNT_MIN . ' € o más te descontamos un '
+                . ORDER_DISCOUNT_PERCENT . ' % del total, en todas las poblaciones, y el envío también es gratis. '
+                . 'El descuento es solo para entregas a domicilio, no para la recogida en tienda.'
         ],
         [
             'pregunta'  => '¿Cómo hago el pedido?',
@@ -159,6 +172,8 @@ include ROOT_PATH . '/includes/header.php';
         <p>Elige entre más de mil vinos, cavas, licores y cervezas y te lo llevamos a casa desde nuestra tienda de Premià de Mar.</p>
         <?php endif; ?>
 
+        <?php echo renderVentajasPedido($poblacion['zona'] ?? null); ?>
+
         <div class="domicilio-cta">
             <a href="<?php echo htmlspecialchars(whatsappPedidoUrl($poblacion['nombre'] ?? null)); ?>" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
                 <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
@@ -187,8 +202,10 @@ include ROOT_PATH . '/includes/header.php';
             <dl>
                 <dt>Plazo</dt>
                 <dd><?php echo htmlspecialchars($zona['plazo']); ?></dd>
-                <dt>Coste</dt>
+                <dt>Envío</dt>
                 <dd><?php echo htmlspecialchars($zona['coste']); ?></dd>
+                <dt>Descuento</dt>
+                <dd>-<?php echo ORDER_DISCOUNT_PERCENT; ?> % a partir de <?php echo ORDER_DISCOUNT_MIN; ?> €</dd>
                 <?php if ($poblacion['km'] > 0): ?>
                 <dt>Distancia a la tienda</dt>
                 <dd>Unos <?php echo $poblacion['km']; ?> km</dd>

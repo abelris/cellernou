@@ -20,6 +20,7 @@ if ($tipoId) {
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('licores.tipo', ['id' => $tipoId, 'slug' => createSlug($filtroNombre)])];
         $pageTitle = $filtroNombre . ' | Licores - El Celler Nou';
         $pageDescription = 'Selección de ' . strtolower($filtroNombre) . ' de las mejores marcas. Licores premium para los paladares más exigentes.';
+        if (!filtroIndexable('idTipo', $tipoId, 2)) $pageRobots = 'noindex, follow';
     }
 } else {
     $productos = getProductosBySector(2);

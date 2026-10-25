@@ -21,28 +21,44 @@ $breadcrumbItems = [
     ['name' => 'Vinos', 'url' => Router::url('vinos')]
 ];
 
+// D.O. Cava es la categoría /cavas: dos páginas para lo mismo competían.
+if ($doId === PROCEDENCIA_DO_CAVA) {
+    Router::redirect(Router::url('cavas'), 301);
+}
+
+// "Premià de Mar" y "a domicilio" quedan para la portada y /vino-a-domicilio;
+// los títulos de los listados van al producto, para no competir con ellas.
 if ($tipoId) {
     $tipo = getTipoById($tipoId);
     if ($tipo) {
         $filtroNombre = $tipo['nombre_es'];
+        // Slug canónico: un nombre corregido deja la URL vieja en 301.
+        if (Router::param('slug') !== createSlug($filtroNombre)) {
+            Router::redirect(Router::url('vinos.tipo', ['id' => $tipoId, 'slug' => createSlug($filtroNombre)]), 301);
+        }
         $productos = getProductosByTipo($tipoId, 8);
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('vinos.tipo', ['id' => $tipoId, 'slug' => createSlug($filtroNombre)])];
-        $pageTitle = $filtroNombre . ' | Vinos en Premià de Mar - El Celler Nou';
-        $pageDescription = 'Comprar ' . strtolower($filtroNombre) . ' en Premià de Mar: vinos con las mejores Denominaciones de Origen, con entrega a domicilio en el Maresme.';
+        $pageTitle = 'Comprar ' . mb_strtolower($filtroNombre) . ' | Vinos de El Celler Nou';
+        $pageDescription = 'Comprar ' . mb_strtolower($filtroNombre) . ' de las mejores denominaciones de origen. Te aconsejamos en la tienda de Premià de Mar o por WhatsApp.';
+        if (!filtroIndexable('idTipo', $tipoId, 8)) $pageRobots = 'noindex, follow';
     }
 } elseif ($doId) {
     $procedencia = getProcedenciaById($doId);
     if ($procedencia) {
         $filtroNombre = $procedencia['nombre_es'];
+        if (Router::param('slug') !== createSlug($filtroNombre)) {
+            Router::redirect(Router::url('vinos.do', ['id' => $doId, 'slug' => createSlug($filtroNombre)]), 301);
+        }
         $productos = getProductosByProcedencia($doId, 8);
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('vinos.do', ['id' => $doId, 'slug' => createSlug($filtroNombre)])];
-        $pageTitle = 'Vinos ' . $filtroNombre . ' en Premià de Mar | El Celler Nou';
-        $pageDescription = 'Vinos ' . $filtroNombre . ' en nuestra tienda de Premià de Mar, con entrega a domicilio en el Maresme. Te aconsejamos por WhatsApp.';
+        $pageTitle = 'Vinos de la ' . $filtroNombre . ' | El Celler Nou';
+        $pageDescription = 'Vinos de la ' . $filtroNombre . ' elegidos uno a uno en nuestra vinoteca de Premià de Mar. Te aconsejamos por WhatsApp.';
+        if (!filtroIndexable('idProcedencia', $doId, 8)) $pageRobots = 'noindex, follow';
     }
 } else {
     $productos = getProductosBySector(8);
-    $pageTitle = 'Comprar vino en Premià de Mar | Vinos a domicilio - El Celler Nou';
-    $pageDescription = 'Vinos tintos, blancos y rosados de Rioja, Ribera del Duero, Priorat, Penedès y Alella en nuestra tienda de Premià de Mar. Entrega a domicilio en el Maresme.';
+    $pageTitle = 'Vinos tintos, blancos y rosados por D.O. | El Celler Nou';
+    $pageDescription = 'Tintos, blancos, rosados y dulces de Rioja, Ribera del Duero, Priorat, Penedès, Montsant y Alella, elegidos en nuestra vinoteca de Premià de Mar.';
 }
 
 // Append unmatched Komkal wines (only on unfiltered main listing)

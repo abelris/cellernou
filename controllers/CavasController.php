@@ -26,6 +26,7 @@ if ($tipoId) {
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('cavas.tipo', ['id' => $tipoId, 'slug' => createSlug($filtroNombre)])];
         $pageTitle = $filtroNombre . ' | Cavas y Espumosos - El Celler Nou';
         $pageDescription = 'Descubre nuestra selección de ' . strtolower($filtroNombre) . '. Los mejores espumosos para celebrar.';
+        if (!filtroIndexable('idTipo', $tipoId, 14)) $pageRobots = 'noindex, follow';
     }
 } else {
     $productos = getProductosBySector(14);

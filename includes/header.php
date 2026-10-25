@@ -34,7 +34,8 @@ $procedenciasVinos = getProcedencias(8);
         'url' => $currentUrl,
         'image' => $pageImage,
         'type' => $pageType,
-        // $pageRobots permite marcar noindex en búsquedas internas y errores.
+        // $pageRobots permite marcar noindex en búsquedas internas, errores y
+        // fichas o filtros no indexables (functions.php, INDEXACIÓN).
         'robots' => $pageRobots ?? null,
         'prev' => $pagePrev ?? null,
         'next' => $pageNext ?? null,
@@ -90,7 +91,7 @@ $procedenciasVinos = getProcedencias(8);
                             <span class="hide-mobile"><?php echo SITE_PHONE_MOBILE; ?></span>
                         </a>
                     </div>
-                    <a href="<?php echo Router::url('domicilio'); ?>" class="header-top-domicilio">Vino a domicilio en el Maresme</a>
+                    <a href="<?php echo Router::url('domicilio'); ?>" class="header-top-domicilio">Vino a domicilio: envío gratis desde <?php echo SHIPPING_FREE_MIN_ORDER; ?> € y -<?php echo ORDER_DISCOUNT_PERCENT; ?> % desde <?php echo ORDER_DISCOUNT_MIN; ?> €</a>
                     <div class="contact-info contact-email">
                         <a href="mailto:<?php echo SITE_EMAIL; ?>">
                             <svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>

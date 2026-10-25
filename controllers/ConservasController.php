@@ -20,6 +20,7 @@ if ($tipoId) {
         $breadcrumbItems[] = ['name' => $filtroNombre, 'url' => Router::url('conservas.tipo', ['id' => $tipoId, 'slug' => createSlug($filtroNombre)])];
         $pageTitle = $filtroNombre . ' | Conservas - El Celler Nou';
         $pageDescription = 'Las mejores ' . strtolower($filtroNombre) . ' en conserva. Productos gourmet de máxima calidad.';
+        if (!filtroIndexable('idTipo', $tipoId, 12)) $pageRobots = 'noindex, follow';
     }
 } else {
     $productos = getProductosBySector(12);

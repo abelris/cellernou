@@ -729,83 +729,78 @@ function completarImagenesArticulo($html) {
 }
 
 // =============================================
-// CONSULTAS LIGERAS PARA EL SITEMAP
+// INDEXACIÓN
 // =============================================
+// Google mide la web por la media de lo que indexa: fichas sin stock y sin
+// texto o filtros con un solo producto restan. Esas páginas siguen abiertas
+// (200) pero van con noindex y fuera del sitemap.
 //
-// getProductosBySector() y compañía traen 7 LEFT JOIN, dos subconsultas
-// derivadas sobre stock_producto y linea_compra, y todas las columnas de cada
-// producto. Eso está bien para pintar un listado, pero el sitemap solo
-// necesita contar filas y leer id/nombre/fecha: hacerlo con esas funciones
-// significaba cargar el catálogo entero unas cincuenta veces.
+// Son consultas ligeras a propósito: getProductosBySector() y compañía traen
+// 7 LEFT JOIN y todas las columnas, bien para pintar un listado pero no para
+// que el sitemap recorra el catálogo entero decenas de veces.
+
+/** Mínimo de productos con stock para indexar una página de tipo, D.O. u origen. */
+define('MIN_PRODUCTOS_FILTRO', 3);
 
 /**
- * Contar productos activos de un sector.
+ * Subconsulta con los productos "con stock" para la web: unidades sin vender
+ * o compras del último mes. Es el mismo criterio que tiene_stock en los listados.
  */
-function contarProductosPorSector($idSector) {
-    global $bd;
-    $sql = "SELECT COUNT(*) FROM productos
-            WHERE idSector = " . intval($idSector) . " AND activo = 1";
-    $r = mysqli_query($bd, $sql);
-    return $r ? (int) mysqli_fetch_row($r)[0] : 0;
+function sqlProductosConStock() {
+    return "(SELECT idProducto FROM stock_producto WHERE vendido = 0
+             UNION
+             SELECT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH))";
 }
 
 /**
- * Contar productos activos de un tipo, opcionalmente dentro de un sector.
+ * Productos activos con stock por filtro y sector: [idFiltro][idSector] => n.
+ * $campo es 'idTipo' o 'idProcedencia'.
  */
-function contarProductosPorTipo($idTipo, $idSector = null) {
+function getConteosConStock($campo) {
     global $bd;
-    $sql = "SELECT COUNT(*) FROM productos
-            WHERE idTipo = " . intval($idTipo) . "
-              AND activo = 1
-              AND idSector IN (" . implode(',', SECTORES_PERMITIDOS) . ")";
-    if ($idSector) $sql .= " AND idSector = " . intval($idSector);
-    $r = mysqli_query($bd, $sql);
-    return $r ? (int) mysqli_fetch_row($r)[0] : 0;
-}
+    static $cache = [];
+    if (!in_array($campo, ['idTipo', 'idProcedencia'], true)) return [];
+    if (isset($cache[$campo])) return $cache[$campo];
 
-/**
- * Contar productos activos de una procedencia, opcionalmente dentro de un sector.
- */
-function contarProductosPorProcedencia($idProcedencia, $idSector = null) {
-    global $bd;
-    $sql = "SELECT COUNT(*) FROM productos
-            WHERE idProcedencia = " . intval($idProcedencia) . "
-              AND activo = 1
-              AND idSector IN (" . implode(',', SECTORES_PERMITIDOS) . ")";
-    if ($idSector) $sql .= " AND idSector = " . intval($idSector);
-    $r = mysqli_query($bd, $sql);
-    return $r ? (int) mysqli_fetch_row($r)[0] : 0;
-}
-
-/**
- * id, nombre y fecha de alta de los productos activos de un sector.
- * Es todo lo que el sitemap necesita para construir <loc> y <lastmod>.
- */
-function getProductosMinimoPorSector($idSector) {
-    global $bd;
-    $sql = "SELECT id, nombre, alta FROM productos
-            WHERE idSector = " . intval($idSector) . " AND activo = 1
-            ORDER BY id";
-    $r = mysqli_query($bd, $sql);
+    $sql = "SELECT p.$campo AS f, p.idSector AS s, COUNT(*) AS n
+            FROM productos p
+            JOIN " . sqlProductosConStock() . " st ON st.idProducto = p.id
+            WHERE p.activo = 1 AND p.idSector IN (" . implode(',', SECTORES_PERMITIDOS) . ")
+            GROUP BY p.$campo, p.idSector";
     $out = [];
-    if ($r) while ($row = mysqli_fetch_assoc($r)) $out[] = $row;
-    return $out;
+    $r = mysqli_query($bd, $sql);
+    if ($r) while ($row = mysqli_fetch_assoc($r)) $out[(int) $row['f']][(int) $row['s']] = (int) $row['n'];
+    return $cache[$campo] = $out;
 }
 
 /**
- * id y nombre de los productos Komkal sin vincular. Sin margenes ni precios:
- * el sitemap solo necesita construir la URL.
+ * Una página de filtro (tipo, D.O. u origen dentro de un sector) se indexa si
+ * tiene MIN_PRODUCTOS_FILTRO productos con stock y si ese sector es donde más
+ * hay: "Vino rosado" vive en vinos, no en licores, aunque allí haya un rosado
+ * mal clasificado. Así el mismo tipo no compite consigo mismo en dos secciones.
  */
-function getKomkalMinimo($tipo) {
+function filtroIndexable($campo, $id, $idSector) {
+    $porSector = getConteosConStock($campo)[(int) $id] ?? [];
+    $n = $porSector[(int) $idSector] ?? 0;
+    return $n >= MIN_PRODUCTOS_FILTRO && $n === max($porSector);
+}
+
+/** Ficha indexable: producto con stock o con descripción propia. */
+function productoIndexable($producto, $textos) {
+    return !empty($producto['tiene_stock']) || !empty($textos['descripcion']);
+}
+
+/**
+ * id, nombre y fecha de alta de los productos indexables de un sector (ver
+ * productoIndexable). Es todo lo que el sitemap necesita para <loc> y <lastmod>.
+ */
+function getProductosIndexablesPorSector($idSector) {
     global $bd;
-    if (!in_array($tipo, ['vinos', 'licores'], true)) return [];
-    $tabla = 'komkal_' . $tipo;
-    $sql = "SELECT id, nombre FROM $tabla
-            WHERE id_producto_match IS NULL
-              AND disponible = 1
-              AND precio_sin_iva IS NOT NULL
-              AND precio_sin_iva > 0
-            ORDER BY id";
+    $sql = "SELECT p.id, p.nombre, p.alta FROM productos p
+            WHERE p.idSector = " . intval($idSector) . " AND p.activo = 1
+              AND (p.id IN " . sqlProductosConStock() . "
+                   OR p.id IN (SELECT idProducto FROM producto_textos WHERE tipo = 'descripcion'))
+            ORDER BY p.id";
     $r = mysqli_query($bd, $sql);
     $out = [];
     if ($r) while ($row = mysqli_fetch_assoc($r)) $out[] = $row;

@@ -67,13 +67,23 @@ define('PRODUCTOS_POR_PAGINA', 36);
 define('RETURN_POLICY_DAYS', 14);              // Desistimiento: 14 días naturales
 define('RETURN_POLICY_FEES_CUSTOMER', true);   // Gastos de devolución a cargo del cliente
 
-// Envío local gratuito en la zona de entrega rápida (sus códigos postales y
-// poblaciones están en includes/poblaciones.php). El resto de zonas figura
-// como "Consultar" en la web, así que NO se declara tarifa para ellas: un
+// Envío local gratuito en las dos zonas de reparto (sus códigos postales y
+// poblaciones están en includes/poblaciones.php). El resto de destinos figura
+// como "Consultar" en la web, así que NO se declara tarifa para ellos: un
 // shippingRate inventado es peor que la ausencia de la propiedad.
-define('SHIPPING_FREE_MIN_ORDER', 30);         // Gratuito en pedidos > 30 EUR
+define('SHIPPING_FREE_MIN_ORDER', 30);         // Zona 1: gratuito desde 30 EUR
+define('SHIPPING_FREE_MIN_ORDER_ZONA2', 60);   // Zona 2: gratuito desde 60 EUR
 define('SHIPPING_HANDLING_DAYS', [0, 1]);      // Preparación: mismo día o siguiente
 define('SHIPPING_TRANSIT_DAYS', [1, 3]);       // Tránsito local/metropolitano
+
+// Descuento por importe en los pedidos a domicilio (todas las zonas; no en la
+// recogida en tienda). Se suma al envío gratuito. Solo se anuncia en textos:
+// no hay propiedad de schema.org que Google lea para un descuento por volumen.
+define('ORDER_DISCOUNT_MIN', 100);             // Desde 100 EUR de pedido...
+define('ORDER_DISCOUNT_PERCENT', 5);           // ...5 % de descuento
+
+// D.O. Cava (procedencia): su página de vinos redirige 301 a /cavas.
+define('PROCEDENCIA_DO_CAVA', 80);
 
 // Sectores permitidos (IDs de la base de datos)
 define('SECTORES_PERMITIDOS', [

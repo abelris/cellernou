@@ -257,12 +257,20 @@ function schemaPoliticaDevolucion() {
  * Condiciones de envío.
  *
  * Solo se declara el envío local gratuito, que es el único tramo con tarifa
- * cerrada en /politica-de-envios: los códigos postales de la zona de entrega
- * rápida de includes/poblaciones.php. El resto de zonas figura como
- * "Consultar", así que no se inventa un shippingRate: Google prefiere un aviso
- * por dato ausente antes que una tarifa que luego no se cumple.
+ * cerrada en /politica-de-envios: uno por zona de reparto, con sus códigos
+ * postales y su pedido mínimo (includes/poblaciones.php). El resto de destinos
+ * figura como "Consultar", así que no se inventa un shippingRate: Google
+ * prefiere un aviso por dato ausente antes que una tarifa que luego no se cumple.
  */
 function schemaEnvio() {
+    $detalles = [];
+    foreach (array_keys(ZONAS_REPARTO) as $zona) {
+        $detalles[] = schemaEnvioZona($zona);
+    }
+    return $detalles;
+}
+
+function schemaEnvioZona($zona) {
     return schemaLimpiar([
         '@type' => 'OfferShippingDetails',
         'shippingRate' => [
@@ -273,11 +281,11 @@ function schemaEnvio() {
         'shippingDestination' => [
             '@type'          => 'DefinedRegion',
             'addressCountry' => SITE_COUNTRY,
-            'postalCode'     => getCodigosPostalesZona(1)
+            'postalCode'     => getCodigosPostalesZona($zona)
         ],
         'eligibleTransactionVolume' => [
             '@type'     => 'PriceSpecification',
-            'minPrice'  => SHIPPING_FREE_MIN_ORDER,
+            'minPrice'  => ZONAS_REPARTO[$zona]['gratisDesde'],
             'priceCurrency' => 'EUR'
         ],
         'deliveryTime' => [

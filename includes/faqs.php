@@ -22,9 +22,12 @@ function faqsTienda() {
         'envio' => [
             'pregunta'  => '¿Hacéis envíos y cuánto tardan?',
             'respuesta' => 'Sí. En Premià de Mar y alrededores ('
-                . listaNombresPoblaciones(getPoblacionesPorZona(1)) . ') el envío es gratuito en pedidos '
-                . 'superiores a ' . $envioMin . ' € y se entrega el mismo día o el siguiente. '
-                . 'En ' . listaNombresPoblaciones(getPoblacionesPorZona(2)) . ' entregamos en 24 a 48 horas. '
+                . listaNombresPoblaciones(getPoblacionesPorZona(1)) . ') el envío es gratuito a partir de '
+                . $envioMin . ' € y se entrega el mismo día o el siguiente. '
+                . 'En ' . listaNombresPoblaciones(getPoblacionesPorZona(2)) . ' entregamos en 24 a 48 horas, '
+                . 'gratis a partir de ' . SHIPPING_FREE_MIN_ORDER_ZONA2 . ' €. En estas poblaciones, los pedidos a '
+                . 'domicilio de ' . ORDER_DISCOUNT_MIN . ' € o más tienen además un ' . ORDER_DISCOUNT_PERCENT
+                . ' % de descuento. '
                 . 'En el área metropolitana de Barcelona y el resto de Cataluña el plazo es de '
                 . '24 a 48 horas laborables, y en la península de 48 a 72 horas. Todos los pedidos '
                 . 'se preparan en cajas reforzadas con separadores individuales para cada botella. '

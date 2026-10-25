@@ -4,8 +4,8 @@
  */
 
 // SEO
-$pageTitle = 'Tienda de vinos en Premià de Mar con entrega a domicilio | El Celler Nou';
-$pageDescription = 'Vinoteca en Premià de Mar: vinos con D.O., cavas, licores y cervezas. Te lo llevamos a casa en Vilassar, El Masnou, Alella, Teià, Mataró y todo el Maresme. Pide por WhatsApp.';
+$pageTitle = 'Vinoteca en Premià de Mar: vinos, cavas y licores | El Celler Nou';
+$pageDescription = 'Vinoteca en Premià de Mar: vinos con D.O., cavas, licores y cervezas. Te lo llevamos a casa en todo el Maresme: envío gratis desde ' . SHIPPING_FREE_MIN_ORDER . ' € y ' . ORDER_DISCOUNT_PERCENT . ' % de descuento desde ' . ORDER_DISCOUNT_MIN . ' €.';
 
 // Obtener datos dinámicos
 $productosDestacados = getProductosDestacados(8);
@@ -35,6 +35,7 @@ include ROOT_PATH . '/includes/header.php';
             <span class="hero-badge">Desde 1995</span>
             <h1>Tu tienda de vinos en Premià de Mar</h1>
             <p>Vinos con Denominación de Origen, cavas, champagnes, licores y cervezas, elegidos uno a uno. Y si no te va bien venir, te lo llevamos a casa en todo el Maresme.</p>
+            <?php echo renderVentajasPedido(); ?>
             <div class="hero-buttons">
                 <a href="<?php echo Router::url('vinos'); ?>" class="btn btn-secondary btn-lg">Explorar Vinos</a>
                 <a href="<?php echo Router::url('domicilio'); ?>" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.5);">Vino a domicilio</a>
@@ -48,7 +49,7 @@ include ROOT_PATH . '/includes/header.php';
     <div class="container">
         <div class="section-header">
             <h2>Te llevamos el vino a casa</h2>
-            <p>En Premià de Mar y alrededores, el mismo día o el siguiente y gratis en pedidos de más de <?php echo SHIPPING_FREE_MIN_ORDER; ?> €. Pídelo por WhatsApp o por teléfono.</p>
+            <p>En Premià de Mar y alrededores, el mismo día o el siguiente y gratis a partir de <?php echo SHIPPING_FREE_MIN_ORDER; ?> € (<?php echo SHIPPING_FREE_MIN_ORDER_ZONA2; ?> € en el resto del Maresme). Y a partir de <?php echo ORDER_DISCOUNT_MIN; ?> €, un <?php echo ORDER_DISCOUNT_PERCENT; ?> % de descuento. Pídelo por WhatsApp o por teléfono.</p>
         </div>
         <ul class="domicilio-vecinas">
             <?php foreach (getPoblacionesReparto() as $slugPob => $pob): ?>

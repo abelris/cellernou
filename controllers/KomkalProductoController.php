@@ -27,6 +27,9 @@ $categoriaRoute = ($tipo === 'vinos') ? 'vinos' : 'licores';
 $pageTitle = normalizarNombre($producto['nombre']) . ' | ' . $categoriaNombre . ' - El Celler Nou';
 $pageDescription = normalizarNombre($producto['nombre']) . ' - ' . $categoriaNombre . ' disponible en El Celler Nou. Consulta precio y solicita información.';
 $pageType = 'product';
+// Producto que no tenemos, con precio de la última importación del catálogo:
+// abierta para quien llegue por un enlace, pero fuera de Google.
+$pageRobots = 'noindex, follow';
 
 // Breadcrumb
 $productoUrl = getProductoUrlUniversal($producto);
