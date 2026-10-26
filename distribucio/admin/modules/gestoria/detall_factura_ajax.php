@@ -4,6 +4,7 @@
  * Retorna HTML per al popup de detall d'una factura.
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 

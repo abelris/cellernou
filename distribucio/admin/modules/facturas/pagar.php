@@ -4,6 +4,7 @@
  * Suporta pagament complet i pagaments a compte (parcials)
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ' . getAdminUrl('modules/facturas/'));

@@ -3,6 +3,7 @@
  * El Celler Nou - Eliminar Tiquet
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ' . getAdminUrl('modules/tiquets/llistat.php'));

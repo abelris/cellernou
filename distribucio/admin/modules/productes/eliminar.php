@@ -3,6 +3,7 @@
  * El Celler Nou - Mòdul Productes - Eliminar
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 // Solo POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

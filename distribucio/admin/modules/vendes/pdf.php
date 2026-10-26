@@ -5,6 +5,7 @@
  * Basat en el format de factures
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 require_once dirname(dirname(dirname(__DIR__))) . '/tcpdf8/tcpdf.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;

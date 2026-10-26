@@ -3,6 +3,7 @@
  * OnDigitalRis - Mòdul Clients - Eliminar
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth_odr.php';
+requireAuth();
 
 // Solo POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

@@ -4,6 +4,7 @@
  * A4 portrait, electric blue #0066FF branding
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth_odr.php';
+requireAuth();
 require_once dirname(dirname(dirname(__DIR__))) . '/tcpdf8/tcpdf.php';
 
 // Dades bancàries ODR (editables)

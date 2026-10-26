@@ -4,6 +4,7 @@
  * Returns ticket detail HTML fragment for modal preview
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 $id = (int)($_GET['id'] ?? 0);
 if ($id <= 0) {

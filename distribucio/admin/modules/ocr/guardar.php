@@ -5,6 +5,7 @@
  */
 
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 require_once dirname(dirname(__DIR__)) . '/includes/costos.php';
 require_once dirname(dirname(dirname(__DIR__))) . '/connexio/connexio.php';
 

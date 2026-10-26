@@ -4,6 +4,7 @@
  * Format A4 professional amb desglossament IVA i recàrrec d'equivalència
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 require_once dirname(dirname(dirname(dirname(__DIR__)))) . '/includes/functions.php';
 require_once dirname(dirname(dirname(__DIR__))) . '/tcpdf8/tcpdf.php';
 

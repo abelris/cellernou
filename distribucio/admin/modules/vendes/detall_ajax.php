@@ -3,6 +3,7 @@
  * El Celler Nou - Mòdul Vendes - Detall AJAX
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 

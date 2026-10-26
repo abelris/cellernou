@@ -3,6 +3,7 @@
  * OnDigitalRis - Factures Venda - Marcar com a Pagada
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth_odr.php';
+requireAuth();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: ' . getAdminUrl('modules/odr_facturas/'));

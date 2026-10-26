@@ -4,6 +4,7 @@
  * Returns ticket detail HTML fragment with IVA breakdown for gestoria modal
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 $id = (int)($_GET['id'] ?? 0);
 if ($id <= 0) {

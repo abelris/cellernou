@@ -5,6 +5,7 @@
  */
 
 require_once dirname(dirname(__DIR__)) . '/includes/auth.php';
+requireAuth();
 
 header('Content-Type: application/json; charset=utf-8');
 

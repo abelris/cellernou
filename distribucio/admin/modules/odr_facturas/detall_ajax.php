@@ -5,6 +5,7 @@
  * With ?print=1 returns a full HTML page for iframe printing
  */
 require_once dirname(dirname(__DIR__)) . '/includes/auth_odr.php';
+requireAuth();
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 $isPrint = isset($_GET['print']);
