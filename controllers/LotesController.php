@@ -8,7 +8,9 @@
  * Confirmado por el usuario (26-oct-2026, docs/seo/datos-productos-usuario.md):
  * los lotes se montan a medida (sin lotes cerrados ni precios en la web),
  * regalos de empresa con factura y entrega en la oficina en el Maresme,
- * envoltorio gratis y sin fecha límite de pedido publicada.
+ * envoltorio gratis y sin fecha límite de pedido publicada. Regalos de empresa
+ * con bebidas, conservas y embutidos, y empresas del sector alimentario
+ * colaboradoras para completar cualquier lote (usuario, 26-oct-2026).
  * Esta página absorbe el artículo previsto «Lotes de Navidad a domicilio»
  * para que no compitan.
  */
@@ -60,7 +62,7 @@ $faqs = [
     ],
     [
         'pregunta'  => '¿Hacéis regalos para empresas con factura?',
-        'respuesta' => 'Sí. Preparamos lotes para clientes, proveedores o equipos, con factura a nombre de la empresa, y los llevamos a la oficina si está en el Maresme.',
+        'respuesta' => 'Sí. Preparamos lotes para clientes, proveedores o equipos, con bebidas, conservas y embutidos, y con factura a nombre de la empresa. Trabajamos con empresas del sector alimentario para completar cualquier tipo de lote, y los llevamos a la oficina si está en el Maresme.',
     ],
     [
         'pregunta'  => '¿El envoltorio se cobra aparte?',
@@ -98,7 +100,7 @@ include ROOT_PATH . '/includes/header.php';
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1>Lotes de Navidad y regalos de vino, a tu medida</h1>
-        <p>Dinos para quién es y cuánto quieres gastar, y te preparamos el lote con vino, cava, licores o conservas. Lo envolvemos gratis y lo recoges en la tienda o te lo llevamos en el Maresme. También para empresas, con factura.</p>
+        <p>Dinos para quién es y cuánto quieres gastar, y te preparamos el lote con vino, cava, licores, conservas o embutidos. Lo envolvemos gratis y lo recoges en la tienda o te lo llevamos en el Maresme. También para empresas, con factura.</p>
         <?php echo renderVentajasPedido(); ?>
         <div class="domicilio-cta">
             <a href="<?php echo htmlspecialchars(whatsappUrl('Hola, quiero preparar un lote de regalo.')); ?>" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
@@ -161,6 +163,7 @@ include ROOT_PATH . '/includes/header.php';
             <article class="servicio">
                 <h2>Regalos de empresa</h2>
                 <p>Si quieres tener un detalle con tus clientes, tus proveedores o tu equipo, preparamos los lotes que necesites, iguales o de distintos niveles según a quién van, con factura a nombre de la empresa.</p>
+                <p>Los montamos con bebidas, conservas y embutidos, y trabajamos con empresas del sector alimentario para completar el lote con lo que haga falta: sea cual sea el regalo que tienes en mente, lo preparamos.</p>
                 <p>Te los llevamos a la oficina si está en el Maresme. Si tienes que enviarlos fuera, pregúntanos y lo vemos.</p>
                 <p class="servicio-acciones">
                     <a href="<?php echo htmlspecialchars(whatsappUrl('Hola, quiero preparar regalos de empresa.')); ?>" target="_blank" rel="noopener noreferrer">

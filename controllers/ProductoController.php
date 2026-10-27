@@ -9,6 +9,14 @@ if (!$id) {
     Router::redirect(Router::url('home'));
 }
 
+// Ficha fusionada con otra: redirige a la que se queda.
+if (isset(PRODUCTOS_UNIFICADOS[$id])) {
+    $destino = getProductoById(PRODUCTOS_UNIFICADOS[$id]);
+    if ($destino) {
+        Router::redirect(Router::url('producto', ['id' => $destino['id'], 'slug' => createSlug($destino['nombre'])]), 301);
+    }
+}
+
 $producto = getProductoById($id);
 $productoTextos = $producto ? getProductoTextos($id) : [];
 

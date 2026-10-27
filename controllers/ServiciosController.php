@@ -25,7 +25,7 @@ $breadcrumbItems = [
 
 $pageTitle = 'Servicios: asesoramiento, catas, bodas y vino a domicilio | El Celler Nou';
 $pageDescription = 'Te aconsejamos en la tienda, por WhatsApp o por teléfono, te llevamos el vino a casa en el Maresme '
-    . 'y preparamos catas, regalos y los vinos de restaurantes, bodas y eventos.';
+    . 'y preparamos catas, regalos de empresa, la carta de vinos de tu restaurante y los vinos de tus eventos.';
 if (!SERVICIOS_PUBLICADA) {
     $pageRobots = 'noindex, follow';
 }
@@ -70,18 +70,18 @@ $servicios = [
         'id'      => 'catas',
         'titulo'  => 'Catas de vino',
         'texto'   => [
-            'Organizamos catas para conocer vinos de una zona, de una uva o de un estilo, probándolos con calma y con alguien que te los explica.',
-            'Pregúntanos por las próximas catas.',
+            'Organizamos catas abiertas para conocer vinos de una zona, de una uva o de un estilo, probándolos con calma y con alguien que te los explica. Te apuntas a la que te apetece y, cuando somos los suficientes, ponemos la fecha y os avisamos.',
+            'Y catas privadas a vuestra medida, para amigos, familias, empresas o celebraciones.',
         ],
         'whatsapp' => 'Hola, quiero información sobre las catas.',
-        'enlace'   => null,
+        'enlace'   => ['url' => Router::url('catas'), 'texto' => 'Próximas catas y catas privadas'],
     ],
     [
         'id'      => 'restaurantes',
         'titulo'  => 'Asesoramiento a restaurantes',
         'texto'   => [
-            'Asesoramos a restaurantes y negocios de hostelería del Maresme que quieren trabajar el vino: qué referencias tener, cómo encajarlas con la cocina y con el tipo de cliente.',
-            'Si tienes un restaurante, escríbenos y lo hablamos.',
+            'Hacemos la carta de vinos de tu restaurante: elegimos contigo las referencias que encajan con tu cocina, con tu cliente y con lo que quieres ofrecer.',
+            'Si tienes un restaurante o un bar en el Maresme, escríbenos y lo hablamos.',
         ],
         'whatsapp' => 'Hola, tengo un restaurante y me interesa vuestro asesoramiento.',
         'enlace'   => null,
@@ -100,8 +100,8 @@ $servicios = [
         'id'      => 'regalos',
         'titulo'  => 'Regalos y lotes',
         'texto'   => [
-            'Preparamos regalos a medida: una botella especial o un lote de vino, cava y algún capricho gourmet.',
-            'Dinos para quién es y el presupuesto, y lo dejamos listo para recoger o te lo llevamos.',
+            'Preparamos regalos a medida: una botella especial o un lote con vino, cava, licores, conservas y embutidos.',
+            'También regalos de empresa: trabajamos con empresas del sector alimentario para completar cualquier lote. Dinos para quién es y el presupuesto, y lo dejamos listo para recoger o te lo llevamos.',
         ],
         'whatsapp' => 'Hola, quiero preparar un regalo.',
         'enlace'   => ['url' => Router::url('lotes'), 'texto' => 'Lotes de Navidad y regalos de empresa'],
@@ -121,7 +121,7 @@ $faqs = [
     ],
     [
         'pregunta'  => '¿Cómo me apunto a una cata?',
-        'respuesta' => 'Escríbenos por WhatsApp o llámanos y te decimos cuándo es la próxima.',
+        'respuesta' => 'En nuestra página de catas eliges la cata abierta que te apetece y te apuntas. Cuando se llega al mínimo de personas ponemos la fecha y te avisamos por correo. Si prefieres una cata privada, la pides en esa misma página.',
     ],
 ];
 

@@ -91,6 +91,12 @@ define('PROCEDENCIAS_UNIFICADAS', [
     68 => 74,  // Rias Baixas -> D.O. Rías Baixas (25-oct-2026)
 ]);
 
+// Productos duplicados que se fusionaron (scripts/fusionar_productos.php):
+// id que se va => id que se queda. La ficha vieja redirige 301.
+define('PRODUCTOS_UNIFICADOS', [
+    4752 => 6255,  // Little Demogorgon (26-oct-2026)
+]);
+
 // Sectores permitidos (IDs de la base de datos)
 define('SECTORES_PERMITIDOS', [
     8,  // Vinos
