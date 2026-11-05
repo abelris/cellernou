@@ -77,6 +77,7 @@ Router::get('/servicios', 'ServiciosController', 'servicios');
 Router::get('/lotes-y-regalos', 'LotesController', 'lotes');
 Router::get('/catas', 'CatasController', 'catas');
 Router::post('/catas', 'CatasController', 'catas.enviar');
+Router::post('/clic', 'ClicController', 'clic');
 
 // =============================================
 // PRODUCTOS

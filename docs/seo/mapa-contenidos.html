@@ -155,7 +155,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
 
 <script type="application/json" id="datos">
 {
-  "actualizado": "2026-10-25",
+  "actualizado": "2026-11-05",
   "periodo": "Search Console 24-jul a 23-oct de 2026",
   "kpis": [
     [
@@ -266,7 +266,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "vino a domicilio {pueblo}",
       "vinoteca / tienda de vinos {pueblo}",
       "Local con compra",
-      "Hecho; enlazar la guía de Alella desde sus pueblos"
+      "Hecho; el enlace a la guía de Alella desde sus pueblos está en producción (5-nov) y sale solo cuando se publica el artículo. Cabrera de Mar deja de figurar como municipio de la D.O."
     ],
     [
       "/vinos",
@@ -415,14 +415,14 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "La ratafía catalana: qué es y cómo elegirla",
       "qué es la ratafía, mejor ratafía",
       "/licores/tipo/55 y ratafías con stock",
-      "Pendiente"
+      "Programado en producción para el 12-nov (cargado el 1-nov); falta la revisión de Victoria"
     ],
     [
       "2026-11-19",
       "Guía de los vinos de la D.O. Alella",
       "vinos de Alella, pansa blanca",
       "/vinos/do/33 y pueblos de la D.O.",
-      "Pendiente"
+      "Programado en producción para el 19-nov a las 10:00 (cargado el 5-nov, id 17); falta comprobar stock y cifras, y la revisión de Victoria"
     ],
     [
       "2026-10-26",
@@ -584,7 +584,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ],
     [
       false,
-      "Servicio: /servicios, /lotes-y-regalos y /catas hechas; faltan /la-tienda, reseñas que hablen del servicio en la web y medir clics de WhatsApp y llamar"
+      "Servicio: /servicios, /lotes-y-regalos y /catas hechas; faltan /la-tienda, reseñas que hablen del servicio en la web y empezar a mirar los clics de WhatsApp y llamar (medición en producción desde el 5-nov, en el BI)"
     ],
     [
       false,
@@ -592,6 +592,41 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ]
   ],
   "historial": [
+    [
+      "2026-11-05",
+      "Subidos a producción la medición de clics de WhatsApp y Llamar (tabla clics_contacto, resumen en el BI), la guía de la D.O. Alella (programada para el 19-nov 10:00, id 17) con su enlace desde los pueblos, y las fichas 302, 1157 y 375 corregidas (bodega)",
+      "Hetzner: routes/web.php, js/main.js, includes/header.php, includes/poblaciones.php, controllers/DomicilioController.php, controllers/ClicController.php, bi/clics.php, ww_articulos, producto_textos"
+    ],
+    [
+      "2026-11-02",
+      "Guía de la D.O. Alella redactada (1.138 palabras, 5 FAQ); enlace desde los pueblos de la D.O. solo cuando esté publicada; Cabrera de Mar corregida: no figura entre los municipios de la D.O. Sin subir a producción",
+      "docs/seo/articulos/guia-do-alella.py, controllers/DomicilioController.php, includes/poblaciones.php"
+    ],
+    [
+      "2026-11-02",
+      "Medición de clics en WhatsApp y Llamar, sin cookies, por día, página y pueblo, con resumen en el BI. Probada en local; sin subir a producción",
+      "controllers/ClicController.php, js/main.js, sql/migration_clics_contacto.sql, distribucio/admin/modules/bi/clics.php"
+    ],
+    [
+      "2026-11-01",
+      "Fichas, segunda carga: 20 productos más (132 en total hoy), con 13 notas, 18 descripciones, 17 fotos y 6 procedencias corregidas",
+      "Hetzner: producto_textos, producto_fotos, productos (lote tanda2-20261101)"
+    ],
+    [
+      "2026-11-01",
+      "Fichas tanda 9-15 (parcial): 112 productos, 102 notas de cata, 101 descripciones, 95 fotos y 40 clasificaciones corregidas; cavas y licores de regalo por delante. Quedan 68 sin cargar y 14 incompletos",
+      "Hetzner: producto_textos, producto_fotos, productos (lote tanda915-20261101)"
+    ],
+    [
+      "2026-11-01",
+      "Artículo de la ratafía catalana con imagen de cabecera, cargado y programado para el 12-nov a las 10:00",
+      "Hetzner: ww_articulos (id 16), ww_articulo_relaciones, images/wineworld/art-ratafia-catalana-hero.jpg"
+    ],
+    [
+      "2026-11-01",
+      "Artículo de la ratafía catalana redactado (1.047 palabras, 5 FAQ) y pendiente de revisión; aún no está en producción",
+      "docs/seo/articulos/ratafia-catalana.py y ratafia-catalana-revision.html"
+    ],
     [
       "2026-10-28",
       "Fichas tandas 7 y 8: 46 productos con descripción y nota de cata, 40 fotos nuevas (Chivas ya tenía; sin foto El Temple, Poste Restante, Macarrilla, Malhivern y el vermut de la casa). Correcciones: Laus a Somontano, Casar de Burbia a Bierzo, Mesta a blanco, Kirsch Bardinet a España, Carles Andreu Gran Reserva y Vibracions Rosé a D.O. Cava, Elisenda a Penedès, Andrés Alonso sin D.O. (es V.T. Castilla y León); nombres La Nimfa Blanc y Vizcarra 15 Meses (301). Sin ficha hasta ver la etiqueta: Ulldemolins Negre, BOX 3 L Cabernet Eco, Pascona Criança Magnum y Sa Brava Tinto",

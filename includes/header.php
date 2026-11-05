@@ -58,7 +58,7 @@ $procedenciasVinos = getProcedencias(8);
     <style><?php readfile(ROOT_PATH . '/css/style.css'); ?></style>
 
     <!-- JS (deferred — descarga en paralelo y ejecuta tras parseo del DOM) -->
-    <script src="<?php echo getBaseUrl(); ?>/js/main.js" defer></script>
+    <script src="<?php echo getBaseUrl(); ?>/js/main.js?v=<?php echo filemtime(ROOT_PATH . '/js/main.js'); ?>" data-clic-url="<?php echo getBaseUrl(); ?>/clic" defer></script>
 
     <!-- Schema.org -->
     <?php echo schemaOrganizacion(); ?>

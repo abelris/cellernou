@@ -200,12 +200,12 @@ function getPoblacionesReparto() {
             'cp' => ['08349'],
             'km' => 5,
             'zona' => 1,
-            'doAlella' => true,
+            'doAlella' => false,
             'seleccion' => ['procedencia' => PROCEDENCIA_DO_ALELLA],
             'intro' => [
                 'Cabrera de Mar, a los pies del castillo de Burriac, está a unos 5 km de nuestra tienda de '
                 . 'Premià de Mar. Te llevamos el vino a casa el mismo día o al siguiente.',
-                'Cabrera de Mar es municipio de la D.O. Alella. Además de vinos de la zona, tenemos cavas, '
+                'Cabrera de Mar está junto a los pueblos de la D.O. Alella. Además de vinos de la zona, tenemos cavas, '
                 . 'champagnes, licores y cervezas, y preparamos lotes de regalo para empresas y celebraciones.',
             ],
             'cerca' => ['vilassar-de-mar', 'cabrils', 'argentona', 'mataro'],

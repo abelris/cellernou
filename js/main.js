@@ -2,6 +2,23 @@
  * El Celler Nou - Main JavaScript
  */
 
+// Cuenta los clics en WhatsApp y Llamar (sin cookies; ver controllers/ClicController.php).
+(function() {
+    var script = document.currentScript;
+    var url = script && script.getAttribute('data-clic-url');
+    if (!url || !navigator.sendBeacon) return;
+
+    document.addEventListener('click', function(e) {
+        var enlace = e.target.closest ? e.target.closest('a[href]') : null;
+        if (!enlace) return;
+        var href = enlace.getAttribute('href');
+        var tipo = href.indexOf('tel:') === 0 ? 'telefono'
+            : href.indexOf('https://wa.me/') === 0 ? 'whatsapp' : null;
+        if (!tipo) return;
+        navigator.sendBeacon(url, new URLSearchParams({ tipo: tipo, pagina: location.pathname }));
+    }, true);
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // ============================================

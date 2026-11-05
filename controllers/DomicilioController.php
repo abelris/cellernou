@@ -305,6 +305,16 @@ include ROOT_PATH . '/includes/header.php';
         <div class="text-center mt-2">
             <a href="<?php echo $verTodoUrl; ?>" class="btn btn-primary btn-lg"><?php echo $verTodoTxt; ?></a>
         </div>
+        <?php
+        // La guía solo se enlaza cuando ya está publicada (sale programada).
+        $guiaAlella = !empty($poblacion['doAlella']) ? getWWArticulo('guia-vinos-do-alella') : null;
+        if ($guiaAlella && $guiaAlella['publicado'] && (!$guiaAlella['fecha_publicacion'] || strtotime($guiaAlella['fecha_publicacion']) <= time())):
+        ?>
+        <p class="text-center mt-2">
+            ¿Quieres saber más de los vinos de tu zona? Lee nuestra
+            <a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'guias-de-vino', 'art_slug' => 'guia-vinos-do-alella']); ?>">guía de la D.O. Alella</a>.
+        </p>
+        <?php endif; ?>
     </div>
 </section>
 <?php endif; ?>

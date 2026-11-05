@@ -42,6 +42,7 @@ $months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Di
         <a href="<?php echo getAdminUrl('modules/bi/ondigitalris.php'); ?>" class="bi-brand-tab tab-ondigitalris">ondigitalris</a>
     </div>
     <a href="<?php echo getAdminUrl('modules/bi/costos.php'); ?>" class="btn btn-secondary btn-sm">Correcció de costos</a>
+    <a href="<?php echo getAdminUrl('modules/bi/clics.php'); ?>" class="btn btn-secondary btn-sm">Clics WhatsApp i Trucar</a>
 </div>
 
 <!-- KPIs -->
