@@ -1,0 +1,440 @@
+{
+ "actualizado": "2026-11-05",
+ "sin_textos": [
+  {
+   "id": 1269,
+   "nombre": "Terra Santa Albariño",
+   "sin_stock_con_trafico": true,
+   "motivo": "No identificado. No aparece ningún albariño «Terra Santa» de Rías Baixas en webs de bodegas ni tiendas (3 búsquedas). Los nombres parecidos son otros vinos: Puerta Santa (Reboreda Morgadío), Terra de Asorei, Terras Gauda, Terra de Cálago. Hay que mirar la etiqueta (bodega embotelladora) para saber c"
+  },
+  {
+   "id": 1802,
+   "nombre": "Extrísimo Bach",
+   "sin_stock_con_trafico": false,
+   "motivo": ""
+  },
+  {
+   "id": 1818,
+   "nombre": "Orujo Casero Galicia Miel 70cl",
+   "sin_stock_con_trafico": false,
+   "motivo": "Sin marca identificable: «Orujo Casero Galicia» es un nombre genérico. La única botella encontrada con ese nombre (orujosyvinos.es, 70 cl, 30 % vol.) lleva la etiqueta de la tienda Orujos y Vinos (Gonzalo Leiva Aguiño, Illa da Toxa), y no hay forma de saber si es la que vende El Celler Nou; usarla s"
+  },
+  {
+   "id": 1832,
+   "nombre": "Lambrusco Dellemilia Amabile",
+   "sin_stock_con_trafico": false,
+   "motivo": ""
+  },
+  {
+   "id": 2111,
+   "nombre": "Matusalem Extra Añejo",
+   "sin_stock_con_trafico": false,
+   "motivo": "No se puede confirmar qué botella es: RumX lista el «Extra Añejo» (40 % vol., 1 año, columna) pero su foto muestra la etiqueta «Añejo», que las tiendas venden a 38 % vol.; la web de Matusalem solo tiene el «Añejo» y no dice que antes se llamara Extra Añejo. Las únicas notas de cata son de usuarios d"
+  },
+  {
+   "id": 2161,
+   "nombre": "Crema Orujo Dos Cruceiros 3L",
+   "sin_stock_con_trafico": false,
+   "motivo": "«Dos Cruceiros» no aparece en ninguna tienda ni productor (3 búsquedas, también «Cruceiros» y garrafas de 3 L). Hacen falta el productor y los datos de la etiqueta de la garrafa."
+  },
+  {
+   "id": 3483,
+   "nombre": "Navateros blanco de Otto Bestu",
+   "sin_stock_con_trafico": true,
+   "motivo": "Navateros existe como marca de la D.O. Somontano (Vivino: Crianza, Roble, Rosado y Chardonnay, este último el único blanco; etiqueta blanca con un navatero y «Raftsmen | Radeliers | Flösser»). Pero no he podido confirmar que sea de Otto Bestué (no figura en la web de la bodega ni en Vinissimus) ni e"
+  },
+  {
+   "id": 3644,
+   "nombre": "Mistela Ca Tabaria",
+   "sin_stock_con_trafico": false,
+   "motivo": "El nombre real es «Ca Tibaria» (no Tabaria), del Celler Josep Vicens de Gandesa, D.O. Terra Alta, 50 cl y 15 % vol. Pero hay dos mistelas: la blanca (garnatxa blanca, etiqueta azul) y la negra (samsó/cariñena, etiqueta naranja), y el nombre de caja no dice cuál es (el tipo «Malvasia» no corresponde "
+  },
+  {
+   "id": 3798,
+   "nombre": "Orujo blanc Camí del Nord",
+   "sin_stock_con_trafico": false,
+   "motivo": "No identificado tras 2 búsquedas: «Camí del Nord» no aparece en ninguna web como marca de orujo. En la tienda la misma marca tiene limoncello 3 L, crema de orujo 3 L, orujo de hierbas 3 L y orujo de café 3 L, así que parece una marca de distribuidor en garrafa de 3 L; el orujo blanco a 35,95 € encaj"
+  },
+  {
+   "id": 3990,
+   "nombre": "Crema orujo 3L Camí del Nord",
+   "sin_stock_con_trafico": true,
+   "motivo": "No se identifica la marca «Camí del Nord»: no aparece en ninguna web (2 búsquedas web y 6 en DuckDuckGo con variantes) y en el volcado local solo constan otras garrafas de 3 L de la misma marca (3801 Orujo Hierbas 3L Cami del Nord, 3962 Orujo Café Cami del Nord 3L). Parece una marca blanca de distri"
+  },
+  {
+   "id": 4083,
+   "nombre": "Vermut Murcarols",
+   "sin_stock_con_trafico": true,
+   "motivo": "Ficha completa, pero confirmar en tienda que es el Negre Reserva de 1 L (16 % vol.): Murcarols también hace un Vermouth Blanc de 1 L (15 % vol.). La casa no publica nota de boca ni de final; la nota de cata se queda en lo que dice la bodega. La procedencia «D.O. Catalunya» no consta en ninguna fuent"
+  },
+  {
+   "id": 4449,
+   "nombre": "CAVA NINA LA VINATERA B.ROSÉ",
+   "sin_stock_con_trafico": true,
+   "motivo": "No identificado: no aparece ningún cava «Nina» ni ninguna bodega o marca «La Vinatera» con un brut rosé (3 búsquedas). Hace falta la etiqueta (elaborador y número de registro) para identificarlo."
+  },
+  {
+   "id": 4475,
+   "nombre": "HONOR NEGRE BY JAN VIDAL",
+   "sin_stock_con_trafico": false,
+   "motivo": "Bodega segura (Celler Jan Vidal, Castellet i la Gornal, Baix Penedès; la gama se llama «Honor by Jan Vidal»), pero tiene dos tintos Honor distintos: Honor Cabernet Sauvignon-Merlot (Penedès) y Honor Tinto (garnacha, syrah y cariñena, 13,5 %; Vivino lo sitúa en Montsant). Falta saber cuál es el «Hono"
+  },
+  {
+   "id": 4483,
+   "nombre": "FAMILIAR J.LLOPART BRUT NATURE RESERVA",
+   "sin_stock_con_trafico": false,
+   "motivo": "No identificado tras 2 búsquedas: no consta ningún cava «Familiar J. Llopart». Llopart (Subirats) salió de la D.O. Cava en 2019 y es Corpinnat, y su «Llegat Familiar» es un Gran Reserva de xarel·lo, no un Reserva; tampoco aparece en Llopart Vilarós. Mirar la etiqueta (bodega y D.O.) en tienda."
+  },
+  {
+   "id": 4589,
+   "nombre": "POSTE RESTANTE VERDEJO",
+   "sin_stock_con_trafico": true,
+   "motivo": "No identificado: ningún verdejo «Poste Restante» en la web ni en Vivino (3 búsquedas). Según los datos del usuario es Vino de España y no D.O. Rueda (corregida la procedencia). Hace falta la etiqueta (bodega embotelladora) para escribir la ficha y buscar la foto."
+  },
+  {
+   "id": 4688,
+   "nombre": "BUFANUVOLS BLANC",
+   "sin_stock_con_trafico": true,
+   "motivo": "Solo consta en Vivino como marca de la D.O. Empordà con Negre, Blanc y Rosat, sin bodega, uvas, ficha ni foto (solo imágenes genéricas). No he encontrado el elaborador (¿alguna cooperativa del Alt Empordà?) ni nota de cata. Hace falta la etiqueta (embotellador, uvas)."
+  },
+  {
+   "id": 4816,
+   "nombre": "MOMENTS DEL MONTSANT",
+   "sin_stock_con_trafico": false,
+   "motivo": ""
+  },
+  {
+   "id": 5093,
+   "nombre": "ANISETTE NICOLAS",
+   "sin_stock_con_trafico": true,
+   "motivo": "No identificado. «Anisette Nicolas» no aparece en ninguna web (3 búsquedas: anisette/anís Nicolas o Nicolás, destilerías francesas). Puede ser una marca propia de la cadena francesa Nicolas o un anís antiguo de otra casa; con 26,50 € de PVP no es un anís común. Hace falta mirar la etiqueta (producto"
+  },
+  {
+   "id": 5400,
+   "nombre": "LA QUARTA NEGRE",
+   "sin_stock_con_trafico": false,
+   "motivo": "No identificado tras dos búsquedas más («La Quarta» vi negre celler; «La Quarta» negre D.O.): no aparece ningún tinto con ese nombre (lo más parecido, «XYZ t Quarta Dimensió» de Celler Aibar, no encaja). «Negre» en catalán con D.O. Ribera del Duero no cuadra. Hay que mirar la etiqueta en tienda (bod"
+  },
+  {
+   "id": 5629,
+   "nombre": "ROCA XICA BLANC",
+   "sin_stock_con_trafico": false,
+   "motivo": "No identificado tras dos búsquedas más («Roca Xica» vi blanc; «Roca Xica» vino/vi/celler/cooperativa): no existe ningún vino ni bodega con ese nombre en la web (solo salen AT Roca y topónimos). Por el PVP (5,20 €) podría ser un blanco de cooperativa o de marca blanca. Hay que mirar la etiqueta en ti"
+  },
+  {
+   "id": 5690,
+   "nombre": "RATAFIA BAG I BOX 3L",
+   "sin_stock_con_trafico": false,
+   "motivo": "Sin identificar: no aparece ninguna ratafia en bag in box de 3 L (dos búsquedas en este intento, más las del anterior; solo salen ratafias en botella y otras bebidas en bag in box). Falta la marca: mirar la etiqueta o el albarán en tienda."
+  },
+  {
+   "id": 5906,
+   "nombre": "CLOT DELS PUALS",
+   "sin_stock_con_trafico": true,
+   "motivo": "No identificado. «Clot dels Puals» no aparece como vino en ninguna web (3 búsquedas, también con variantes Clos/Clot de Puals y por D.O. catalanas). Lo más parecido es Clots de Pals (Domaine des Homs, Minervois, Francia), que no encaja con seguridad. Hay que mirar la etiqueta (bodega y D.O.)."
+  },
+  {
+   "id": 6058,
+   "nombre": "QUINTA SARDONIA",
+   "sin_stock_con_trafico": false,
+   "motivo": ""
+  },
+  {
+   "id": 6124,
+   "nombre": "VALLFORNES",
+   "sin_stock_con_trafico": true,
+   "motivo": "Según datos-productos-usuario.md, el usuario está preguntando qué es el cava Vallfornes. En la web no existe ningún cava con ese nombre (1 búsqueda); el nombre más parecido es Vallformosa (Masia Vallformosa, Penedès), pero a 4,95 € no se puede confirmar ni saber qué gama es. Esperar su respuesta."
+  },
+  {
+   "id": 6176,
+   "nombre": "ROTES CAL PAU CARINYENA",
+   "sin_stock_con_trafico": false,
+   "motivo": "No identificado. Con 3 búsquedas («Les Rotes» Cal Pau carinyena; «Cal Pau» celler Rotes carinyena blanca; vi Rotes Cal Pau carinyena) no aparece ningún vino ni bodega con ese nombre; solo salen Celler Cal Pla (Priorat), Masia Pau y casas «Cal Pau» sin relación. Puede ser un elaborador pequeño (¿cari"
+  },
+  {
+   "id": 6178,
+   "nombre": "TAVERNICOLA VERDEJO",
+   "sin_stock_con_trafico": true,
+   "motivo": "No identificado: ninguna bodega, tienda ni ficha publica un verdejo llamado «Tavernícola» (3 búsquedas: nombre, nombre + bodega, nombre + Rueda). Hace falta ver la etiqueta (bodega embotelladora, D.O. o Vino de España) para poder escribir la ficha."
+  },
+  {
+   "id": 6187,
+   "nombre": "CAN REON BLANC",
+   "sin_stock_con_trafico": false,
+   "motivo": "Confirmar en tienda: Can Reon tiene dos blancos y se ha asumido The First 2215 Bottles por precio (16 €/botella en su web frente a unos 19 € de Traça de silenci)."
+  },
+  {
+   "id": 6210,
+   "nombre": "PISCO DEMONIO LOS ANDES",
+   "sin_stock_con_trafico": false,
+   "motivo": "La marca es Demonio de los Andes (Tacama, valle de Ica, Perú), pero hay al menos tres piscos (Quebranta, Acholado y Albilla) y el nombre de caja no dice cuál es; uva, notas y etiqueta cambian entre ellos. Mirar la botella en tienda. No he gastado búsquedas: no lo resuelven."
+  },
+  {
+   "id": 6243,
+   "nombre": "PROSECCO ROMEO GIULIETTA",
+   "sin_stock_con_trafico": false,
+   "motivo": "Sin identificar con seguridad. Hay varias gamas con ese nombre: «I Castelli di Romeo e Giulietta» / Romeo Prosecco DOC Extra Dry (blanco) y Juliet Rosé Extra Dry, de Cantina Colli Vicentini (Vitevis, Montecchio Maggiore), y Romeo & Juliet Prosecco DOC (Brut y Rosé) de Pasqua. El nombre en italiano a"
+  },
+  {
+   "id": 6270,
+   "nombre": "BOCA DE CANO BLANC",
+   "sin_stock_con_trafico": false,
+   "motivo": "No identificado. Ni «Boca de Cano», ni «Boca de Canó» ni «Bocadecano» aparecen en la web ni en la lista de bodegas de la D.O. Empordà (consultada en doemporda.cat); las 3 búsquedas solo devuelven Boca DOC (Piamonte) y otros blancos del Empordà. Hace falta ver la etiqueta en tienda (bodega y, si lo p"
+  },
+  {
+   "id": 6281,
+   "nombre": "CLOS ES VENT NEGRE",
+   "sin_stock_con_trafico": false,
+   "motivo": "No existe ningún «Clos es Vent» en la web (búsquedas con «Clos es Vent» y «Es Vent» vi negre: solo salen Clos Ventas, Clos Venturi, Terra de Vents de Oliveda y vinos de Mallorca, ninguno encaja). Probablemente el nombre está mal escrito: hace falta la bodega o la zona de la etiqueta en tienda."
+  },
+  {
+   "id": 6282,
+   "nombre": "COMA VALDA",
+   "sin_stock_con_trafico": false,
+   "motivo": ""
+  },
+  {
+   "id": 6382,
+   "nombre": "CAN MORRAL CLASSIC 24 BRUT NATURE RESERVA",
+   "sin_stock_con_trafico": false,
+   "motivo": ""
+  },
+  {
+   "id": 6425,
+   "nombre": "PETACA ISLA JURA",
+   "sin_stock_con_trafico": false,
+   "motivo": "Sin identificar la expresión. Jura vende 20 cl de su 10 años (antes «Origin», 40 %, EAN 5013967009523 en Royal Mile Whiskies), un pack de 2 x 20 cl (10 Origin + Superstition) y un estuche de 4 x 20 cl (10 Origin, 16 Diurach's Own, Superstition, Prophecy), pero no he encontrado ninguna «petaca» de Ju"
+  },
+  {
+   "id": 6438,
+   "nombre": "EL BUSCON",
+   "sin_stock_con_trafico": true,
+   "motivo": "No identificado: no hay ningún vino tinto «El Buscón» en la web (3 búsquedas, también en Vivino). Lo más parecido es El Buscador de Finca de la Rica (Rioja), pero cuesta unos 10 €, lejos de los 25,50 € de PVP, así que no lo doy por bueno. Hace falta la etiqueta (bodega y D.O.)."
+  },
+  {
+   "id": 6501,
+   "nombre": "MACARRILLA VERMUT BLANC",
+   "sin_stock_con_trafico": false,
+   "motivo": "Sin identificar. Dos búsquedas más («Macarrilla vermut blanc» y las variantes Macarilla / Ca la Macarrilla / Mas Macarrilla) no dan ninguna marca ni elaborador con ese nombre. Hace falta mirar la etiqueta en tienda: nombre exacto de la marca, elaborador y localidad."
+  },
+  {
+   "id": 6505,
+   "nombre": "CORPINNAT MAS BERTRAN",
+   "sin_stock_con_trafico": false,
+   "motivo": ""
+  }
+ ],
+ "parciales": [
+  {
+   "id": 124,
+   "nombre": "Orujo Casero Galicia Hierbas 70cl",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Sin marca identificable: «Orujo Casero Galicia» es un nombre genérico. La única botella encontrada con ese nombre (orujosyvinos.es, 70 cl, 30 % vol.) lleva la etiqueta de la tienda Orujos y Vinos (Gonzalo Leiva Aguiño, Illa da Toxa), y no hay forma de saber si es la que vende El Celler Nou; usarla s"
+  },
+  {
+   "id": 462,
+   "nombre": "Orujo Casero Galicia Blanco 3L",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Sin marca: no aparece ninguna garrafa de 3 L llamada «Orujo Casero Galicia» (2 búsquedas). Hace falta la marca o el embotellador de la etiqueta, o una foto de la garrafa en la tienda."
+  },
+  {
+   "id": 548,
+   "nombre": "Moscatell J.Robert",
+   "falta": [
+    "nota_cata"
+   ],
+   "motivo": "Foto encontrada y comprobada (etiqueta «Moscatel J. Robert, vino de licor, elaborado y embotellado por J. Robert, Reus», 75 cl). Nota de cata sin hacer: la única descripción publicada (Mentta, texto generado automáticamente) solo dice color dorado, notas florales y frutales y boca suave y envolvente"
+  },
+  {
+   "id": 770,
+   "nombre": "Titella",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "La marca existe (etiqueta blanca con una marioneta, D.O. Montsant) con versión «Joven» (13 %, sin mención en la etiqueta) y «Criança» (14,5 %, syrah, garnacha y cariñena); hay también un Titella de la DOQ Priorat. No sé cuál es el nuestro (el nombre de caja «Titella» apunta al joven, el PVP de 8,65 "
+  },
+  {
+   "id": 1319,
+   "nombre": "Cava Mas Oliver Brut Nature  Reserva",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Foto no encontrada (2 búsquedas): de Cava Mas Oliver solo se publica el J. Raventós Roig Brut Nature (12-15 meses, no es Reserva, y su etiqueta no pone Mas Oliver). No hay imagen de un «Mas Oliver Brut Nature Reserva»: una foto en tienda lo resuelve."
+  },
+  {
+   "id": 1324,
+   "nombre": "Carbomas Rose Semi Seco",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "No identificado: no aparece ningún espumoso «Carbomas» rosado semiseco en la web (2 búsquedas). Probablemente es un espumoso gasificado barato de marca poco difundida; además, si es gasificado no sería Cava ni D.O. Penedès. Hace falta la etiqueta (embotellador) para buscar la foto."
+  },
+  {
+   "id": 1816,
+   "nombre": "Orujo Casero Galicia Café 70cl",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Sin marca identificable: «Orujo Casero Galicia» es un nombre genérico. La única botella encontrada con ese nombre (orujosyvinos.es, 70 cl, 30 % vol.) lleva la etiqueta de la tienda Orujos y Vinos (Gonzalo Leiva Aguiño, Illa da Toxa), y no hay forma de saber si es la que vende El Celler Nou; usarla s"
+  },
+  {
+   "id": 2522,
+   "nombre": "Crema Orujo Galicia 70 cl",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Crema de orujo sin marca identificada: hay decenas de cremas gallegas de 70 cl (Ruavieja, Panizo, Quemeira, El Afilador...) y no se puede saber cuál es sin ver la etiqueta. Si es de la misma serie «Orujo Casero Galicia», ver la duda del 124."
+  },
+  {
+   "id": 2636,
+   "nombre": "Anis la Petanca 3 l",
+   "falta": [
+    "nota_cata",
+    "foto"
+   ],
+   "motivo": "No identificado: no aparece ningún anís «La Petanca» (ni en 3 l ni en otro formato) en tiendas ni webs de destilerías (2 búsquedas). Hace falta la etiqueta (destilería, dulce o seco, graduación) para la nota de cata y la foto."
+  },
+  {
+   "id": 3900,
+   "nombre": "El Missatger Negre",
+   "falta": [
+    "nota_cata"
+   ],
+   "motivo": "Textos hechos con poca información publicada: no hay ficha técnica (la web de la bodega es solo una portada). La nota de cata sale del jurado del International Wine Challenge para «El Missatger Carinyena Negra» 2017 (14,5 %), de la misma bodega y la misma uva (samsó = cariñena); doy por hecho que es"
+  },
+  {
+   "id": 4009,
+   "nombre": "Cava rosat brut Il.lusió",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Solo falta la foto: no hay imagen publicada del Il·lusió rosado (la web de Josep Masachs no tiene ficha y Kysela bloquea la descarga). Textos completos; la procedencia de la tienda (D.O. Penedès) es incorrecta: el IWC lo registra como Cava."
+  },
+  {
+   "id": 4013,
+   "nombre": "EL TEMPLE",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "No identificado tras 2 búsquedas: no aparece ningún tinto llamado «El Temple». Candidatos solo por parecido de nombre: Bàrbara Forés El Templari (morenillo, unos 17 €), Rejadorada «Temple» Crianza (D.O. Toro) o la gama El Temple de Alkimia (Priorat; solo consta un rosado, El Temple Mistik). Hay que "
+  },
+  {
+   "id": 4104,
+   "nombre": "ampolla vermut blanc",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Marca desconocida: «ampolla vermut blanc» solo significa «botella de vermut blanco» y no se puede saber cuál es sin ver la etiqueta (no se gastaron búsquedas en algo imposible de identificar). Mirar la etiqueta en tienda."
+  },
+  {
+   "id": 4179,
+   "nombre": "sabate i coca rva familia 2012",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Sin foto: no hay ninguna imagen de la botella de 2012 (la 2012 solo aparece en una reseña de prensa de Regal Wine, 95 pts Wine Enthusiast, sin foto). Las fotos publicadas llevan el año en el collarín (2010 en Vinissimus, 2014 en la ficha de Castellroig, 2015 en Saratoga), así que serían otra añada. "
+  },
+  {
+   "id": 4284,
+   "nombre": "ORIGENS BADALONA BLANC",
+   "falta": [
+    "nota_cata",
+    "foto"
+   ],
+   "motivo": "Identificado (Papers de Vi: Orígens Blanc, Masia Coll de Canyet, D.O. Alella, pansa blanca, elaborado por Alella Vinícola, vino novell; el productor es Josep Coll, de Can Coll, en Canyet). No hay ninguna nota de cata publicada ni foto de la botella en la web, así que nota_cata y foto van a null. La "
+  },
+  {
+   "id": 4629,
+   "nombre": "VINS DEL TALLER CERVUS MALBEC",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Sin foto válida: la única botella limpia encontrada es la de Vivino (https://images.vivino.com/thumbs/y0nHNCeIRp2omsdujznLiQ_pb_x960.png, etiqueta del ciervo «Malbec Ecològic», correcta), pero lleva la marca de agua «vivino» al pie; descartada por la regla. La web de la bodega no responde (vinsdetal"
+  },
+  {
+   "id": 4723,
+   "nombre": "FELIX MARTINEZ LA CUESTA GRAN RESERVA",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Textos completos (fuente principal: ficha de Central del Gourmet, añada 2010; las tiendas no coinciden en la segunda uva, garnacha o graciano, por eso solo se nombra el mazuelo). Foto no conseguida: la única de la etiqueta correcta (Central del Gourmet) lleva su marca de agua encima de la botella; V"
+  },
+  {
+   "id": 4982,
+   "nombre": "CASAR GODELLO F.BARRICA 21",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Sin foto: no he encontrado imagen de la añada 2021; la bodega ya solo muestra la etiqueta nueva «Valdepiñeiro» (desde 2022). La nota de cata combina la ficha técnica de la bodega (2020, añadas anteriores), el extracto público de James Suckling de la 2021 (especias tostadas, mango) y la ficha actual "
+  },
+  {
+   "id": 5010,
+   "nombre": "MIRACLE ORANGE SO2 FREE",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Identificado por la etiqueta «100% Miracle Orange · Castell d'Age · Penedès DO» (imagen de Firstleaf) y las fichas de Verve y Firstleaf: sauvignon blanc brisado, estilo «zero-zero». Ojo: la misma bodega tenía antes un «100% Orange 0% SO2» de garnacha blanca (otro vino); si la botella de la tienda di"
+  },
+  {
+   "id": 5031,
+   "nombre": "MARIA CASANOVAS XP GRAN RESERVA BRUT NATURE",
+   "falta": [
+    "nota_cata"
+   ],
+   "motivo": "nota_cata a null: no hay nota de cata publicada del XP (ni en la bodega ni en tiendas). Identificación segura: la foto de la web de la bodega muestra la botella «Gran Reserva · Brut Nature · 2018 · Organic Wine · XP · Cava». No consta el coupage exacto del XP (la portada habla de una nueva cuvée de "
+  },
+  {
+   "id": 5598,
+   "nombre": "JAG ARENA Y PIZARRA",
+   "falta": [
+    "nota_cata",
+    "foto"
+   ],
+   "motivo": "nota_cata y foto a null: la única ficha del vino (Decanter, 2019: 100 % mencía, 13 %, seco, cuerpo alto) tiene la nota de pago y no hay foto publicada. El origen de la arena (Valtuille) y la pizarra (Corullón) sale del dossier del importador sobre la bodega, no de una ficha de este vino. Maridaje ge"
+  },
+  {
+   "id": 6091,
+   "nombre": "KUNE SIN ",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Textos completos (Birrapedia y las fichas de las tiendas que recoge: Cervesers Artesans de Catalunya, Sense, Disevil). Foto no conseguida: solo hay miniaturas de 250 px en Birrapedia y no se ha localizado la web de la cooperativa. Agotadas las 3 búsquedas del producto."
+  },
+  {
+   "id": 6518,
+   "nombre": "TERRESTRE",
+   "falta": [
+    "nota_cata"
+   ],
+   "motivo": "Nota de cata a null: ni la ficha de Vincelona ni la ficha técnica de la bodega (añada 2015, Ediciones I-Limitadas, «Terrilogía nº 3») traen notas de cata, y no he encontrado ninguna publicada; no me la invento. Ojo: Vincelona figura como «bodega» en su tienda, pero la colección la firman Vincelona y"
+  },
+  {
+   "id": 6578,
+   "nombre": "POSTE RESTANTE NEGRE",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Sin foto válida. Dos búsquedas más no encuentran la marca en ninguna bodega, distribuidor ni tienda: solo Vivino (bodega «Poste Restante», 3 vinos), cuya única imagen es un primer plano de la etiqueta hecho por un usuario (etiqueta rosa con una casa, «Tempranillo · From old Spanish vineyards · Organ"
+  },
+  {
+   "id": 6595,
+   "nombre": "ABADIA SANFRUTOS",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Foto de la propia cervecera, pero no es sobre fondo blanco: la botella aparece junto a un vaso servido, sobre una mesa con plantas detrás (no hay otra). Si se prefiere fondo blanco, hacerla en la tienda."
+  },
+  {
+   "id": 6596,
+   "nombre": "IRISH STOUT SANFRUTOS",
+   "falta": [
+    "foto"
+   ],
+   "motivo": "Foto de la web de la cervecera recortada para dejar solo la botella (la original lleva al lado un vaso servido); el fondo no es blanco sino una pared clara con sombras."
+  }
+ ]
+}
