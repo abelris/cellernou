@@ -81,10 +81,10 @@ $servicios = [
         'titulo'  => 'Asesoramiento a restaurantes',
         'texto'   => [
             'Hacemos la carta de vinos de tu restaurante: elegimos contigo las referencias que encajan con tu cocina, con tu cliente y con lo que quieres ofrecer.',
-            'Si tienes un restaurante o un bar en el Maresme, escríbenos y lo hablamos.',
+            'Y te servimos el vino, a granel o embotellado, según lo que necesites. Si tienes un restaurante o un bar en el Maresme, escríbenos y lo hablamos.',
         ],
         'whatsapp' => 'Hola, tengo un restaurante y me interesa vuestro asesoramiento.',
-        'enlace'   => null,
+        'enlace'   => ['url' => Router::url('restaurantes'), 'texto' => 'Vino y carta de vinos para restaurantes'],
     ],
     [
         'id'      => 'bodas',

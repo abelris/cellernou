@@ -332,11 +332,11 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "Descartada (26-oct): el usuario dice «olvídate». Se queda el bloque de celebraciones de /servicios"
     ],
     [
-      "/restaurantes (nueva)",
+      "/restaurantes",
       "asesoramiento de vinos para restaurantes",
       "carta de vinos restaurante Maresme",
       "Servicio B2B",
-      "Qué incluye (26-oct): les hacemos la carta de vinos. Ya en /servicios; página propia cuando haya algo más que contar (cómo se trabaja, ejemplos)"
+      "Publicada (5-nov): carta de vinos + vino a granel o embotellado + reparto propio; indexable, en el sitemap y enlazada desde /servicios. Sin precios, formación ni clientes de ejemplo hasta que el usuario los confirme"
     ],
     [
       "/lotes-y-regalos (nueva)",
@@ -592,6 +592,11 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ]
   ],
   "historial": [
+    [
+      "2026-11-05",
+      "Página /restaurantes publicada (carta de vinos y vino a granel o embotellado). Slugs: createSlug con mb_strtolower (138 fichas con mayúsculas acentuadas salían «3-a-os», «vi-a-pomal»; las antiguas redirigen 301). Acceso a la API de Search Console (scripts/search_console_api.py) y seo_trafico al día hasta el 2-nov (2.603 rutas). Sin canibalización entre páginas de contenido; 32.cellernou.com y www1 aparecen en Google: borrar el comodín DNS (tarea 41)",
+      "controllers/RestaurantesController.php, ServiciosController.php, SitemapController.php, routes/web.php, includes/config.php, scripts/search_console_api.py; Hetzner: seo_trafico"
+    ],
     [
       "2026-11-05",
       "Fichas: 59 productos mejorados en dos olas (tandas 9-15 pendientes y 25 fichas sin stock con más tráfico: Tondonia blanco, Gran Amat, Gran Duc, Txiroko, Kirk and Sweeney…), 39 fotos nuevas y 6 garrafas de granel con texto. Quedan 37 sin identificar y 26 a falta de foto o nota: lista de etiquetas en datos-productos-usuario.md",

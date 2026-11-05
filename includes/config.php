@@ -153,7 +153,9 @@ function sanitize($string) {
 }
 
 function createSlug($string) {
-    $string = strtolower($string);
+    // mb_strtolower: strtolower no toca las mayúsculas acentuadas y «AÑOS» salía
+    // «a-os» (5-nov-2026). Las URL antiguas redirigen con 301 al slug nuevo.
+    $string = mb_strtolower((string) $string, 'UTF-8');
     $string = preg_replace('/[áàäâ]/u', 'a', $string);
     $string = preg_replace('/[éèëê]/u', 'e', $string);
     $string = preg_replace('/[íìïî]/u', 'i', $string);

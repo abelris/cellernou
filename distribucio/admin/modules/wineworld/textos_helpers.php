@@ -8,7 +8,7 @@
 // El mateix slug que la web (includes/config.php), que l'admin no carrega.
 if (!function_exists('createSlug')) {
     function createSlug($string) {
-        $string = strtolower($string);
+        $string = mb_strtolower((string) $string, 'UTF-8');
         $string = preg_replace('/[áàäâ]/u', 'a', $string);
         $string = preg_replace('/[éèëê]/u', 'e', $string);
         $string = preg_replace('/[íìïî]/u', 'i', $string);
