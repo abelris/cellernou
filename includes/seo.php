@@ -167,6 +167,7 @@ function schemaOrganizacion() {
         'name'              => SITE_NAME,
         'legalName'         => COMPANY_LEGAL_NAME,
         'vatID'             => COMPANY_VAT_ID,
+        'foundingDate'      => '1995',
         'description'       => SITE_DESCRIPTION,
         'url'               => SITE_URL,
         'email'             => SITE_EMAIL,

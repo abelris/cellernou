@@ -81,6 +81,7 @@
                                 <span><?php echo SITE_ADDRESS; ?></span>
                             </li>
                         </ul>
+                        <p class="footer-tienda"><a href="<?php echo Router::url('la-tienda'); ?>">La tienda: quiénes somos</a> · <a href="<?php echo Router::url('servicios'); ?>">Servicios</a></p>
                         <a href="<?php echo Router::url('contacto'); ?>" class="btn btn-outline">Contactar</a>
                     </div>
                 </div>

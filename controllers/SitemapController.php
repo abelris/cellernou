@@ -59,6 +59,7 @@ $add = function ($path, $changefreq, $priority, $lastmod = null) use (&$urls, $b
 $add('/', 'daily', '1.0', $hoy);
 $add('/contacto', 'monthly', '0.6', $hoy);
 $add('/servicios', 'monthly', '0.8', $hoy);
+$add('/la-tienda', 'monthly', '0.7', $hoy);
 $add('/lotes-y-regalos', 'weekly', '0.8', $hoy);
 $add('/catas', 'weekly', '0.7', $hoy);
 $add('/restaurantes', 'monthly', '0.7', $hoy);

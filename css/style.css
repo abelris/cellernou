@@ -3311,3 +3311,50 @@ p {
         gap: 0;
     }
 }
+
+/* =============================================
+   LA TIENDA (/la-tienda)
+   ============================================= */
+.tienda {
+    max-width: 860px;
+}
+
+.tienda-texto h2 {
+    font-size: 1.5rem;
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.tienda-texto p {
+    line-height: 1.75;
+    margin-bottom: var(--spacing-md);
+}
+
+.tienda-foto {
+    margin: var(--spacing-xl) 0;
+}
+
+.tienda-foto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+.tienda-foto figcaption {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-top: var(--spacing-sm);
+}
+
+.tienda-foto-ancha {
+    margin-top: 0;
+}
+
+.tienda-foto-fachada {
+    max-width: 384px;
+}
+
+.footer-tienda {
+    margin: var(--spacing-md) 0;
+    font-size: 0.9375rem;
+}

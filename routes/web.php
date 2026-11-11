@@ -74,6 +74,7 @@ Router::get('/wineworld/{cat_slug}/{art_slug}', 'WineWorldController', 'wineworl
 Router::get('/vino-a-domicilio', 'DomicilioController', 'domicilio');
 Router::get('/vino-a-domicilio/{slug}', 'DomicilioController', 'domicilio.poblacion');
 Router::get('/servicios', 'ServiciosController', 'servicios');
+Router::get('/la-tienda', 'LaTiendaController', 'la-tienda');
 Router::get('/lotes-y-regalos', 'LotesController', 'lotes');
 Router::get('/catas', 'CatasController', 'catas');
 Router::get('/restaurantes', 'RestaurantesController', 'restaurantes');

@@ -232,7 +232,7 @@ if ($mesHoy >= 11 || ($mesHoy === 1 && (int) date('j') <= 6)):
     <div class="container">
         <div class="section-header">
             <h2>¿Por qué El Celler Nou?</h2>
-            <p>Más de 20 años seleccionando los mejores productos para nuestros clientes</p>
+            <p>Desde 1995 eligiendo vinos de bodegas familiares en Premià de Mar. <a href="<?php echo Router::url('la-tienda'); ?>">Conoce la tienda</a></p>
         </div>
 
         <div class="categories-grid" style="grid-template-columns: repeat(3, 1fr);">
@@ -241,7 +241,7 @@ if ($mesHoy >= 11 || ($mesHoy === 1 && (int) date('j') <= 6)):
                 <p>Referencias en catálogo</p>
             </div>
             <div class="text-center">
-                <h3 style="font-size: 3rem; color: var(--color-primary); margin-bottom: 0.5rem;">+25</h3>
+                <h3 style="font-size: 3rem; color: var(--color-primary); margin-bottom: 0.5rem;"><?php echo (int) date('Y') - 1995; ?></h3>
                 <p>Años de experiencia</p>
             </div>
             <div class="text-center">
