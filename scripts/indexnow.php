@@ -28,6 +28,11 @@ if (PHP_SAPI !== 'cli') {
 }
 
 define('ROOT_PATH', dirname(__DIR__));
+// connexio.php elige las credenciales de producción por HTTP_HOST, que en CLI
+// no existe: en el servidor (/var/www/…) se hace pasar por cellernou.com.
+if (!isset($_SERVER['HTTP_HOST']) && strpos(ROOT_PATH, '/var/www/') === 0) {
+    $_SERVER['HTTP_HOST'] = 'cellernou.com';
+}
 require_once ROOT_PATH . '/includes/config.php';
 
 $opciones = getopt('', ['simular', 'sitemap:']);
