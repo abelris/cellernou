@@ -85,5 +85,6 @@ ARTICULO = {
 
 <h2>En resumen</h2>
 <p>Cava y champagne son primos hermanos: mismo método, distinto paisaje. Si buscas frescura y precio para el aperitivo, cava joven. Si quieres acompañar la comida, cava reserva o gran reserva. Y si quieres un gesto especial o un regalo que se reconozca, champagne. Lo importante es elegir la botella para el momento, no por la etiqueta.</p>
+<p>Para el resto del menú, plato a plato, mira <a href="/wineworld/maridajes/que-vino-servir-comidas-navidad">qué vino servir en las comidas de Navidad</a>. Y si el cava o el champagne es para regalar, en la tienda preparamos <a href="/lotes-y-regalos">lotes y regalos a medida</a>.</p>
 ''',
 }

@@ -62,6 +62,30 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 
+<?php
+// Navidad: del 1 de noviembre al 6 de enero, la portada enlaza los lotes y
+// los artículos de Navidad (antes del pico de diciembre, para que Google los
+// vea enlazados desde la página con más autoridad).
+$mesHoy = (int) date('n');
+if ($mesHoy >= 11 || ($mesHoy === 1 && (int) date('j') <= 6)):
+?>
+<!-- Navidad -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Regalos y vinos para Navidad</h2>
+            <p>Preparamos lotes y regalos a medida, para casa o para tu empresa, y los envolvemos sin coste. Dinos para quién es y cuánto quieres gastar, y te proponemos qué poner.</p>
+        </div>
+        <ul class="domicilio-vecinas">
+            <li><a href="<?php echo Router::url('lotes'); ?>">Lotes y regalos a medida</a></li>
+            <li><a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'guias-de-vino', 'art_slug' => 'guia-definitiva-regalar-vino-cava-licores']); ?>">Qué vino regalar en Navidad</a></li>
+            <li><a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'maridajes', 'art_slug' => 'que-vino-servir-comidas-navidad']); ?>">Qué vino servir en las comidas de Navidad</a></li>
+            <li><a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'guias-de-vino', 'art_slug' => 'cava-o-champagne-diferencias-navidad']); ?>">Cava o champagne para Navidad</a></li>
+        </ul>
+    </div>
+</section>
+<?php endif; ?>
+
 <!-- Categories Section -->
 <section class="section">
     <div class="container">

@@ -178,6 +178,7 @@ include ROOT_PATH . '/includes/header.php';
                 <p>En nuestra guía te contamos cómo acertar según la persona y el presupuesto. Y si prefieres que lo elijamos nosotros, cuéntanos un poco de quien lo recibirá.</p>
                 <p class="servicio-acciones">
                     <a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'guias-de-vino', 'art_slug' => 'guia-definitiva-regalar-vino-cava-licores']); ?>">Guía para regalar vino, cava y licores</a>
+                    <a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'maridajes', 'art_slug' => 'que-vino-servir-comidas-navidad']); ?>">Qué vino servir en las comidas de Navidad</a>
                     <a href="<?php echo Router::url('domicilio'); ?>">Dónde repartimos</a>
                 </p>
             </article>

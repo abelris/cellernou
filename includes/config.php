@@ -10,6 +10,11 @@ define('SITE_URL', 'https://cellernou.com');
 define('SITE_EMAIL', 'cellernou@cellernou.com');
 define('SITE_PHONE', '+34 937 520 271');
 define('SITE_PHONE_MOBILE', '+34 637 626 302');
+
+// IndexNow (Bing, Yandex, Seznam…): avisa de las URL nuevas o cambiadas.
+// La clave es pública por diseño: se publica en /<clave>.txt.
+// El aviso lo manda scripts/indexnow.php desde el cron.
+define('INDEXNOW_KEY', '85a239cb1be584e1edcc0853508cf305');
 define('SITE_DESCRIPTION', 'El Celler Nou, tienda de vinos en Premià de Mar (Maresme): vinos con D.O., cavas, licores, cervezas y conservas. Vino a domicilio en Vilassar, El Masnou, Alella, Mataró y alrededores.');
 
 // -----------------------------------------------------------------

@@ -155,7 +155,7 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
 
 <script type="application/json" id="datos">
 {
-  "actualizado": "2026-11-05",
+  "actualizado": "2026-11-11",
   "periodo": "Search Console 24-jul a 23-oct de 2026",
   "kpis": [
     [
@@ -567,8 +567,8 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
       "Decidir si se vuelve a tener Cava Vallfornes: 910 impresiones en tres meses, posición 8, sin stock"
     ],
     [
-      false,
-      "Borrar el comodín de DNS *.cellernou.com en Cloudflare: 32.cellernou.com sale en Google con fichas duplicadas y da error 526"
+      true,
+      "Borrar el comodín de DNS *.cellernou.com en Cloudflare: 32.cellernou.com sale en Google con fichas duplicadas y da error 526 (borrado el 11-nov; www tiene su propio CNAME)"
     ],
     [
       false,
@@ -592,6 +592,21 @@ footer { max-width: 1100px; margin: 0 auto; padding: 8px 16px 32px; color: var(-
     ]
   ],
   "historial": [
+    [
+      "2026-11-11",
+      "Navidad enlazada antes del pico de diciembre: la portada lleva del 1-nov al 6-ene un bloque «Regalos y vinos para Navidad» (lotes, qué regalar, comidas de Navidad, cava o champagne); comidas de Navidad enlaza a regalar y a lotes; cava o champagne, a comidas y a lotes; regalar, a comidas, y sus 3 fichas con slug viejo (301) pasan a la URL buena; /lotes-y-regalos enlaza a comidas. Las 33 fichas citadas en los tres artículos tienen stock",
+      "controllers/HomeController.php, controllers/LotesController.php, docs/seo/articulos/vino-comidas-navidad.py, cava-o-champagne.py, guia-regalar-vino.py; Hetzner: ww_articulos (REPLACE en contenido)"
+    ],
+    [
+      "2026-11-11",
+      "IndexNow: scripts/indexnow.php avisa a Bing (y Yandex, Seznam…) de las URL nuevas o cambiadas: las que entran en el sitemap, artículos con lastmod nuevo, fichas con texto o foto nuevos y categorías con texto editado. La primera vez, el sitemap entero (1.733 URL). Clave en INDEXNOW_KEY y /<clave>.txt; cron dos veces al día",
+      "scripts/indexnow.php, includes/config.php, 85a239cb1be584e1edcc0853508cf305.txt; Hetzner: cron de cellernou_com"
+    ],
+    [
+      "2026-11-11",
+      "Borrado el comodín de DNS *.cellernou.com en Cloudflare (era CNAME a cellernou.com, proxied). 32., www1. y cualquier subdominio inventado ya no existen (antes daban error 526 y Google tenía 63 URL duplicadas); www mantiene su CNAME y su 301; correo de Migadu intacto. Search Console por API: 60-72 clics/semana desde mediados de octubre (antes 30-55)",
+      "Cloudflare: DNS de cellernou.com"
+    ],
     [
       "2026-11-05",
       "Página /restaurantes publicada (carta de vinos y vino a granel o embotellado). Slugs: createSlug con mb_strtolower (138 fichas con mayúsculas acentuadas salían «3-a-os», «vi-a-pomal»; las antiguas redirigen 301). Acceso a la API de Search Console (scripts/search_console_api.py) y seo_trafico al día hasta el 2-nov (2.603 rutas). Sin canibalización entre páginas de contenido; 32.cellernou.com y www1 aparecen en Google: borrar el comodín DNS (tarea 41)",

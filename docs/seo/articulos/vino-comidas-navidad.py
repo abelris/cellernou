@@ -89,5 +89,6 @@ ARTICULO = {
 <p>Si quieres simplificarlo al máximo: un <strong>cava brut nature reserva</strong> para el aperitivo y el marisco, un <strong>tinto de garnacha</strong> para la carn d'olla o el ave (que aguantará también los canelones del día siguiente) y un <strong>dulce</strong> para los turrones. Por ejemplo, el Maria Casanovas Brut de Brut, el Lo Petito de Pascona y el Moscatell J. Robert: tres buenos vinos de aquí por unos 30 € entre los tres.</p>
 <!-- Hueco para Victoria: su propuesta de tres botellas para este año, si quiere cambiar o añadir alguna. -->
 <p>Si tu menú es otro (un pescado al horno de segundo, un asado de cerdo, un menú vegetariano) o no sabes cuántas botellas te hacen falta, pregúntanos: es lo que hacemos cada día en la tienda, y lo contamos en <a href="/servicios#asesoramiento">cómo te asesoramos</a>. Y si estás en el Maresme, <a href="/vino-a-domicilio">te lo llevamos a casa</a>.</p>
+<p>Si además te toca llevar un regalo, en <a href="/wineworld/guias-de-vino/guia-definitiva-regalar-vino-cava-licores">qué vino regalar en Navidad</a> tienes ideas por presupuesto, y en la tienda preparamos <a href="/lotes-y-regalos">lotes y regalos a medida</a>.</p>
 ''',
 }
