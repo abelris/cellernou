@@ -341,3 +341,116 @@ document.addEventListener('DOMContentLoaded', function() {
     })();
 
 });
+
+// ============================================
+// Hero de la portada: carrusel (includes/hero.php)
+// Empieza por la diapositiva que eligió el servidor y pasa cada 7 s. Se para
+// con el ratón encima o el foco dentro, con la pestaña oculta y con el botón de
+// pausa; no avanza solo si el sistema pide reducir el movimiento.
+// ============================================
+(function() {
+    var hero = document.querySelector('.hero-carrusel');
+    if (!hero) return;
+    var slides = hero.querySelectorAll('.hero-slide');
+    var puntos = hero.querySelectorAll('.hero-punto');
+    var total = slides.length;
+    if (total < 2) return;
+
+    var INTERVALO = 7000;
+    var actual = parseInt(hero.getAttribute('data-inicio'), 10) || 0;
+    var temporizador = null;
+    var pausadoUsuario = false;
+    var pausadoHover = false;
+    var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var btnPausa = hero.querySelector('.hero-pausa');
+
+    function mostrar(i) {
+        i = (i + total) % total;
+        slides.forEach(function(s, n) {
+            var activa = n === i;
+            s.classList.toggle('is-active', activa);
+            if (activa) {
+                s.removeAttribute('aria-hidden');
+                s.removeAttribute('inert');
+                var img = s.querySelector('img[loading="lazy"]');
+                if (img) img.loading = 'eager';
+            } else {
+                s.setAttribute('aria-hidden', 'true');
+                s.setAttribute('inert', '');
+            }
+        });
+        puntos.forEach(function(p, n) {
+            p.classList.toggle('is-active', n === i);
+            if (n === i) p.setAttribute('aria-current', 'true'); else p.removeAttribute('aria-current');
+        });
+        actual = i;
+        // Precarga la siguiente para que el cambio no muestre la foto a medias.
+        var sig = slides[(i + 1) % total].querySelector('img[loading="lazy"]');
+        if (sig) sig.loading = 'eager';
+    }
+
+    function parar() {
+        if (temporizador) clearInterval(temporizador);
+        temporizador = null;
+    }
+
+    function arrancar() {
+        parar();
+        if (reducir || pausadoUsuario || pausadoHover || document.hidden) return;
+        temporizador = setInterval(function() { mostrar(actual + 1); }, INTERVALO);
+    }
+
+    function irA(i) {
+        mostrar(i);
+        arrancar();
+    }
+
+    hero.querySelector('.hero-prev').addEventListener('click', function() { irA(actual - 1); });
+    hero.querySelector('.hero-next').addEventListener('click', function() { irA(actual + 1); });
+    puntos.forEach(function(p) {
+        p.addEventListener('click', function() { irA(parseInt(p.getAttribute('data-ir'), 10)); });
+    });
+
+    function pintarPausa() {
+        var parado = pausadoUsuario || reducir;
+        btnPausa.innerHTML = parado
+            ? '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M7 5l12 7-12 7z"/></svg>'
+            : '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+        btnPausa.setAttribute('aria-label', parado ? 'Reproducir' : 'Pausar');
+    }
+    btnPausa.addEventListener('click', function() {
+        if (reducir) { reducir = false; pausadoUsuario = false; }
+        else pausadoUsuario = !pausadoUsuario;
+        pintarPausa();
+        arrancar();
+    });
+    pintarPausa();
+
+    var escena = hero.querySelector('.hero-escena');
+    escena.addEventListener('mouseenter', function() { pausadoHover = true; parar(); });
+    escena.addEventListener('mouseleave', function() { pausadoHover = false; arrancar(); });
+    escena.addEventListener('focusin', function() { pausadoHover = true; parar(); });
+    escena.addEventListener('focusout', function(e) {
+        if (!escena.contains(e.relatedTarget)) { pausadoHover = false; arrancar(); }
+    });
+    document.addEventListener('visibilitychange', arrancar);
+
+    // Deslizar con el dedo en el móvil.
+    var x0 = null;
+    escena.addEventListener('touchstart', function(e) { x0 = e.touches[0].clientX; }, { passive: true });
+    escena.addEventListener('touchend', function(e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        x0 = null;
+        if (Math.abs(dx) > 40) irA(actual + (dx < 0 ? 1 : -1));
+    });
+
+    // Flechas del teclado con el foco en los controles.
+    hero.querySelector('.hero-controles').addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') { irA(actual - 1); e.preventDefault(); }
+        if (e.key === 'ArrowRight') { irA(actual + 1); e.preventDefault(); }
+    });
+
+    mostrar(actual);
+    arrancar();
+})();

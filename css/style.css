@@ -603,6 +603,219 @@ p {
     gap: var(--spacing-md);
 }
 
+/* Hero de la portada: carrusel (includes/hero.php).
+   Las diapositivas se apilan en la misma celda de la rejilla: el alto lo marca
+   la más alta y no salta al cambiar. */
+.hero.hero-carrusel {
+    display: block;
+    min-height: 0;
+    background: var(--color-bg-dark);
+}
+
+.hero-carrusel::before {
+    display: none;
+}
+
+.hero-escena {
+    position: relative;
+}
+
+.hero-slides {
+    display: grid;
+}
+
+.hero-slide {
+    grid-area: 1 / 1;
+    position: relative;
+    isolation: isolate;
+    min-height: 62vh;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+
+.hero-slide.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.92) 0%, rgba(114, 47, 55, 0.68) 55%, rgba(26, 26, 26, 0.35) 100%);
+    z-index: 1;
+}
+
+.hero-slide .hero-bg {
+    transform: scale(1.04);
+    transition: transform 7s ease-out;
+}
+
+.hero-slide.is-active .hero-bg {
+    transform: scale(1);
+}
+
+.hero-slide > .container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.hero-slide .hero-content {
+    padding: var(--spacing-3xl) 0 calc(var(--spacing-3xl) + 1.5rem);
+}
+
+.hero-titulo {
+    color: white;
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-badge {
+    color: var(--color-secondary);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.hero-btn-claro {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+.hero-btn-claro:hover {
+    background: white;
+    color: var(--color-primary);
+}
+
+.hero-fijo {
+    position: relative;
+    z-index: 3;
+    background: var(--color-bg-dark);
+    border-top: 1px solid rgba(201, 169, 98, 0.35);
+    padding: var(--spacing-lg) 0;
+}
+
+.hero-h1 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    letter-spacing: 0.02em;
+    margin: 0 0 var(--spacing-md);
+}
+
+.hero-fijo .ventajas-pedido {
+    margin: 0;
+}
+
+.hero-controles {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    bottom: var(--spacing-lg);
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 0.35rem 0.6rem;
+    border-radius: var(--radius-full);
+    background: rgba(26, 26, 26, 0.55);
+    backdrop-filter: blur(8px);
+}
+
+.hero-puntos {
+    display: flex;
+    gap: 0.45rem;
+}
+
+.hero-punto {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.2s, width 0.2s;
+}
+
+.hero-punto.is-active {
+    width: 26px;
+    border-radius: 6px;
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+.hero-flecha,
+.hero-pausa {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.hero-pausa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-flecha:hover,
+.hero-pausa:hover,
+.hero-punto:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-flecha:focus-visible,
+.hero-pausa:focus-visible,
+.hero-punto:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide,
+    .hero-slide .hero-bg {
+        transition: none;
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slide {
+        min-height: 0;
+    }
+
+    .hero-slide::before {
+        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.75) 0%, rgba(114, 47, 55, 0.8) 100%);
+    }
+
+    .hero-slide .hero-content {
+        padding: var(--spacing-2xl) 0 calc(var(--spacing-2xl) + 2.5rem);
+    }
+
+    .hero-slide .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-h1 {
+        text-align: center;
+    }
+
+    .hero-flecha {
+        display: none;
+    }
+}
+
 /* ============================================
    SECTIONS
    ============================================ */
@@ -1435,7 +1648,9 @@ p {
 
 .footer-legal {
     display: flex;
-    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm) var(--spacing-lg);
 }
 
 .footer-legal a {
@@ -1819,6 +2034,10 @@ p {
     .footer-bottom-content {
         flex-direction: column;
         text-align: center;
+    }
+
+    .footer-bottom-content > * {
+        max-width: 100%;
     }
 
     .form-row {

@@ -15,34 +15,13 @@ $stats = getEstadisticas();
 // imprime $schemaExtra. Asignarlo después dejaba la portada sin ItemList.
 $schemaExtra = schemaListaProductos($productosDestacados, 'Productos Destacados - ' . SITE_NAME);
 
+require_once ROOT_PATH . '/includes/hero.php';
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
-<!-- Hero Section -->
-<section class="hero">
-    <img src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1920&q=80"
-         srcset="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=800&q=80 800w,
-                 https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1200&q=80 1200w,
-                 https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=1920&q=80 1920w"
-         sizes="100vw"
-         alt=""
-         class="hero-bg"
-         width="1920" height="1280"
-         fetchpriority="high"
-         decoding="async">
-    <div class="container">
-        <div class="hero-content">
-            <span class="hero-badge">Desde 1995</span>
-            <h1>Tu tienda de vinos en Premià de Mar</h1>
-            <p>Vinos con Denominación de Origen, cavas, champagnes, licores y cervezas, elegidos uno a uno. Y si no te va bien venir, te lo llevamos a casa en todo el Maresme.</p>
-            <?php echo renderVentajasPedido(); ?>
-            <div class="hero-buttons">
-                <a href="<?php echo Router::url('vinos'); ?>" class="btn btn-secondary btn-lg">Explorar Vinos</a>
-                <a href="<?php echo Router::url('domicilio'); ?>" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.5);">Vino a domicilio</a>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Hero: carrusel de destacados (includes/hero.php) -->
+<?php echo renderHero(); ?>
 
 <!-- Vino a domicilio -->
 <section class="section section-alt">
