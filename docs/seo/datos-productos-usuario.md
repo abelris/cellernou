@@ -27,6 +27,9 @@ Inactivos por indicación del usuario (25-oct-2026): 5345 Alcohol 95 1 L (alcoho
 - **Asesoramiento personal** (en tienda, WhatsApp, teléfono).
 - **Regalos**: preparan regalos y lotes. Confirmado el 26-oct-2026: lotes **a medida** (sin lotes cerrados ni precios en la web; el cliente da presupuesto y para quién es); **regalos de empresa con factura** y entrega en la oficina en el Maresme; **envoltorio gratis**; sin fecha límite publicada para Navidad («encárgalo con tiempo»). **Regalos de empresa** (26-oct-2026): con bebidas, conservas y embutidos; trabajan con empresas del sector alimentario para completar cualquier tipo de lote o regalo de empresa.
 
+- **Jamón y paleta Sierra Morena** (14-nov-2026): venden jamones y paletas ibéricas y serranas/Duroc de la marca Sierra Morena (Hinojosa del Duque, Los Pedroches) y **cualquier pieza de la marca por encargo**. Formatos: **pieza entera, sobres loncheados y en lotes de Navidad**. **No cortan a cuchillo.** Sin precios en la web. Página: /jamon-iberico (controllers/JamonController.php).
+- **Horario de festivos** (14-nov-2026): todos los festivos abren por la mañana como los domingos (10:00-14:00); solo cierran el 1 de enero. El viernes, 9:30-14:00 y 17:00-20:30, como el resto de la semana.
+
 # Catálogo: decisiones del 26-oct-2026
 
 - **No son cava** (salieron de la D.O. Cava; comprobado en webs de las bodegas y distribuidores): Gramona y Castellroig (Sabaté i Coca) y Viader son **Corpinnat** desde 2019; Loxarel es **Clàssic Penedès**. Se quita «Cava» del nombre de sus productos. El usuario preguntó «¿seguro que no son cavas?»: sí, seguro.

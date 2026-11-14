@@ -44,8 +44,9 @@ function faqsTienda() {
         ],
         'horario' => [
             'pregunta'  => '¿Cuál es el horario de la tienda?',
-            'respuesta' => 'Abrimos de lunes a jueves de 9:30 a 14:00 y de 17:00 a 20:30; los viernes de '
-                . '9:30 a 13:30 y de 17:00 a 20:30; los sábados de 9:30 a 14:00 y los domingos de 10:00 a 14:00. '
+            'respuesta' => 'Abrimos de lunes a viernes de 9:30 a 14:00 y de 17:00 a 20:30; '
+                . 'los sábados de 9:30 a 14:00 y los domingos de 10:00 a 14:00. '
+                . 'Los festivos abrimos por la mañana, de 10:00 a 14:00, como los domingos; solo cerramos el 1 de enero. '
                 . 'Estamos en ' . SITE_STREET . ', ' . SITE_POSTAL_CODE . ' ' . SITE_LOCALITY . '. '
                 . 'También puedes consultarnos por teléfono en el ' . SITE_PHONE . '.'
         ],

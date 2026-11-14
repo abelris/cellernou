@@ -38,18 +38,26 @@ define('SITE_ADDRESS', SITE_STREET . ', ' . SITE_POSTAL_CODE . ' ' . SITE_LOCALI
 define('SITE_GEO_LAT', 41.493308);
 define('SITE_GEO_LNG', 2.360674);
 
-// Perfiles oficiales (sameAs). Añadir las URLs reales cuando existan.
-define('SITE_SAME_AS', []);
+// Ficha de Google (Perfil de Empresa). El CID sale de la propia ficha.
+define('SITE_GOOGLE_MAPS_URL', 'https://www.google.com/maps?cid=9133767116341467052');
+define('SITE_FACEBOOK_URL', 'https://www.facebook.com/celler.nou.premia');
+define('SITE_INSTAGRAM_URL', 'https://www.instagram.com/cellernoudepremia/');
+
+// Nombre con el que figura la tienda en Google, Facebook, Instagram y
+// directorios: se publica como alternateName para unir las dos formas.
+define('SITE_NAME_ALT', 'Celler Nou de Premià');
+
+// Perfiles oficiales (sameAs): los mismos que enlaza la ficha de Google.
+define('SITE_SAME_AS', [SITE_GOOGLE_MAPS_URL, SITE_FACEBOOK_URL, SITE_INSTAGRAM_URL]);
 
 // Horario comercial. Se publica en openingHoursSpecification Y se muestra en
 // /contacto, para que lo marcado coincida con lo visible.
-// Jornada partida; el viernes cierra media hora antes a mediodía.
+// Jornada partida de lunes a viernes (el viernes cierra a las 14:00 como el
+// resto: confirmado por el usuario el 14-nov-2026, igual que la ficha de Google).
 // Formato: [dias => [...], opens => 'HH:MM', closes => 'HH:MM']
 define('SITE_OPENING_HOURS', [
-    ['dias' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], 'opens' => '09:30', 'closes' => '14:00'],
-    ['dias' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday'], 'opens' => '17:00', 'closes' => '20:30'],
-    ['dias' => ['Friday'],   'opens' => '09:30', 'closes' => '13:30'],
-    ['dias' => ['Friday'],   'opens' => '17:00', 'closes' => '20:30'],
+    ['dias' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens' => '09:30', 'closes' => '14:00'],
+    ['dias' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 'opens' => '17:00', 'closes' => '20:30'],
     ['dias' => ['Saturday'], 'opens' => '09:30', 'closes' => '14:00'],
     ['dias' => ['Sunday'],   'opens' => '10:00', 'closes' => '14:00'],
 ]);

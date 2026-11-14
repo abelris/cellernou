@@ -165,6 +165,7 @@ function schemaOrganizacion() {
         '@type'             => 'WineStore',
         '@id'               => schemaTiendaId(),
         'name'              => SITE_NAME,
+        'alternateName'     => SITE_NAME_ALT,
         'legalName'         => COMPANY_LEGAL_NAME,
         'vatID'             => COMPANY_VAT_ID,
         'foundingDate'      => '1995',
@@ -197,8 +198,9 @@ function schemaOrganizacion() {
             'latitude'  => SITE_GEO_LAT,
             'longitude' => SITE_GEO_LNG
         ];
-        $schema['hasMap'] = 'https://www.google.com/maps/search/?api=1&query='
-            . SITE_GEO_LAT . ',' . SITE_GEO_LNG;
+        // La ficha de Google por su CID, no una búsqueda por coordenadas:
+        // así Google une la web con su Perfil de Empresa.
+        $schema['hasMap'] = SITE_GOOGLE_MAPS_URL;
     }
 
     if (!empty(SITE_SAME_AS)) {

@@ -16,8 +16,9 @@
                         </h2>
                         <p>Tu tienda especializada en vinos de calidad, cavas, licores premium, cervezas artesanales y conservas gourmet. Más de 20 años seleccionando los mejores productos para ti.</p>
                         <div class="footer-social">
-                            <a href="#" aria-label="Facebook" rel="noopener noreferrer"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
-                            <a href="#" aria-label="Instagram" rel="noopener noreferrer"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+                            <a href="<?php echo SITE_FACEBOOK_URL; ?>" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+                            <a href="<?php echo SITE_INSTAGRAM_URL; ?>" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+                            <a href="<?php echo SITE_GOOGLE_MAPS_URL; ?>" aria-label="El Celler Nou en Google Maps" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></a>
                         </div>
                     </div>
 

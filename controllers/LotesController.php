@@ -45,6 +45,11 @@ $ideas = [
         'enlace' => ['url' => Router::url('vinos.do', ['id' => 33, 'slug' => 'd-o-alella']), 'texto' => 'Ver vinos de Alella'],
     ],
     [
+        'titulo' => 'Con jamón o paleta ibérica',
+        'texto'  => 'Una paleta o un jamón de Sierra Morena, o unos sobres de ibérico loncheado, con un tinto o un cava: el lote de Navidad de toda la vida.',
+        'enlace' => ['url' => Router::url('jamon'), 'texto' => 'Ver jamón y paleta ibérica'],
+    ],
+    [
         'titulo' => 'Un licor especial',
         'texto'  => 'Un whisky, un ron o una ginebra que no se compraría para sí mismo, solo o acompañado de otra botella.',
         'enlace' => ['url' => Router::url('licores'), 'texto' => 'Ver licores'],
