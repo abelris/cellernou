@@ -454,3 +454,54 @@ document.addEventListener('DOMContentLoaded', function() {
     mostrar(actual);
     arrancar();
 })();
+
+
+// ============================================
+// Barra de avisos de arriba (includes/hero.php, renderAvisosBarra)
+// Un aviso cada 5 s; se para con el ratón encima o el foco dentro y con la
+// pestaña oculta. Con «reducir movimiento» solo cambia con un fundido (CSS).
+// ============================================
+(function() {
+    var barra = document.querySelector('.avisos-barra');
+    if (!barra) return;
+    var avisos = barra.querySelectorAll('.aviso');
+    var total = avisos.length;
+    if (total < 2) return;
+
+    var actual = 0;
+    var temporizador = null;
+    var parado = false;
+
+    function mostrar(i) {
+        var anterior = avisos[actual];
+        var siguiente = avisos[i];
+        anterior.classList.remove('is-active');
+        anterior.classList.add('is-saliendo');
+        anterior.setAttribute('aria-hidden', 'true');
+        anterior.querySelector('a').setAttribute('tabindex', '-1');
+        // El nuevo se coloca abajo sin animación y luego sube.
+        siguiente.classList.remove('is-saliendo');
+        siguiente.style.transition = 'none';
+        void siguiente.offsetHeight;
+        siguiente.style.transition = '';
+        siguiente.classList.add('is-active');
+        siguiente.removeAttribute('aria-hidden');
+        siguiente.querySelector('a').removeAttribute('tabindex');
+        setTimeout(function() { anterior.classList.remove('is-saliendo'); }, 700);
+        actual = i;
+    }
+
+    function arrancar() {
+        clearInterval(temporizador);
+        temporizador = null;
+        if (parado || document.hidden) return;
+        temporizador = setInterval(function() { mostrar((actual + 1) % total); }, 5000);
+    }
+
+    barra.addEventListener('mouseenter', function() { parado = true; arrancar(); });
+    barra.addEventListener('mouseleave', function() { parado = false; arrancar(); });
+    barra.addEventListener('focusin', function() { parado = true; arrancar(); });
+    barra.addEventListener('focusout', function() { parado = false; arrancar(); });
+    document.addEventListener('visibilitychange', arrancar);
+    arrancar();
+})();

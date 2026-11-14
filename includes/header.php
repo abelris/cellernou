@@ -91,7 +91,7 @@ $procedenciasVinos = getProcedencias(8);
                             <span class="hide-mobile"><?php echo SITE_PHONE_MOBILE; ?></span>
                         </a>
                     </div>
-                    <a href="<?php echo Router::url('domicilio'); ?>" class="header-top-domicilio">Vino a domicilio: envío gratis desde <?php echo SHIPPING_FREE_MIN_ORDER; ?> € y -<?php echo ORDER_DISCOUNT_PERCENT; ?> % desde <?php echo ORDER_DISCOUNT_MIN; ?> €</a>
+                    <?php require_once ROOT_PATH . '/includes/hero.php'; echo renderAvisosBarra(); ?>
                     <div class="contact-info contact-email">
                         <a href="mailto:<?php echo SITE_EMAIL; ?>">
                             <svg class="icon" aria-hidden="true"><use href="#icon-email"></use></svg>

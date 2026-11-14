@@ -47,6 +47,7 @@ function getHeroSlides() {
     $slides = [
         [
             'id'        => 'lotes',
+            'aviso'     => ['etiqueta' => 'Navidad', 'texto' => 'Lotes de Navidad a tu medida, envueltos gratis', 'corto' => 'Lotes de Navidad a medida', 'url' => Router::url('lotes')],
             'temporada' => 'navidad',
             'etiqueta'  => 'Navidad',
             'titulo'    => 'Lotes de Navidad a tu medida',
@@ -61,6 +62,7 @@ function getHeroSlides() {
         ],
         [
             'id'        => 'jamon',
+            'aviso'     => ['etiqueta' => 'Ibéricos', 'texto' => 'Jamón y paleta ibérica Sierra Morena' . ($navidad ? ' para Navidad' : ''), 'corto' => 'Jamón y paleta Sierra Morena', 'url' => Router::url('jamon')],
             'temporada' => null,
             'etiqueta'  => $navidad ? 'Navidad · Ibéricos' : 'Ibéricos',
             'titulo'    => 'Jamón y paleta ibérica Sierra Morena',
@@ -76,6 +78,7 @@ function getHeroSlides() {
         ],
         [
             'id'        => 'domicilio',
+            'aviso'     => ['etiqueta' => 'A domicilio', 'texto' => 'Envío gratis desde ' . SHIPPING_FREE_MIN_ORDER . ' € y -' . ORDER_DISCOUNT_PERCENT . ' % desde ' . ORDER_DISCOUNT_MIN . ' €', 'corto' => 'Envío gratis desde ' . SHIPPING_FREE_MIN_ORDER . ' €', 'url' => Router::url('domicilio')],
             'temporada' => null,
             'etiqueta'  => 'Vino a domicilio',
             'titulo'    => 'Te llevamos el vino a casa',
@@ -91,6 +94,7 @@ function getHeroSlides() {
         ],
         [
             'id'        => 'cava',
+            'aviso'     => ['etiqueta' => 'Navidad', 'texto' => 'Cava y vino para las fiestas: te aconsejamos', 'corto' => 'Cava y vino para las fiestas', 'url' => Router::url('cavas')],
             'temporada' => 'navidad',
             'etiqueta'  => 'Navidad',
             'titulo'    => 'Cava y vino para las fiestas',
@@ -104,6 +108,9 @@ function getHeroSlides() {
         ],
         [
             'id'        => 'tienda',
+            'aviso'     => $navidad
+                ? ['etiqueta' => 'Festivos', 'texto' => 'Abrimos todos los festivos de 10:00 a 14:00', 'corto' => 'Abrimos festivos de 10 a 14 h', 'url' => Router::url('contacto')]
+                : ['etiqueta' => 'Desde 1995', 'texto' => 'Ven a la tienda: C/ Ramón Llull, 15, Premià de Mar', 'corto' => 'C/ Ramón Llull, 15, Premià', 'url' => Router::url('la-tienda')],
             'temporada' => null,
             'etiqueta'  => 'Desde 1995',
             'titulo'    => $navidad ? 'Abrimos todos los festivos por la mañana' : 'Ven a vernos a la tienda',
@@ -122,6 +129,36 @@ function getHeroSlides() {
     return array_values(array_filter($slides, function ($s) {
         return heroEnTemporada($s['temporada']);
     }));
+}
+
+/**
+ * Avisos de la barra negra de arriba (todas las páginas): los mismos
+ * destacados que el hero, en versión corta. El de envío gratis va primero.
+ */
+function getAvisosBarra() {
+    $avisos = [];
+    foreach (getHeroSlides() as $s) {
+        if (empty($s['aviso'])) continue;
+        if ($s['id'] === 'domicilio') array_unshift($avisos, $s['aviso']);
+        else $avisos[] = $s['aviso'];
+    }
+    return $avisos;
+}
+
+/** Barra de avisos que van pasando (la pinta includes/header.php). */
+function renderAvisosBarra() {
+    $avisos = getAvisosBarra();
+    if (!$avisos) return '';
+    $html = '<div class="avisos-barra" role="region" aria-label="Novedades de El Celler Nou"><ul class="avisos-lista">';
+    foreach ($avisos as $i => $a) {
+        $html .= '<li class="aviso' . ($i === 0 ? ' is-active' : '') . '"' . ($i === 0 ? '' : ' aria-hidden="true"') . '>'
+            . '<a href="' . htmlspecialchars($a['url']) . '"' . ($i === 0 ? '' : ' tabindex="-1"') . '>'
+            . '<span class="aviso-etiqueta">' . htmlspecialchars($a['etiqueta']) . '</span>'
+            . '<span class="aviso-texto">' . htmlspecialchars($a['texto']) . '</span>'
+            . (!empty($a['corto']) ? '<span class="aviso-texto aviso-corto" aria-hidden="true">' . htmlspecialchars($a['corto']) . '</span>' : '')
+            . '<span class="aviso-flecha" aria-hidden="true">&rsaquo;</span></a></li>';
+    }
+    return $html . '</ul></div>';
 }
 
 /** <img> responsive de una diapositiva. La inicial carga con prioridad. */
