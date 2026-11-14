@@ -2925,47 +2925,68 @@ p {
     font-weight: 500;
 }
 
-/* Barra de avisos de arriba (includes/hero.php, renderAvisosBarra): un aviso
-   cada vez; sube suave, se queda quieto y deja paso al siguiente. */
+/* Barra de avisos de arriba (includes/hero.php, renderAvisosBarra): cinta
+   continua de derecha a izquierda. La pista lleva la lista dos veces y se
+   desplaza el 50 %: al volver a 0 el corte no se ve. La velocidad la ajusta
+   js/main.js según el ancho (unos 50 px por segundo). */
 .avisos-barra {
     position: relative;
-    flex: 0 1 560px;
+    flex: 1 1 auto;
     min-width: 0;
-    height: 1.5rem;
     overflow: hidden;
-    margin: 0 var(--spacing-md);
+    margin: 0 var(--spacing-lg);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+}
+
+.header-top .contact-info {
+    flex: none;
+    white-space: nowrap;
+}
+
+.avisos-pista {
+    display: flex;
+    width: max-content;
+    animation: avisos-cinta 40s linear infinite;
+    will-change: transform;
+}
+
+.avisos-barra:hover .avisos-pista,
+.avisos-barra:focus-within .avisos-pista {
+    animation-play-state: paused;
+}
+
+@keyframes avisos-cinta {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 .avisos-lista {
+    display: flex;
+    flex: none;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .aviso {
-    position: absolute;
-    inset: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.6s ease;
+    padding-right: 2.5rem;
 }
 
-.aviso.is-active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.aviso.is-saliendo {
-    opacity: 0;
-    transform: translateY(-100%);
+.aviso::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    margin-left: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    opacity: 0.6;
 }
 
 .header-top .aviso a {
     gap: 0.5rem;
-    max-width: 100%;
     color: white;
     white-space: nowrap;
 }
@@ -2982,13 +3003,7 @@ p {
     text-transform: uppercase;
 }
 
-.aviso-corto {
-    display: none;
-}
-
 .aviso-texto {
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-weight: 500;
 }
 
@@ -2997,12 +3012,6 @@ p {
     color: var(--color-secondary);
     font-size: 1.1rem;
     line-height: 1;
-    animation: aviso-flecha 2.4s ease-in-out infinite;
-}
-
-@keyframes aviso-flecha {
-    0%, 60%, 100% { transform: translateX(0); }
-    75% { transform: translateX(3px); }
 }
 
 .header-top .aviso a:hover .aviso-texto,
@@ -3012,15 +3021,10 @@ p {
     text-underline-offset: 3px;
 }
 
+/* Si el sistema pide reducir el movimiento, la cinta va muy despacio. */
 @media (prefers-reduced-motion: reduce) {
-    .aviso,
-    .aviso.is-saliendo {
-        transform: none;
-        transition: opacity 0.4s ease;
-    }
-
-    .aviso-flecha {
-        animation: none;
+    .avisos-pista {
+        animation-duration: 240s !important;
     }
 }
 
@@ -3034,28 +3038,27 @@ p {
         order: 3;
         flex: 1 0 100%;
         margin: 0;
-        height: 1.4rem;
     }
 
     .header-top .aviso a {
         font-size: 0.8rem;
     }
 
-    .aviso:has(.aviso-corto) .aviso-texto:not(.aviso-corto) {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0 0 0 0);
-        white-space: nowrap;
-    }
-
-    .aviso-corto {
-        display: inline;
-    }
-
     .aviso-etiqueta {
         font-size: 0.62rem;
+    }
+
+    .aviso,
+    .aviso::after {
+        padding-right: 0;
+    }
+
+    .aviso {
+        padding-right: 1.75rem;
+    }
+
+    .aviso::after {
+        margin-left: 1.75rem;
     }
 }
 

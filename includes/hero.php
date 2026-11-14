@@ -145,20 +145,27 @@ function getAvisosBarra() {
     return $avisos;
 }
 
-/** Barra de avisos que van pasando (la pinta includes/header.php). */
+/**
+ * Barra de avisos en cinta continua (la pinta includes/header.php).
+ * La lista va dos veces seguidas: la cinta se desplaza la mitad de su ancho y
+ * vuelve a empezar, así no se nota el salto. La segunda copia es decorativa
+ * (aria-hidden y sin foco) para que los lectores de pantalla no la repitan.
+ */
 function renderAvisosBarra() {
     $avisos = getAvisosBarra();
     if (!$avisos) return '';
-    $html = '<div class="avisos-barra" role="region" aria-label="Novedades de El Celler Nou"><ul class="avisos-lista">';
-    foreach ($avisos as $i => $a) {
-        $html .= '<li class="aviso' . ($i === 0 ? ' is-active' : '') . '"' . ($i === 0 ? '' : ' aria-hidden="true"') . '>'
-            . '<a href="' . htmlspecialchars($a['url']) . '"' . ($i === 0 ? '' : ' tabindex="-1"') . '>'
-            . '<span class="aviso-etiqueta">' . htmlspecialchars($a['etiqueta']) . '</span>'
-            . '<span class="aviso-texto">' . htmlspecialchars($a['texto']) . '</span>'
-            . (!empty($a['corto']) ? '<span class="aviso-texto aviso-corto" aria-hidden="true">' . htmlspecialchars($a['corto']) . '</span>' : '')
-            . '<span class="aviso-flecha" aria-hidden="true">&rsaquo;</span></a></li>';
-    }
-    return $html . '</ul></div>';
+    $lista = function ($copia) use ($avisos) {
+        $html = '<ul class="avisos-lista"' . ($copia ? ' aria-hidden="true"' : '') . '>';
+        foreach ($avisos as $a) {
+            $html .= '<li class="aviso"><a href="' . htmlspecialchars($a['url']) . '"' . ($copia ? ' tabindex="-1"' : '') . '>'
+                . '<span class="aviso-etiqueta">' . htmlspecialchars($a['etiqueta']) . '</span>'
+                . '<span class="aviso-texto">' . htmlspecialchars($a['texto']) . '</span>'
+                . '<span class="aviso-flecha" aria-hidden="true">&rsaquo;</span></a></li>';
+        }
+        return $html . '</ul>';
+    };
+    return '<div class="avisos-barra" role="region" aria-label="Novedades de El Celler Nou">'
+        . '<div class="avisos-pista">' . $lista(false) . $lista(true) . '</div></div>';
 }
 
 /** <img> responsive de una diapositiva. La inicial carga con prioridad. */
