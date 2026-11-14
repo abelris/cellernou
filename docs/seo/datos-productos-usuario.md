@@ -50,4 +50,4 @@ Inactivos por indicación del usuario (25-oct-2026): 5345 Alcohol 95 1 L (alcoho
   - **Elegir versión**: 1798 Ivori Negre 2024 (criança syrah-garnatxa-cabernet o garnatxa negra), 5643 Cairats 2021 (Origen, Selecció, Col·lecció Samsó o Merlot), 3247 Llàgrimes de Tardor (Criança o Reserva), 3714 Marsala Toso (¿Fine semiseco 1 L?).
   - **Sin nota publicada**: 6376 Cava Carles Andreu Brut Reserva y 6283 Serres Velles Carinyena (cargada solo la descripción): la nota, si la catáis en la tienda.
   - **Fotos a confirmar**: 2301 Bowmore 9 y 1560 Disaronno son de la botella nueva; si en tienda está la antigua, se cambia.
-  - **Nombres mal escritos en el TPV** (no tocados, cambiarlos cambia la URL): 2051 «Jonhie» Walker, 6700 «UNFILTRED … SCOTH», 5705 «del Raiers» (es «dels Raiers»).
+  - **Nombres corregidos** (14-nov-2026, con el visto bueno del usuario; la URL antigua redirige 301): 2051 «Johnnie Walker Platinum», 6700 «SMOKEHEAD UNFILTERED SINGLE MALT SCOTCH WHISKY», 5705 «RATAFIA DELS RAIERS PETACA».
