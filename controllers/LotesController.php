@@ -98,10 +98,16 @@ $schemaExtra = schemaBreadcrumb($breadcrumbItems)
     ])
     . schemaFAQ($faqs);
 
+// Imagen para compartir en redes (1200x630, images/paginas).
+$pageImage = getBaseUrl() . '/images/paginas/og-lotes.jpg';
+$pageImageWidth = 1200;
+$pageImageHeight = 630;
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
-<section class="page-header domicilio-header">
+<section class="page-header domicilio-header cabecera-foto">
+    <?php echo cabeceraFotoHtml('/images/home/navidad-lotes', 'Regalo de Navidad envuelto junto a una copa de vino', [800, 1400, 1920], 2 / 3); ?>
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1>Lotes de Navidad y regalos de vino, a tu medida</h1>

@@ -158,10 +158,16 @@ if ($poblacion) {
         . schemaFAQ($faqs);
 }
 
+// Imagen para compartir en redes (1200x630, images/paginas).
+$pageImage = getBaseUrl() . '/images/paginas/og-domicilio.jpg';
+$pageImageWidth = 1200;
+$pageImageHeight = 630;
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
-<section class="page-header domicilio-header">
+<section class="page-header domicilio-header cabecera-foto">
+    <?php echo cabeceraFotoHtml('/images/home/vino-a-domicilio', 'Caja de madera llena de botellas de vino', [800, 1400, 1920], 2 / 3); ?>
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <?php if ($poblacion): ?>

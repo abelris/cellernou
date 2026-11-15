@@ -108,10 +108,16 @@ $schemaExtra = schemaBreadcrumb($breadcrumbItems)
 $mesHoy = (int) date('n');
 $esNavidad = $mesHoy >= 11 || ($mesHoy === 1 && (int) date('j') <= 6);
 
+// Imagen para compartir en redes (1200x630, images/paginas).
+$pageImage = getBaseUrl() . '/images/paginas/og-jamon.jpg';
+$pageImageWidth = 1200;
+$pageImageHeight = 630;
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
-<section class="page-header domicilio-header">
+<section class="page-header domicilio-header cabecera-foto">
+    <?php echo cabeceraFotoHtml('/images/home/navidad-jamon', 'Lonchas de jamón ibérico sobre una tabla junto a una copa de vino tinto', [800, 1400, 1920], 2 / 3); ?>
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1>Jamón y paleta ibérica Sierra Morena en Premià de Mar</h1>

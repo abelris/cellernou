@@ -82,10 +82,16 @@ $schemaExtra = schemaBreadcrumb($breadcrumbItems)
     ])
     . schemaFAQ($faqs);
 
+// Imagen para compartir en redes (1200x630, images/paginas).
+$pageImage = getBaseUrl() . '/images/paginas/og-restaurantes.jpg';
+$pageImageWidth = 1200;
+$pageImageHeight = 630;
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
-<section class="page-header domicilio-header">
+<section class="page-header domicilio-header cabecera-foto">
+    <?php echo cabeceraFotoHtml('/images/paginas/restaurantes', 'Copas de vino tinto y blanco en una mesa de restaurante', [800, 1200], 2 / 3); ?>
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1>Vino para restaurantes: la carta y el vino, en el Maresme</h1>

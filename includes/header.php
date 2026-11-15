@@ -171,7 +171,7 @@ $procedenciasVinos = getProcedencias(8);
 
                             <li class="nav-item has-submenu">
                                 <a href="<?php echo Router::url('cavas'); ?>" class="nav-link<?php echo strpos(Router::currentRoute() ?? '', 'cavas') !== false ? ' active' : ''; ?>" aria-haspopup="true">
-                                    Cavas y Espumosos
+                                    Cavas
                                     <svg class="icon chevron" aria-hidden="true"><use href="#icon-chevron"></use></svg>
                                 </a>
                                 <div class="submenu">

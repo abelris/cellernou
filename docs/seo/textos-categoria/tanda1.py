@@ -338,7 +338,7 @@ TEXTOS = [
 {
     'ambito': 'sector', 'id_ref': 8, 'pagina': '/vinos',
     'titulo_seo': None,
-    'intro': 'Más de seiscientos vinos con stock en la tienda: tintos, blancos, rosados y dulces de las principales D.O. de España y de fuera. '
+    'intro': 'Cientos de vinos disponibles en la tienda: tintos, blancos, rosados y dulces de las principales D.O. de España y de fuera. '
              'Elegidos uno a uno y con consejo para cada ocasión.',
     'cuerpo': '''<h2>Cómo está organizado</h2>
 <p>Puedes buscar por tipo (<a href="/vinos/tipo/1/vino-tinto">tinto</a>, <a href="/vinos/tipo/2/vino-blanco">blanco</a>, <a href="/vinos/tipo/3/vino-rosado">rosado</a>) o por denominación de origen. Tenemos sobre todo las catalanas, <a href="/vinos/do/32/d-o-montsant">Montsant</a>, <a href="/vinos/do/30/d-o-q-priorat">Priorat</a>, <a href="/vinos/do/15/d-o-penedes">Penedès</a>, <a href="/vinos/do/14/d-o-emporda">Empordà</a> y <a href="/vinos/do/33/d-o-alella">Alella</a>, la D.O. de aquí, y las clásicas <a href="/vinos/do/1/d-o-ca-rioja">Rioja</a> y <a href="/vinos/do/3/d-o-ribera-del-duero">Ribera del Duero</a>.</p>

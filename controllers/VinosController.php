@@ -166,7 +166,7 @@ include ROOT_PATH . '/includes/header.php';
                 </select>
             </div>
 
-            <span class="results-count"><?php $enTienda = contarConStock($productos); echo number_format($enTienda, 0, ',', '.'); ?> en la tienda<?php if (count($productos) > $enTienda): ?> · <?php echo number_format(count($productos) - $enTienda, 0, ',', '.'); ?> por encargo<?php endif; ?></span>
+            <span class="results-count"><?php $enTienda = contarConStock($productos); echo number_format($enTienda, 0, ',', '.'); ?> disponibles<?php if (count($productos) > $enTienda): ?> · <?php echo number_format(count($productos) - $enTienda, 0, ',', '.'); ?> por encargo<?php endif; ?></span>
         </div>
 
         <!-- Products Grid -->

@@ -26,7 +26,11 @@ if ($catSlug && $artSlug) {
         return;
     }
 
-    $pageTitle = htmlspecialchars($articulo['titulo']) . ' | WineWorld - ' . SITE_NAME;
+    // Google corta hacia los 60 caracteres: el sufijo se acorta o se quita
+    // según lo largo que sea el título del artículo.
+    $tituloArt = $articulo['titulo'];
+    $largo = mb_strlen($tituloArt);
+    $pageTitle = htmlspecialchars($tituloArt) . ($largo <= 32 ? ' | WineWorld - ' . SITE_NAME : ($largo <= 44 ? ' | ' . SITE_NAME : ''));
     $pageDescription = !empty($articulo['extracto']) ? mb_substr(strip_tags($articulo['extracto']), 0, 160) : 'Lee este artículo en WineWorld de ' . SITE_NAME;
     $pageType = 'article';
     if (imagenWineWorldExiste($articulo['imagen'] ?? null)) {

@@ -1463,3 +1463,19 @@ function ctaProducto(array $producto, $url = null) {
     return ['botones' => $botones, 'barra' => $barra];
 }
 
+/**
+ * Foto de fondo de la cabecera de las páginas de servicio (clase cabecera-foto).
+ * $base: ruta sin el ancho ni la extensión, p. ej. '/images/home/navidad-jamon'.
+ * Es la primera imagen visible: carga con prioridad y sin lazy.
+ */
+function cabeceraFotoHtml($base, $alt, array $anchos = [800, 1400], $proporcion = 2 / 3) {
+    $srcset = [];
+    foreach ($anchos as $w) {
+        $srcset[] = getBaseUrl() . $base . '-' . $w . '.webp ' . $w . 'w';
+    }
+    $mayor = end($anchos);
+    return '<img src="' . getBaseUrl() . $base . '-' . $mayor . '.webp" srcset="' . implode(', ', $srcset) . '" sizes="100vw"'
+        . ' alt="' . htmlspecialchars($alt) . '" width="' . $mayor . '" height="' . round($mayor * $proporcion) . '"'
+        . ' class="cabecera-foto-img" fetchpriority="high" decoding="async">';
+}
+

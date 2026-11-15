@@ -145,10 +145,16 @@ $schemaExtra = schemaBreadcrumb($breadcrumbItems)
     . schemaJson(['@context' => 'https://schema.org', '@graph' => $grafo])
     . schemaFAQ($faqs);
 
+// Imagen para compartir en redes (1200x630, images/paginas).
+$pageImage = getBaseUrl() . '/images/paginas/og-tienda.jpg';
+$pageImageWidth = 1200;
+$pageImageHeight = 630;
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
-<section class="page-header domicilio-header">
+<section class="page-header domicilio-header cabecera-foto">
+    <?php echo cabeceraFotoHtml('/images/home/tienda-interior', 'Interior de El Celler Nou en Premià de Mar', [800, 1400], 9 / 16); ?>
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1>Te aconsejamos, te lo preparamos y te lo llevamos</h1>

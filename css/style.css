@@ -3834,3 +3834,92 @@ p {
         padding-bottom: 5rem;
     }
 }
+
+/* Cabecera con foto de las páginas de servicio y contacto (cabeceraFotoHtml) */
+.page-header.cabecera-foto {
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-3xl) 0;
+    background: var(--color-bg-dark);
+    border-bottom: 0;
+    isolation: isolate;
+}
+
+.cabecera-foto-img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-header.cabecera-foto::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.92) 0%, rgba(114, 47, 55, 0.72) 55%, rgba(26, 26, 26, 0.45) 100%);
+}
+
+.page-header.cabecera-foto h1,
+.page-header.cabecera-foto p,
+.page-header.cabecera-foto strong {
+    color: white;
+}
+
+.page-header.cabecera-foto p {
+    opacity: 0.92;
+}
+
+.page-header.cabecera-foto .breadcrumb a,
+.page-header.cabecera-foto .breadcrumb span {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.page-header.cabecera-foto .breadcrumb li:last-child span {
+    color: white;
+}
+
+.page-header.cabecera-foto .btn-outline {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.page-header.cabecera-foto .btn-outline:hover {
+    background: white;
+    color: var(--color-primary);
+}
+
+.page-header.cabecera-foto .ventajas-pedido li {
+    background: rgba(26, 26, 26, 0.55);
+    border-color: var(--color-secondary);
+    color: white;
+}
+
+.page-header.cabecera-foto .ventajas-pedido .icon,
+.page-header.cabecera-foto .ventajas-pedido strong {
+    color: var(--color-secondary);
+}
+
+.page-header.cabecera-foto .domicilio-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.horario-festivos {
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+    .page-header.cabecera-foto {
+        padding: var(--spacing-2xl) 0;
+    }
+
+    .page-header.cabecera-foto::before {
+        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.82) 0%, rgba(114, 47, 55, 0.85) 100%);
+    }
+}

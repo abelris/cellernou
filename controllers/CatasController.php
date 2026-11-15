@@ -123,6 +123,11 @@ $errorEn = function ($tipo, $idCata = 0) use ($error) {
     return $error && $error['tipo'] === $tipo && $error['id_cata'] === $idCata;
 };
 
+// Imagen para compartir en redes (1200x630, images/paginas).
+$pageImage = getBaseUrl() . '/images/paginas/og-catas.jpg';
+$pageImageWidth = 1200;
+$pageImageHeight = 630;
+
 include ROOT_PATH . '/includes/header.php';
 
 /** Campos comunes: tipo, cata, antispam, nombre, correo y teléfono. */
@@ -149,7 +154,8 @@ function camposBaseCata($tipo, $idCata, $valor, $prefijo) {
 }
 ?>
 
-<section class="page-header domicilio-header">
+<section class="page-header domicilio-header cabecera-foto">
+    <?php echo cabeceraFotoHtml('/images/paginas/catas', 'Botas de vino a granel en El Celler Nou', [800, 1400], 9 / 16); ?>
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
         <h1>Catas de vino en Premià de Mar</h1>

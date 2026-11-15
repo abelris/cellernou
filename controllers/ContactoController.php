@@ -58,14 +58,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $schemaExtra = schemaBreadcrumb($breadcrumbItems);
 $schemaExtra .= schemaContacto();
 
+require_once ROOT_PATH . '/includes/poblaciones.php';
+
+// Imagen para compartir en redes (1200x630, images/paginas).
+$pageImage = getBaseUrl() . '/images/paginas/og-tienda.jpg';
+$pageImageWidth = 1200;
+$pageImageHeight = 630;
+
 include ROOT_PATH . '/includes/header.php';
 ?>
 
-<section class="category-header category-header--contacto">
+<section class="page-header domicilio-header cabecera-foto">
+    <?php echo cabeceraFotoHtml('/images/home/tienda-interior', 'Interior de El Celler Nou, en la calle Ramón Llull de Premià de Mar', [800, 1400], 9 / 16); ?>
     <div class="container">
         <?php echo generarBreadcrumb($breadcrumbItems); ?>
-        <h1>Contacto</h1>
-        <p>Estamos aquí para ayudarte. Contáctanos y te responderemos lo antes posible.</p>
+        <h1>Contacto y cómo llegar</h1>
+        <p>Estamos en la calle Ramón Llull, 15, de Premià de Mar. Ven a vernos, llámanos o escríbenos por WhatsApp: te aconsejamos y te llevamos el pedido a casa en el Maresme.</p>
+        <div class="domicilio-cta">
+            <a href="<?php echo SITE_GOOGLE_MAPS_URL; ?>" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true"><use href="#icon-location"></use></svg>
+                Cómo llegar
+            </a>
+            <a href="<?php echo htmlspecialchars(whatsappUrl('Hola, tengo una consulta.')); ?>" class="btn btn-outline btn-lg" target="_blank" rel="noopener noreferrer">
+                <svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+                WhatsApp
+            </a>
+            <a href="tel:<?php echo preg_replace('/\s+/', '', SITE_PHONE); ?>" class="btn btn-outline btn-lg">
+                <svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>
+                <?php echo SITE_PHONE; ?>
+            </a>
+        </div>
     </div>
 </section>
 
@@ -154,6 +176,7 @@ include ROOT_PATH . '/includes/header.php';
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <p class="horario-festivos">Festivos: de 10:00 a 14:00, como los domingos. Solo cerramos el 1 de enero.</p>
                         </div>
                     </div>
                 </div>
