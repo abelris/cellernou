@@ -92,9 +92,7 @@ include ROOT_PATH . '/includes/header.php';
                     <div class="product-price">Consultar precio</div>
                     <?php endif; ?>
 
-                    <a href="<?php echo Router::url('contacto'); ?>?producto=<?php echo urlencode($producto['nombre']); ?>" class="btn btn-primary btn-lg" style="width: 100%;">
-                        Solicitar información
-                    </a>
+                    <?php $producto['tiene_stock'] = $producto['tiene_stock'] ?? 1; $cta = ctaProducto($producto, $currentUrl); echo $cta['botones']; ?>
                 </div>
             </div>
         </div>

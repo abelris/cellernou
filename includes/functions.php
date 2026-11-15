@@ -86,7 +86,7 @@ function getProductosBySector($idSector, $limit = 0, $offset = 0) {
             $productos[] = $row;
         }
     }
-    return $productos;
+    return ordenarProductosListado($productos);
 }
 
 /**
@@ -132,7 +132,7 @@ function getProductosByTipo($idTipo, $idSector = null, $limit = 0) {
             $productos[] = $row;
         }
     }
-    return $productos;
+    return ordenarProductosListado($productos);
 }
 
 /**
@@ -178,7 +178,7 @@ function getProductosByProcedencia($idProcedencia, $idSector = null, $limit = 0)
             $productos[] = $row;
         }
     }
-    return $productos;
+    return ordenarProductosListado($productos);
 }
 
 /**
@@ -399,7 +399,7 @@ function getProductosRelacionados($producto, $limit = 4) {
             AND p.idSector IN (" . implode(',', SECTORES_PERMITIDOS) . ")
             AND (p.idTipo = " . intval($producto['idTipo']) . "
                  OR p.idProcedencia = " . intval($producto['idProcedencia']) . ")
-            ORDER BY RAND()
+            ORDER BY tiene_stock DESC, (pf.foto IS NOT NULL) DESC, RAND()
             LIMIT " . intval($limit);
 
     $result = mysqli_query($bd, $sql);
@@ -1348,3 +1348,118 @@ function formatPrecioWeb($precio, $mostrarOriginal = true) {
     }
     return formatPrecio($precio);
 }
+
+
+// =============================================================
+// ORDEN DE LOS LISTADOS Y BOTÓN DE PEDIDO (revisión 15-nov-2026)
+// =============================================================
+
+/**
+ * Unidades vendidas en los últimos 12 meses por producto (tiquets + facturas).
+ * Se calcula una vez al día y se guarda en uploads/cache/ventas12m.json: no
+ * hace falta al segundo y las tablas de líneas son grandes.
+ */
+function getVentas12m() {
+    static $ventas = null;
+    if ($ventas !== null) return $ventas;
+
+    $archivo = ROOT_PATH . '/uploads/cache/ventas12m.json';
+    if (is_file($archivo) && filemtime($archivo) > time() - 86400) {
+        $datos = json_decode((string) @file_get_contents($archivo), true);
+        if (is_array($datos)) return $ventas = $datos;
+    }
+
+    global $bd;
+    $ventas = [];
+    $sql = "SELECT idProducto, SUM(c) AS v FROM (
+                SELECT idProducto, cantidad AS c FROM linea_tiquet WHERE fecha >= DATE_SUB(NOW(), INTERVAL 12 MONTH)
+                UNION ALL
+                SELECT idProducto, cantidad FROM linea_factura WHERE fecha >= DATE_SUB(NOW(), INTERVAL 12 MONTH)
+            ) x GROUP BY idProducto";
+    $result = mysqli_query($bd, $sql);
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $ventas[(int) $row['idProducto']] = (float) $row['v'];
+        }
+    }
+    if (!is_dir(dirname($archivo))) @mkdir(dirname($archivo), 0775, true);
+    @file_put_contents($archivo, json_encode($ventas), LOCK_EX);
+    return $ventas;
+}
+
+/**
+ * Orden de escaparate: primero lo que hay en la tienda, con foto y precio, y
+ * dentro de eso lo más vendido; al final lo que no hay (sale como «Por
+ * encargo»). Antes era alfabético y /vinos abría con fichas sin foto ni precio.
+ */
+function ordenarProductosListado(array $productos) {
+    $ventas = getVentas12m();
+    usort($productos, function ($a, $b) use ($ventas) {
+        $clave = function ($p) use ($ventas) {
+            return [
+                empty($p['tiene_stock']) ? 1 : 0,
+                empty($p['foto']) ? 1 : 0,
+                ((float) ($p['precio_venta'] ?? 0)) > 0 ? 0 : 1,
+                -($ventas[(int) $p['id']] ?? 0),
+            ];
+        };
+        $c = $clave($a) <=> $clave($b);
+        return $c !== 0 ? $c : strcasecmp($a['nombre'], $b['nombre']);
+    });
+    return $productos;
+}
+
+/** Cuántos productos de la lista hay en la tienda (para el contador). */
+function contarConStock(array $productos) {
+    $n = 0;
+    foreach ($productos as $p) {
+        if (!empty($p['tiene_stock'])) $n++;
+    }
+    return $n;
+}
+
+/** Precio de la tarjeta de producto: precio, «Por encargo» o «Consultar precio». */
+function precioTarjetaHtml(array $p) {
+    if (!empty($p['tiene_stock']) && $p['precio_venta'] > 0) {
+        return '<span class="product-card-price">' . formatPrecioWeb($p['precio_venta']) . '</span>';
+    }
+    if (empty($p['tiene_stock'])) {
+        return '<span class="product-card-price product-card-encargo">Por encargo</span>';
+    }
+    return '<span class="product-card-price">Consultar precio</span>';
+}
+
+/**
+ * Botones de pedido de la ficha: WhatsApp con el producto y el precio ya
+ * escritos, y llamar. Devuelve también la barra fija del móvil.
+ */
+function ctaProducto(array $producto, $url = null) {
+    require_once ROOT_PATH . '/includes/poblaciones.php';
+    $conPrecio = !empty($producto['tiene_stock']) && $producto['precio_venta'] > 0;
+    $nombre = normalizarNombre($producto['nombre']);
+    $precio = $conPrecio ? number_format(aplicarDescuento($producto['precio_venta']), 2, ',', '.') . ' €' : '';
+    $url = $url ?: rtrim(SITE_URL, '/') . '/producto/' . (int) $producto['id'] . '/' . createSlug($producto['nombre']);
+    $mensaje = $conPrecio
+        ? 'Hola, quiero el ' . $nombre . ' (' . $precio . '). ¿Me lo preparáis? ' . $url
+        : 'Hola, ¿me podéis conseguir el ' . $nombre . '? ' . $url;
+    $wa = htmlspecialchars(whatsappUrl($mensaje));
+    $tel = 'tel:' . preg_replace('/\s+/', '', SITE_PHONE);
+    $iconoWa = '<svg class="icon" aria-hidden="true"><use href="#icon-whatsapp"></use></svg>';
+    $iconoTel = '<svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg>';
+
+    $botones = '<div class="producto-cta">'
+        . '<a href="' . $wa . '" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">' . $iconoWa
+        . ($conPrecio ? 'Pídelo por WhatsApp' : 'Pídenoslo por WhatsApp') . '</a>'
+        . '<a href="' . $tel . '" class="btn btn-outline btn-lg">' . $iconoTel . 'Llamar</a>'
+        . '</div>';
+
+    $barra = '<div class="producto-barra-movil">'
+        . '<div class="pbm-info"><span class="pbm-nombre">' . htmlspecialchars($nombre) . '</span>'
+        . ($conPrecio ? '<span class="pbm-precio">' . $precio . '</span>' : '<span class="pbm-precio pbm-encargo">Por encargo</span>')
+        . '</div>'
+        . '<a href="' . $wa . '" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">' . $iconoWa . 'Pedir</a>'
+        . '</div>';
+
+    return ['botones' => $botones, 'barra' => $barra];
+}
+

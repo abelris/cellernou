@@ -147,11 +147,7 @@ if ($mesHoy >= 11 || ($mesHoy === 1 && (int) date('j') <= 6)):
                     <p class="product-card-origin"><?php echo htmlspecialchars($producto['procedencia_nombre']); ?></p>
                     <?php endif; ?>
                     <div class="product-card-footer">
-                        <?php if ($producto['precio_venta'] > 0 && !empty($producto['tiene_stock'])): ?>
-                        <span class="product-card-price"><?php echo formatPrecioWeb($producto['precio_venta']); ?></span>
-                        <?php else: ?>
-                        <span class="product-card-price">Consultar</span>
-                        <?php endif; ?>
+                        <?php echo precioTarjetaHtml($producto); ?>
                         <span class="product-card-link">
                             Ver más <svg class="icon"><use href="#icon-arrow-right"></use></svg>
                         </span>

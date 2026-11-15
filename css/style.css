@@ -3714,3 +3714,123 @@ p {
     margin: var(--spacing-md) 0;
     font-size: 0.9375rem;
 }
+
+/* Ficha de producto: botones de pedido (functions.php, ctaProducto) */
+.producto-cta {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--spacing-sm);
+}
+
+.producto-cta .btn {
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .producto-cta {
+        grid-template-columns: 1fr;
+    }
+
+    .producto-cta .btn {
+        white-space: nowrap;
+    }
+}
+
+.btn-whatsapp {
+    background: #1f9d55;
+    border-color: #1f9d55;
+    color: white;
+    gap: 0.5rem;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus-visible {
+    background: #187a42;
+    border-color: #187a42;
+    color: white;
+}
+
+.producto-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.producto-cta .icon,
+.producto-barra-movil .icon {
+    width: 18px;
+    height: 18px;
+}
+
+.product-card-encargo {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Barra fija del móvil en la ficha: nombre, precio y «Pedir» siempre a mano */
+.producto-barra-movil {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .producto-barra-movil {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 900;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-md);
+        padding: 0.6rem var(--spacing-md) calc(0.6rem + env(safe-area-inset-bottom));
+        background: white;
+        border-top: 1px solid var(--color-border);
+        box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .pbm-info {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    .pbm-nombre {
+        overflow: hidden;
+        font-size: 0.8rem;
+        color: var(--color-text-light);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .pbm-precio {
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--color-primary);
+    }
+
+    .pbm-encargo {
+        font-size: 0.95rem;
+    }
+
+    .producto-barra-movil .btn {
+        flex: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.65rem 1.25rem;
+    }
+
+    /* Con la barra, el botón flotante de WhatsApp sobra y el pie necesita aire */
+    body:has(.producto-barra-movil) .whatsapp-float {
+        display: none;
+    }
+
+    body:has(.producto-barra-movil) .site-footer {
+        padding-bottom: 5rem;
+    }
+}

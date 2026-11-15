@@ -171,12 +171,10 @@ include ROOT_PATH . '/includes/header.php';
                         <small>IVA incluido</small>
                     </div>
                     <?php else: ?>
-                    <div class="product-price">Consultar precio</div>
+                    <div class="product-price"><?php echo empty($producto['tiene_stock']) ? 'Por encargo' : 'Consultar precio'; ?></div>
                     <?php endif; ?>
 
-                    <a href="<?php echo Router::url('contacto'); ?>?producto=<?php echo urlencode($producto['nombre']); ?>" class="btn btn-primary btn-lg" style="width: 100%;">
-                        Solicitar información
-                    </a>
+                    <?php $cta = ctaProducto($producto); echo $cta['botones']; ?>
                     <p class="producto-domicilio">
                         <svg class="icon" aria-hidden="true"><use href="#icon-location"></use></svg>
                         Te lo llevamos a casa en Premià de Mar y alrededores, gratis a partir de <?php echo SHIPPING_FREE_MIN_ORDER; ?> €, y con un <?php echo ORDER_DISCOUNT_PERCENT; ?> % de descuento a partir de <?php echo ORDER_DISCOUNT_MIN; ?> €.
@@ -277,11 +275,7 @@ include ROOT_PATH . '/includes/header.php';
                     <p class="product-card-origin"><?php echo htmlspecialchars($rel['procedencia_nombre']); ?></p>
                     <?php endif; ?>
                     <div class="product-card-footer">
-                        <?php if ($rel['precio_venta'] > 0 && !empty($rel['tiene_stock'])): ?>
-                        <span class="product-card-price"><?php echo formatPrecioWeb($rel['precio_venta']); ?></span>
-                        <?php else: ?>
-                        <span class="product-card-price">Consultar</span>
-                        <?php endif; ?>
+                        <?php echo precioTarjetaHtml($rel); ?>
                         <span class="product-card-link">
                             Ver más <svg class="icon"><use href="#icon-arrow-right"></use></svg>
                         </span>
@@ -293,5 +287,7 @@ include ROOT_PATH . '/includes/header.php';
     </div>
 </section>
 <?php endif; ?>
+
+<?php echo $cta['barra']; ?>
 
 <?php include ROOT_PATH . '/includes/footer.php'; ?>

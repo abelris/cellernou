@@ -103,7 +103,7 @@ include ROOT_PATH . '/includes/header.php';
                     <?php endforeach; ?>
                 </select>
             </div>
-            <span class="results-count"><?php echo count($productos); ?> productos</span>
+            <span class="results-count"><?php $enTienda = contarConStock($productos); echo number_format($enTienda, 0, ',', '.'); ?> en la tienda<?php if (count($productos) > $enTienda): ?> · <?php echo number_format(count($productos) - $enTienda, 0, ',', '.'); ?> por encargo<?php endif; ?></span>
         </div>
 
         <?php if (!empty($productos)): ?>
@@ -129,11 +129,7 @@ include ROOT_PATH . '/includes/header.php';
                         <?php echo htmlspecialchars(normalizarNombre($producto['nombre'])); ?>
                     </h2>
                     <div class="product-card-footer">
-                        <?php if ($producto['precio_venta'] > 0 && !empty($producto['tiene_stock'])): ?>
-                        <span class="product-card-price"><?php echo formatPrecioWeb($producto['precio_venta']); ?></span>
-                        <?php else: ?>
-                        <span class="product-card-price">Consultar</span>
-                        <?php endif; ?>
+                        <?php echo precioTarjetaHtml($producto); ?>
                         <span class="product-card-link">
                             Ver más <svg class="icon"><use href="#icon-arrow-right"></use></svg>
                         </span>
