@@ -78,6 +78,7 @@ Router::get('/la-tienda', 'LaTiendaController', 'la-tienda');
 Router::get('/lotes-y-regalos', 'LotesController', 'lotes');
 Router::get('/jamones-sierra-morena', 'JamonController', 'jamon');
 Router::get('/espinaler', 'EspinalerController', 'espinaler');
+Router::get('/marcas', 'MarcasController', 'marcas');
 // URL anterior de la página (14-nov-2026): JamonController la redirige con 301.
 Router::get('/jamon-iberico', 'JamonController', 'jamon.antigua');
 Router::get('/catas', 'CatasController', 'catas');

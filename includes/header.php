@@ -235,6 +235,22 @@ $procedenciasVinos = getProcedencias(8);
                             </li>
 
                             <li class="nav-item has-submenu">
+                                <?php $esMarca = in_array(Router::currentRoute(), array_merge(['marcas'], array_keys(MARCAS)), true); ?>
+                                <a href="<?php echo Router::url('marcas'); ?>" class="nav-link<?php echo $esMarca ? ' active' : ''; ?>" aria-haspopup="true">
+                                    Marcas
+                                    <svg class="icon chevron" aria-hidden="true"><use href="#icon-chevron"></use></svg>
+                                </a>
+                                <div class="submenu">
+                                    <ul class="submenu-list">
+                                        <?php foreach (MARCAS as $rutaMarca => $marcaMenu): ?>
+                                        <li><a href="<?php echo Router::url($rutaMarca); ?>"><?php echo htmlspecialchars($marcaMenu['nombre']); ?></a></li>
+                                        <?php endforeach; ?>
+                                        <li><a href="<?php echo Router::url('marcas'); ?>" class="see-all">Todas las marcas →</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="nav-item has-submenu">
                                 <a href="<?php echo Router::url('wineworld'); ?>" class="nav-link<?php echo strpos(Router::currentRoute() ?? '', 'wineworld') !== false ? ' active' : ''; ?>" aria-haspopup="true">
                                     WineWorld
                                     <svg class="icon chevron" aria-hidden="true"><use href="#icon-chevron"></use></svg>

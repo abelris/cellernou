@@ -1538,18 +1538,38 @@ function renderTarjetasMarca(array $productos) {
     return $html . '</div>';
 }
 
-/** Marcas con página propia: patrón en el nombre del producto => [ruta, texto]. */
-define('MARCAS_CON_PAGINA', [
-    'espinaler'    => ['espinaler', 'Todo Espinaler'],
-    'sierra morena' => ['jamon', 'Jamones Sierra Morena'],
+/**
+ * Marcas con página propia, por nombre de ruta. Alimenta /marcas, el menú
+ * «Marcas» y el botón de marca de cada ficha (patrón en el nombre del producto).
+ * Para añadir una marca: su página y una entrada aquí.
+ */
+define('MARCAS', [
+    'jamon' => [
+        'nombre' => 'Jamones Sierra Morena',
+        'boton'  => 'Jamones Sierra Morena',
+        'patron' => 'sierra morena',
+        'texto'  => 'Jamón y paleta ibérica de la dehesa de Los Pedroches, la zona ganadora del I Mundial del Jamón 2026.',
+        'imagen' => '/images/home/navidad-jamon-800.webp',
+        'alto'   => 533,
+        'alt'    => 'Lonchas de jamón ibérico sobre una tabla junto a una copa de vino',
+    ],
+    'espinaler' => [
+        'nombre' => 'Espinaler',
+        'boton'  => 'Todo Espinaler',
+        'patron' => 'espinaler',
+        'texto'  => 'Vermut, Salsa Espinaler y conservas de marisco de la casa de Vilassar de Mar, desde 1896.',
+        'imagen' => '/images/espinaler/aperitivo-terraza-800.webp',
+        'alto'   => 450,
+        'alt'    => 'Aperitivo Espinaler con vermut, salsa, patatas y aceitunas',
+    ],
 ]);
 
 /** Página de marca del producto, si la tiene: ['url' => ..., 'texto' => ...] o null. */
 function paginaMarcaProducto(array $producto) {
     $nombre = mb_strtolower($producto['nombre'] ?? '');
-    foreach (MARCAS_CON_PAGINA as $patron => $destino) {
-        if (strpos($nombre, $patron) !== false) {
-            return ['url' => Router::url($destino[0]), 'texto' => $destino[1]];
+    foreach (MARCAS as $ruta => $m) {
+        if (strpos($nombre, $m['patron']) !== false) {
+            return ['url' => Router::url($ruta), 'texto' => $m['boton']];
         }
     }
     return null;
