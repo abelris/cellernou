@@ -50,6 +50,11 @@ $ideas = [
         'enlace' => ['url' => Router::url('jamon'), 'texto' => 'Ver los jamones Sierra Morena'],
     ],
     [
+        'titulo' => 'Aperitivo del Maresme',
+        'texto'  => 'Vermut Espinaler, unas latas de berberechos o mejillones y la Salsa Espinaler: el aperitivo de los domingos de aquí, para regalar.',
+        'enlace' => ['url' => Router::url('espinaler'), 'texto' => 'Ver los productos Espinaler'],
+    ],
+    [
         'titulo' => 'Un licor especial',
         'texto'  => 'Un whisky, un ron o una ginebra que no se compraría para sí mismo, solo o acompañado de otra botella.',
         'enlace' => ['url' => Router::url('licores'), 'texto' => 'Ver licores'],

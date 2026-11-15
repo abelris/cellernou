@@ -108,6 +108,8 @@ define('PROCEDENCIAS_UNIFICADAS', [
 // id que se va => id que se queda. La ficha vieja redirige 301.
 define('PRODUCTOS_UNIFICADOS', [
     4752 => 6255,  // Little Demogorgon (26-oct-2026)
+    2206 => 3561,  // Salsa Espinaler 25 cl = 250 ml (15-nov-2026)
+    1861 => 5750,  // Mejillones en escabeche Espinaler 10/12 (15-nov-2026)
 ]);
 
 // Sectores permitidos (IDs de la base de datos)

@@ -62,6 +62,7 @@ $add('/servicios', 'monthly', '0.8', $hoy);
 $add('/la-tienda', 'monthly', '0.7', $hoy);
 $add('/lotes-y-regalos', 'weekly', '0.8', $hoy);
 $add('/jamones-sierra-morena', 'weekly', '0.8', $hoy);
+$add('/espinaler', 'weekly', '0.8', $hoy);
 $add('/catas', 'weekly', '0.7', $hoy);
 $add('/restaurantes', 'monthly', '0.7', $hoy);
 

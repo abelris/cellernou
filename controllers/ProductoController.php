@@ -210,6 +210,14 @@ include ROOT_PATH . '/includes/header.php';
                 <div class="product-links" style="padding: var(--spacing-lg); background: var(--color-bg-alt); border-radius: var(--radius-lg);">
                     <h3 style="font-size: 1rem; margin-bottom: var(--spacing-md);">Explora más</h3>
                     <ul style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm);">
+                        <?php if ($marcaPagina = paginaMarcaProducto($producto)): ?>
+                        <li>
+                            <a href="<?php echo $marcaPagina['url']; ?>"
+                               class="btn btn-outline" style="padding: var(--spacing-sm) var(--spacing-md); font-size: 0.875rem;">
+                                <?php echo htmlspecialchars($marcaPagina['texto']); ?>
+                            </a>
+                        </li>
+                        <?php endif; ?>
                         <?php if (!empty($producto['tipo_nombre'])): ?>
                         <li>
                             <a href="<?php echo Router::url($categoriaRoute . '.tipo', ['id' => $producto['idTipo'], 'slug' => createSlug($producto['tipo_nombre'])]); ?>"

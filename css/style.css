@@ -4102,3 +4102,90 @@ p {
         font-size: 0.95rem;
     }
 }
+
+/* Página de Espinaler (EspinalerController) */
+.esp-dos {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: var(--spacing-2xl);
+    align-items: center;
+}
+
+.esp-dos--inversa {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.esp-foto {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg, 12px);
+}
+
+.esp-foto--retrato {
+    max-width: 380px;
+    justify-self: center;
+    background: white;
+}
+
+.esp-lista {
+    margin: var(--spacing-md) 0;
+    padding-left: 1.2rem;
+}
+
+.esp-lista li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.esp-gama {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.esp-gama article {
+    text-align: center;
+}
+
+.esp-gama img {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+    object-fit: contain;
+}
+
+.esp-gama h3 {
+    margin: var(--spacing-sm) 0 var(--spacing-xs);
+}
+
+.esp-gama p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.esp-logo {
+    display: block;
+    width: 160px;
+    height: auto;
+    margin-bottom: var(--spacing-md);
+}
+
+.esp-historia {
+    margin: var(--spacing-md) 0 0;
+    padding-left: 1.2rem;
+}
+
+.esp-historia li {
+    margin-bottom: var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+    .esp-dos,
+    .esp-dos--inversa,
+    .esp-gama {
+        grid-template-columns: 1fr;
+    }
+
+    .esp-gama img {
+        height: 180px;
+    }
+}

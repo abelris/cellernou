@@ -1479,3 +1479,77 @@ function cabeceraFotoHtml($base, $alt, array $anchos = [800, 1400], $proporcion 
         . ' class="cabecera-foto-img" fetchpriority="high" decoding="async">';
 }
 
+
+// =============================================================
+// PÁGINAS DE MARCA (Espinaler, y las que vengan)
+// =============================================================
+
+/**
+ * Productos activos de una marca en los sectores públicos, por nombre
+ * (LIKE), en orden de escaparate (ordenarProductosListado).
+ */
+function getProductosMarca($marca) {
+    global $bd;
+    $like = mysqli_real_escape_string($bd, '%' . $marca . '%');
+    $sql = "SELECT p.*, pf.foto as foto,
+                   COALESCE(ppt.pvp, 0) as precio_venta,
+                   IF(COALESCE(sp_web.stock, 0) > 0 OR lc_rec.idProducto IS NOT NULL, 1, 0) as tiene_stock,
+                   tp.nombre_es as tipo_nombre,
+                   pr.nombre_es as procedencia_nombre
+            FROM productos p
+            LEFT JOIN (SELECT idProducto, MIN(foto) AS foto FROM producto_fotos
+                       WHERE principal = 1 GROUP BY idProducto) pf ON pf.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, MIN(pvp) AS pvp FROM precios_producto_tienda
+                       WHERE idTienda = 1 GROUP BY idProducto) ppt ON ppt.idProducto = p.id
+            LEFT JOIN (SELECT idProducto, COUNT(*) as stock FROM stock_producto WHERE vendido = 0 GROUP BY idProducto) sp_web ON sp_web.idProducto = p.id
+            LEFT JOIN (SELECT DISTINCT idProducto FROM linea_compra WHERE fecha >= DATE_SUB(NOW(), INTERVAL 1 MONTH)) lc_rec ON lc_rec.idProducto = p.id
+            LEFT JOIN tipo_producto tp ON p.idTipo = tp.id
+            LEFT JOIN procedencia pr ON p.idProcedencia = pr.id
+            WHERE p.activo = 1
+            AND p.nombre LIKE '$like'
+            AND p.idSector IN (" . implode(',', SECTORES_PERMITIDOS) . ")";
+    $result = mysqli_query($bd, $sql);
+    $productos = [];
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $productos[] = $row;
+        }
+    }
+    return ordenarProductosListado($productos);
+}
+
+/** Tarjetas de una página de marca: como las de los listados, con «Por encargo». */
+function renderTarjetasMarca(array $productos) {
+    $html = '<div class="products-grid">';
+    foreach ($productos as $p) {
+        $nombre = htmlspecialchars(normalizarNombre($p['nombre']));
+        $img = productoTieneFoto($p) ? getBaseUrl() . rutaFoto($p) : getBaseUrl() . '/images/no-image.svg';
+        $html .= '<a href="' . Router::url('producto', ['id' => $p['id'], 'slug' => createSlug($p['nombre'])]) . '" class="product-card">'
+            . '<div class="product-card-image"><img src="' . $img . '" alt="' . $nombre . '" width="300" height="300" decoding="async" loading="lazy"></div>'
+            . '<div class="product-card-content">'
+            . '<span class="product-card-category">' . htmlspecialchars($p['tipo_nombre'] ?? '') . '</span>'
+            . '<h3 class="product-card-title">' . $nombre . '</h3>'
+            . '<div class="product-card-footer">' . precioTarjetaHtml($p)
+            . '<span class="product-card-link">Ver más <svg class="icon"><use href="#icon-arrow-right"></use></svg></span></div>'
+            . '</div></a>';
+    }
+    return $html . '</div>';
+}
+
+/** Marcas con página propia: patrón en el nombre del producto => [ruta, texto]. */
+define('MARCAS_CON_PAGINA', [
+    'espinaler'    => ['espinaler', 'Todo Espinaler'],
+    'sierra morena' => ['jamon', 'Jamones Sierra Morena'],
+]);
+
+/** Página de marca del producto, si la tiene: ['url' => ..., 'texto' => ...] o null. */
+function paginaMarcaProducto(array $producto) {
+    $nombre = mb_strtolower($producto['nombre'] ?? '');
+    foreach (MARCAS_CON_PAGINA as $patron => $destino) {
+        if (strpos($nombre, $patron) !== false) {
+            return ['url' => Router::url($destino[0]), 'texto' => $destino[1]];
+        }
+    }
+    return null;
+}
+

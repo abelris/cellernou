@@ -1,0 +1,272 @@
+{
+  "marca": {
+    "fundacion": {
+      "anio": 1896,
+      "fundador": "Miquel Riera i Prat",
+      "dato": "Llega a Vilassar de Mar desde una masía cercana al puente del Espinal (Argentona) y abre la taberna Espinaler, donde servía vino y vermut a la gente del pueblo.",
+      "url": "https://espinaler.com/historia-espinaler/",
+      "nota": "Que el nombre venga del puente del Espinal se deduce del texto de la marca (dice de dónde procedía el fundador); no lo afirma literalmente."
+    },
+    "taberna_original": {
+      "direccion": "Camí Ral, 1, 08340 Vilassar de Mar (Barcelona); hoy «Espinaler Taverna Tradicional»",
+      "url": [
+        "https://es.ara.cat/economia/empresas/campesino-taberna-mujer-visionaria-receta-secreta-salsa-espinaler_1_4831237.html",
+        "https://www.timeout.es/barcelona/es/bares-y-pubs/espinaler-taberna-tradicional"
+      ],
+      "nota": "La dirección no aparece en las páginas de historia de espinaler.com; sale de ara.cat y de guías (Time Out). Alguna guía da Camí Ral 10: comprobar en la ficha de Google de la taberna antes de publicar."
+    },
+    "generaciones": [
+      {
+        "n": 1,
+        "quien": "Miquel Riera i Prat",
+        "desde": 1896,
+        "hecho": "Abre la taberna; en 1907 añade el estanco.",
+        "url": "https://espinaler.com/historia-espinaler/"
+      },
+      {
+        "n": 2,
+        "quien": "Francisca (Francisqueta) Riera Fornells, su hija",
+        "desde": 1930,
+        "hecho": "Viuda y con cuatro hijos, lleva el negocio durante la Guerra Civil.",
+        "url": "https://espinaler.com/historia-espinaler/"
+      },
+      {
+        "n": 3,
+        "quien": "Joan Tapias Riera",
+        "desde": 1946,
+        "hecho": "Da el gran cambio: empieza a servir y distribuir vermut y a acompañarlo de tapas con conservas gallegas.",
+        "url": [
+          "https://espinaler.com/historia-espinaler/",
+          "https://espinaler.com/5-generaciones-haciendo-grande-el-vermut-espinaler/"
+        ]
+      },
+      {
+        "n": 4,
+        "quien": "Miquel Tapias Roldós (bisnieto del fundador)",
+        "desde": "años 70",
+        "hecho": "Viaja a Galicia a escoger marisco en las subastas y lanza las conservas de marisco con marca Espinaler.",
+        "url": "https://espinaler.com/historia-espinaler/"
+      },
+      {
+        "n": 5,
+        "quien": "David y Miki Tapias (tataranietos del fundador)",
+        "desde": "actualidad",
+        "hecho": "Quinta generación al frente de la empresa.",
+        "url": "https://espinaler.com/historia-espinaler/"
+      }
+    ],
+    "salsa_espinaler": {
+      "quien": "Ventureta Roldós, esposa de Joan Tapias",
+      "cuando": "1952 según la cronología de la marca; la tienda online dice «formulada en 1950»",
+      "ingredientes": "Cronología: vinagre de primera calidad, pimentón rojo, pimienta negra y especias. Etiqueta actual: vinagre, pimentón rojo y especias; sin gluten, con sulfitos.",
+      "url": [
+        "https://espinaler.com/historia-espinaler/",
+        "https://tienda.espinaler.com/producto/ofertas/salsa-espinaler-750ml/",
+        "https://espinaler.com/la-salsa-espinaler/"
+      ],
+      "nota": "Discrepancia 1950/1952: en la web decir «a principios de los años cincuenta» o «en 1952, según la cronología de la marca». Según ara.cat fue su hijo Miquel Tapias quien la envasó y comercializó. La noticia la-salsa-espinaler solo trae un extracto (dice que la historia de la salsa empieza en Argentona)."
+    },
+    "vermut": {
+      "dato": "La taberna ya servía vino y vermut desde 1896; en 1946 Joan Tapias apuesta por el vermut (servirlo, distribuirlo y hacer el propio) y lo acompaña con conservas gallegas, lo que convierte la casa en referente del Maresme.",
+      "url": [
+        "https://espinaler.com/historia-espinaler/",
+        "https://espinaler.com/5-generaciones-haciendo-grande-el-vermut-espinaler/"
+      ]
+    },
+    "datos_utiles": [
+      {
+        "dato": "En 1907 la taberna abre también el estanco, un impulso para el negocio familiar.",
+        "url": "https://espinaler.com/historia-espinaler/"
+      },
+      {
+        "dato": "En los años 70 Miquel Tapias empieza a seleccionar en persona el marisco en las subastas gallegas: origen de las conservas con marca Espinaler.",
+        "url": "https://espinaler.com/historia-espinaler/"
+      },
+      {
+        "dato": "La marca trabaja con marisco de las rías gallegas y destaca la gestión sostenible de las cofradías de pescadores de Galicia. Ojo: esta página sitúa el primer viaje a Galicia de Joan Tapias en los años 50; la de historia habla de Miquel en los 70.",
+        "url": "https://espinaler.com/origen-de-espinaler/"
+      },
+      {
+        "dato": "En el año 2000 abre en Vilassar de Mar la tienda-taberna-almacén de 1.300 m (la web pone «m3»; ara.cat dice m2), premiada como mejor tienda gourmet de España en 2012.",
+        "url": [
+          "https://espinaler.com/historia-espinaler/",
+          "https://es.ara.cat/economia/empresas/campesino-taberna-mujer-visionaria-receta-secreta-salsa-espinaler_1_4831237.html"
+        ]
+      },
+      {
+        "dato": "Cinco generaciones de la misma familia al frente desde 1896.",
+        "url": [
+          "https://espinaler.com/historia-espinaler/",
+          "https://espinaler.com/5-generaciones-haciendo-grande-el-vermut-espinaler/"
+        ]
+      },
+      {
+        "dato": "Unas 300 referencias en catálogo y presencia en una treintena de países (dato de prensa, no de la marca).",
+        "url": "https://es.ara.cat/economia/empresas/campesino-taberna-mujer-visionaria-receta-secreta-salsa-espinaler_1_4831237.html"
+      }
+    ]
+  },
+  "productos": [
+    {
+      "id": 1800,
+      "nombre_correcto": "Salsa Espinaler 750 ml",
+      "no_identificado": false,
+      "descripcion": "Salsa Espinaler en botella de 750 ml: el formato grande de la salsa de aperitivo que nació en una taberna de Vilassar de Mar en los años cincuenta. La receta la ideó Ventureta Roldós, de la familia que lleva la casa, y sigue siendo un secreto: la etiqueta solo declara vinagre, pimentón rojo y especias, sin gluten y con sulfitos. Es el aliño que no puede faltar en el aperitivo del Maresme: unas gotas sobre berberechos, almejas o mejillones recién abiertos, sobre unas patatas chips o unas aceitunas, con un vermut al lado. Aporta muy pocas calorías, unas 7 kcal por 100 ml, así que se puede usar sin miedo. Esta botella sale a cuenta en casas donde el vermut del domingo es sagrado y en barras que la sirven a diario. Agítala antes de servirla, guárdala en un lugar fresco y seco y, una vez abierta, en la nevera.",
+      "nota_cata": "Nariz: vinagre vivo con el aroma tostado y dulce del pimentón rojo y un fondo de especias.\nBoca: ligera y muy fluida, ácida y sabrosa, con el pimentón y la pimienta en primer plano; aviva el sabor del marisco sin taparlo.\nFinal: limpio y especiado, con un picor muy suave que invita a otro bocado.",
+      "foto": "img/1800.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/ofertas/salsa-espinaler-750ml/",
+        "https://espinaler.com/historia-espinaler/"
+      ],
+      "dudas": "Nota de cata redactada a partir de los ingredientes declarados (la marca no publica nota de cata): conviene que la pruebe Victoria y la ajuste. Año de la receta: la tienda dice 1950 y la cronología de la marca 1952; en el texto se pone «años cincuenta»."
+    },
+    {
+      "id": 5568,
+      "nombre_correcto": "Salsa Espinaler 200 ml (botella de cuello)",
+      "no_identificado": false,
+      "descripcion": "Salsa Espinaler de 200 ml en botella de cuello estrecho, la que se ve en las barras de las tabernas de la marca y que deja caer la salsa gota a gota. Es la receta familiar creada en Vilassar de Mar en los años cincuenta por Ventureta Roldós, con vinagre, pimentón rojo y una mezcla de especias que la casa no desvela; no lleva gluten y contiene sulfitos. Su sitio natural es el aperitivo del Maresme: un chorrito sobre una lata de berberechos o de almejas al natural, sobre mejillones, aceitunas o patatas fritas, acompañado de un vermut. El formato pequeño es cómodo para tenerlo en la mesa, para probarla por primera vez o para regalar junto a unas conservas. Agita la botella antes de usarla. Guárdala en un lugar fresco y seco y, cuando la abras, consérvala en la nevera para que mantenga su punto ácido y especiado.",
+      "nota_cata": "Nariz: vinagre vivo con el aroma tostado y dulce del pimentón rojo y un fondo de especias.\nBoca: ligera y muy fluida, ácida y sabrosa, con el pimentón y la pimienta en primer plano; aviva el sabor del marisco sin taparlo.\nFinal: limpio y especiado, con un picor muy suave que invita a otro bocado.",
+      "foto": "img/5568.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/ofertas/salsa-espinaler-200ml/",
+        "https://espinaler.com/historia-espinaler/"
+      ],
+      "dudas": "La marca vende la 200 ml como «el formato de nuestras tabernas» (foto: botella de cuello, ref. 299120); encaja con «COLL». «Deja caer la salsa gota a gota» es deducción por el tipo de botella: quitarlo si no convence. Nota de cata deducida de los ingredientes: validar probándola."
+    },
+    {
+      "id": 3529,
+      "nombre_correcto": "Salsa Espinaler Picante 92 ml",
+      "no_identificado": false,
+      "descripcion": "Salsa Espinaler Picante en botellín de 92 ml: la salsa de aperitivo de Vilassar de Mar en versión con pimienta de cayena para quien busca más carácter. Parte de la receta clásica de la casa, a base de vinagre, pimentón rojo y especias secretas, y le suma la cayena, que añade un picor progresivo sin tapar el sabor del marisco. No lleva gluten y contiene sulfitos. Funciona muy bien con mejillones, berberechos y almejas en conserva, con unas patatas chips o unas aceitunas, y también para dar vida a una tapa de bravas o a un pescado a la plancha. Con un vermut al lado tienes el aperitivo del Maresme con un punto atrevido. El botellín es práctico para tenerlo a mano o para probarla antes de pasar a formatos mayores. Agítala antes de usarla, guárdala en un lugar fresco y seco y, una vez abierta, en la nevera.",
+      "nota_cata": "Nariz: vinagre y pimentón rojo, con un punto más vivo de pimienta de cayena.\nBoca: fluida y ácida, el pimentón de la Salsa Espinaler de siempre con un picor que va creciendo.\nFinal: especiado y caliente, con la cayena alargándose en boca.",
+      "foto": "img/3529.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/salsas/salsa-espinaler-picante-92ml/"
+      ],
+      "dudas": "La tienda de la marca solo tiene la picante en 92 ml (aparte de la «chile habanero», que es otra salsa), así que se da por identificada; aun así, mirar que la etiqueta ponga «Picante» y 92 ml y no «Chile habanero». Bravas y pescado son sugerencia de uso propia, no de la ficha. Nota de cata deducida de los ingredientes: validar."
+    },
+    {
+      "id": 1646,
+      "nombre_correcto": "Aceitunas rellenas de anchoa Espinaler 350 g",
+      "no_identificado": false,
+      "descripcion": "Aceitunas Espinaler rellenas de anchoa en lata de 350 g: manzanilla fina de categoría Extra, deshuesada y rellena de pasta de anchoa, la oliva de la casa. La marca escoge aceitunas de un calibre bastante uniforme, 160/200, para que todas tengan un tamaño parecido y una carne firme y jugosa. El relleno es pasta de anchoa, un 6 % del peso escurrido, y el producto está pasteurizado; no lleva gluten. La lata pesa 350 g en total, con 150 g de aceitunas una vez escurridas. Son las que se ponen en un platito junto a las conservas de marisco, unas patatas y la Salsa Espinaler cuando llega la hora del vermut en el Maresme, y también van bien en ensaladas o en una tabla de picoteo. Al ser deshuesadas, la ficha avisa de que puede aparecer algún fragmento de hueso. Guárdala en un sitio fresco y seco; una vez abierta, pásalas a la nevera y tómalas en un máximo de siete días.",
+      "nota_cata": null,
+      "foto": "img/1646.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/aperitivos/aceitunas/aceitunas-rellenas-350gr/"
+      ],
+      "dudas": "Hay dos latas de 350 g rellenas de anchoa: la normal (ref. 250400, lata amarilla «Aceitunas Espinaler rellenas») y la «baja en sal» (ref. 3021108, 35 % menos de sal). Se ha tomado la normal porque el nombre no dice «baixes en sal»: comprobar en la lata que no lleve esa mención. El calibre 160/200 de las aceitunas es por kilo, no piezas por lata."
+    },
+    {
+      "id": 6629,
+      "nombre_correcto": null,
+      "no_identificado": true,
+      "descripcion": null,
+      "nota_cata": null,
+      "foto": null,
+      "fuentes": [
+        "https://tienda.espinaler.com/aperitivos/patatas/"
+      ],
+      "dudas": "No se puede saber qué bolsa es. La marca tiene: clásicas 50 g y 150 g, sal marina 50 g y 150 g, sabor Salsa Espinaler 50 g y 125 g, corte grueso 150 g, superonduladas 150 g, paja 80 g, trufa 100 g, ecológicas en AOVE 100 g y chips de verduras. Mirar en la bolsa la variedad (clásica, sal marina, sabor salsa, paja…) y los gramos."
+    },
+    {
+      "id": 5751,
+      "nombre_correcto": "Almejas blancas al natural Espinaler (falta calibre)",
+      "no_identificado": true,
+      "descripcion": "Almejas blancas al natural de Espinaler en lata de 120, con 70 g de almejas escurridas: una de las conservas de marisco más valoradas de la casa. La almeja blanca procede del Atlántico Nordeste (zona FAO 27) y se envasa solo con agua y sal, de modo que el líquido de la lata conserva todo su sabor a mar y conviene aprovecharlo. Su carne es firme y sabrosa, y se disfruta tal cual, recién abierta, con unas gotas de Salsa Espinaler y un vermut: el aperitivo más clásico del Maresme. También es un ingrediente excelente para una pasta, un arroz o un sofrito de marisco, donde el caldo de la lata hace de fondo. No necesita ninguna preparación previa. Guarda la lata en un lugar fresco y seco y, una vez abierta, consúmela enseguida. El número que figura en la lata indica el calibre, es decir, cuántas piezas lleva: cuanto más bajo, más grandes son las almejas.",
+      "nota_cata": null,
+      "foto": null,
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/almejas/almeja-blanca/",
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/almejas/almeja-blanca-premium-14-16/",
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/almejas/almeja-blanca-premium-18-20/",
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/almejas/almejas-blancas-25-30/"
+      ],
+      "dudas": "Hay cuatro almejas blancas Espinaler en la tienda de la marca: Premium 14/16 (ref. 202297), Premium 18/20 (ref. 202301), Classic 18/20 (ref. 202069) y 25/30 pequeñas (ref. 202304); todas en lata OL-120 de 110-111 g netos y 70 g escurridos. Mirar en la lata el calibre (14/16, 18/20 o 25/30) y si pone «Premium». La descripción vale para cualquiera (no menciona calibre ni gama); cuando se sepa cuál es, añadir el calibre al nombre y a la primera frase y descargar su foto."
+    },
+    {
+      "id": 6622,
+      "nombre_correcto": "Almejas al natural Espinaler",
+      "no_identificado": false,
+      "descripcion": "Almejas al natural Espinaler en lata de 111 g (63 g escurridos): almejas pequeñas del Atlántico conservadas en su jugo, solo con agua y sal. La marca las selecciona en costas atlánticas (zona FAO 27, Atlántico Nordeste) y las envasa sin aceites ni salsas, para que la carne mantenga su textura delicada y el sabor limpio a mar. El jugo de la lata es parte del placer: se puede tomar con las almejas o guardar para un arroz, una pasta o un sofrito marinero. Para el aperitivo del Maresme basta con abrir la lata, añadir unas gotas de Salsa Espinaler y acompañarlas de un vermut, unas aceitunas y unas patatas. Son de tamaño pequeño, lo que las hace muy agradecidas para picar y para cocinar. No necesitan preparación. Conserva la lata en un lugar fresco y seco; una vez abierta, tómalas en el momento.",
+      "nota_cata": null,
+      "foto": "img/6622.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/almejas/almeja-al-natural-ol-120/"
+      ],
+      "dudas": "Es la única almeja Espinaler que no es «blanca», ni almejón, ni de la línea Pepus (ref. 205100, lata azul OL-120). Comprobar en la lata que pone «Almejas al natural» Espinaler y no «Almejón» ni «Pepus». La tienda de la marca la etiqueta «Rías Gallegas», pero su texto habla de costas del Atlántico: no se ha puesto Galicia."
+    },
+    {
+      "id": 5827,
+      "nombre_correcto": "Berberechos al natural Espinaler 45/55",
+      "no_identificado": false,
+      "descripcion": "Berberechos al natural Espinaler 45/55 en lata de 111 g: entre 45 y 55 piezas por lata, depurados en agua de mar y envasados solo con agua y sal. Proceden del Atlántico Nordeste (zona FAO 27) y la marca los escoge por origen, calibre y sabor antes de enlatarlos. La depuración en agua de mar ayuda a que conserven el sabor salino propio del berberecho, y el envasado al natural deja que sea el marisco el protagonista. Por calibre, son de tamaño pequeño según la denominación de la lata: un término medio entre el 35/45 y el 55/65. Pesan 63 g escurridos. La forma típica de tomarlos en el Maresme es recién abiertos, con un buen chorro de Salsa Espinaler, unas patatas chips y un vermut. No necesitan preparación. Guarda la lata en un lugar fresco y seco y, una vez abierta, consúmelos al momento; el jugo también puede aprovecharse para cocinar.",
+      "nota_cata": null,
+      "foto": "img/5827.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/berberechos/berberechos-al-natural-45-55/"
+      ],
+      "dudas": "La ficha de la marca se contradice: el texto dice «tamaño grande» y la denominación legal «berberechos pequeños». Se ha seguido la denominación legal. Comprobar el calibre 45/55 en la lata (ref. 226081)."
+    },
+    {
+      "id": 5828,
+      "nombre_correcto": "Berberechos al natural Espinaler 55/65",
+      "no_identificado": false,
+      "descripcion": "Berberechos al natural Espinaler 55/65 en lata de 111 g: entre 55 y 65 piezas pequeñas por lata, depurados en agua de mar y conservados con agua y sal. Llegan del Atlántico Nordeste (zona FAO 27) y la marca los clasifica por origen, calibre y sabor antes de envasarlos. Al ser un calibre más menudo que el 45/55 o el 35/45, la lata trae más piezas, ideales para picar con palillo o para añadir a un arroz o una pasta marinera. El envasado al natural respeta el sabor yodado del berberecho, y el líquido de la lata se puede aprovechar en la cocina. El peso escurrido es de 63 g. Para el aperitivo, el ritual del Maresme: abrir la lata, regarla con Salsa Espinaler y acompañarla de patatas fritas, aceitunas y un vermut. No requieren preparación. Conserva la lata en un lugar fresco y seco y, una vez abierta, tómalos enseguida.",
+      "nota_cata": null,
+      "foto": "img/5828.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/berberechos/berberechos-al-natural-55-65/"
+      ],
+      "dudas": "Igual que en el 45/55, el texto de la marca dice «tamaño grande» pero la denominación legal es «berberechos pequeños»: se ha seguido la legal. Comprobar 55/65 en la lata (ref. 226082)."
+    },
+    {
+      "id": 5747,
+      "nombre_correcto": "Berberechos al natural Espinaler 35/45",
+      "no_identificado": false,
+      "descripcion": "Berberechos al natural Espinaler 35/45 en lata de 111 g: de 35 a 45 piezas medianas, el calibre más grueso de los tres que tenemos de la marca. Son berberechos del Atlántico Nordeste (zona FAO 27), depurados en agua de mar y envasados solo con agua y sal, sin nada que disimule su sabor. Espinaler los elige por origen, calibre y sabor, y los presenta en su lata azul clásica. Menos piezas por lata significa berberechos más carnosos, de los que lucen solos en el plato. El peso escurrido es de 63 g. Se sirven tal cual, recién abiertos, con unas gotas de Salsa Espinaler y un vermut, como se hace en las tabernas del Maresme; también admiten un poco de pimienta o limón. No necesitan preparación. Guarda la lata en un lugar fresco y seco y, una vez abierta, tómalos en el momento; su jugo es un buen fondo para cocinar.",
+      "nota_cata": null,
+      "foto": "img/5747.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/berberechos/berberechos-al-natural-35-45/"
+      ],
+      "dudas": "La foto es el mockup de la marca (lata 35/45 «medianos»), no foto de estudio. Pimienta o limón es sugerencia propia. Comprobar 35/45 en la lata (ref. 226066). «El calibre más grueso de los tres» se refiere a los tres berberechos Espinaler de esta tanda (35/45, 45/55, 55/65): si la tienda tiene otros, ajustar."
+    },
+    {
+      "id": 5750,
+      "nombre_correcto": "Mejillones en escabeche Espinaler 10/12",
+      "no_identificado": false,
+      "descripcion": "Mejillones en escabeche Espinaler 10/12 en lata de 111 g: entre 10 y 12 mejillones medianos de batea, cocinados y bañados en un escabeche suave. La marca selecciona el mejillón de bateas del Atlántico Nordeste (zona FAO 27), lo cuece y lo cubre con un escabeche de aceite de girasol, vinagre de vino, sal, especias y aroma natural de escabeche, que supone un 38 % de la lata. El resultado es una conserva equilibrada, ni demasiado ácida ni grasa, con piezas que se comen de un bocado. Pesan 69 g escurridos y no llevan gluten. Es la lata que nunca falta en el aperitivo del Maresme: se sirve tal cual, con unas patatas chips, aceitunas y un vermut, y quien quiera puede añadir unas gotas de Salsa Espinaler. El escabeche sobrante sirve para aliñar una ensalada. No requiere preparación. Guárdala en un lugar fresco y seco y, una vez abierta, consúmela enseguida.",
+      "nota_cata": null,
+      "foto": "img/5750.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/mejillones/mejillones-en-escabeche-10-12/"
+      ],
+      "dudas": "Única referencia 10/12 de mejillón Espinaler en lata individual (ref. 241373); hay packs de 3 y 5 de la misma lata. Comprobar que la lata pone «en escabeche» (hay también al natural, vinagreta, en salsa, brava y picante, en otros calibres o sin calibre). Aliñar ensaladas con el escabeche es sugerencia propia."
+    },
+    {
+      "id": 5749,
+      "nombre_correcto": "Navajas al natural Espinaler 5/8",
+      "no_identificado": false,
+      "descripcion": "Navajas al natural Espinaler 5/8 en lata de 110 g: de 5 a 8 piezas conservadas con agua y sal, con sus aceites naturales y todo el sabor de la navaja. Espinaler las pesca y selecciona en su punto óptimo en fondos de arena poco profundos y con mareas amplias del Atlántico Nordeste (zona FAO 27). En la lata aparecen unos aceites naturales propios de la navaja que la marca considera señal de calidad, así que no hay que tirarlos: se pueden beber directamente o usar como base de un fondo, un arroz o un sofrito de pescado y marisco. El peso escurrido es de 63 g. Para el aperitivo, se sirven en la propia lata o en un plato, con unas gotas de Salsa Espinaler y un vermut, junto a unas patatas y unas aceitunas. No necesitan preparación. Guarda la lata en un lugar fresco y seco y, una vez abierta, tómalas al momento.",
+      "nota_cata": null,
+      "foto": "img/5749.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/conservas/conservas-marisco/navajas/navajas-al-natural-5-8/"
+      ],
+      "dudas": "Comprobar 5/8 en la lata (ref. 244200)."
+    },
+    {
+      "id": 3854,
+      "nombre_correcto": "Pack Garbí Espinaler",
+      "no_identificado": false,
+      "descripcion": "Pack Garbí de Espinaler: lo básico del aperitivo de la casa (berberechos al natural, mejillones en escabeche y aceitunas rellenas), listo para regalar. La marca de Vilassar de Mar lo plantea como la forma más sencilla de montar en casa el aperitivo de sus tabernas: una lata de berberechos, una de mejillones y una de olivas Espinaler, tres productos que se entienden solos. Solo hace falta abrir las latas, servirlas en platitos, añadir unas gotas de Salsa Espinaler sobre el marisco y poner un vermut frío. Es un detalle práctico para una visita, un amigo invisible o para quien quiere descubrir la marca sin comprar formatos grandes. También funciona como base de una cesta: se puede completar con una botella de vermut, unas patatas chips o la propia salsa. Las conservas se guardan en un lugar fresco y seco; una vez abiertas, el marisco se toma en el momento y las aceitunas, en la nevera.",
+      "nota_cata": null,
+      "foto": "img/3854.jpg",
+      "fuentes": [
+        "https://tienda.espinaler.com/producto/regala/cestas-lotes-packs/pack-espinaler-garbi/"
+      ],
+      "dudas": "La ficha de la marca solo dice «Berberechos Espinaler, Mejillones en escabeche y Olivas Espinaler», sin calibres ni gramos; «al natural» y «rellenas» salen de la foto de la marca. En esa foto se ven mejillones en escabeche 20/30, berberechos al natural 65/85 y la lata amarilla de aceitunas rellenas: confirmar con el pack físico antes de citar calibres. Comprobar que no incluye salsa ni vermut (el texto solo los sugiere como complemento)."
+    }
+  ]
+}
