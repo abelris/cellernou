@@ -30,6 +30,9 @@ Inactivos por indicación del usuario (25-oct-2026): 5345 Alcohol 95 1 L (alcoho
 - **Jamón y paleta Sierra Morena** (14-nov-2026): venden jamones y paletas ibéricas y serranas/Duroc de la marca Sierra Morena (Hinojosa del Duque, Los Pedroches) y **cualquier pieza de la marca por encargo**. Formatos: **pieza entera, sobres loncheados y en lotes de Navidad**. **No cortan a cuchillo.** Sin precios en la web. Página: /jamon-iberico (controllers/JamonController.php).
 - **Horario de festivos** (14-nov-2026): todos los festivos abren por la mañana como los domingos (10:00-14:00); solo cierran el 1 de enero. El viernes, 9:30-14:00 y 17:00-20:30, como el resto de la semana.
 
+- **Espinaler** (15-nov-2026): el usuario confirma permiso de la marca para usar su material (fotos y textos de espinaler.com y tienda.espinaler.com). Página /espinaler. Etiquetas que mirar en tienda: 5751 Almeja blanca Espinaler (13,95 €: ¿calibre? Premium 14/16, 18/20, Classic 18/20 o 25/30), 6629 «ESPINALER PATATES» (¿qué bolsa?), 1646 Aceitunas rellenas de anchoa 350 g (¿normales o bajas en sal?), 5589 «Salsa mariscadora» (PVP 0, ¿existe?).
+- **Jamones Sierra Morena** (15-nov-2026): permiso de la marca para su web y fotos (según el usuario). Página /jamones-sierra-morena.
+
 # Catálogo: decisiones del 26-oct-2026
 
 - **No son cava** (salieron de la D.O. Cava; comprobado en webs de las bodegas y distribuidores): Gramona y Castellroig (Sabaté i Coca) y Viader son **Corpinnat** desde 2019; Loxarel es **Clàssic Penedès**. Se quita «Cava» del nombre de sus productos. El usuario preguntó «¿seguro que no son cavas?»: sí, seguro.
