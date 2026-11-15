@@ -131,10 +131,28 @@ include ROOT_PATH . '/includes/header.php';
     <div class="container">
         <div class="section-header">
             <h2>Productos Espinaler en El Celler Nou</h2>
-            <p>Lo que tenemos de Espinaler en la tienda. Si buscas algo de la gama que no ves aquí, pregúntanos.</p>
+            <p>Toda la gama Espinaler. Lo que está en la tienda sale con su precio; lo demás te lo pedimos («Por encargo»).</p>
         </div>
         <?php if ($productos): ?>
-        <?php echo renderTarjetasMarca($productos); ?>
+        <?php
+        // Agrupados por tipo (más productos primero); dentro de cada grupo, el
+        // orden de escaparate. Con todo el catálogo son unos 200: sin grupos
+        // la página era una lista interminable.
+        $grupos = [];
+        foreach ($productos as $prod) {
+            $grupos[$prod['tipo_nombre'] ?: 'Otros'][] = $prod;
+        }
+        uasort($grupos, function ($a, $b) { return count($b) <=> count($a); });
+        ?>
+        <nav class="esp-atajos" aria-label="Tipos de producto Espinaler">
+            <?php foreach ($grupos as $tipoNombre => $lista): ?>
+            <a href="#esp-<?php echo createSlug($tipoNombre); ?>"><?php echo htmlspecialchars($tipoNombre); ?> <span>(<?php echo count($lista); ?>)</span></a>
+            <?php endforeach; ?>
+        </nav>
+        <?php foreach ($grupos as $tipoNombre => $lista): ?>
+        <h3 class="esp-grupo" id="esp-<?php echo createSlug($tipoNombre); ?>"><?php echo htmlspecialchars($tipoNombre); ?></h3>
+        <?php echo renderTarjetasMarca($lista); ?>
+        <?php endforeach; ?>
         <?php else: ?>
         <p>Pregúntanos por WhatsApp o por teléfono qué productos Espinaler tenemos hoy.</p>
         <?php endif; ?>
