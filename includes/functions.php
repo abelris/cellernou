@@ -979,7 +979,9 @@ function normalizarNombre($nombre) {
         'de', 'del', 'a', 'al', 'en', 'amb', 'per', 'sense', 'sobre',
         'entre', 'cap', 'des', 'durant',
         // Conjunciones
-        'y', 'e', 'o', 'u', 'i', 'ni', 'que'
+        'y', 'e', 'o', 'u', 'i', 'ni', 'que',
+        // Unidades (15-nov-2026: salía «92 Ml»)
+        'ml', 'cl', 'g', 'gr', 'kg'
     ];
 
     // Convertir todo a minúsculas primero
