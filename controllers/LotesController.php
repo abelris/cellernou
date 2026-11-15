@@ -46,8 +46,8 @@ $ideas = [
     ],
     [
         'titulo' => 'Con jamón o paleta ibérica',
-        'texto'  => 'Una paleta o un jamón de Sierra Morena, o unos sobres de ibérico loncheado, con un tinto o un cava: el lote de Navidad de toda la vida.',
-        'enlace' => ['url' => Router::url('jamon'), 'texto' => 'Ver jamón y paleta ibérica'],
+        'texto'  => 'Una paleta o un jamón Sierra Morena, de Los Pedroches, la zona ganadora del Mundial del Jamón 2026, o unos sobres de ibérico loncheado, con un tinto o un cava: el lote de Navidad de toda la vida.',
+        'enlace' => ['url' => Router::url('jamon'), 'texto' => 'Ver los jamones Sierra Morena'],
     ],
     [
         'titulo' => 'Un licor especial',

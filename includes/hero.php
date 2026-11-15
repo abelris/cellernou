@@ -62,14 +62,14 @@ function getHeroSlides() {
         ],
         [
             'id'        => 'jamon',
-            'aviso'     => ['etiqueta' => 'Ibéricos', 'texto' => 'Jamón y paleta ibérica Sierra Morena' . ($navidad ? ' para Navidad' : ''), 'corto' => 'Jamón y paleta Sierra Morena', 'url' => Router::url('jamon')],
+            'aviso'     => ['etiqueta' => 'Mundial del Jamón', 'texto' => 'Jamones Sierra Morena, de Los Pedroches, zona ganadora del Mundial del Jamón 2026', 'corto' => 'Sierra Morena: Mundial del Jamón 2026', 'url' => Router::url('jamon')],
             'temporada' => null,
-            'etiqueta'  => $navidad ? 'Navidad · Ibéricos' : 'Ibéricos',
-            'titulo'    => 'Jamón y paleta ibérica Sierra Morena',
-            'texto'     => 'De bellota, de cebo de campo y serranos, de la dehesa de Los Pedroches. '
-                         . 'En pieza entera, en sobres loncheados o dentro de tu lote'
+            'etiqueta'  => 'Mundial del Jamón 2026',
+            'titulo'    => 'Jamones Sierra Morena, de Los Pedroches',
+            'texto'     => 'Los Pedroches ganó el I Mundial del Jamón (Ronda, 2026) con las piezas de Sierra Morena e Ibedul. '
+                         . 'Jamón y paleta de bellota, de cebo de campo y serranos: en pieza entera, loncheado o en tu lote'
                          . ($navidad ? '. Encárgalo con tiempo para Navidad.' : '.'),
-            'cta'       => ['texto' => 'Ver jamón y paleta', 'url' => Router::url('jamon')],
+            'cta'       => ['texto' => 'Ver los jamones Sierra Morena', 'url' => Router::url('jamon')],
             'cta2'      => ['texto' => 'Pregúntanos por WhatsApp', 'url' => whatsappUrl('Hola, quiero información sobre jamón o paleta ibérica.'), 'externo' => true],
             'imagen'    => 'navidad-jamon',
             'anchos'    => [800, 1400, 1920],

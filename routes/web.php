@@ -76,7 +76,9 @@ Router::get('/vino-a-domicilio/{slug}', 'DomicilioController', 'domicilio.poblac
 Router::get('/servicios', 'ServiciosController', 'servicios');
 Router::get('/la-tienda', 'LaTiendaController', 'la-tienda');
 Router::get('/lotes-y-regalos', 'LotesController', 'lotes');
-Router::get('/jamon-iberico', 'JamonController', 'jamon');
+Router::get('/jamones-sierra-morena', 'JamonController', 'jamon');
+// URL anterior de la página (14-nov-2026): JamonController la redirige con 301.
+Router::get('/jamon-iberico', 'JamonController', 'jamon.antigua');
 Router::get('/catas', 'CatasController', 'catas');
 Router::get('/restaurantes', 'RestaurantesController', 'restaurantes');
 Router::post('/catas', 'CatasController', 'catas.enviar');

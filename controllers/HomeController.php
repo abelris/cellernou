@@ -57,7 +57,7 @@ if ($mesHoy >= 11 || ($mesHoy === 1 && (int) date('j') <= 6)):
         </div>
         <ul class="domicilio-vecinas">
             <li><a href="<?php echo Router::url('lotes'); ?>">Lotes y regalos a medida</a></li>
-            <li><a href="<?php echo Router::url('jamon'); ?>">Jamón y paleta ibérica para Navidad</a></li>
+            <li><a href="<?php echo Router::url('jamon'); ?>">Jamones Sierra Morena para Navidad</a></li>
             <li><a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'guias-de-vino', 'art_slug' => 'guia-definitiva-regalar-vino-cava-licores']); ?>">Qué vino regalar en Navidad</a></li>
             <li><a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'maridajes', 'art_slug' => 'que-vino-servir-comidas-navidad']); ?>">Qué vino servir en las comidas de Navidad</a></li>
             <li><a href="<?php echo Router::url('wineworld.articulo', ['cat_slug' => 'guias-de-vino', 'art_slug' => 'cava-o-champagne-diferencias-navidad']); ?>">Cava o champagne para Navidad</a></li>
